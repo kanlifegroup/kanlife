@@ -155,8 +155,6 @@ class CommonController extends Controller
 
     public function view_index()
 	{
-	   
-	   
 	   $translate = $this->lang_text();
 	   $sid = 1;
 	   $setting['setting'] = Settings::editGeneral($sid);
@@ -568,21 +566,22 @@ class CommonController extends Controller
 	
 	}
 	
-	public function autoComplete(Request $request) {
-	    $translate = $this->lang_text();
-        $query = $request->get('term','');
-        
-        $products=Product::autoSearch($query,$translate);
-        
-        $data=array();
-        foreach ($products as $product) {
-                $data[]=array('value'=>$product->product_name,'id'=>$product->product_id);
-        }
-        if(count($data))
-             return $data;
-        else
-            return ['value'=>'No Result Found','id'=>''];
-    }
+	public function autoComplete(Request $request)
+  {
+    $translate = $this->lang_text();
+      $query = $request->get('term','');
+      
+      $products=Product::autoSearch($query,$translate);
+      
+      $data=array();
+      foreach ($products as $product) {
+              $data[]=array('value'=>$product->product_name,'id'=>$product->product_id);
+      }
+      if(count($data))
+            return $data;
+      else
+          return ['value'=>'No Result Found','id'=>''];
+  }
 	
 	
 	
@@ -610,56 +609,55 @@ class CommonController extends Controller
 	public function donor_paypal_success($ord_token, Request $request)
 	{
 	
-	$payment_token = $request->input('tx');
-	$purchased_token = $ord_token;
-	$donor['details'] = Causes::getDonor($purchased_token);
-	$user_id = $donor['details']->donor_cause_user_id;
-	$checkcount = Causes::checkuserSubscription($user_id);
-	$sid = 1;
-	$setting['setting'] = Settings::editGeneral($sid);
-	$user_data['view'] = Members::singlebuyerData($user_id);
-	if($checkcount == 0)
-	{
-		$commission = ($setting['setting']->site_admin_commission * $donor['details']->donor_amount) / 100;
-		$user_amount = $donor['details']->donor_amount - $commission;
-		$admin_amount = $commission;
-		$user_old_amount = $user_data['view']->earnings + $user_amount;
-		$admin_details['view'] = Members::adminData();
-		$admin_old_amount = $admin_details['view']->earnings + $admin_amount;
-		$user_record = array('earnings' => $user_old_amount);
-		Members::updateuserPrice($user_id, $user_record);
-		$admin_data = array('earnings' => $admin_old_amount);
-		Members::updateuserPrice(1, $admin_data);			   
-				  
-	}
-	$cause_id = $donor['details']->donor_cause_id;
-	$cause['details'] = Causes::singleCausesdetails($cause_id);
-	$raised_price = $cause['details']->cause_raised + $donor['details']->donor_amount;
-	$pricedata = array('cause_raised' => $raised_price);
-	Causes::updatecausePrice($cause_id,$pricedata);
-	
-	$checkoutdata = array('donor_payment_token' => $payment_token, 'donor_payment_status' => 'completed');
-	Causes::updatedonorData($purchased_token,$checkoutdata);
-	$result_data = array('payment_token' => $payment_token);
-	
-	$check_email_support = Members::getuserSubscription($user_id);
-	if($check_email_support == 1)
-	{   
-	    $donor_payment_amount = $donor['details']->donor_amount;
-		$admin_name = $setting['setting']->sender_name;
-		$admin_email = $setting['setting']->sender_email;
-		$currency_symbol = $setting['setting']->site_currency_symbol;
-		$cause_url = URL::to('/cause/').$cause['details']->cause_slug;
-		$record = array('donor_payment_amount' => $donor_payment_amount, 'currency_symbol' => $currency_symbol, 'cause_url' => $cause_url);
-		$to_name = $user_data['view']->name;
-		$to_email = $user_data['view']->email;
-		Mail::send('donation_mail', $record, function($message) use ($admin_name, $admin_email, $to_email, $to_name) {
-		$message->to($to_email, $to_name)
-			->subject('Donation payment received');
-			$message->from($admin_email,$admin_name);
-			});
-	}
-	return view('donor-success')->with($result_data);
+    $payment_token = $request->input('tx');
+    $purchased_token = $ord_token;
+    $donor['details'] = Causes::getDonor($purchased_token);
+    $user_id = $donor['details']->donor_cause_user_id;
+    $checkcount = Causes::checkuserSubscription($user_id);
+    $sid = 1;
+    $setting['setting'] = Settings::editGeneral($sid);
+    $user_data['view'] = Members::singlebuyerData($user_id);
+    if($checkcount == 0)
+    {
+      $commission = ($setting['setting']->site_admin_commission * $donor['details']->donor_amount) / 100;
+      $user_amount = $donor['details']->donor_amount - $commission;
+      $admin_amount = $commission;
+      $user_old_amount = $user_data['view']->earnings + $user_amount;
+      $admin_details['view'] = Members::adminData();
+      $admin_old_amount = $admin_details['view']->earnings + $admin_amount;
+      $user_record = array('earnings' => $user_old_amount);
+      Members::updateuserPrice($user_id, $user_record);
+      $admin_data = array('earnings' => $admin_old_amount);
+      Members::updateuserPrice(1, $admin_data);
+    }
+    $cause_id = $donor['details']->donor_cause_id;
+    $cause['details'] = Causes::singleCausesdetails($cause_id);
+    $raised_price = $cause['details']->cause_raised + $donor['details']->donor_amount;
+    $pricedata = array('cause_raised' => $raised_price);
+    Causes::updatecausePrice($cause_id,$pricedata);
+    
+    $checkoutdata = array('donor_payment_token' => $payment_token, 'donor_payment_status' => 'completed');
+    Causes::updatedonorData($purchased_token,$checkoutdata);
+    $result_data = array('payment_token' => $payment_token);
+    
+    $check_email_support = Members::getuserSubscription($user_id);
+    if($check_email_support == 1)
+    {   
+        $donor_payment_amount = $donor['details']->donor_amount;
+      $admin_name = $setting['setting']->sender_name;
+      $admin_email = $setting['setting']->sender_email;
+      $currency_symbol = $setting['setting']->site_currency_symbol;
+      $cause_url = URL::to('/cause/').$cause['details']->cause_slug;
+      $record = array('donor_payment_amount' => $donor_payment_amount, 'currency_symbol' => $currency_symbol, 'cause_url' => $cause_url);
+      $to_name = $user_data['view']->name;
+      $to_email = $user_data['view']->email;
+      Mail::send('donation_mail', $record, function($message) use ($admin_name, $admin_email, $to_email, $to_name) {
+      $message->to($to_email, $to_name)
+        ->subject('Donation payment received');
+        $message->from($admin_email,$admin_name);
+        });
+    }
+    return view('donor-success')->with($result_data);
 	
 	}
 	

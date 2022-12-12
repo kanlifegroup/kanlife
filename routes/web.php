@@ -2,11 +2,9 @@
 
 
 
-/* admin panel */
-
-
-    Route::group(['middleware' => ['is_admin', 'XSS', 'HtmlMinifier']], function () {
-    Route::get('/admin', 'Admin\AdminController@admin')->middleware('cacheable:5');
+/* Admin Panel */
+Route::group(['middleware' => ['is_admin', 'XSS', 'HtmlMinifier']], function () {
+  Route::get('/admin', 'Admin\AdminController@admin')->middleware('cacheable:5');
 	
 	/* administrator */
 	Route::get('/admin/administrator', 'Admin\MembersController@administrator')->middleware('cacheable:5');
@@ -381,239 +379,238 @@
 });
 
 
-/* admin panel */
-
+/* Front End */
 Route::group(['middleware' => ['XSS','web', 'HtmlMinifier']], function () {
 
-/* language */
-//Artisan::call('up');
-Route::get('/translate/{translate}', 'CommonController@cookie_translate');
+  /* language */
+  //Artisan::call('up');
+  Route::get('/translate/{translate}', 'CommonController@cookie_translate');
 
-/* language */
-//Artisan::call('up');
-
-
-Route::get('/', 'CommonController@view_index')->middleware('cacheable:5');
-Route::get('/index', 'CommonController@view_index')->middleware('cacheable:5');
-Route::post('/index', ['as' => 'index','uses'=>'CommonController@update_video']);
-Route::get('/download/{url}/{title}/{mime}/{ext}/{size}', 'CommonController@view_download');
-
-Route::get('login/{provider}', 'Auth\LoginController@redirectToProvider');
-Route::get('login/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
-Route::get('searchajax',array('as'=>'searchajax','uses'=>'CommonController@autoComplete'));
-Auth::routes();
-
-Route::get('/logout', 'Admin\CommonController@logout');
+  /* language */
+  //Artisan::call('up');
 
 
-/*Route::get('/mollie-payment','MollieController@preparePayment')->name('mollie.payment');
-Route::get('/payment-success/{purchase_token}','MollieController@paymentSuccess')->name('payment.success');*/
+  Route::get('/', 'CommonController@view_index')->middleware('cacheable:5');
+  Route::get('/index', 'CommonController@view_index')->middleware('cacheable:5');
+  Route::post('/index', ['as' => 'index','uses'=>'CommonController@update_video']);
+  Route::get('/download/{url}/{title}/{mime}/{ext}/{size}', 'CommonController@view_download');
 
-Route::get('/mollie-payment','MollieController@preparePayment')->name('mollie.payment');
-Route::get('/payment-success/{purchase_token}','MollieController@paymentSuccess')->name('payment-success');
+  Route::get('login/{provider}', 'Auth\LoginController@redirectToProvider');
+  Route::get('login/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
+  Route::get('searchajax',array('as'=>'searchajax','uses'=>'CommonController@autoComplete'));
+  Auth::routes();
 
-/* email verification */
-
-Route::get('/user-verify/{user_token}', 'CommonController@user_verify');
-
-/* email verification */
-
-
+  Route::get('/logout', 'Admin\CommonController@logout');
 
 
-/* my profile */
-Route::get('/my-profile', 'ProfileController@view_myprofile')->middleware('cacheable:5');
-Route::post('/my-profile', ['as' => 'my-profile','uses'=>'ProfileController@update_myprofile']);
-/* my profile */
+  /*Route::get('/mollie-payment','MollieController@preparePayment')->name('mollie.payment');
+  Route::get('/payment-success/{purchase_token}','MollieController@paymentSuccess')->name('payment.success');*/
 
-/* my product */
-Route::get('/my-product', 'ProductController@view_products')->middleware('cacheable:5');
-Route::get('/add-product', 'ProductController@add_product')->name('admin.add-product');
-Route::post('/add-product', ['as' => 'add-product','uses'=>'ProductController@save_product']);
-Route::get('/my-product/{product_token}', 'ProductController@delete_product');
-Route::get('/edit-product/{dropimg}/{img_id}', 'ProductController@delete_single_image');
-Route::get('/edit-product/{product_token}', 'ProductController@edit_product')->name('edit_product');
-Route::post('/edit-product', ['as' => 'edit-product','uses'=>'ProductController@update_product']);
-/* my product */
+  Route::get('/mollie-payment','MollieController@preparePayment')->name('mollie.payment');
+  Route::get('/payment-success/{purchase_token}','MollieController@paymentSuccess')->name('payment-success');
 
+  /* email verification */
 
-/* attribute type */
-	
-Route::get('/attribute-type', 'AttributeController@attribute_type')->middleware('cacheable:5');
-Route::get('/add-attribute-type', 'AttributeController@add_attribute_type')->name('add-attribute-type');
-Route::post('/add-attribute-type', 'AttributeController@save_attribute_type');
-Route::get('/attribute-type/{attribute_id}', 'AttributeController@delete_attribute');
-Route::get('/edit-attribute-type/{attribute_id}', 'AttributeController@edit_attribute_type')->name('edit-attribute-type');
-Route::post('/edit-attribute-type', ['as' => 'edit-attribute-type','uses'=>'AttributeController@update_attribute_type']);
-	
-/* attribute type */
+  Route::get('/user-verify/{user_token}', 'CommonController@user_verify');
 
-
-/* attribute value */
-	
-Route::get('/attribute-value', 'AttributeController@attribute_value')->middleware('cacheable:5');
-Route::get('/add-attribute-value', 'AttributeController@add_attribute_value')->name('add-attribute-value');
-Route::post('/add-attribute-value', 'AttributeController@save_attribute_value');
-Route::get('/attribute-value/{attribute_value_id}', 'AttributeController@delete_attribute_value');
-Route::get('/edit-attribute-value/{attribute_value_id}', 'AttributeController@edit_attribute_value')->name('edit-attribute-value');
-Route::post('/edit-attribute-value', ['as' => 'edit-attribute-value','uses'=>'AttributeController@update_attribute_value']);
-	
-/* attribute value */
-
-
-/* coupon */
-Route::get('/my-coupon', 'CouponController@view_coupon')->middleware('cacheable:5');
-Route::get('/add-coupon', 'CouponController@add_coupon')->name('add-coupon');
-Route::post('/add-coupon', 'CouponController@save_coupon');
-Route::get('/my-coupon/{coupon_id}', 'CouponController@delete_coupon');
-Route::get('/edit-coupon/{coupon_id}', 'CouponController@edit_coupon')->name('edit-coupon');
-Route::post('/edit-coupon', ['as' => 'edit-coupon','uses'=>'CouponController@update_coupon']);
-/* coupon */
-
-/* blog */
-Route::get('/blog', 'BlogController@view_blog')->middleware('cacheable:5');
-Route::get('/single/{slug}', 'BlogController@view_single');
-Route::get('/blog/{category}/{id}/{slug}', 'BlogController@view_category_blog');
-Route::post('/single', ['as' => 'single','uses'=>'BlogController@insert_comment']);
-Route::get('/blog/{blog}/{slug}', 'BlogController@view_tags');
-/* blog */
-
-
-/* product import & export */
-Route::get('/products-import-export', 'ImportExportController@view_products_import_export')->middleware('cacheable:5');
-Route::post('/products-import-export', ['as' => 'products-import-export','uses'=>'ImportExportController@products_import']);
-Route::get('/products-import-export/{type}', 'ImportExportController@download_products_export');
-/* product import & export */
-
-
-/* shop */
-/*Route::post('/cart', ['as' => 'cart','uses'=>'ProductController@view_cart']);
-Route::get('/cart', 'ProductController@show_cart');
-Route::get('/cart/{id}', 'ProductController@delete_cart');
-Route::get('/checkout', 'ProductController@view_checkout');
-*/
-Route::post('/cart', ['as' => 'cart','uses'=>'CommonController@view_cart']);
-Route::get('/cart', 'CommonController@show_cart')->middleware('cacheable:5');
-Route::get('/cart/{id}', 'CommonController@delete_cart');
-Route::get('/checkout', 'ProductController@view_checkout');
-
-Route::get('/shop', 'CommonController@view_shop')->middleware('cacheable:5');
-Route::post('/shop', ['as' => 'shop','uses'=>'CommonController@search_shop']);
-Route::get('/product/{slug}', 'CommonController@view_product');
-
-Route::get('/shop/{type}/{slug}', 'CommonController@view_category_shop');
-Route::get('/shop/{tag}', 'CommonController@view_tag_shop');
-Route::get('/wishlist/{user_id}/{token}', 'ProductController@view_wishlist');
-Route::get('/wishlist', 'ProductController@show_wishlist');
-Route::get('/wishlist/{id}', 'ProductController@remove_wishlist');
-
-
-Route::get('/cart/{remove}/{coupon}', 'ProductController@remove_coupon');
-Route::post('/coupon', ['as' => 'coupon','uses'=>'ProductController@view_coupon']);
-
-Route::post('/checkout', ['as' => 'checkout','uses'=>'ProductController@update_checkout']);
-Route::post('/confirm-paypal', ['as' => 'confirm-paypal','uses'=>'ProductController@confirm_paypal']);
-Route::post('/2checkout', ['as' => '2checkout','uses'=>'ProductController@confirm_2checkout']);
-Route::post('/charge', ['as' => 'charge','uses'=>'ProductController@charge']);
-Route::post('/paystack', ['as' => 'paystack','uses'=>'ProductController@redirectToGateway']);
-Route::post('/confirm-paystack', ['as' => 'confirm-paystack','uses'=>'ProductController@confirm_paystack']);
-Route::get('/paystack', 'ProductController@handleGatewayCallback');
-Route::post('/confirm-bank', ['as' => 'confirm-bank','uses'=>'ProductController@confirm_bank']);
-Route::post('/confirm-cod', ['as' => 'confirm-cod','uses'=>'ProductController@confirm_cod']);
-Route::post('/confirm-coinpayments', ['as' => 'confirm-coinpayments','uses'=>'ProductController@confirm_coinpayments']);
-/* shop */
-
-/* razorpay */
-Route::post('/confirm-razorpay', ['as' => 'confirm-razorpay','uses'=>'ProductController@confirm_razorpay']);
-Route::post('/razorpay', ['as' => 'razorpay','uses'=>'ProductController@razorpay_payment']);
-/* razorpay */
-
-/* user */
-Route::get('/user/{slug}', 'CommonController@view_user');
-Route::post('/user', ['as' => 'user','uses'=>'CommonController@send_message']);
-/* user */
-
-/* top menu */
-Route::get('/top-deals', 'CommonController@view_top_deals')->middleware('cacheable:5');
-Route::get('/new-releases', 'CommonController@view_new_releases');
-Route::get('/best-sellers', 'CommonController@view_best_sellers');
-Route::get('/featured-products', 'CommonController@view_featured_products');
-Route::get('/start-sellings', 'CommonController@view_start_sellings');
-Route::get('/track-order', 'CommonController@view_track_order');
-Route::post('/track-order', ['as' => 'track-order','uses'=>'CommonController@get_track_order']);
-/* top menu */
-
-
-/* purchase & orders */
-Route::get('/my-purchase', 'ProductController@view_purchase_details')->middleware('cacheable:5');
-Route::get('/my-purchase-details/{token}', 'ProductController@purchase_full_details');
-Route::get('/invoice/{token}', 'ProductController@invoice_download');
-Route::post('/refund-request', ['as' => 'refund-request','uses'=>'ProductController@refund_request']);
-Route::post('/rating', ['as' => 'rating','uses'=>'ProductController@rating_request']);
-Route::get('/my-orders', 'ProductController@view_orders_details');
-Route::get('/my-orders-details/{ord_id}/{token}', 'ProductController@single_orders_details');
-Route::post('/order-track', ['as' => 'order-track','uses'=>'ProductController@order_track']);
-
-Route::get('/conversation-to-vendor/{to_slug}/{order_id}', 'ProductController@view_conversation');
-Route::post('/conversation', ['as' => 'conversation','uses'=>'ProductController@conversation_message']);
-Route::get('/conversation/{id}', 'ProductController@delete_conversation');
-
-Route::get('/conversation-to-buyer/{to_slug}/{order_id}', 'ProductController@view_buyer_conversation');
-/* purchase & orders */
-
-
-/* wallet */
-Route::get('/my-wallet', 'ProfileController@view_withdrawal_request')->middleware('cacheable:5');
-Route::post('/my-wallet', ['as' => 'my-wallet','uses'=>'ProfileController@withdrawal_request']);
-/* wallet */
-
-
-/* forgot */
-
-Route::get('/forgot', 'CommonController@view_forgot')->middleware('cacheable:5');
-Route::post('/forgot', ['as' => 'forgot','uses'=>'CommonController@update_forgot']);
-Route::get('/reset/{user_token}', 'CommonController@view_reset');
-Route::post('/reset', ['as' => 'reset','uses'=>'CommonController@update_reset']);
-
-/* forgot */
+  /* email verification */
 
 
 
-/* success */
-Route::get('/success/{order_token}', 'PaymentController@paypal_success');
-Route::get('/cancel', 'PaymentController@payment_cancel');
-Route::post('/stripe-success', ['as'=>'stripe-success','uses'=>'StripeController@stripe_success']);
 
-Route::get('/coinpayments-success/{order_token}', 'PaymentController@coinpayments_success');
+  /* my profile */
+  Route::get('/my-profile', 'ProfileController@view_myprofile')->middleware('cacheable:5');
+  Route::post('/my-profile', ['as' => 'my-profile','uses'=>'ProfileController@update_myprofile']);
+  /* my profile */
 
-
-
-Route::get('payment', 'PayPalController@payment')->name('payment');
-Route::get('cancel', 'PayPalController@cancel')->name('payment.cancel');
-Route::get('payment/success', 'PayPalController@success')->name('payment.success');
-Route::get('/2checkout-success', 'PaymentController@two_checkout_success');
-/* success */
-
-
-/* contact */
-
-Route::get('/contact', 'CommonController@view_contact')->middleware('cacheable:5');
-Route::post('/contact', ['as' => 'contact','uses'=>'CommonController@update_contact']);
-/* contact */
+  /* my product */
+  Route::get('/my-product', 'ProductController@view_products')->middleware('cacheable:5');
+  Route::get('/add-product', 'ProductController@add_product')->name('admin.add-product');
+  Route::post('/add-product', ['as' => 'add-product','uses'=>'ProductController@save_product']);
+  Route::get('/my-product/{product_token}', 'ProductController@delete_product');
+  Route::get('/edit-product/{dropimg}/{img_id}', 'ProductController@delete_single_image');
+  Route::get('/edit-product/{product_token}', 'ProductController@edit_product')->name('edit_product');
+  Route::post('/edit-product', ['as' => 'edit-product','uses'=>'ProductController@update_product']);
+  /* my product */
 
 
-/* newsletter */
-Route::post('/newsletter', ['as' => 'newsletter','uses'=>'CommonController@update_newsletter']);
-Route::get('/newsletter/{token}', 'CommonController@activate_newsletter');
-Route::get('/newsletter', 'CommonController@view_newsletter')->middleware('cacheable:5');
-/* newsletter */
-Route::get('/404', 'CommonController@not_found');
+  /* attribute type */
+    
+  Route::get('/attribute-type', 'AttributeController@attribute_type')->middleware('cacheable:5');
+  Route::get('/add-attribute-type', 'AttributeController@add_attribute_type')->name('add-attribute-type');
+  Route::post('/add-attribute-type', 'AttributeController@save_attribute_type');
+  Route::get('/attribute-type/{attribute_id}', 'AttributeController@delete_attribute');
+  Route::get('/edit-attribute-type/{attribute_id}', 'AttributeController@edit_attribute_type')->name('edit-attribute-type');
+  Route::post('/edit-attribute-type', ['as' => 'edit-attribute-type','uses'=>'AttributeController@update_attribute_type']);
+    
+  /* attribute type */
 
-/* pages */
 
-Route::get('/{page_slug}', 'PageController@view_page')->middleware('cacheable:5');
+  /* attribute value */
+    
+  Route::get('/attribute-value', 'AttributeController@attribute_value')->middleware('cacheable:5');
+  Route::get('/add-attribute-value', 'AttributeController@add_attribute_value')->name('add-attribute-value');
+  Route::post('/add-attribute-value', 'AttributeController@save_attribute_value');
+  Route::get('/attribute-value/{attribute_value_id}', 'AttributeController@delete_attribute_value');
+  Route::get('/edit-attribute-value/{attribute_value_id}', 'AttributeController@edit_attribute_value')->name('edit-attribute-value');
+  Route::post('/edit-attribute-value', ['as' => 'edit-attribute-value','uses'=>'AttributeController@update_attribute_value']);
+    
+  /* attribute value */
 
-/* pages */
+
+  /* coupon */
+  Route::get('/my-coupon', 'CouponController@view_coupon')->middleware('cacheable:5');
+  Route::get('/add-coupon', 'CouponController@add_coupon')->name('add-coupon');
+  Route::post('/add-coupon', 'CouponController@save_coupon');
+  Route::get('/my-coupon/{coupon_id}', 'CouponController@delete_coupon');
+  Route::get('/edit-coupon/{coupon_id}', 'CouponController@edit_coupon')->name('edit-coupon');
+  Route::post('/edit-coupon', ['as' => 'edit-coupon','uses'=>'CouponController@update_coupon']);
+  /* coupon */
+
+  /* blog */
+  Route::get('/blog', 'BlogController@view_blog')->middleware('cacheable:5');
+  Route::get('/single/{slug}', 'BlogController@view_single');
+  Route::get('/blog/{category}/{id}/{slug}', 'BlogController@view_category_blog');
+  Route::post('/single', ['as' => 'single','uses'=>'BlogController@insert_comment']);
+  Route::get('/blog/{blog}/{slug}', 'BlogController@view_tags');
+  /* blog */
+
+
+  /* product import & export */
+  Route::get('/products-import-export', 'ImportExportController@view_products_import_export')->middleware('cacheable:5');
+  Route::post('/products-import-export', ['as' => 'products-import-export','uses'=>'ImportExportController@products_import']);
+  Route::get('/products-import-export/{type}', 'ImportExportController@download_products_export');
+  /* product import & export */
+
+
+  /* shop */
+  /*Route::post('/cart', ['as' => 'cart','uses'=>'ProductController@view_cart']);
+  Route::get('/cart', 'ProductController@show_cart');
+  Route::get('/cart/{id}', 'ProductController@delete_cart');
+  Route::get('/checkout', 'ProductController@view_checkout');
+  */
+  Route::post('/cart', ['as' => 'cart','uses'=>'CommonController@view_cart']);
+  Route::get('/cart', 'CommonController@show_cart')->middleware('cacheable:5');
+  Route::get('/cart/{id}', 'CommonController@delete_cart');
+  Route::get('/checkout', 'ProductController@view_checkout');
+
+  Route::get('/shop', 'CommonController@view_shop')->middleware('cacheable:5');
+  Route::post('/shop', ['as' => 'shop','uses'=>'CommonController@search_shop']);
+  Route::get('/product/{slug}', 'CommonController@view_product');
+
+  Route::get('/shop/{type}/{slug}', 'CommonController@view_category_shop');
+  Route::get('/shop/{tag}', 'CommonController@view_tag_shop');
+  Route::get('/wishlist/{user_id}/{token}', 'ProductController@view_wishlist');
+  Route::get('/wishlist', 'ProductController@show_wishlist');
+  Route::get('/wishlist/{id}', 'ProductController@remove_wishlist');
+
+
+  Route::get('/cart/{remove}/{coupon}', 'ProductController@remove_coupon');
+  Route::post('/coupon', ['as' => 'coupon','uses'=>'ProductController@view_coupon']);
+
+  Route::post('/checkout', ['as' => 'checkout','uses'=>'ProductController@update_checkout']);
+  Route::post('/confirm-paypal', ['as' => 'confirm-paypal','uses'=>'ProductController@confirm_paypal']);
+  Route::post('/2checkout', ['as' => '2checkout','uses'=>'ProductController@confirm_2checkout']);
+  Route::post('/charge', ['as' => 'charge','uses'=>'ProductController@charge']);
+  Route::post('/paystack', ['as' => 'paystack','uses'=>'ProductController@redirectToGateway']);
+  Route::post('/confirm-paystack', ['as' => 'confirm-paystack','uses'=>'ProductController@confirm_paystack']);
+  Route::get('/paystack', 'ProductController@handleGatewayCallback');
+  Route::post('/confirm-bank', ['as' => 'confirm-bank','uses'=>'ProductController@confirm_bank']);
+  Route::post('/confirm-cod', ['as' => 'confirm-cod','uses'=>'ProductController@confirm_cod']);
+  Route::post('/confirm-coinpayments', ['as' => 'confirm-coinpayments','uses'=>'ProductController@confirm_coinpayments']);
+  /* shop */
+
+  /* razorpay */
+  Route::post('/confirm-razorpay', ['as' => 'confirm-razorpay','uses'=>'ProductController@confirm_razorpay']);
+  Route::post('/razorpay', ['as' => 'razorpay','uses'=>'ProductController@razorpay_payment']);
+  /* razorpay */
+
+  /* user */
+  Route::get('/user/{slug}', 'CommonController@view_user');
+  Route::post('/user', ['as' => 'user','uses'=>'CommonController@send_message']);
+  /* user */
+
+  /* top menu */
+  Route::get('/top-deals', 'CommonController@view_top_deals')->middleware('cacheable:5');
+  Route::get('/new-releases', 'CommonController@view_new_releases');
+  Route::get('/best-sellers', 'CommonController@view_best_sellers');
+  Route::get('/featured-products', 'CommonController@view_featured_products');
+  Route::get('/start-sellings', 'CommonController@view_start_sellings');
+  Route::get('/track-order', 'CommonController@view_track_order');
+  Route::post('/track-order', ['as' => 'track-order','uses'=>'CommonController@get_track_order']);
+  /* top menu */
+
+
+  /* purchase & orders */
+  Route::get('/my-purchase', 'ProductController@view_purchase_details')->middleware('cacheable:5');
+  Route::get('/my-purchase-details/{token}', 'ProductController@purchase_full_details');
+  Route::get('/invoice/{token}', 'ProductController@invoice_download');
+  Route::post('/refund-request', ['as' => 'refund-request','uses'=>'ProductController@refund_request']);
+  Route::post('/rating', ['as' => 'rating','uses'=>'ProductController@rating_request']);
+  Route::get('/my-orders', 'ProductController@view_orders_details');
+  Route::get('/my-orders-details/{ord_id}/{token}', 'ProductController@single_orders_details');
+  Route::post('/order-track', ['as' => 'order-track','uses'=>'ProductController@order_track']);
+
+  Route::get('/conversation-to-vendor/{to_slug}/{order_id}', 'ProductController@view_conversation');
+  Route::post('/conversation', ['as' => 'conversation','uses'=>'ProductController@conversation_message']);
+  Route::get('/conversation/{id}', 'ProductController@delete_conversation');
+
+  Route::get('/conversation-to-buyer/{to_slug}/{order_id}', 'ProductController@view_buyer_conversation');
+  /* purchase & orders */
+
+
+  /* wallet */
+  Route::get('/my-wallet', 'ProfileController@view_withdrawal_request')->middleware('cacheable:5');
+  Route::post('/my-wallet', ['as' => 'my-wallet','uses'=>'ProfileController@withdrawal_request']);
+  /* wallet */
+
+
+  /* forgot */
+
+  Route::get('/forgot', 'CommonController@view_forgot')->middleware('cacheable:5');
+  Route::post('/forgot', ['as' => 'forgot','uses'=>'CommonController@update_forgot']);
+  Route::get('/reset/{user_token}', 'CommonController@view_reset');
+  Route::post('/reset', ['as' => 'reset','uses'=>'CommonController@update_reset']);
+
+  /* forgot */
+
+
+
+  /* success */
+  Route::get('/success/{order_token}', 'PaymentController@paypal_success');
+  Route::get('/cancel', 'PaymentController@payment_cancel');
+  Route::post('/stripe-success', ['as'=>'stripe-success','uses'=>'StripeController@stripe_success']);
+
+  Route::get('/coinpayments-success/{order_token}', 'PaymentController@coinpayments_success');
+
+
+
+  Route::get('payment', 'PayPalController@payment')->name('payment');
+  Route::get('cancel', 'PayPalController@cancel')->name('payment.cancel');
+  Route::get('payment/success', 'PayPalController@success')->name('payment.success');
+  Route::get('/2checkout-success', 'PaymentController@two_checkout_success');
+  /* success */
+
+
+  /* contact */
+
+  Route::get('/contact', 'CommonController@view_contact')->middleware('cacheable:5');
+  Route::post('/contact', ['as' => 'contact','uses'=>'CommonController@update_contact']);
+  /* contact */
+
+
+  /* newsletter */
+  Route::post('/newsletter', ['as' => 'newsletter','uses'=>'CommonController@update_newsletter']);
+  Route::get('/newsletter/{token}', 'CommonController@activate_newsletter');
+  Route::get('/newsletter', 'CommonController@view_newsletter')->middleware('cacheable:5');
+  /* newsletter */
+  Route::get('/404', 'CommonController@not_found');
+
+  /* pages */
+
+  Route::get('/{page_slug}', 'PageController@view_page')->middleware('cacheable:5');
+
+  /* pages */
 
 
 });
