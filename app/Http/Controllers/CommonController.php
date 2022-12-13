@@ -177,7 +177,8 @@ class CommonController extends Controller
 	   $brand['view'] = Product::homebrandData();
 	   $featured['product'] = Product::with('ProductImages')->where('product_featured','=',1)->where('product_status','=',1)->where('product_drop_status','=','no')->where('language_code','=',$translate)->take($featured_limit)->orderBy('product_id',$featured_display)->get();
 	   $data = array('setting' => $setting, 'slideshow' => $slideshow, 'physical' => $physical, 'external' => $external, 'digital' => $digital, 'deal' => $deal, 'brand' => $brand, 'featured' => $featured);
-	  return view('index')->with($data);
+	  // return view('index')->with($data);
+	  return view('frontend.index')->with($data);
 	}
 	
 	public function view_best_sellers()
