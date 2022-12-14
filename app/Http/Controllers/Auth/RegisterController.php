@@ -167,7 +167,7 @@ class RegisterController extends Controller
         Session::setId($session_id);
         $updata = array('user_id' => auth()->user()->id); 
         Product::changeOrder($session_id,$updata);
-          return redirect('/');    
+          return redirect('/');
       }
       return back()->with('signin','signin');
       

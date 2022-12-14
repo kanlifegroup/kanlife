@@ -507,7 +507,12 @@
           @csrf
           <div class="form-group row justify-content-center px-3">
             <div class="col-9 px-0">
-              <input type="text" name="email" placeholder="Email*" class="form-control border-info placeicon deu-logininput">
+              <input type="text" name="email"  value="{{ old('email') }}" placeholder="Email*" class="@error('error') is-invalid @enderror form-control border-info placeicon deu-logininput">
+              @error('error')
+                <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+                </span>
+              @enderror
             </div>
           </div>
           <div class="form-group row justify-content-center px-3">
@@ -736,8 +741,8 @@
       @if(session('signup') && session('signup') == 'signup')
       $('#myModal1').modal('show');
       @endif
-      @if(session('signin') && session('signup') == 'signin')
-      $('#myModal1').modal('show');
+      @if(session('signin') && session('signin') == 'signin')
+      $('#myModal').modal('show');
       @endif
       <?php
         session()->forget('signup');

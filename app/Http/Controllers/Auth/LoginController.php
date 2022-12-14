@@ -136,10 +136,12 @@ class LoginController extends Controller
 	
 		}
 	    
-	
-		return redirect('login')->withErrors([
+    return back()->with('signin','signin')->withInput()->withErrors([
 			'error' => 'These credentials do not match our records.',
 		]);
+		// return redirect('login')->withErrors([
+		// 	'error' => 'These credentials do not match our records.',
+		// ]);
 		
 		
 	} 
