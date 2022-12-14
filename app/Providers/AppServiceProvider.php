@@ -126,6 +126,12 @@ class AppServiceProvider extends ServiceProvider
 			view()->share('avilable', $avilable);
 			view()->share('cart_count', $cart_count);
 			
+      $user_location = Session::get('user_location');
+      if($user_location == ''){
+      Session::put('user_location', 'india');
+      $user_location = Session::get('user_location');
+      }
+      view()->share('user_location', $user_location);
         });
 		
 		if($allsettings->stripe_mode == 0) 

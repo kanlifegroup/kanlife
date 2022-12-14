@@ -402,6 +402,8 @@ Route::group(['middleware' => ['XSS','web', 'HtmlMinifier']], function () {
 
   Route::get('/logout', 'Admin\CommonController@logout');
 
+  Route::get('/set-my-location/{location}', 'CommonController@setLocation');
+
 
   /*Route::get('/mollie-payment','MollieController@preparePayment')->name('mollie.payment');
   Route::get('/payment-success/{purchase_token}','MollieController@paymentSuccess')->name('payment.success');*/

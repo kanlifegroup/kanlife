@@ -554,7 +554,7 @@
       <div class="modal-body">
         <p class="deu-loginhead">Register <br> Your Account</p>
         <p class="deu-logintxt">Please fill the following fields with appropriate information to register form</p>
-        <form class="form-horizontal" method="POST" action="{{ route('register') }}" id="login_form">
+        <form class="form-horizontal" method="POST" action="{{ route('register') }}" id="register_form">
           @csrf
           <input type="hidden" name="user_type" value="customer">
           <div class="form-group row justify-content-center px-3">

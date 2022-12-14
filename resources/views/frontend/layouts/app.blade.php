@@ -27,11 +27,27 @@
 @include('frontend.layouts.navbar')
 @yield('content')
 @include('frontend.layouts.footer')
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.js"></script>
+
+<script>
+  function set_location(location){
+    $.ajax({
+      type:"get",
+      url:"{{url('/set-my-location/')}}/"+location,
+      success:function(response)
+      {
+        window.location.reload();
+      },
+      error: function(error){
+        console.log(error);
+      }
+    });
+  }
+</script>
 @yield('script')
 </body>
 </html>

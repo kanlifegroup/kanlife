@@ -14,10 +14,10 @@
       <p>
         <img class="top-navemail" src="{{ asset('public/image/global.svg') }}"> 
         <span class="kan-email">
-          <select class="top-navselect">
-            <option class="top-select">India</option>
-            <option class="top-select">Singapore</option>
-            <option class="top-select">London</option>
+          <select class="top-navselect" onchange="set_location(this.value)">
+            <option {{$user_location == 'india' ? 'selected' : ''}} value="india" class="top-select">India</option>
+            <option {{$user_location == 'singapore' ? 'selected' : ''}} value="singapore" class="top-select">Singapore</option>
+            <option {{$user_location == 'london' ? 'selected' : ''}} value="london" class="top-select">London</option>
           </select>
         <span>
       </p>
@@ -36,20 +36,43 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav ml-auto">
         <a class="nav-link active" aria-current="page" href="#">Home</a>
+        @if(array_intersect([$user_location],['india','london']))
         <a class="nav-link" href="#">Buy</a>
-        <a class="nav-link" href="#">Rent</a>
-        <a class="nav-link" href="#">Dr. Consultant</a>
-        <a class="nav-link" href="#">About</a>
-        <a class="nav-link" href="#">
-        @if(Auth::guest())
-        <button class="deu-login" data-toggle="modal" data-target="#myModal">Login</button>
-        @else
-        <form action="{{url('/logout')}}" method="post">
-          @csrf
-        <button type="submit" class="deu-login" data-toggle="modal">Logout</button>
-        </form>
         @endif
-        </a>
+        @if(array_intersect([$user_location],['india']))
+        <a class="nav-link" href="#">Rent</a>
+        @endif
+        <a class="nav-link" href="#">Dr. Consultant</a>
+        <a class="nav-link" href="#">About Us</a>
+        @if(Auth::guest())
+          <a class="nav-link" href="#">
+            <button class="deu-login" data-toggle="modal" data-target="#myModal">Login</button>
+          </a>
+        @else
+          <div class="dropdown">
+            <button type="button" class="btn btn-link dropdown-toggle deu-dropdowns" data-toggle="dropdown">
+            {{ucfirst(Auth::user()->name)}}
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item deu-accountpad" href="#">Your Account</a>
+              @if(array_intersect([$user_location],['india','london']))
+            <a class="dropdown-item deu-accountpad" href="#">Your Orders</a>
+            <a class="dropdown-item deu-accountpad" href="#">Your Wishlist</a>
+            @endif
+            <form action="{{url('/logout')}}" method="post">
+              @csrf
+              <button class="dropdown-item deu-accountpad" href="#">Log Out</button>
+            </form>
+            </div>
+          </div>
+          @if(array_intersect([$user_location],['india','london']))
+          <a class="nav-link" href="#"><img class="deu-cart" src="{{asset('image/cart.svg')}}">
+          @if($cart_count)
+            <span class="deu-cartxts">{{ $cart_count }}</span>
+          @endif
+          @endif
+          </a>
+        @endif
       </div>
     </div>
   </div>

@@ -180,6 +180,13 @@ class CommonController extends Controller
 	  // return view('index')->with($data);
 	  return view('frontend.index')->with($data);
 	}
+
+  public function setLocation($location){
+    Session::put('user_location', $location);
+    return response()->json([
+      'success' => true,
+    ]);
+  }
 	
 	public function view_best_sellers()
 	{ 
