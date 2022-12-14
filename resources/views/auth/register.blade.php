@@ -56,11 +56,12 @@
                @csrf
                <div class="form-group">
                     <label for="urname">{{ Helper::translation(2216,$translate,'') }}<span class="required">*</span></label>
-                       <input id="name" type="text" class="form-control" name="name" placeholder="{{ Helper::translation(2217,$translate,'') }}" value="{{ old('name') }}" data-bvalidator="required" autocomplete="name" autofocus>                         @error('name')
+                       <input id="name" type="text" class="form-control" name="name" placeholder="{{ Helper::translation(2217,$translate,'') }}" value="{{ old('name') }}" data-bvalidator="required" autocomplete="name" autofocus>
+                       @error('name')
                          <span class="invalid-feedback" role="alert">
                          <strong>{{ $message }}</strong>
                          </span>
-                         @enderror
+                        @enderror
                       </div>
                   <div class="form-group">
                     <label for="user_name">{{ Helper::translation(2101,$translate,'') }}<span class="required">*</span></label>

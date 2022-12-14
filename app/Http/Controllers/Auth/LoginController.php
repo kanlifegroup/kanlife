@@ -117,12 +117,12 @@ class LoginController extends Controller
 	{
 		$field = filter_var($request->email, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
 		$email = trim($request->email);
-	    $password = trim($request->password);
+	  $password = trim($request->password);
 		$session_id = Session::getId();
 	
 		if (Auth::attempt(array($field => $email, 'password' =>  $password, 'verified' => 1, 'drop_status' => 'no' )))
 		{
-		    Session::setId($session_id);
+		  Session::setId($session_id);
 			$updata = array('user_id' => auth()->user()->id); 
 			Product::changeOrder($session_id,$updata);
 			if(auth()->user()->user_type == 'admin')

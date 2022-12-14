@@ -13,8 +13,11 @@ use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Input;
 use ZigKart\Models\Members;
 use ZigKart\Models\Settings;
+use ZigKart\Models\Product;
 use Mail;
-use Cookie;
+use Auth;
+use Cookie, Session;
+use Illuminate\Validation\Rules\Password;
 
 class RegisterController extends Controller
 {
@@ -49,17 +52,21 @@ class RegisterController extends Controller
     }
     
 	public function register(Request $request)
-    {
-         $allsettings = Settings::allSettings();
+  {
+     $allsettings = Settings::allSettings();
 		 $name = $request->input('name');
-		 $username = $request->input('username');
-         $email = $request->input('email');
+		//  $username = $request->input('username');
+		 $username = $request->input('name');
+     $email = $request->input('email');
+     $user_phone = $request->input('user_phone');
+     $user_pincode = $request->input('user_pincode');
 		 $user_type = $request->input('user_type');
+		 $user_address = $request->input('user_address');
 		 $password = bcrypt($request->input('password'));
 		 if(!empty($request->input('earnings')))
 		 {
-		 $earnings = $request->input('earnings');
-         }
+		  $earnings = $request->input('earnings');
+     }
 		 else
 		 {
 		   $earnings = 0;
@@ -84,34 +91,31 @@ class RegisterController extends Controller
 		 {
 		  $referral_by = "";
 		 }
-		 $user_country = $request->input('user_country');
-		
-		$request->validate([
-							'name' => 'required',
-							'username' => 'required',
-							'email' => 'required|email',
-							'password' => ['required', 'min:6'],
-							'user_country' => 'required',
-							'g-recaptcha-response' => 'required|captcha',
-							
-							
-         ]);
 		 $rules = array(
-				'username' => ['required', 'regex:/^[\w-]*$/', 'max:255', Rule::unique('users') -> where(function($sql){ $sql->where('drop_status','=','no');})],
-				'email' => ['required', 'email', 'max:255', Rule::unique('users') -> where(function($sql){ $sql->where('drop_status','=','no');})],
-				
-	     );
-		 
-		 $messsages = array(
-		      
-	    );
-		 
+      'name' => 'required',
+      'email' => ['required', 'email', 'max:255', Rule::unique('users') -> where(function($sql){ $sql->where('drop_status','=','no');})],
+      'user_phone' => ['required', 'digits:10','numeric', Rule::unique('users') -> where(function($sql){ $sql->where('drop_status','=','no');})],
+      'password' => ['required', 'min:8',Password::min(8)
+                                                  ->letters()
+                                                  ->mixedCase()
+                                                  ->numbers()
+                                                  ->symbols()
+                                                  ->uncompromised()],
+      'user_pincode' => ['required', 'digits:6','numeric'],
+      'user_address' => 'required',
+      'password_confirmation' => 'required|same:password',				
+	     );		 
+		 $messsages = array();		 
 		$validator = Validator::make($request->all(), $rules,$messsages);
-		
 		if ($validator->fails()) 
 		{
 		 $failedRules = $validator->failed();
+     if($user_type == 'customer'){
+		 return back()->with('signup','signup')->withInput()->withErrors($validator);
+     }
+     else{
 		 return back()->withErrors($validator);
+     }
 		} 
 		else
 		{
@@ -126,7 +130,7 @@ class RegisterController extends Controller
 		  }
 		  $user_token = $this->generateRandomString();
 		 
-		$data = array('name' => $name, 'username' => $username, 'email' => $email, 'user_type' => $user_type, 'password' => $password, 'earnings' => $earnings, 'verified' => $verified, 'created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s'), 'user_token' => $user_token, 'user_country' => $user_country, 'referral_by' => $referral_by);
+		$data = array('name' => $name, 'username' => $username, 'email' => $email, 'user_phone' => $user_phone, 'user_type' => $user_type, 'user_pincode'=>$user_pincode,'user_address'=>$user_address, 'password' => $password, 'earnings' => $earnings, 'verified' => $verified, 'created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s'), 'user_token' => $user_token, 'referral_by' => $referral_by);
 		Members::insertData($data);
 		if($allsettings->email_verification == 1)
 		{
@@ -143,15 +147,31 @@ class RegisterController extends Controller
         }
 		else
 		{
-		 return redirect('login')->with('success','Your account has been created. You can now login.');
-		}
-        
-		}
-
-       
-
-        
+      // Ae#12345
+      $session_id = Session::getId();
+      return $this->login_user($request);
+        // return redirect('login')->with('success','Your account has been created. You can now login.');
+		}        
+		}        
     }
+
+    protected function login_user(Request $request)
+    {
+      $field = 'email';
+      $email = trim($request->email);
+      $password = trim($request->password);
+      $session_id = Session::getId();
+    
+      if (Auth::attempt(array($field => $email, 'password' =>  $password, 'verified' => 1, 'drop_status' => 'no' )))
+      {
+        Session::setId($session_id);
+        $updata = array('user_id' => auth()->user()->id); 
+        Product::changeOrder($session_id,$updata);
+          return redirect('/');    
+      }
+      return back()->with('signin','signin');
+      
+    } 
 	
     /**
      * Get a validator for an incoming registration request.

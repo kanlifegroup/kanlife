@@ -41,7 +41,14 @@
         <a class="nav-link" href="#">Dr. Consultant</a>
         <a class="nav-link" href="#">About</a>
         <a class="nav-link" href="#">
+        @if(Auth::guest())
         <button class="deu-login" data-toggle="modal" data-target="#myModal">Login</button>
+        @else
+        <form action="{{url('/logout')}}" method="post">
+          @csrf
+        <button type="submit" class="deu-login" data-toggle="modal">Logout</button>
+        </form>
+        @endif
         </a>
       </div>
     </div>

@@ -25,7 +25,7 @@ class CommonController extends Controller
     
 	public function logout(Request $request) {
 	  Auth::logout();
-	  return redirect('/login');
+	  return redirect('/');
     }
 	
 	public function delete_cache()

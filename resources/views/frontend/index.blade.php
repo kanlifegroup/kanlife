@@ -503,15 +503,16 @@
         <p class="deu-loginhead">Login</p>
         <p class="deu-loginhead">To Your Account</p>
         <p class="deu-logintxt">Please enter your email address and password</p>
-        <form class="form-horizontal">
+        <form class="form-horizontal" action="{{ route('login') }}" method="POST" id="login_form">
+          @csrf
           <div class="form-group row justify-content-center px-3">
             <div class="col-9 px-0">
-              <input type="text" placeholder="Email*" class="form-control border-info placeicon deu-logininput">
+              <input type="text" name="email" placeholder="Email*" class="form-control border-info placeicon deu-logininput">
             </div>
           </div>
           <div class="form-group row justify-content-center px-3">
             <div class="col-9 px-0">
-              <input type="password" placeholder="Password*" class="form-control border-info placeicon deu-logininput">
+              <input type="password" name="password" placeholder="Password*" class="form-control border-info placeicon deu-logininput">
             </div>
           </div>
           <div class="form-group row justify-content-center px-3">
@@ -528,7 +529,7 @@
           </div>
           <div class="form-group row justify-content-center mt-4 text-center">       
             <div class="col-3 px-3">
-              <button class="about-more">Login</button>
+              <button type="submit" class="about-more">Login</button>
             </div>
           </div>
         </form>
@@ -548,40 +549,77 @@
       <div class="modal-body">
         <p class="deu-loginhead">Register <br> Your Account</p>
         <p class="deu-logintxt">Please fill the following fields with appropriate information to register form</p>
-        <form class="form-horizontal">
+        <form class="form-horizontal" method="POST" action="{{ route('register') }}" id="login_form">
+          @csrf
+          <input type="hidden" name="user_type" value="customer">
           <div class="form-group row justify-content-center px-3">
             <div class="col-9 px-0">
-              <input type="text" placeholder="Enter your name" class="form-control border-info placeicon deu-logininput">
+              <input type="text" name="name" value="{{ old('name') }}" placeholder="Enter your name" class="@error('name') is-invalid @enderror form-control border-info placeicon deu-logininput" autocomplete="name" autofocus>
+              @error('name')
+                <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+                </span>
+              @enderror
             </div>
           </div>
           <div class="form-group row justify-content-center px-3">
             <div class="col-9 px-0">
-              <input type="text" placeholder="Enter Email Address" class="form-control border-info placeicon deu-logininput">
+              <input type="email" name="email" value="{{ old('email') }}" placeholder="Enter Email Address" class="@error('email') is-invalid @enderror form-control border-info placeicon deu-logininput" >
+              @error('email')
+                <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+                </span>
+              @enderror
             </div>
           </div>
           <div class="form-group row justify-content-center px-3">
             <div class="col-9 px-0">
-              <input type="text" placeholder="+91 | Contact Number" class="form-control border-info placeicon deu-logininput">
+              <input type="number" name="user_phone" value="{{ old('user_phone') }}" placeholder="+91 | Contact Number" class="@error('user_phone') is-invalid @enderror form-control border-info placeicon deu-logininput" >
+              @error('user_phone')
+                <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+                </span>
+              @enderror
             </div>
           </div>
           <div class="form-group row justify-content-center px-3">
             <div class="col-9 px-0">
-              <textarea class="form-control border-info placeicon deu-logininput" placeholder="Enter Address" rows="3" id="comment"></textarea>
+              <textarea name="user_address" class="@error('user_address') is-invalid @enderror form-control border-info placeicon deu-logininput" placeholder="Enter Address" rows="3" id="comment" >{{ old('user_address') }}</textarea>
+              @error('user_address')
+                <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+                </span>
+              @enderror
             </div>
           </div>
           <div class="form-group row justify-content-center px-3">
             <div class="col-9 px-0">
-              <input type="text" placeholder="Enter Pincode" class="form-control border-info placeicon deu-logininput">
+              <input type="number" name="user_pincode" value="{{ old('user_pincode') }}" placeholder="Enter Pincode" class=" @error('user_pincode') is-invalid @enderror form-control border-info placeicon deu-logininput" >
+              @error('user_pincode')
+                <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+                </span>
+              @enderror
             </div>
           </div>
           <div class="form-group row justify-content-center px-3">
             <div class="col-9 px-0">
-              <input type="text" placeholder="Enter Password" class="form-control border-info placeicon deu-logininput">
+              <input type="password" name="password" placeholder="Enter Password" class="@error('password') is-invalid @enderror form-control border-info placeicon deu-logininput" >
+              @error('password')
+                <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+                </span>
+              @enderror
             </div>
           </div>
           <div class="form-group row justify-content-center px-3">
             <div class="col-9 px-0">
-              <input type="text" placeholder="Enter Confirm Password" class="form-control border-info placeicon deu-logininput">
+              <input type="password" name="password_confirmation" placeholder="Enter Confirm Password" class="@error('password_confirmation') is-invalid @enderror form-control border-info placeicon deu-logininput" >
+              @error('password_confirmation')
+                <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+                </span>
+              @enderror
             </div>
           </div>
           <div class="form-group row justify-content-center px-3">
@@ -595,7 +633,7 @@
           </div>
           <div class="form-group row justify-content-center mt-3 text-center">       
             <div class="col-3 px-3">
-              <button class="about-more">Register</button>
+              <button type="submit" class="about-more">Register</button>
             </div>
           </div>
         </form>
@@ -694,6 +732,17 @@
       $(".logS12").click(function() {
         $(".logS1").hide();
       });
+        
+      @if(session('signup') && session('signup') == 'signup')
+      $('#myModal1').modal('show');
+      @endif
+      @if(session('signin') && session('signup') == 'signin')
+      $('#myModal1').modal('show');
+      @endif
+      <?php
+        session()->forget('signup');
+        session()->forget('signin');
+      ?>
     });
   </script>
 @endsection
