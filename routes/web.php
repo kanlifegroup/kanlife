@@ -403,6 +403,9 @@ Route::group(['middleware' => ['XSS','web', 'HtmlMinifier']], function () {
   Route::get('/logout', 'Admin\CommonController@logout');
 
   Route::get('/set-my-location/{location}', 'CommonController@setLocation');
+  Route::get('/about-us/our-story', 'CommonController@ourStory')->name('about.story');
+  Route::get('/about-us/contact-us', 'CommonController@contactUs')->name('about.contact');
+  Route::get('/about-us/our-team', 'CommonController@ourTeam')->name('about.team');
 
 
   /*Route::get('/mollie-payment','MollieController@preparePayment')->name('mollie.payment');

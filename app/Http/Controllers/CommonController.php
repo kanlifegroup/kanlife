@@ -187,6 +187,18 @@ class CommonController extends Controller
       'success' => true,
     ]);
   }
+
+  public function ourStory(){
+    return view('frontend.about_us.our_story');
+  }
+
+  public function contactUs(){
+    return view('frontend.about_us.contact_us');
+  }
+
+  public function ourTeam(){
+    return view('frontend.about_us.our_team');
+  }
 	
 	public function view_best_sellers()
 	{ 

@@ -10,36 +10,36 @@
   <div id="demo" class="carousel slide" data-ride="carousel"  data-interval="false">
     <!-- Indicators -->
     <ul class="carousel-indicators">
-      <li data-target="#demo" data-slide-to="0" class="active"></li>
-      <li data-target="#demo" data-slide-to="1"></li>
+      @foreach($slideshow['view'] as $key => $slide)
+      <li data-target="#demo" data-slide-to="{{$key}}" class="@if($key == 0) active @endif"></li>
+      @endforeach
     </ul>
     <!-- The slideshow -->
     <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img class="img-fluid deu-slideheight" src="{{ asset('public/image/slider.png') }}" alt="">
-        <div class="carousel-caption deu-slidepad text-left">
-          <div class="col-md-6">
-            <h1 class="pb-2 deu-slidehead">Kanlife Group </h1>
-            <div class="row">
-              <div class="col-md-4">
-                <img class="img-fluid deu-healthimg" src="{{ asset('public/image/s1.png') }}">
-                <p class="deu-health">Health</p>
-              </div>
-              <div class="col-md-4">
-                <img class="img-fluid deu-healthimg" src="{{ asset('public/image/s2.png') }}">
-                <p class="deu-health">Medical</p>
-              </div>
-              <div class="col-md-4">
-                <img class="img-fluid deu-healthimg" src="{{ asset('public/image/s3.png') }}">
-                <p class="deu-health">Wellness</p>
+      @foreach($slideshow['view'] as $key => $slide)
+        <div class="carousel-item @if($key == 0) active @endif">
+          <img class="img-fluid deu-slideheight" src="{{ url('/') }}/public/storage/slideshow/{{ $slide->slide_image }}" alt="{{ $slide->slide_image }}">
+          <div class="carousel-caption deu-slidepad text-left">
+            <div class="col-md-6">
+              <h1 class="pb-2 deu-slidehead">Kanlife Group </h1>
+              <div class="row">
+                <div class="col-md-4">
+                  <img class="img-fluid deu-healthimg" src="{{ asset('public/image/s1.png') }}">
+                  <p class="deu-health">Health</p>
+                </div>
+                <div class="col-md-4">
+                  <img class="img-fluid deu-healthimg" src="{{ asset('public/image/s2.png') }}">
+                  <p class="deu-health">Medical</p>
+                </div>
+                <div class="col-md-4">
+                  <img class="img-fluid deu-healthimg" src="{{ asset('public/image/s3.png') }}">
+                  <p class="deu-health">Wellness</p>
+                </div>
               </div>
             </div>
-          </div>
-        </div> 
-      </div>
-      <div class="carousel-item">
-        <img class="img-fluid deu-slideheight" src="{{ asset('public/image/slider.png') }}" alt="">  
-      </div>
+          </div> 
+        </div>
+      @endforeach
     </div>
     <!--<a class="carousel-control-prev" href="#demo" data-slide="prev">
       <span class="carousel-control-prev-icon"></span>
@@ -137,31 +137,7 @@
   </div>
 </div>
 
-<!-- CEO’s Desk -->
-<div class="us-section">
-  <div class="container">
-  <h3 class="text-center mb-5 deu-bloghead">CEO’s Desk</h3>
-  <div class="row deu-deskbg">
-    <div class="col-md-4 col-sm-6">
-      <div class="about-img">
-        <img class="img-fluid deu-marg" src="{{ asset('public/image/ceo.png') }}" alt="">
-      </div>
-    </div>	
-    <div class="col-md-8 col-sm-6">
-      <div class="about-title clearfix">
-        <h1>Shri, Ramesh Verma, IAS,</h1>
-        <h6 class="deu-chief">Chief Electoral Officer, Goa</h6><hr>
-        <h6 class="mt-4 deu-ceos">&nbsp;&nbsp;&nbsp;&nbsp; lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem </h6>
-        <h6 class="mt-4 deu-ceos">&nbsp;&nbsp;&nbsp;&nbsp; lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem  lorem lorem 
-            lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem  lorem lorem lorem lorem  lorem </h6>
-        <h6 class="mt-4 deu-ceos">&nbsp;&nbsp;&nbsp;&nbsp; lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem 
-            lorem lorem lorem lorem  lorem lorem lorem lorem  lorem </h6>
-        <h6 class="mt-4 deu-ceos">&nbsp;&nbsp;&nbsp;&nbsp; lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem  lorem </h6>
-      </div>
-    </div>
-  </div>
-  </div>
-</div>
+@include('frontend.sections.ceo_desk')
 
 <!-- Our Team -->
 <section>
@@ -281,113 +257,7 @@
   </div>
 </section>
 
-<!-- Our Blog -->
-<section class="deu-ourblg">
-  <div class="container">
-    <h3 class="text-center mt-5 mb-5 deu-bloghead">Our Blogs</h3>
-    <div class="row">
-      <div class="col-md-12">
-        <div id="myCarousel" class="carousel slide mb-5" data-ride="carousel" data-interval="0">
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <div class="row">
-                <div class="col-sm-4">
-                  <div class="post-slide10">
-                    <img class="pic-1" src="{{ asset('public/image/blog1.png') }}">
-                    <p class="deu-dec">December 2020</p>
-                    <h3 class="post-title">
-                      <a href="#">Kanlife Partners with Echosens</a>
-                    </h3>
-                    <p class="post-description">
-                    Kanlife partners with Echosens - France, to import and distribute their best-in-class liver diagnostics equipment
-                    </p>
-                    <button class="read-more">read more</button>
-                  </div>
-                </div>
-                <div class="col-sm-4">
-                  <div class="post-slide10">
-                    <img class="pic-1" src="{{ asset('public/image/blog1.png') }}">
-                    <p class="deu-dec">December 2020</p>
-                    <h3 class="post-title">
-                      <a href="#">Kanlife Partners with Echosens</a>
-                    </h3>
-                    <p class="post-description">
-                    Kanlife partners with Echosens - France, to import and distribute their best-in-class liver diagnostics equipment
-                    </p>
-                    <button class="read-more">read more</button>
-                  </div>
-                </div>
-                <div class="col-sm-4">
-                  <div class="post-slide10">
-                    <img class="pic-1" src="{{ asset('public/image/blog1.png') }}">
-                    <p class="deu-dec">December 2020</p>
-                    <h3 class="post-title">
-                      <a href="#">Kanlife Partners with Echosens</a>
-                    </h3>
-                    <p class="post-description">
-                    Kanlife partners with Echosens - France, to import and distribute their best-in-class liver diagnostics equipment
-                    </p>
-                    <button class="read-more">read more</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <div class="row">
-                <div class="col-sm-4">
-                  <div class="post-slide10">
-                    <img class="pic-1" src="{{ asset('public/image/blog1.png') }}">
-                    <p class="deu-dec">December 2020</p>
-                    <h3 class="post-title">
-                      <a href="#">Kanlife Partners with Echosens</a>
-                    </h3>
-                    <p class="post-description">
-                    Kanlife partners with Echosens - France, to import and distribute their best-in-class liver diagnostics equipment
-                    </p>
-                    <button class="read-more">read more</button>
-                  </div>
-                </div>
-                <div class="col-sm-4">
-                  <div class="post-slide10">
-                    <img class="pic-1" src="{{ asset('public/image/blog1.png') }}">
-                    <p class="deu-dec">December 2020</p>
-                    <h3 class="post-title">
-                      <a href="#">Kanlife Partners with Echosens</a>
-                    </h3>
-                    <p class="post-description">
-                    Kanlife partners with Echosens - France, to import and distribute their best-in-class liver diagnostics equipment
-                    </p>
-                    <button class="read-more">read more</button>
-                  </div>
-                </div>
-                <div class="col-sm-4">
-                  <div class="post-slide10">
-                    <img class="pic-1" src="{{ asset('public/image/blog1.png') }}">
-                    <p class="deu-dec">December 2020</p>
-                    <h3 class="post-title">
-                      <a href="#">Kanlife Partners with Echosens</a>
-                    </h3>
-                    <p class="post-description">
-                    Kanlife partners with Echosens - France, to import and distribute their best-in-class liver diagnostics equipment
-                    </p>
-                    <button class="read-more">read more</button>
-                  </div>
-                </div>
-              </div>
-            </div>            
-          </div>
-          <!-- Carousel controls -->
-          <a class="carousel-control-prev deus-prev" href="#myCarousel" data-slide="prev">
-            <i class="fa fa-arrow-left" aria-hidden="true"></i>
-          </a>
-          <a class="carousel-control-next deus-next" href="#myCarousel" data-slide="next">
-            <i class="fa fa-arrow-right" aria-hidden="true"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+@include('frontend.sections.blog')
 
 <!-- Testimonials -->
 <div class="container mb-5">
@@ -460,36 +330,7 @@
   </div>
 </div>
 
-<!-- Our Brands -->
-<section class="deu-bandbg">
-  <div class="container">
-    <p class="text-center deu-bandhead">Our Brands</p>
-    <p class="text-center deu-bandtxt">World class products from the best Global brands</p>
-  </div>
-  <div class="container deu-bandlogopad">
-    <div class="row col-md-12 mt-5">
-      <div class="col-md-4 text-center">
-        <img class="img-fluid deu-bandlogowid deu-bandlogomarg" src="{{ asset('public/image/our1.png') }}">
-      </div>
-      <div class="col-md-4 text-center">
-        <img class="img-fluid deu-bandlogowid deu-bandlogomarg" src="{{ asset('public/image/our2.png') }}">
-      </div>
-      <div class="col-md-4 text-center">
-        <img class="img-fluid deu-bandlogowid" src="{{ asset('public/image/our3.png') }}">
-      </div>
-    </div>
-    <div class="col-md-12 mt-5 mb-5">
-      <div class="row offset-2 col-8">
-        <div class="col-md-6 text-center">
-          <img class="img-fluid deu-bandlogowid" src="{{ asset('public/image/our4.png') }}">
-        </div>
-        <div class="col-md-6 text-center">
-          <img class="img-fluid deu-bandlogowid deu-bandlogomarg" src="{{ asset('public/image/our5.png') }}">
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+@include('frontend.sections.brands')
 
 <!-- The Modal login -->
 <div class="modal fade logS1" id="myModal">

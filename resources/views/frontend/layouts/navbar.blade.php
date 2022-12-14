@@ -25,6 +25,10 @@
   </div>
 </div>
 
+@php
+$module=explode("/", url()->current());
+@endphp
+
 <nav class="navbar navbar-expand-lg">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">
@@ -35,15 +39,25 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav ml-auto">
-        <a class="nav-link active" aria-current="page" href="#">Home</a>
+        <a class="nav-link {{ url('/') == url()->current() ? 'active' : '' }}" aria-current="page" href="{{ url('/') }}">Home</a>
         @if(array_intersect([$user_location],['india','london']))
         <a class="nav-link" href="#">Buy</a>
         @endif
         @if(array_intersect([$user_location],['india']))
         <a class="nav-link" href="#">Rent</a>
         @endif
-        <a class="nav-link" href="#">Dr. Consultant</a>
-        <a class="nav-link" href="#">About Us</a>
+        <a class="nav-link {{ array_intersect($module, ['consultant']) ? 'active' : '' }}" href="#">Dr. Consultant</a>
+        <div class="dropdown ">
+          <button type="button" class="btn btn-link dropdown-toggles deu-dropdowns" data-toggle="dropdown">
+            About Us
+          </button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item deu-accountpad {{ array_intersect($module, ['our-story']) ? 'active' : '' }}" href="{{ route('about.story') }}">Our Story</a>
+            <a class="dropdown-item deu-accountpad {{ array_intersect($module, ['contact-us']) ? 'active' : '' }}" href="{{ route('about.contact') }}">Contact Us</a>
+            <a class="dropdown-item deu-accountpad {{ array_intersect($module, ['our-team']) ? 'active' : '' }}" href="{{ route('about.team') }}">Our Team</a>
+            <a class="dropdown-item deu-accountpad" href="#">Blogs</a>
+          </div>
+        </div>
         @if(Auth::guest())
           <a class="nav-link" href="#">
             <button class="deu-login" data-toggle="modal" data-target="#myModal">Login</button>
