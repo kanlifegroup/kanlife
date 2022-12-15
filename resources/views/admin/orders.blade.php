@@ -68,7 +68,7 @@
                                         <tr>
                                             <td>{{ $no }}</td>
                                             <td>{{ $order->purchase_token }} </td>
-                                            <td><a href="{{ URL::to('/user') }}/{{ $order->username }}" target="_blank" class="blue-color">{{ $order->username }}</a></td>
+                                            <td><a href="{{-- URL::to('/user') }}/{{ $order->username --}}" target="_blank" class="blue-color">{{ $order->username }}</a></td>
                                             <td>{{ $allsettings->site_currency_symbol }}{{ $order->total }}  </td>
                                             <td>{{ $order->payment_date }}</td>
                                             <td>{{ str_replace("-"," ",$order->payment_type) }}</td>

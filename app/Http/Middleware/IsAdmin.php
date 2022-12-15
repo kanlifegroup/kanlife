@@ -18,6 +18,9 @@ class IsAdmin
         if(auth()->user()->isAdmin()) {
             return $next($request);
         }
+        if(auth()->user()->isDeuglo()) {
+          return $next($request);
+        }
 		return redirect('/');
     }
 }

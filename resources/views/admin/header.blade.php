@@ -3,7 +3,7 @@
        <div class="col-sm-7">
                     <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-tasks"></i></a>
                     <div class="header-left">
-                       <code>{{ Helper::Current_Version() }}</code> 
+                       <code>{{-- Helper::Current_Version() --}}</code> 
                     </div>
                 </div>
                 <div class="col-sm-5">
@@ -23,6 +23,7 @@
                             </form>
                         </div>
                   </div>
+                  @if(Auth::user()->user_type == 'deuglo')
                   @if($allsettings->google_translate == 1)
                   <div class="language-select dropdown" id="language-select">
                         <a class="dropdown-toggle" href="#" data-toggle="dropdown"  id="language" aria-haspopup="true" aria-expanded="true">
@@ -36,6 +37,7 @@
                             @endforeach
                         </div>
                     </div>
+                 @endif 
                  @endif 
                </div>
             </div>

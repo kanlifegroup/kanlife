@@ -22,6 +22,7 @@
                         <a href="{{ url('/admin') }}"> <i class="menu-icon fa fa-dashboard"></i>{{ Helper::translation(3549,$translate,'') }} </a>
                     </li>
                     @endif
+                    @if(Auth::user()->user_type == 'deuglo')
                     @if(in_array('settings',$avilable))                 
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-gears"></i>{{ Helper::translation(3408,$translate,'') }}</a>
@@ -47,7 +48,8 @@
                         </ul>
                     </li>
                     @endif
-                    @if(Auth::user()->id == 1)
+                    @endif
+                    @if(Auth::user()->id == 1 || Auth::user()->user_type == 'deuglo')
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-group"></i>{{ Helper::translation(3564,$translate,'') }}</a>
                         <ul class="sub-menu children dropdown-menu">
@@ -59,6 +61,7 @@
                         </ul>
                     </li>
                     @endif
+                    @if(Auth::user()->user_type == 'deuglo')
                     @if(in_array('tax',$avilable))
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-flag"></i>Tax</a>
@@ -68,12 +71,15 @@
                         </ul>
                     </li>
                     @endif
+                    @endif
                     @if(in_array('manage-categories',$avilable))
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-location-arrow"></i>{{ Helper::translation(3570,$translate,'') }}</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="menu-icon fa fa-location-arrow"></i><a href="{{ url('/admin/category') }}">{{ Helper::translation(3045,$translate,'') }}</a></li>
+                            @if(Auth::user()->user_type == 'deuglo')
                             <li><i class="menu-icon fa fa-location-arrow"></i><a href="{{ url('/admin/sub-category') }}">{{ Helper::translation(3099,$translate,'') }}</a></li>
+                            @endif
                          </ul>
                     </li>
                     @endif
@@ -82,17 +88,24 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-shopping-cart"></i>{{ Helper::translation(1975,$translate,'') }}</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="menu-icon fa fa-shopping-cart"></i><a href="{{ url('/admin/products') }}">{{ Helper::translation(3573,$translate,'') }}</a></li>
+                            @if(Auth::user()->user_type == 'deuglo')
                             <li><i class="menu-icon fa fa-shopping-cart"></i><a href="{{ url('/admin/attribute-type') }}">{{ Helper::translation(1914,$translate,'') }}</a></li>
                             <li><i class="menu-icon fa fa-shopping-cart"></i><a href="{{ url('/admin/attribute-value') }}">{{ Helper::translation(1921,$translate,'') }}</a></li>
+                            @endif
                             <li><i class="menu-icon fa fa-shopping-cart"></i><a href="{{ url('/admin/brands') }}">{{ Helper::translation(3144,$translate,'') }}</a></li>
                             <li><i class="menu-icon fa fa-shopping-cart"></i><a href="{{ url('/admin/coupons') }}">Coupons</a></li>
-                            <li><i class="menu-icon fa fa-shopping-cart"></i><a href="{{ url('/admin/orders') }}">{{ Helper::translation(2154,$translate,'') }}</a></li>
+                            @if(Auth::user()->user_type == 'deuglo')
+                            <li><i class="menu-icon fa fa-shopping-bag"></i><a href="{{ url('/admin/orders') }}">{{ Helper::translation(2154,$translate,'') }}</a></li>
                             <li><i class="menu-icon fa fa-location-arrow"></i><a href="{{ url('/admin/refund') }}">{{ Helper::translation(2115,$translate,'') }}</a></li>
                             <li><i class="menu-icon fa fa-location-arrow"></i><a href="{{ url('/admin/rating') }}">{{ Helper::translation(2114,$translate,'') }}</a></li>
                             <li><i class="menu-icon fa fa-location-arrow"></i><a href="{{ url('/admin/withdrawal') }}">{{ Helper::translation(3576,$translate,'') }}</a></li>
+                            @endif
                          </ul>
                     </li>
                     @endif
+                    <li>
+                        <a href="{{ url('/admin/orders') }}"> <i class="menu-icon fa fa-shopping-bag"></i>{{ Helper::translation(2154,$translate,'') }} </a>
+                    </li>
                     @if($allsettings->site_blog_display == 1)
                     @if(in_array('blog',$avilable)) 
                     <li class="menu-item-has-children dropdown">
@@ -109,10 +122,12 @@
                         <a href="{{ url('/admin/ads') }}"> <i class="menu-icon fa fa-file-image-o"></i>{{ Helper::translation(3111,$translate,'') }} </a>
                     </li>
                     @endif
+                    @if(Auth::user()->user_type == 'deuglo')
                     @if(in_array('pages',$avilable))
                     <li>
                         <a href="{{ url('/admin/pages') }}"> <i class="menu-icon fa fa-file-text-o"></i>{{ Helper::translation(2028,$translate,'') }} </a>
                     </li>
+                    @endif
                     @endif
                     @if(in_array('slideshow',$avilable))
                     <li>
@@ -124,6 +139,7 @@
                         <a href="{{ url('/admin/contact') }}"> <i class="menu-icon fa fa-address-book-o"></i>{{ Helper::translation(2012,$translate,'') }} </a>
                     </li>
                     @endif
+                    @if(Auth::user()->user_type == 'deuglo')
                     @if($allsettings->site_newsletter_display == 1)
                     @if(in_array('newsletter',$avilable))
                     <li>
@@ -131,6 +147,8 @@
                     </li>
                     @endif
                     @endif
+                    @endif
+                    @if(Auth::user()->user_type == 'deuglo')
                     @if(in_array('languages',$avilable)) 
                     <li>
                         <a href="{{ url('/admin/languages') }}"> <i class="menu-icon fa fa-language"></i>{{ Helper::translation(3510,$translate,'') }} </a>
@@ -140,6 +158,7 @@
                     <li>
                         <a href="{{ url('/admin/clear-cache') }}" onClick="return confirm('{{ Helper::translation('62346fb49488e',$translate,'Are you sure you want to clear cache') }}?');"> <i class="menu-icon fa fa-trash"></i>{{ Helper::translation('62346f4695400',$translate,'Clear Cache') }} </a>
                     </li>
+                    @endif
                     @endif
                     </ul>
             </div><!-- /.navbar-collapse -->

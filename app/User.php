@@ -17,11 +17,16 @@ class User extends Authenticatable
      */
 	 
 	const ADMIN_TYPE = 'admin';
+	const SUPER_ADMIN_TYPE = 'deuglo';
     
 	
 	
 	public function isAdmin()    {        
 		return $this->user_type === self::ADMIN_TYPE;    
+	} 
+
+  public function isDeuglo()    {        
+		return $this->user_type === self::SUPER_ADMIN_TYPE;    
 	} 
 	 
 	 
