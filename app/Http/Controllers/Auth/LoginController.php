@@ -122,6 +122,14 @@ class LoginController extends Controller
 	
 		if (Auth::attempt(array($field => $email, 'password' =>  $password, 'verified' => 1, 'drop_status' => 'no' )))
 		{
+      if (url()->previous() == url('/login') && auth()->user()->user_type != 'admin') {
+        Auth::logout();
+        return back()->with(['error'=>'These credentials do not match our records.']);
+      }
+      if(url()->previous() != url('/login') && auth()->user()->user_type == 'admin'){
+        Auth::logout();
+        return back()->with(['signin'=>'signin','error'=>'These credentials do not match our records.']);
+      }
 		  Session::setId($session_id);
 			$updata = array('user_id' => auth()->user()->id); 
 			Product::changeOrder($session_id,$updata);
@@ -149,5 +157,12 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    protected function loggedOut(Request $request) {
+      if($request->user == 'logout')
+        return redirect('/login');
+      else
+        return redirect('/');  
     }
 }

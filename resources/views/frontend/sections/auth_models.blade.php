@@ -10,9 +10,32 @@
         <p class="deu-loginhead">Login</p>
         <p class="deu-loginhead">To Your Account</p>
         <p class="deu-logintxt">Please enter your email address and password</p>
+        
         <form class="form-horizontal" action="{{ route('login') }}" method="POST" id="login_form">
           @csrf
           <div class="form-group row justify-content-center px-3">
+            @if ($message = Session::get('success'))
+              <div class="col-9 px-0">
+                <div class="alert alert-success" role="alert">
+                  <span class="alert_icon lnr lnr-checkmark-circle"></span>
+                    {{ $message }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <i class="fa fa-close"></i>
+                    </button>
+                </div>
+              </div>
+            @endif
+            @if ($message = Session::get('error'))
+              <div class="col-9 px-0">
+                <div class="alert alert-danger" role="alert">
+                  <span class="alert_icon lnr lnr-checkmark-circle"></span>
+                    {{ $message }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <i class="fa fa-close"></i>
+                    </button>
+                </div>
+              </div>
+            @endif
             <div class="col-9 px-0">
               <input type="text" name="email"  value="{{ old('email') }}" placeholder="Email*" class="@error('error') is-invalid @enderror form-control border-info placeicon deu-logininput">
               @error('error')

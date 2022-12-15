@@ -143,7 +143,8 @@ class RegisterController extends Controller
 						->subject('Email Confirmation For Registration');
 				$message->from($from_email,$from_name);
 			});
-		return redirect('login')->with('success','We sent you an activation code. Check your email and click on the link to verify.');	
+      return back()->with(['signin'=>'signin','success'=>'We sent you an activation code. Check your email and click on the link to verify.']);
+		  // return redirect('login')->with('success','We sent you an activation code. Check your email and click on the link to verify.');	
         }
 		else
 		{
