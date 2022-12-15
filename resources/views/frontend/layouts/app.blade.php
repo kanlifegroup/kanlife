@@ -26,6 +26,9 @@
 
 @include('frontend.layouts.navbar')
 @yield('content')
+@if(Auth::guest())
+@include('frontend.sections.auth_models')
+@endif
 @include('frontend.layouts.footer')
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
@@ -47,6 +50,20 @@
       }
     });
   }
+  @if(Auth::guest())
+    $(document).ready(function() {
+      @if(session('signup') && session('signup') == 'signup')
+        $('#myModal1').modal('show');
+        @endif
+        @if(session('signin') && session('signin') == 'signin')
+        $('#myModal').modal('show');
+        @endif
+        <?php
+          session()->forget('signup');
+          session()->forget('signin');
+        ?>
+    });
+  @endif
 </script>
 @yield('script')
 </body>
