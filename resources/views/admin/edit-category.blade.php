@@ -77,7 +77,8 @@
                                 <!-- Credit Card -->
                                 <div id="pay-invoice">
                                     <div class="card-body">
-                                      <div class="card mt-3 tab-card">
+                                      <div class="card tab-card">
+        {{--
         <div class="card-header tab-card-header">
           <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
             @php $j = 1; @endphp
@@ -89,7 +90,7 @@
             @endforeach
           </ul>
         </div>
-
+        --}}
         <div class="tab-content" id="myTabContent">
           @php $i = 1; @endphp
           @foreach($languages['data'] as $language)
@@ -104,7 +105,7 @@
 		    $view = Category::others($cat_id,$code);
 		  }
           @endphp
-          <div class="tab-pane fade @if($i == 1) show active @endif mt-4" id="{{ $language->language_name }}" role="tabpanel">
+          <div class="tab-pane fade @if($i == 1) show active @endif" id="{{ $language->language_name }}" role="tabpanel">
               <div class="form-group">
                    <label for="name" class="control-label mb-1">{{ Helper::translation(2018,$translate,'') }} <span class="require">*</span></label>
                    <input type="text" name="category_name[]" id="category_name" value="@if(!empty($view->category_name)){{ $view->category_name }}@endif"   class="form-control" data-bvalidator="required">

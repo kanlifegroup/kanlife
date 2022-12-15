@@ -59,7 +59,7 @@
                                             <th>{{ Helper::translation(2014,$translate,'') }}</th>
                                             <th>{{ Helper::translation(3108,$translate,'') }}</th>
                                             <th>{{ Helper::translation(3213,$translate,'') }}</th>
-                                            <th>{{ Helper::translation(2973,$translate,'') }}</th>
+                                            {{--<th>{{ Helper::translation(2973,$translate,'') }}</th>--}}
                                             <th>{{ Helper::translation(1965,$translate,'') }}</th>
                                         </tr>
                                     </thead>
@@ -72,7 +72,7 @@
                                             <td>{{ $user->email }}</td>
                                             <td>@if($user->user_photo != '') <img height="50" src="{{ url('/') }}/public/storage/users/{{ $user->user_photo }}" alt="{{ $user->name }}" class="userphoto"/>@else <img height="50" src="{{ url('/') }}/public/img/no-user.png" alt="{{ $user->name }}" class="userphoto"/>  @endif</td>
                                             <td>@if($user->verified == 1) <span class="badge badge-success">{{ Helper::translation(2922,$translate,'') }}</span> @else <span class="badge badge-danger">{{ Helper::translation(2925,$translate,'') }}</span> @endif</td>
-                                            <td>{{ $allsettings->site_currency_symbol }} {{ $user->earnings }}</td>
+                                            {{--<td>{{ $allsettings->site_currency_symbol }} {{ $user->earnings }}</td>--}}
                                             <td><a href="edit-customer/{{ $user->user_token }}" class="btn btn-success btn-sm"><i class="fa fa-edit"></i>&nbsp; {{ Helper::translation(1966,$translate,'') }}</a> <a href="customer/{{ $user->user_token }}" class="btn btn-danger btn-sm" onClick="return confirm('{{ Helper::translation(1968,$translate,'') }}');"><i class="fa fa-trash"></i>&nbsp;{{ Helper::translation(1967,$translate,'') }}</a></td>
                                         </tr>
                                         @php $no++; @endphp

@@ -89,10 +89,12 @@
                                                     <label for="password" class="control-label mb-1">{{ Helper::translation(2102,$translate,'') }} <span class="require">*</span></label>
                                                     <input id="password" name="password" type="text" class="form-control" data-bvalidator="required">
                                              </div>
+                                             {{--
                                              <div class="form-group">
                                                     <label for="earnings" class="control-label mb-1">{{ Helper::translation(2973,$translate,'') }} ({{ $allsettings->site_currency_symbol }})</label>
                                                     <input id="earnings" name="earnings" type="text" class="form-control" data-bvalidator="min[0]">
                                               </div>
+                                              --}}
                                               <div class="form-group">
                                                                     <label for="customer_earnings" class="control-label mb-1">{{ Helper::translation(2107,$translate,'') }}</label>
                                                                     <input type="file" id="user_photo" name="user_photo" class="form-control-file" data-bvalidator="extension[jpg:png:jpeg]" data-bvalidator-msg="Please select file of type .jpg, .png or .jpeg"></div>

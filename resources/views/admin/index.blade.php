@@ -112,7 +112,8 @@
             </div>
         </div>
     </div>
-   <div class="col-6 col-lg-4">
+    {{--
+    <div class="col-6 col-lg-4">
         <div class="card">
             <div class="card-body">
                 <div class="clearfix">
@@ -144,6 +145,7 @@
             </div>
         </div>
     </div>
+    --}}
     <div class="content mt-3">
             <div class="col-sm-8 mb-4">
                         <div class="card">

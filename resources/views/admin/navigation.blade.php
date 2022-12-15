@@ -116,13 +116,13 @@
                         </ul>
                     </li>
                     @endif
-                    @endif
+                    @endif                    
+                    @if(Auth::user()->user_type == 'deuglo')
                     @if(in_array('ads',$avilable))
                     <li>
                         <a href="{{ url('/admin/ads') }}"> <i class="menu-icon fa fa-file-image-o"></i>{{ Helper::translation(3111,$translate,'') }} </a>
                     </li>
                     @endif
-                    @if(Auth::user()->user_type == 'deuglo')
                     @if(in_array('pages',$avilable))
                     <li>
                         <a href="{{ url('/admin/pages') }}"> <i class="menu-icon fa fa-file-text-o"></i>{{ Helper::translation(2028,$translate,'') }} </a>
@@ -134,12 +134,12 @@
                         <a href="{{ url('/admin/slideshow') }}"> <i class="menu-icon fa fa-image"></i>{{ Helper::translation(3579,$translate,'') }} </a>
                     </li>
                     @endif
+                    @if(Auth::user()->user_type == 'deuglo')
                     @if(in_array('contact',$avilable))                                      
                     <li>
                         <a href="{{ url('/admin/contact') }}"> <i class="menu-icon fa fa-address-book-o"></i>{{ Helper::translation(2012,$translate,'') }} </a>
                     </li>
                     @endif
-                    @if(Auth::user()->user_type == 'deuglo')
                     @if($allsettings->site_newsletter_display == 1)
                     @if(in_array('newsletter',$avilable))
                     <li>
