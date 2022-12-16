@@ -73,6 +73,7 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
 		'is_admin' => \ZigKart\Http\Middleware\IsAdmin::class,
+		'is_dealer' => \ZigKart\Http\Middleware\IsDealer::class,
 		'XSS' => \ZigKart\Http\Middleware\XSS::class,
 		'cacheable'=>\ZigKart\Http\Middleware\CacheResponse::class,
 		'HtmlMinifier' => \ZigKart\Http\Middleware\HtmlMinifier::class,

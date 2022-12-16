@@ -17,6 +17,7 @@ class User extends Authenticatable
      */
 	 
 	const ADMIN_TYPE = 'admin';
+	const VENDOR_TYPE = 'vendor';
 	const SUPER_ADMIN_TYPE = 'deuglo';
     
 	
@@ -24,6 +25,10 @@ class User extends Authenticatable
 	public function isAdmin()    {        
 		return $this->user_type === self::ADMIN_TYPE;    
 	} 
+
+  public function isDealer()    {        
+		return $this->user_type === self::VENDOR_TYPE;    
+	}  
 
   public function isDeuglo()    {        
 		return $this->user_type === self::SUPER_ADMIN_TYPE;    

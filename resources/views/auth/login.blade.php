@@ -54,8 +54,8 @@
                 @csrf
                 <div class="form-group">
         
-                    <label for="urname">{{ Helper::translation(2208,$translate,'') }}</label>
-                    <input type="text" class="form-control rounded-0" name="email" placeholder="{{ Helper::translation(2208,$translate,'') }}" data-bvalidator="required">
+                    <label for="urname">E-Mail Address / Mobile No.</label>
+                    <input type="text" class="form-control rounded-0" name="email" placeholder="E-Mail Address / Mobile No." data-bvalidator="required">
                 </div>
                 <div class="form-group">
                     <label for="urname">{{ Helper::translation(2102,$translate,'') }}</label>
@@ -66,10 +66,13 @@
                 <a href="{{ URL::to('/forgot') }}" class="link-color">{{ Helper::translation(2209,$translate,'') }}</a>
                 </div>
                 <div>
-                  <a href="{{ URL::to('/register') }}" class="link-color">{{ Helper::translation(2210,$translate,'') }}</a>
+                  @if(url()->current() == url('dealer/login'))
+                  <a href="{{ URL::to('/dealer/register') }}" class="link-color">{{ Helper::translation(2210,$translate,'') }}</a>
+                  @endif
                 </div>
                 </div>
                 <button type="submit" class="btn button-color btn-block rounded button-off">{{ Helper::translation(2041,$translate,'') }}</button>
+                {{--
                 @if($allsettings->display_social_login == 1)
                 <div class="row form-group mt-4">
                 <div class="col-md-12">
@@ -85,6 +88,7 @@
                 </div>
              </div>
              @endif
+             --}}
             </form>
          </div>
         </div>

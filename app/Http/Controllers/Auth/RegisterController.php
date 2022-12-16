@@ -91,21 +91,49 @@ class RegisterController extends Controller
 		 {
 		  $referral_by = "";
 		 }
-		 $rules = array(
-      'name' => 'required',
-      'email' => ['required', 'email', 'max:255', Rule::unique('users') -> where(function($sql){ $sql->where('drop_status','=','no');})],
-      'user_phone' => ['required', 'digits:10','numeric', Rule::unique('users') -> where(function($sql){ $sql->where('drop_status','=','no');})],
-      'password' => ['required', 'min:8',Password::min(8)
-                                                  ->letters()
-                                                  ->mixedCase()
-                                                  ->numbers()
-                                                  ->symbols()
-                                                  ->uncompromised()],
-      'user_pincode' => ['required', 'digits:6','numeric'],
-      'user_address' => 'required',
-      'password_confirmation' => 'required|same:password',				
-	     );		 
-		 $messsages = array();		 
+    //  dd($user_type);
+     if($user_type=='vendor'){
+      $gst = $request->input('gst');
+      $account_no = $request->input('account_no');
+      $ifsc = $request->input('ifsc');
+      $account_holder = $request->input('account_holder');
+      $rules = array(
+        'name' => 'required',
+        'email' => ['required', 'email', 'max:255', Rule::unique('users') -> where(function($sql){ $sql->where('drop_status','=','no');})],
+        'user_phone' => ['required', 'digits:10','numeric', Rule::unique('users') -> where(function($sql){ $sql->where('drop_status','=','no');})],
+        'password' => ['required', 'min:8',Password::min(8)
+                                                    ->letters()
+                                                    ->mixedCase()
+                                                    ->numbers()
+                                                    ->symbols()
+                                                    ->uncompromised()],
+        // 'user_pincode' => ['required', 'digits:6','numeric'],
+        // 'user_address' => 'required',
+        'gst' => 'required',
+        'account_no' => 'required',
+        'ifsc' => 'required',
+        'account_holder' => 'required',
+        'password_confirmation' => 'required|same:password',
+        );
+      }else{
+        $rules = array(
+          'name' => 'required',
+          'email' => ['required', 'email', 'max:255', Rule::unique('users') -> where(function($sql){ $sql->where('drop_status','=','no');})],
+          'user_phone' => ['required', 'digits:10','numeric', Rule::unique('users') -> where(function($sql){ $sql->where('drop_status','=','no');})],
+          'password' => ['required', 'min:8',Password::min(8)
+                                                      ->letters()
+                                                      ->mixedCase()
+                                                      ->numbers()
+                                                      ->symbols()
+                                                      ->uncompromised()],
+          'user_pincode' => ['required', 'digits:6','numeric'],
+          'user_address' => 'required',
+          'password_confirmation' => 'required|same:password',
+           );
+      }
+		 $messsages = array(
+      'user_phone.required' => 'Mobile no field is required'
+     );
 		$validator = Validator::make($request->all(), $rules,$messsages);
 		if ($validator->fails()) 
 		{
@@ -114,7 +142,7 @@ class RegisterController extends Controller
 		 return back()->with('signup','signup')->withInput()->withErrors($validator);
      }
      else{
-		 return back()->withErrors($validator);
+		 return back()->withErrors($validator)->withInput();
      }
 		} 
 		else
@@ -129,7 +157,9 @@ class RegisterController extends Controller
 		  $verified = 1;
 		  }
 		  $user_token = $this->generateRandomString();
-		 
+    if($user_type=='vendor')
+    $data = array('name' => $name, 'username' => $username, 'email' => $email, 'user_phone' => $user_phone, 'user_type' => $user_type, 'user_pincode'=>$user_pincode,'user_address'=>$user_address, 'password' => $password, 'earnings' => $earnings, 'verified' => $verified, 'created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s'), 'user_token' => $user_token, 'referral_by' => $referral_by, 'gst' => $gst, 'account_no'=>$account_no, 'ifsc'=>$ifsc, 'account_holder'=>$account_holder);
+    else
 		$data = array('name' => $name, 'username' => $username, 'email' => $email, 'user_phone' => $user_phone, 'user_type' => $user_type, 'user_pincode'=>$user_pincode,'user_address'=>$user_address, 'password' => $password, 'earnings' => $earnings, 'verified' => $verified, 'created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s'), 'user_token' => $user_token, 'referral_by' => $referral_by);
 		Members::insertData($data);
 		if($allsettings->email_verification == 1)
@@ -162,13 +192,15 @@ class RegisterController extends Controller
       $email = trim($request->email);
       $password = trim($request->password);
       $session_id = Session::getId();
-    
       if (Auth::attempt(array($field => $email, 'password' =>  $password, 'verified' => 1, 'drop_status' => 'no' )))
       {
         Session::setId($session_id);
         $updata = array('user_id' => auth()->user()->id); 
         Product::changeOrder($session_id,$updata);
-          return redirect('/');
+        if($user_type=='vendor')
+          return redirect('/admin');
+        else
+        return redirect('/');
       }
       return back()->with('signin','signin');
       

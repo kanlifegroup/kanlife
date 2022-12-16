@@ -115,28 +115,35 @@ class LoginController extends Controller
 	 
 	public function login(Request $request)
 	{
-		$field = filter_var($request->email, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
+		$field = filter_var($request->email, FILTER_VALIDATE_EMAIL) ? 'email' : 'user_phone';
 		$email = trim($request->email);
 	  $password = trim($request->password);
 		$session_id = Session::getId();
-	
 		if (Auth::attempt(array($field => $email, 'password' =>  $password, 'verified' => 1, 'drop_status' => 'no' )))
 		{
-      $user_type = auth()->user()->user_type;
-      if (url()->previous() == url('/login') && auth()->user()->user_type != 'admin' && auth()->user()->user_type != 'deuglo') {
+      if (url()->previous() == url('adminmanagement/login') && auth()->user()->user_type != 'admin' && auth()->user()->user_type != 'deuglo') {
         Auth::logout();
         return back()->with(['error'=>'These credentials do not match our records.']);
       }
-      if(url()->previous() != url('/login') && auth()->user()->user_type == 'admin'){
+      if (url()->previous() == url('dealer/login') && auth()->user()->user_type != 'vendor') {
+        Auth::logout();
+        return back()->with(['error'=>'These credentials do not match our records.']);
+      }
+      if(url()->previous() == url('/').'/' && auth()->user()->user_type != 'customer'){
         Auth::logout();
         return back()->with(['signin'=>'signin','error'=>'These credentials do not match our records.']);
       }
+      
 		  Session::setId($session_id);
 			$updata = array('user_id' => auth()->user()->id); 
 			Product::changeOrder($session_id,$updata);
 			if(auth()->user()->user_type == 'admin' || auth()->user()->user_type == 'deuglo')
 			{
 			 return redirect('/admin');
+			}
+      else if(auth()->user()->user_type == 'vendor')
+			{
+			 return redirect('/dealer');
 			}
 			else
 			{
@@ -161,8 +168,10 @@ class LoginController extends Controller
     }
 
     protected function loggedOut(Request $request) {
-      if($request->user == 'logout')
-        return redirect('/login');
+      if($request->admin == 'logout')
+        return redirect('adminmanagement/login');
+      if($request->dealer == 'logout')
+        return redirect('dealer/login');
       else
         return redirect('/');  
     }

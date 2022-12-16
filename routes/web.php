@@ -378,6 +378,50 @@ Route::group(['middleware' => ['is_admin', 'XSS', 'HtmlMinifier']], function () 
 	
 });
 
+/* Dealer Panel */
+Route::group(['middleware' => ['is_dealer', 'XSS', 'HtmlMinifier']], function () {
+  Route::get('/dealer', 'Dealer\AdminController@admin')->middleware('cacheable:5');
+		
+	/* edit profile */	
+	Route::get('/dealer/edit-profile', 'Dealer\MembersController@edit_profile');
+	Route::post('/dealer/edit-profile', ['as' => 'dealer.edit-profile','uses'=>'Dealer\MembersController@update_profile']);
+	/* edit profile */	
+	
+
+	/* products */	
+	Route::get('/dealer/products', 'Dealer\ProductController@view_products')->middleware('cacheable:5');
+	Route::get('/dealer/add-product', 'Dealer\ProductController@add_product')->name('dealer.add-product');
+	Route::post('/dealer/add-product', ['as' => 'dealer.addproduct','uses'=>'Dealer\ProductController@save_product']);
+	Route::get('/dealer/products/{product_token}', 'Dealer\ProductController@delete_product');
+	Route::get('/dealer/edit-product/{dropimg}/{img_id}', 'Dealer\ProductController@delete_single_image');
+	Route::get('/dealer/edit-product/{product_token}', 'Dealer\ProductController@edit_product')->name('dealer.edit_product');
+	Route::post('/dealer/edit-product', ['as' => 'dealer.edit-product','uses'=>'Dealer\ProductController@update_product']);
+	/* products */
+	
+	/* product import & export */
+	// Route::get('/admin/products-import-export', 'Admin\ImportExportController@view_products_import_export')->middleware('cacheable:5');
+	// Route::post('/admin/products-import-export', ['as' => 'admin.products-import-export','uses'=>'Admin\ImportExportController@products_import']);
+	// Route::get('/admin/products-import-export/{type}', 'Admin\ImportExportController@download_products_export');
+	/* product import & export */
+	
+	
+	/* orders */
+	
+	Route::get('/dealer/orders', 'Dealer\ProductController@view_orders')->middleware('cacheable:5');
+	// Route::get('/admin/order-details/{token}', 'Admin\ProductController@view_order_single');
+	// Route::get('/admin/order-details/{ord_id}/{user_type}', 'Admin\ProductController@view_payment_approval');
+	// Route::get('/admin/orders/{ord_id}/{payment_type}', 'Admin\ProductController@complete_orders');
+	// Route::post('/admin/order-track', ['as' => 'admin.order-track','uses'=>'Admin\ProductController@order_track']);
+	// Route::get('/admin/orders/{ord_id}', 'Admin\ProductController@delete_orders');
+	/* orders */
+	
+	/* rating */
+	
+	// Route::get('/admin/rating', 'Admin\ProductController@view_rating')->middleware('cacheable:5');
+	// Route::get('/admin/rating/{rating_id}', 'Admin\ProductController@rating_delete');
+	/* rating */
+	
+});
 
 /* Front End */
 Route::group(['middleware' => ['XSS','web', 'HtmlMinifier']], function () {
@@ -398,7 +442,19 @@ Route::group(['middleware' => ['XSS','web', 'HtmlMinifier']], function () {
   Route::get('login/{provider}', 'Auth\LoginController@redirectToProvider');
   Route::get('login/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
   Route::get('searchajax',array('as'=>'searchajax','uses'=>'CommonController@autoComplete'));
-  Auth::routes();
+  // Auth::routes();
+  Route::get('adminmanagement/login', 'Auth\LoginController@showLoginForm')->name('login');
+  Route::post('adminmanagement/login', 'Auth\LoginController@login');
+  Route::post('logout', 'Auth\LoginController@logout')->name('logout');
+  Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+  Route::post('register', 'Auth\RegisterController@register');
+  Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
+  Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
+  Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
+  Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('password.update');
+
+  Route::get('dealer/login', 'Auth\LoginController@showLoginForm');
+  Route::get('dealer/register', 'Auth\RegisterController@showRegistrationForm');
 
   Route::get('/logout', 'Admin\CommonController@logout');
 

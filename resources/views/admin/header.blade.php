@@ -19,7 +19,7 @@
                             <a class="nav-link" href="{{ url('/admin/general-settings') }}"><i class="fa fa-cog"></i> {{ Helper::translation(3408,$translate,'') }}</a>
                             @endif
                             --}}
-                            <form action="{{url('/logout?user=logout')}}" method="post">
+                            <form action="{{url('/logout?admin=logout')}}" method="post">
                               @csrf
                             <a class="nav-link" href="javascript:void(0);" onclick="event.preventDefault();this.closest('form').submit();"><i class="fa fa-power-off"></i> {{ Helper::translation(2048,$translate,'') }}</a>
                             </form>
