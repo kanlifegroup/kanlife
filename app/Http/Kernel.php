@@ -74,6 +74,7 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
 		'is_admin' => \ZigKart\Http\Middleware\IsAdmin::class,
 		'is_dealer' => \ZigKart\Http\Middleware\IsDealer::class,
+		'is_logged_in' => \ZigKart\Http\Middleware\IsLoggedIn::class,
 		'XSS' => \ZigKart\Http\Middleware\XSS::class,
 		'cacheable'=>\ZigKart\Http\Middleware\CacheResponse::class,
 		'HtmlMinifier' => \ZigKart\Http\Middleware\HtmlMinifier::class,

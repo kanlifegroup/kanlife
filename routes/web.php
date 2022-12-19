@@ -425,20 +425,7 @@ Route::group(['middleware' => ['is_dealer', 'XSS', 'HtmlMinifier']], function ()
 
 /* Front End */
 Route::group(['middleware' => ['XSS','web', 'HtmlMinifier']], function () {
-
-  /* language */
-  //Artisan::call('up');
-  Route::get('/translate/{translate}', 'CommonController@cookie_translate');
-
-  /* language */
-  //Artisan::call('up');
-
-
-  Route::get('/', 'CommonController@view_index')->middleware('cacheable:5');
-  Route::get('/index', 'CommonController@view_index')->middleware('cacheable:5');
-  Route::post('/index', ['as' => 'index','uses'=>'CommonController@update_video']);
-  Route::get('/download/{url}/{title}/{mime}/{ext}/{size}', 'CommonController@view_download');
-
+  
   Route::get('login/{provider}', 'Auth\LoginController@redirectToProvider');
   Route::get('login/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
   Route::get('searchajax',array('as'=>'searchajax','uses'=>'CommonController@autoComplete'));
@@ -457,6 +444,21 @@ Route::group(['middleware' => ['XSS','web', 'HtmlMinifier']], function () {
   Route::get('dealer/register', 'Auth\RegisterController@showRegistrationForm');
 
   Route::get('/logout', 'Admin\CommonController@logout');
+
+  Route::group(['middleware' => ['is_logged_in']], function () {
+  /* language */
+  //Artisan::call('up');
+  Route::get('/translate/{translate}', 'CommonController@cookie_translate');
+
+  /* language */
+  //Artisan::call('up');
+
+
+  Route::get('/', 'CommonController@view_index')->middleware('cacheable:5');
+  Route::get('/index', 'CommonController@view_index')->middleware('cacheable:5');
+  Route::post('/index', ['as' => 'index','uses'=>'CommonController@update_video']);
+  Route::get('/download/{url}/{title}/{mime}/{ext}/{size}', 'CommonController@view_download');
+
 
   Route::get('/set-my-location/{location}', 'CommonController@setLocation');
   Route::get('/about-us/our-story', 'CommonController@ourStory')->name('about.story');
@@ -672,7 +674,7 @@ Route::group(['middleware' => ['XSS','web', 'HtmlMinifier']], function () {
   Route::get('/{page_slug}', 'PageController@view_page')->middleware('cacheable:5');
 
   /* pages */
-
+  });
 
 });
 

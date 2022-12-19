@@ -21,6 +21,6 @@ class IsAdmin
         if(auth()->user()->isDeuglo()) {
           return $next($request);
         }
-		return redirect('/');
+		    return redirect('/');
     }
 }

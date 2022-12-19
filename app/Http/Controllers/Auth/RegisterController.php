@@ -197,8 +197,8 @@ class RegisterController extends Controller
         Session::setId($session_id);
         $updata = array('user_id' => auth()->user()->id); 
         Product::changeOrder($session_id,$updata);
-        if($user_type=='vendor')
-          return redirect('/admin');
+        if($request->input('user_type'))
+          return redirect('/dealer');
         else
         return redirect('/');
       }

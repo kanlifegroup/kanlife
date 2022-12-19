@@ -4,7 +4,7 @@ namespace ZigKart\Http\Middleware;
 
 use Closure;
 
-class IsDealer
+class IsLoggedIn
 {
     /**
      * Handle an incoming request.
@@ -16,8 +16,14 @@ class IsDealer
     public function handle($request, Closure $next)
     {
       if(auth()->user()->isDealer()) {
-        return $next($request);
+        return redirect('/dealer');
       }
-		  return redirect('/');
+      if(auth()->user()->isAdmin()) {
+        return redirect('/admin');
+      }
+      if(auth()->user()->isDeuglo()) {
+        return redirect('/admin');
+      }
+      return redirect('/');
     }
 }
