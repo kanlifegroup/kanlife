@@ -24,8 +24,8 @@ class AdminController extends Controller
     }
     public function admin()
     {
-	  $total_products = Product::gettotalProducts();
-	  $total_orders = Product::totalCheckout();
+	  $total_products = 0;// Product::gettotalProducts();
+	  $total_orders = 0; // Product::totalCheckout();
 		
 		$approved = Product::itemapprovedCheck(1);
 		$unapproved = Product::itemapprovedCheck(0);	 

@@ -25,7 +25,7 @@
                 <div class="b-b-1 pt-3"></div>
                 <hr>
                 <div class="more-info pt-2" style="margin-bottom:-10px;">
-                    <a class="font-weight-bold font-xs btn-block text-muted small" href="{{ url('/admin/products') }}">{{ Helper::translation(3477,$translate,'') }} <i class="fa fa-angle-right float-right font-lg"></i></a>
+                    <a class="font-weight-bold font-xs btn-block text-muted small" href="{{ url('/dealer/products') }}">{{ Helper::translation(3477,$translate,'') }} <i class="fa fa-angle-right float-right font-lg"></i></a>
                 </div>
             </div>
         </div>
@@ -42,7 +42,7 @@
                 <div class="b-b-1 pt-3"></div>
                 <hr>
                 <div class="more-info pt-2" style="margin-bottom:-10px;">
-                    <a class="font-weight-bold font-xs btn-block text-muted small" href="{{ url('/admin/orders') }}">{{ Helper::translation(3477,$translate,'') }} <i class="fa fa-angle-right float-right font-lg"></i></a>
+                    <a class="font-weight-bold font-xs btn-block text-muted small" href="{{ url('/dealer/orders') }}">{{ Helper::translation(3477,$translate,'') }} <i class="fa fa-angle-right float-right font-lg"></i></a>
                 </div>
             </div>
         </div>
