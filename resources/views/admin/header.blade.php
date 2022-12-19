@@ -19,7 +19,11 @@
                             <a class="nav-link" href="{{ url('/admin/general-settings') }}"><i class="fa fa-cog"></i> {{ Helper::translation(3408,$translate,'') }}</a>
                             @endif
                             --}}
-                            <form action="{{url('/logout?admin=logout')}}" method="post">
+                            @if(Auth::user()->user_type == 'deuglo')
+                            <form action="{{url('/logout?logout=admin')}}" method="post">
+                              @else
+                            <form action="{{url('/logout?logout=dealer')}}" method="post">
+                            @endif
                               @csrf
                             <a class="nav-link" href="javascript:void(0);" onclick="event.preventDefault();this.closest('form').submit();"><i class="fa fa-power-off"></i> {{ Helper::translation(2048,$translate,'') }}</a>
                             </form>

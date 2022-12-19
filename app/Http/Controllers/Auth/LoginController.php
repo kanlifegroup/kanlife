@@ -168,9 +168,9 @@ class LoginController extends Controller
     }
 
     protected function loggedOut(Request $request) {
-      if($request->admin == 'logout')
+      if($request->logout == 'admin')
         return redirect('adminmanagement/login');
-      if($request->dealer == 'logout')
+      if($request->logout == 'dealer')
         return redirect('dealer/login');
       else
         return redirect('/');  
