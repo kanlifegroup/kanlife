@@ -24,7 +24,7 @@ class AdminController extends Controller
     }
     public function admin()
     {
-	  $total_products = 0;// Product::gettotalProducts();
+	  $total_products = DB::table('product')->where('user_id', auth()->id())->where('product_drop_status','=','no')->where('product_page_parent','=',0)->count();
 	  $total_orders = 0; // Product::totalCheckout();
 		
 		$approved = Product::itemapprovedCheck(1);

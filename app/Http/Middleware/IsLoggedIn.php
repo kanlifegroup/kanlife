@@ -15,15 +15,15 @@ class IsLoggedIn
      */
     public function handle($request, Closure $next)
     {
-      if(auth()->user()->isDealer()) {
-        return redirect('/dealer');
-      }
-      if(auth()->user()->isAdmin()) {
-        return redirect('/admin');
-      }
-      if(auth()->user()->isDeuglo()) {
-        return redirect('/admin');
-      }
-      return redirect('/');
+        if(auth()->user() && auth()->user()->isDealer()) {
+          return redirect('/dealer');
+        }
+        if(auth()->user() && auth()->user()->isAdmin()) {
+          return redirect('/admin');
+        }
+        if(auth()->user() && auth()->user()->isDeuglo()) {
+          return redirect('/admin');
+        }
+      return $next($request);
     }
 }
