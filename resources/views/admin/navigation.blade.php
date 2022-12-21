@@ -17,9 +17,9 @@
             </div>
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                   @if(in_array('dashboard',$avilable))
-                   <li>
-                        <a href="{{ url('/admin') }}"> <i class="menu-icon fa fa-dashboard"></i>{{ Helper::translation(3549,$translate,'') }} </a>
+                    @if(in_array('dashboard',$avilable))
+                    <li>
+                      <a href="{{ url('/admin') }}"> <i class="menu-icon fa fa-dashboard"></i>{{ Helper::translation(3549,$translate,'') }} </a>
                     </li>
                     @endif
                     @if(Auth::user()->user_type == 'deuglo')
@@ -132,6 +132,11 @@
                     @if(in_array('slideshow',$avilable))
                     <li>
                         <a href="{{ url('/admin/slideshow') }}"> <i class="menu-icon fa fa-image"></i>{{ Helper::translation(3579,$translate,'') }} </a>
+                    </li>
+                    @endif
+                    @if(in_array('testimonials',$avilable))
+                    <li>
+                        <a href="{{ url('/admin/testimonials') }}"> <i class="menu-icon fa fa-image"></i> Testimonials </a>
                     </li>
                     @endif
                     @if(Auth::user()->user_type == 'deuglo')

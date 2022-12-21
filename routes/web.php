@@ -311,8 +311,14 @@ Route::group(['middleware' => ['is_admin', 'XSS', 'HtmlMinifier']], function () 
 	Route::get('/admin/comment/update-status/{status}/{comment_id}', 'Admin\BlogController@comment_status');
 	/* comment */
 	
-	
-	
+	/* testimonial */
+	Route::get('/admin/testimonials', 'Admin\TestimonialController@view_testimonial')->middleware('cacheable:5');
+	Route::get('/admin/add-testimonial', 'Admin\TestimonialController@add_testimonial')->name('admin.add-testimonial');
+	Route::post('/admin/add-testimonial', 'Admin\TestimonialController@save_testimonial');
+	Route::get('/admin/testimonials/{id}', 'Admin\TestimonialController@delete_testimonial');
+	Route::get('/admin/edit-testimonial/{id}', 'Admin\TestimonialController@edit_testimonial')->name('admin.edit-coupon');
+	Route::post('/admin/edit-testimonial', ['as' => 'admin.edit-testimonial','uses'=>'Admin\TestimonialController@update_testimonial']);
+	/* testimonial */	
 	
 	/* pages */
 	

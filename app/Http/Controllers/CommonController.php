@@ -12,6 +12,7 @@ use ZigKart\Models\Pages;
 use ZigKart\Models\Product;
 use ZigKart\Models\Category;
 use ZigKart\Models\Attribute;
+use ZigKart\Models\Testimonial;
 use Mail;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Input;
@@ -178,7 +179,8 @@ class CommonController extends Controller
 	   $brand['view'] = Product::homebrandData();
 	   $featured['product'] = Product::with('ProductImages')->where('product_featured','=',1)->where('product_status','=',1)->where('product_drop_status','=','no')->where('language_code','=',$translate)->take($featured_limit)->orderBy('product_id',$featured_display)->get();
      $blogPost['latest'] = Blog::getlatestData($translate, 9);
-	   $data = array('setting' => $setting, 'slideshow' => $slideshow, 'physical' => $physical, 'external' => $external, 'digital' => $digital, 'deal' => $deal, 'brand' => $brand, 'featured' => $featured, 'blogPost' => $blogPost,);
+     $testimonials = Testimonial::getlatestData(9);
+	   $data = array('setting' => $setting, 'slideshow' => $slideshow, 'physical' => $physical, 'external' => $external, 'digital' => $digital, 'deal' => $deal, 'brand' => $brand, 'featured' => $featured, 'blogPost' => $blogPost,'testimonials' => $testimonials,);
 	  // return view('index')->with($data);
 	  return view('frontend.index')->with($data);
 	}

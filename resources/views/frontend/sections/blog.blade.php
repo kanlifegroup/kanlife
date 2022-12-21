@@ -31,7 +31,7 @@
                       <a href="#">{{ $post->post_title }}</a>
                     </h3>
                     <p class="post-description">
-                    {{ mb_substr($post->post_short_desc, 0, 120).'...' }}
+                    {{ mb_substr($post->post_short_desc, 0, 110).'...' }}
                     </p>
                     <a href="{{-- URL::to('/single') --}}/{{-- $post->post_slug --}}" title="{{ $post->post_title }}">
                       <button class="read-more">read more</button>
@@ -68,7 +68,7 @@
                       <a href="#">{{ $post->post_title }}</a>
                     </h3>
                     <p class="post-description">
-                    {{ mb_substr($post->post_short_desc, 0, 120).'...' }}
+                    {{ mb_substr($post->post_short_desc, 0, 110).'...' }}
                     </p>
                     <a href="{{-- URL::to('/single') --}}/{{-- $post->post_slug --}}" title="{{ $post->post_title }}">
                       <button class="read-more">read more</button>
@@ -106,7 +106,7 @@
                       <a href="#">{{ $post->post_title }}</a>
                     </h3>
                     <p class="post-description">
-                    {{ mb_substr($post->post_short_desc, 0, 120).'...' }}
+                    {{ mb_substr($post->post_short_desc, 0, 110).'...' }}
                     </p>
                     <a href="{{-- URL::to('/single') --}}/{{-- $post->post_slug --}}" title="{{ $post->post_title }}">
                       <button class="read-more">read more</button>

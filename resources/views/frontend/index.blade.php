@@ -260,75 +260,35 @@
 @include('frontend.sections.blog')
 
 <!-- Testimonials -->
+@if(count($testimonials)>0)
 <div class="container mb-5">
   <p class="text-center deu-bandhead mt-5">Testimonials</p>
   <div class="owl-carousel owl-theme mt-5">
+    @foreach($testimonials as $testimonial)
     <div class="owl-item">
       <div class="card">
         <div class="row col-md-12">
           <div class="col-md-4">
+            @if($testimonial->image!='')
+            <img class="img-fluid" src="{{ url('/') }}/public/storage/testimonial/{{ $testimonial->image }}" alt="">
+            @else
             <img class="img-fluid" src="{{ asset('public/image/testimonial.png') }}" alt="">
+            @endif
           </div>
           <div class="col-md-8">
-            <p class="deu-john">John Doe</p>
-            <p class="deu-entro">Entrepreneur</p>
+            <p class="deu-john">{{$testimonial->name}}</p>
+            <p class="deu-entro">{{$testimonial->designation}}</p>
           </div>
         </div>
         <div class="testimonial mt-4 mb-2">
-        Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Ipsum Ipsum
+        {{$testimonial->description}}
         </div>
       </div>
     </div>
-    <div class="owl-item">
-      <div class="card">
-        <div class="row col-md-12">
-          <div class="col-md-4">
-            <img class="img-fluid" src="{{ asset('public/image/testimonial.png') }}" alt="">
-          </div>
-          <div class="col-md-8">
-            <p class="deu-john">John Doe</p>
-            <p class="deu-entro">Entrepreneur</p>
-          </div>
-        </div>
-        <div class="testimonial mt-4 mb-2">
-        Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Ipsum Ipsum
-        </div>
-      </div>
-    </div>
-    <div class="owl-item">
-      <div class="card">
-        <div class="row col-md-12">
-          <div class="col-md-4">
-            <img class="img-fluid" src="{{ asset('public/image/testimonial.png') }}" alt="">
-          </div>
-          <div class="col-md-8">
-            <p class="deu-john">John Doe</p>
-            <p class="deu-entro">Entrepreneur</p>
-          </div>
-        </div>
-        <div class="testimonial mt-4 mb-2">
-        Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Ipsum Ipsum
-        </div>
-      </div>
-    </div>
-    <div class="owl-item">
-      <div class="card">
-        <div class="row col-md-12">
-          <div class="col-md-4">
-            <img class="img-fluid" src="{{ asset('public/image/testimonial.png') }}" alt="">
-          </div>
-          <div class="col-md-8">
-            <p class="deu-john">John Doe</p>
-            <p class="deu-entro">Entrepreneur</p>
-          </div>
-        </div>
-        <div class="testimonial mt-4 mb-2">
-        Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Ipsum Ipsum
-        </div>
-      </div>
-    </div>
+    @endforeach
   </div>
 </div>
+@endif
 
 @include('frontend.sections.brands')
 
