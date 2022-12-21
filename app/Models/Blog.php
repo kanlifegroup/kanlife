@@ -268,10 +268,10 @@ class Blog extends Model
   }
   
   
-  public static function getlatestData($translate)
+  public static function getlatestData($translate, $take=5)
   {
 
-    $value=DB::table('post')->where('post_status','=',1)->where('language_code','=',$translate)->orderBy('post_id', 'desc')->take(5)->get(); 
+    $value=DB::table('post')->where('post_status','=',1)->where('language_code','=',$translate)->orderBy('post_id', 'desc')->take($take)->get(); 
     return $value;
 	
   }

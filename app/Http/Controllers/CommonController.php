@@ -3,6 +3,7 @@
 namespace ZigKart\Http\Controllers;
 
 use Illuminate\Http\Request;
+use ZigKart\Models\Blog;
 use ZigKart\Models\Members;
 use ZigKart\Models\Settings;
 use ZigKart\Models\Slideshow;
@@ -176,7 +177,8 @@ class CommonController extends Controller
 	   $deal['product'] = Product::with('ProductImages')->where('flash_deal_start_date','<=',$today_date)->where('flash_deal_end_date','>=',$today_date)->where('flash_deals','=',1)->where('product_status','=',1)->where('product_drop_status','=','no')->where('language_code','=',$translate)->take($deal_limit)->orderBy('product_id',$deal_display)->get();
 	   $brand['view'] = Product::homebrandData();
 	   $featured['product'] = Product::with('ProductImages')->where('product_featured','=',1)->where('product_status','=',1)->where('product_drop_status','=','no')->where('language_code','=',$translate)->take($featured_limit)->orderBy('product_id',$featured_display)->get();
-	   $data = array('setting' => $setting, 'slideshow' => $slideshow, 'physical' => $physical, 'external' => $external, 'digital' => $digital, 'deal' => $deal, 'brand' => $brand, 'featured' => $featured);
+     $blogPost['latest'] = Blog::getlatestData($translate, 9);
+	   $data = array('setting' => $setting, 'slideshow' => $slideshow, 'physical' => $physical, 'external' => $external, 'digital' => $digital, 'deal' => $deal, 'brand' => $brand, 'featured' => $featured, 'blogPost' => $blogPost,);
 	  // return view('index')->with($data);
 	  return view('frontend.index')->with($data);
 	}
@@ -197,7 +199,10 @@ class CommonController extends Controller
   }
 
   public function ourTeam(){
-    return view('frontend.about_us.our_team');
+    $translate = $this->lang_text();
+    $blogPost['latest'] = Blog::getlatestData($translate, 9);
+    $data = array('blogPost' => $blogPost,);
+    return view('frontend.about_us.our_team')->with($data);;
   }
 	
 	public function view_best_sellers()

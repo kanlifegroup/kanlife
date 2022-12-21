@@ -1,4 +1,3 @@
-
 <!-- Our Blog -->
 <section class="deu-ourblg">
   <div class="container">
@@ -9,90 +8,116 @@
           <div class="carousel-inner">
             <div class="carousel-item active">
               <div class="row">
+                @foreach($blogPost['latest'] as $key => $post)
+                @if($key < 3)
                 <div class="col-sm-4">
                   <div class="post-slide10">
-                    <img class="pic-1" src="{{ asset('public/image/blog1.png') }}">
-                    <p class="deu-dec">December 2020</p>
+                    @if($post->post_media_type =='image')
+                    @if($post->post_image!='')
+                    <img class="pic-1" src="{{ url('/') }}/public/storage/post/{{ $post->post_image }}" alt="{{ $post->post_title }}">
+                    @else
+                    <img class="pic-1" src="{{ url('/') }}/public/img/no-image.png" alt="{{ $post->post_title }}">
+                    @endif
+                    @else
+                    @php 
+                    $link = $post->post_video;
+                    $video_id = explode("?v=", $link);
+                    $video_id = $video_id[1];
+                    @endphp
+                    <img class="pic-1" src="https://img.youtube.com/vi/{{ $video_id }}/mqdefault.jpg" alt="{{ $post->post_title }}">
+                    @endif
+                    <p class="deu-dec">{{ date('M Y', strtotime($post->post_date)) }}</p>
                     <h3 class="post-title">
-                      <a href="#">Kanlife Partners with Echosens</a>
+                      <a href="#">{{ $post->post_title }}</a>
                     </h3>
                     <p class="post-description">
-                    Kanlife partners with Echosens - France, to import and distribute their best-in-class liver diagnostics equipment
+                    {{ mb_substr($post->post_short_desc, 0, 120).'...' }}
                     </p>
-                    <button class="read-more">read more</button>
+                    <a href="{{-- URL::to('/single') --}}/{{-- $post->post_slug --}}" title="{{ $post->post_title }}">
+                      <button class="read-more">read more</button>
+                    </a>
                   </div>
                 </div>
-                <div class="col-sm-4">
-                  <div class="post-slide10">
-                    <img class="pic-1" src="{{ asset('public/image/blog1.png') }}">
-                    <p class="deu-dec">December 2020</p>
-                    <h3 class="post-title">
-                      <a href="#">Kanlife Partners with Echosens</a>
-                    </h3>
-                    <p class="post-description">
-                    Kanlife partners with Echosens - France, to import and distribute their best-in-class liver diagnostics equipment
-                    </p>
-                    <button class="read-more">read more</button>
-                  </div>
-                </div>
-                <div class="col-sm-4">
-                  <div class="post-slide10">
-                    <img class="pic-1" src="{{ asset('public/image/blog1.png') }}">
-                    <p class="deu-dec">December 2020</p>
-                    <h3 class="post-title">
-                      <a href="#">Kanlife Partners with Echosens</a>
-                    </h3>
-                    <p class="post-description">
-                    Kanlife partners with Echosens - France, to import and distribute their best-in-class liver diagnostics equipment
-                    </p>
-                    <button class="read-more">read more</button>
-                  </div>
-                </div>
+                @endif
+                @endforeach
               </div>
             </div>
+            @if(count($blogPost['latest']) > 3)
             <div class="carousel-item">
               <div class="row">
+                @foreach($blogPost['latest'] as $key => $post)
+                @if($key > 2 && $key < 6)
                 <div class="col-sm-4">
                   <div class="post-slide10">
-                    <img class="pic-1" src="{{ asset('public/image/blog1.png') }}">
-                    <p class="deu-dec">December 2020</p>
+                    @if($post->post_media_type =='image')
+                    @if($post->post_image!='')
+                    <img class="pic-1" src="{{ url('/') }}/public/storage/post/{{ $post->post_image }}" alt="{{ $post->post_title }}">
+                    @else
+                    <img class="pic-1" src="{{ url('/') }}/public/img/no-image.png" alt="{{ $post->post_title }}">
+                    @endif
+                    @else
+                    @php 
+                    $link = $post->post_video;
+                    $video_id = explode("?v=", $link);
+                    $video_id = $video_id[1];
+                    @endphp
+                    <img class="pic-1" src="https://img.youtube.com/vi/{{ $video_id }}/mqdefault.jpg" alt="{{ $post->post_title }}">
+                    @endif
+                    <p class="deu-dec">{{ date('M Y', strtotime($post->post_date)) }}</p>
                     <h3 class="post-title">
-                      <a href="#">Kanlife Partners with Echosens</a>
+                      <a href="#">{{ $post->post_title }}</a>
                     </h3>
                     <p class="post-description">
-                    Kanlife partners with Echosens - France, to import and distribute their best-in-class liver diagnostics equipment
+                    {{ mb_substr($post->post_short_desc, 0, 120).'...' }}
                     </p>
-                    <button class="read-more">read more</button>
+                    <a href="{{-- URL::to('/single') --}}/{{-- $post->post_slug --}}" title="{{ $post->post_title }}">
+                      <button class="read-more">read more</button>
+                    </a>
                   </div>
                 </div>
-                <div class="col-sm-4">
-                  <div class="post-slide10">
-                    <img class="pic-1" src="{{ asset('public/image/blog1.png') }}">
-                    <p class="deu-dec">December 2020</p>
-                    <h3 class="post-title">
-                      <a href="#">Kanlife Partners with Echosens</a>
-                    </h3>
-                    <p class="post-description">
-                    Kanlife partners with Echosens - France, to import and distribute their best-in-class liver diagnostics equipment
-                    </p>
-                    <button class="read-more">read more</button>
-                  </div>
-                </div>
-                <div class="col-sm-4">
-                  <div class="post-slide10">
-                    <img class="pic-1" src="{{ asset('public/image/blog1.png') }}">
-                    <p class="deu-dec">December 2020</p>
-                    <h3 class="post-title">
-                      <a href="#">Kanlife Partners with Echosens</a>
-                    </h3>
-                    <p class="post-description">
-                    Kanlife partners with Echosens - France, to import and distribute their best-in-class liver diagnostics equipment
-                    </p>
-                    <button class="read-more">read more</button>
-                  </div>
-                </div>
+                @endif
+                @endforeach
               </div>
-            </div>            
+            </div>
+            @endif
+            @if(count($blogPost['latest']) > 6)
+            <div class="carousel-item">
+              <div class="row">
+                @foreach($blogPost['latest'] as $key => $post)
+                @if($key > 5 && $key < 9)
+                <div class="col-sm-4">
+                  <div class="post-slide10">
+                    @if($post->post_media_type =='image')
+                    @if($post->post_image!='')
+                    <img class="pic-1" src="{{ url('/') }}/public/storage/post/{{ $post->post_image }}" alt="{{ $post->post_title }}">
+                    @else
+                    <img class="pic-1" src="{{ url('/') }}/public/img/no-image.png" alt="{{ $post->post_title }}">
+                    @endif
+                    @else
+                    @php 
+                    $link = $post->post_video;
+                    $video_id = explode("?v=", $link);
+                    $video_id = $video_id[1];
+                    @endphp
+                    <img class="pic-1" src="https://img.youtube.com/vi/{{ $video_id }}/mqdefault.jpg" alt="{{ $post->post_title }}">
+                    @endif
+                    <p class="deu-dec">{{ date('M Y', strtotime($post->post_date)) }}</p>
+                    <h3 class="post-title">
+                      <a href="#">{{ $post->post_title }}</a>
+                    </h3>
+                    <p class="post-description">
+                    {{ mb_substr($post->post_short_desc, 0, 120).'...' }}
+                    </p>
+                    <a href="{{-- URL::to('/single') --}}/{{-- $post->post_slug --}}" title="{{ $post->post_title }}">
+                      <button class="read-more">read more</button>
+                    </a>
+                  </div>
+                </div>
+                @endif
+                @endforeach
+              </div>
+            </div>
+            @endif
           </div>
           <!-- Carousel controls -->
           <a class="carousel-control-prev deus-prev" href="#myCarousel" data-slide="prev">
