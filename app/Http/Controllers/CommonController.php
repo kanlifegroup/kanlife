@@ -134,6 +134,7 @@ class CommonController extends Controller
 	  $sid = 1;
 	  $setting['setting'] = Settings::editGeneral($sid);
 	  $session_id = Session::getId();
+    // dd($session_id);
 	  if(Auth::check())
 	  { 
 	  $user_id = Auth::user()->id;
@@ -142,8 +143,11 @@ class CommonController extends Controller
 	  }
 	  /*Product::forceCart($session_id);*/
 	  $cart['product'] = Product::viewOrder($session_id,$translate);
-	  $data = array('setting' => $setting, 'cart' => $cart, 'session_id' => $session_id);
-	  return view('cart')->with($data);
+    // dd($cart['product']);
+    $categories['display'] = Category::with('SubCategory')->where('category_status','=','1')->where('drop_status','=','no')->where('language_code','=',$translate)->orderBy('display_order','asc')->get();
+	  $data = array('setting' => $setting, 'cart' => $cart, 'session_id' => $session_id, 'categories'=> $categories);
+	  // return view('cart')->with($data);
+	  return view('frontend.cart')->with($data);
 	}
 	
 	public function delete_cart($id)
@@ -152,6 +156,29 @@ class CommonController extends Controller
 	  Product::removeCart($delete_id);
 	  return redirect()->back()->with('success', 'Product Removed Successfully.');
 	
+	}
+
+  public function update_cart(Request $request)
+	{
+    $translate = $this->lang_text();
+	  $ord_id = base64_decode($request->data['id']);
+    $session_id = Session::getId();
+    if($request->has('data.qty'))
+    $test = DB::table('product_orders')->where('ord_id', $ord_id)->update(['quantity'=>$request->data['qty']]);
+    if($request->has('data.remove') && $request->data['remove'] == 1)
+    DB::table('product_orders')->where('ord_id', $ord_id)->delete();
+    $carts = Product::viewOrder($session_id,$translate);
+    $subtotal = 0;
+    foreach($carts as $cart){
+      $total = $cart->quantity * $cart->price;
+      $subtotal += $total;
+    }
+    return response()->json([
+      'success' => true,
+      'subtotal' => $subtotal,
+      'test' => $request->data,
+      'remove'=>$request->data['remove']??0,
+    ]);
 	}
 	/* cart */
 
@@ -204,7 +231,15 @@ class CommonController extends Controller
     $translate = $this->lang_text();
     $blogPost['latest'] = Blog::getlatestData($translate, 9);
     $data = array('blogPost' => $blogPost,);
-    return view('frontend.about_us.our_team')->with($data);;
+    return view('frontend.about_us.our_team')->with($data);
+  }
+
+  public function view_buy()	
+  {
+    $translate = $this->lang_text();
+    $categories['display'] = Category::with('SubCategory')->where('category_status','=','1')->where('drop_status','=','no')->where('language_code','=',$translate)->orderBy('display_order','asc')->get();
+    $data = array('categories'=> $categories);
+    return view('frontend.buy')->with($data);
   }
 	
 	public function view_best_sellers()

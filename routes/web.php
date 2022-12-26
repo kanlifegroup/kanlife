@@ -465,6 +465,7 @@ Route::group(['middleware' => ['XSS','web', 'HtmlMinifier']], function () {
   Route::post('/index', ['as' => 'index','uses'=>'CommonController@update_video']);
   Route::get('/download/{url}/{title}/{mime}/{ext}/{size}', 'CommonController@view_download');
 
+  Route::get('/buy', 'CommonController@view_buy');
 
   Route::get('/set-my-location/{location}', 'CommonController@setLocation');
   Route::get('/about-us/our-story', 'CommonController@ourStory')->name('about.story');
@@ -561,6 +562,7 @@ Route::group(['middleware' => ['XSS','web', 'HtmlMinifier']], function () {
   Route::post('/cart', ['as' => 'cart','uses'=>'CommonController@view_cart']);
   Route::get('/cart', 'CommonController@show_cart')->middleware('cacheable:5');
   Route::get('/cart/{id}', 'CommonController@delete_cart');
+  Route::post('/cart/update', 'CommonController@update_cart');
   Route::get('/checkout', 'ProductController@view_checkout');
 
   Route::get('/shop', 'CommonController@view_shop')->middleware('cacheable:5');

@@ -39,9 +39,44 @@ $module=explode("/", url()->current());
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav ml-auto">
+        @if(isset($categories))
+        <div class="dropdown">
+          <a class="dropdown-toggle prn deu-barcat nav-link" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fa fa-bars" aria-hidden="true"></i>  Categories
+          </a>
+          <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+            <!-- <li class="dropdown-submenu">
+              <a  class="dropdown-item" tabindex="-1" href="#">X-RAY Systems</a>
+              <ul class="dropdown-menu">
+                <li class="dropdown-item"><a tabindex="-1" class="deu-droptxt" href="#">Second level</a></li>
+                <li class="dropdown-submenu">
+                  <a class="dropdown-item" href="#">Even More..</a>
+                  <ul class="dropdown-menu">
+                    <li class="dropdown-item"><a class="deu-droptxt" href="#">3rd level</a></li>
+                      <li class="dropdown-submenu"><a class="dropdown-item" href="#">another level</a>
+                        <ul class="dropdown-menu">
+                          <li class="dropdown-item"><a class="deu-droptxt" href="#">4th level</a></li>
+                          <li class="dropdown-item"><a class="deu-droptxt" href="#">4th level</a></li>
+                          <li class="dropdown-item"><a class="deu-droptxt" href="#">4th level</a></li>
+                        </ul>
+                      </li>
+                      <li class="dropdown-item"><a class="deu-droptxt" href="#">3rd level</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown-item"><a class="deu-droptxt" href="#">Second level</a></li>
+                <li class="dropdown-item"><a class="deu-droptxt" href="#">Second level</a></li>
+              </ul>
+            </li> -->
+            @foreach($categories['display'] as $category)
+            <li class="dropdown-item"><a class="deu-droptxt" href="#">{{ $category->category_name }}</a></li>
+            @endforeach
+            <li class="dropdown-item"><a href="#"><button class="about-more deu-wid">More</button></a></li>
+          </ul>
+        </div>
+        @endif
         <a class="nav-link {{ url('/') == url()->current() ? 'active' : '' }}" aria-current="page" href="{{ url('/') }}">Home</a>
         @if(array_intersect([$user_location],['india','london']))
-        <a class="nav-link" href="#">Buy</a>
+        <a class="nav-link {{ url('/buy') == url()->current() ? 'active' : '' }}" href="{{ url('/buy') }}">Buy</a>
         @endif
         @if(array_intersect([$user_location],['india']))
         <a class="nav-link" href="#">Rent</a>
@@ -80,8 +115,8 @@ $module=explode("/", url()->current());
             </div>
           </div>
           @if(array_intersect([$user_location],['india','london']))
-          <a class="nav-link" href="#"><img class="deu-cart" src="{{asset('image/cart.svg')}}">
-          @if($cart_count)
+          <a class="nav-link" href="{{url('/cart')}}"><img class="deu-cart" src="{{ url('/cart') == url()->current() ? asset('image/cart_active.svg') : asset('image/cart.svg')}}">
+          @if($cart_count > 0)
             <span class="deu-cartxts">{{ $cart_count }}</span>
           @endif
           @endif
