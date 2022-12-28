@@ -15,6 +15,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     @yield('style')
+    <style>
+    /* Chrome, Safari, Edge, Opera */
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    /* Firefox */
+    input[type=number] {
+      -moz-appearance: textfield;
+    }
+
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    .regiS::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* Hide scrollbar for IE, Edge and Firefox */
+    .regiS {
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;  /* Firefox */
+    }
+    </style>
 </head>
 
 <body>
@@ -45,15 +69,25 @@
     $(document).ready(function() {
       @if(session('signup') && session('signup') == 'signup')
         $('#myModal1').modal('show');
-        @endif
-        @if(session('signin') && session('signin') == 'signin')
+      @endif
+      @if(session('signin') && session('signin') == 'signin')
         $('#myModal').modal('show');
-        @endif
+      @endif
         <?php
           session()->forget('signup');
           session()->forget('signin');
         ?>
     });
+
+    function openModel(id){
+      closeModels();
+      $('#'+id).modal('show');
+    }
+    function closeModels(){
+      $('#myModal').modal('hide');
+      $('#myModal1').modal('hide');
+      $('#myModal2').modal('hide');
+    }
   @endif
 </script>
 </body>

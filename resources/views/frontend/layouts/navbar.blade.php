@@ -95,7 +95,8 @@ $module=explode("/", url()->current());
         </div>
         @if(Auth::guest())
           <a class="nav-link" href="#">
-            <button class="deu-login" data-toggle="modal" data-target="#myModal">Login</button>
+            <!-- <button class="deu-login" data-toggle="modal" data-target="#myModal">Login</button> -->
+            <button class="deu-login" onclick="openModel('myModal')">Login</button>
           </a>
         @else
           <div class="dropdown">
