@@ -105,8 +105,7 @@ class RegisterController extends Controller
                                                     ->letters()
                                                     ->mixedCase()
                                                     ->numbers()
-                                                    ->symbols()
-                                                    ->uncompromised()],
+                                                    ->symbols()],
         // 'user_pincode' => ['required', 'digits:6','numeric'],
         // 'user_address' => 'required',
         'gst' => 'required',
@@ -124,8 +123,7 @@ class RegisterController extends Controller
                                                       ->letters()
                                                       ->mixedCase()
                                                       ->numbers()
-                                                      ->symbols()
-                                                      ->uncompromised()],
+                                                      ->symbols()],
           'user_pincode' => ['required', 'digits:6','numeric'],
           'user_address' => 'required',
           'password_confirmation' => 'required|same:password',
