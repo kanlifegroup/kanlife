@@ -117,7 +117,7 @@ $module=explode("/", url()->current());
           </div>          
         @endif
         @if(array_intersect([$user_location],['india','london']))
-          <a class="nav-link" style="margin-right: 0px;" href="{{url('/cart')}}"><img class="deu-cart" src="{{ url('/cart') == url()->current() ? asset('image/cart_active.svg') : asset('image/cart.svg')}}">
+          <a class="nav-link" style="margin-right: 0px;" href="{{url('/cart')}}"><img class="deu-cart" src="{{ url('/cart') == url()->current() ? asset('public/image/cart_active.svg') : asset('public/image/cart.svg')}}">
             @if($cart_count > 0)
               <span class="deu-cartxts">{{ $cart_count }}</span>
             @endif
