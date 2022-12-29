@@ -111,7 +111,9 @@ class LoginController extends Controller
 	
 	}
 	  
-	
+	public function loginFirst(){
+    return redirect('/')->with('signin','signin');
+  }
 	 
 	public function login(Request $request)
 	{

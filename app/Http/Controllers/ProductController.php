@@ -284,7 +284,7 @@ class ProductController extends Controller
 	   $user_id = Auth::user()->id;
 	   $shop['product'] = Product::with('ProductImages')->join('wishlist','wishlist.product_token','product.product_token')->where('product.product_status','=',1)->where('product.product_drop_status','=','no')->where('product.language_code','=',$translate)->where('wishlist.user_id','=',$user_id)->orderBy('product_id','desc')->get();
 	   $data = array('setting' => $setting, 'shop' => $shop);
-	   return view('wishlist')->with($data);
+	   return view('frontend.wishlist')->with($data);
 	}
 	
 	public function remove_wishlist($id)

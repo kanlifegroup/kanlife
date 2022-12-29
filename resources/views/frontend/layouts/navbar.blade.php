@@ -35,7 +35,7 @@ $module=explode("/", url()->current());
       <img src="{{ asset('public/image/logo.png') }}" width="" class="logo img-fluid"/>
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+      <span class="navbar-toggler-icon"><i class="fa fa-bars" aria-hidden="true"></i></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav ml-auto">
@@ -68,7 +68,7 @@ $module=explode("/", url()->current());
               </ul>
             </li> -->
             @foreach($categories['display'] as $category)
-            <li class="dropdown-item"><a class="deu-droptxt" href="#">{{ $category->category_name }}</a></li>
+            <li class="dropdown-item"><a class="deu-droptxt" href="{{url('category/'.$category->category_slug)}}">{{ $category->category_name }}</a></li>
             @endforeach
             <li class="dropdown-item"><a href="#"><button class="about-more deu-wid">More</button></a></li>
           </ul>
@@ -114,13 +114,13 @@ $module=explode("/", url()->current());
               <button class="dropdown-item deu-accountpad" href="#">Log Out</button>
             </form>
             </div>
-          </div>
-          @if(array_intersect([$user_location],['india','london']))
-          <a class="nav-link" href="{{url('/cart')}}"><img class="deu-cart" src="{{ url('/cart') == url()->current() ? asset('image/cart_active.svg') : asset('image/cart.svg')}}">
-          @if($cart_count > 0)
-            <span class="deu-cartxts">{{ $cart_count }}</span>
-          @endif
-          @endif
+          </div>          
+        @endif
+        @if(array_intersect([$user_location],['india','london']))
+          <a class="nav-link" style="margin-right: 0px;" href="{{url('/cart')}}"><img class="deu-cart" src="{{ url('/cart') == url()->current() ? asset('image/cart_active.svg') : asset('image/cart.svg')}}">
+            @if($cart_count > 0)
+              <span class="deu-cartxts">{{ $cart_count }}</span>
+            @endif
           </a>
         @endif
       </div>

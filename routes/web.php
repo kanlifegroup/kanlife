@@ -438,6 +438,7 @@ Route::group(['middleware' => ['XSS','web', 'HtmlMinifier']], function () {
   // Auth::routes();
   Route::get('adminmanagement/login', 'Auth\LoginController@showLoginForm')->name('login');
   Route::post('adminmanagement/login', 'Auth\LoginController@login');
+  Route::get('homepage', 'Auth\LoginController@loginFirst')->name('loginFirst');
   Route::post('logout', 'Auth\LoginController@logout')->name('logout');
   Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
   Route::post('register', 'Auth\RegisterController@register');
@@ -466,6 +467,7 @@ Route::group(['middleware' => ['XSS','web', 'HtmlMinifier']], function () {
   Route::get('/download/{url}/{title}/{mime}/{ext}/{size}', 'CommonController@view_download');
 
   Route::get('/buy', 'CommonController@view_buy');
+  Route::get('/category/{slug}', 'CommonController@view_category');
 
   Route::get('/set-my-location/{location}', 'CommonController@setLocation');
   Route::get('/about-us/our-story', 'CommonController@ourStory')->name('about.story');
@@ -564,6 +566,7 @@ Route::group(['middleware' => ['XSS','web', 'HtmlMinifier']], function () {
   Route::get('/cart/{id}', 'CommonController@delete_cart');
   Route::post('/cart/update', 'CommonController@update_cart');
   Route::get('/checkout', 'ProductController@view_checkout');
+  Route::get('/add_to_cart/{slug}', 'CommonController@add_to_cart');
 
   Route::get('/shop', 'CommonController@view_shop')->middleware('cacheable:5');
   Route::post('/shop', ['as' => 'shop','uses'=>'CommonController@search_shop']);

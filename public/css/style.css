@@ -1417,6 +1417,7 @@ color: #3787C9;
 font-family: 'Nunito', sans-serif;
 font-size: 19px;
 font-weight: 600;
+cursor: pointer;
 }
 .deu-cardsname{
 color: #000000;
@@ -1834,6 +1835,11 @@ margin-left: 0px;
 .pagination_rounded ul li {
 float: left;
 margin-left: 10px;
+}
+.pagination_rounded ul li .active{
+  background: #3787C9;
+  color: #fff;
+  border: 1px solid #3787C9;
 }
 .pagination_rounded ul li a:hover {
 background: #3787C9;

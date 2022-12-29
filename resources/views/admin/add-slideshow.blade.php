@@ -77,6 +77,7 @@
                                 <div id="pay-invoice">
                                     <div class="card-body">
                                     <div class="card mt-3 tab-card">
+                                {{--
                                 <div class="card-header tab-card-header">
                                   <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
                                     @php $j = 1; @endphp
@@ -88,7 +89,7 @@
                                     @endforeach
                                   </ul>
                                 </div>
-                        
+                                --}}
                                 <div class="tab-content" id="myTabContent">
                                   @php $i = 1; @endphp
                                   @foreach($languages['data'] as $language)

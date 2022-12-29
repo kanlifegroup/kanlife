@@ -6,7 +6,6 @@
 
 @section('style')
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/7.3.1/swiper-bundle.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.theme.min.css">
@@ -73,7 +72,7 @@
 						</div>
 						<div class="col-md-3">
 							<div class="text-right">
-								<h6 data-id="{{base64_encode($cart->ord_id)}}" class="mt-5 deu-cardremove remove">REMOVE</h6>
+								<h6 data-id="{{base64_encode($cart->ord_id)}}" class="mt-5 cursor-pointer deu-cardremove remove">REMOVE</h6>
 							</div>
 						</div>
 					</div>

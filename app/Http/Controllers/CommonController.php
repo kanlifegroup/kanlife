@@ -98,7 +98,7 @@ class CommonController extends Controller
 	  } 
 	  $product_token = $request->input('product_token');
 	  $product_id = $request->input('product_id');
-	  $product_price = base64_decode($request->input('price'));	
+	  // $product_price = ;	
 	  $product_user_id = $request->input('product_user_id'); 
 	  /*$user_id = Auth::user()->id;*/
 	  $session_id = Session::getId();
@@ -150,12 +150,31 @@ class CommonController extends Controller
 	  return view('frontend.cart')->with($data);
 	}
 	
+	public function add_to_cart($slug)
+	{
+    $translate = $this->lang_text();
+	  $allsettings = Settings::allSettings();
+	  $product_quantity = 1;
+	  $token = Session::getId();
+    $product_attribute = "";
+    $product_attribute_values = "";
+
+    $product = Product::with('ProductImages')->leftJoin('brands','brands.brand_id','product.product_brand')->where('product_status','=',1)->where('product_slug','=',$slug)->where('product_drop_status','=','no')->where('language_code','=',$translate)->orderBy('product_id','desc')->first();
+    $product_token = $product->product_token;
+	  $product_id = $product->product_id;
+	  $product_price = $product->product_offer_price != 0 ? $product->product_offer_price : $product->product_price;
+	  $product_user_id = $product->user_id; 
+    $order_status = 'pending';
+    $savedata = array('session_id' => $token, 'product_id' => $product_id, 'product_user_id' => $product_user_id, 'product_token' => $product_token, 'token' => $token, 'quantity' => $product_quantity, 'product_attribute' => $product_attribute, 'product_attribute_values' => $product_attribute_values, 'price' => $product_price, 'order_status' => $order_status); 
+    Product::saveOrder($savedata);
+	  return redirect(url('/product').'/'.$slug);
+	}
+
 	public function delete_cart($id)
 	{
 	  $delete_id = base64_decode($id);
 	  Product::removeCart($delete_id);
 	  return redirect()->back()->with('success', 'Product Removed Successfully.');
-	
 	}
 
   public function update_cart(Request $request)
@@ -240,6 +259,18 @@ class CommonController extends Controller
     $categories['display'] = Category::with('SubCategory')->where('category_status','=','1')->where('drop_status','=','no')->where('language_code','=',$translate)->orderBy('display_order','asc')->get();
     $data = array('categories'=> $categories);
     return view('frontend.buy')->with($data);
+  }
+
+  public function view_category($slug)
+  {
+    $translate = $this->lang_text();
+    $cat_id = Category::singleCat($slug);
+    $category_id = 'cat-'.$cat_id->cat_id;
+    $products = Product::with('ProductImages')->where('product_status','=',1)->where('product_drop_status','=','no')->where('language_code','=',$translate)->whereRaw('FIND_IN_SET(?,product_category)', [$category_id])->orderBy('product_id','desc')->paginate(12);
+    $categories['display'] = Category::with('SubCategory')->where('category_status','=','1')->where('drop_status','=','no')->where('language_code','=',$translate)->orderBy('display_order','asc')->get();
+    $data = array('categories'=> $categories,'category_name'=> $cat_id->category_name, 'products'=>$products);
+    // dd($products->links());
+    return view('frontend.category_products')->with($data);
   }
 	
 	public function view_best_sellers()
@@ -452,8 +483,12 @@ class CommonController extends Controller
 	  {
 	  $getreviewdata['view']  = Product::getreviewItems($shop->product_page_parent);
 	  }
-	   $data = array('setting' => $setting, 'shop' => $shop, 'attributer' => $attributer, 'typer' => $typer, 'seller' => $seller, 'product_tag' => $product_tag, 'another' => $another, 'getreview' => $getreview, 'count_rating' => $count_rating, 'getreviewdata' => $getreviewdata);
-	   return view('product')->with($data);
+    $session_id = Session::getId();
+    $cart = Product::checkInCart($session_id,$shop->product_token);
+    $categories['display'] = Category::with('SubCategory')->where('category_status','=','1')->where('drop_status','=','no')->where('language_code','=',$translate)->orderBy('display_order','asc')->get();
+	   $data = array('setting' => $setting,'categories'=>$categories,'cart' => $cart, 'shop' => $shop, 'attributer' => $attributer, 'typer' => $typer, 'seller' => $seller, 'product_tag' => $product_tag, 'another' => $another, 'getreview' => $getreview, 'count_rating' => $count_rating, 'getreviewdata' => $getreviewdata);
+	  //  return view('product')->with($data);
+	   return view('frontend.product')->with($data);
 	}
 	
 	
@@ -1140,10 +1175,10 @@ class CommonController extends Controller
 
     public function user_verify($user_token)
     {
-        $data = array('verified'=>'1');
-		$user['user'] = Members::verifyuserData($user_token, $data);
-		
-		return redirect('login')->with('success','Your e-mail is verified. You can now login.');
+      $data = array('verified'=>'1');
+      $user['user'] = Members::verifyuserData($user_token, $data);
+      
+      return redirect('login')->with('success','Your e-mail is verified. You can now login.');
     }
 	
 	
@@ -1193,7 +1228,7 @@ class CommonController extends Controller
 	public function view_category_events($cat_id,$slug)
 	{
 	
-	$display['view'] = Events::categoryEvents($cat_id);
+	  $display['view'] = Events::categoryEvents($cat_id);
 	  $category['view'] = Category::eventCategoryData();
 	  $count_category = Category::getgroupeventData();
 	   $data = array('display' => $display, 'category' => $category, 'count_category' => $count_category, 'slug' => $slug); 

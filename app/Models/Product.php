@@ -420,6 +420,24 @@ class Product extends Model
 	{
 	   DB::table('product_orders')->where('ord_id', '=', $delete_id)->delete();
 	}
+
+  public static function qtyInCart($session_id,$product_token)
+	{
+    $get=DB::table('product_orders')->where('product_token','=', $product_token)->where('session_id','=', $session_id)->where('order_status','=', 'pending')->first();
+    if($get)
+      return $get->quantity;
+    else
+      return 0;
+	}
+
+  public static function checkInCart($session_id,$product_token)
+	{
+    $get=DB::table('product_orders')->where('product_token','=', $product_token)->where('session_id','=', $session_id)->where('order_status','=', 'pending')->first();
+    if($get)
+      return ['qty'=>$get->quantity,'ord_id'=>$get->ord_id];
+    else
+      return [];
+	}
 	
 	public static function checkOrder($session_id,$product_token)
   {

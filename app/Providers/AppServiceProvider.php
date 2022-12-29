@@ -3,6 +3,7 @@
 namespace ZigKart\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Pagination\Paginator;
 
 use Illuminate\Support\Facades\Schema;
 use ZigKart\Models\Members;
@@ -42,6 +43,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+      Paginator::useBootstrap();
         Schema::defaultStringLength(191);
 		$admin = Members::adminData();
 		View::share('admin', $admin);
