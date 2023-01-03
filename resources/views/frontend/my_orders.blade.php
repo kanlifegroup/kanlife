@@ -61,7 +61,7 @@
         <td>{{date('d-m-Y', strtotime($product->order_date))}}</td>
         <td>{{ $product->total }} Rs.</td>
         <td>{{ucfirst(str_replace("-"," ",$product->payment_type))}}</td>
-        <td><span class="view-under">View</span></td>
+        <td><a href="{{ url('/invoice') }}/{{ $product->purchase_token }}"><span class="view-under">View</span></a></td>
         <td><a href="my-purchase-details/{{ $product->purchase_token }}"><span class="view-under">View Details</span></a></td>
         @php $no++; @endphp
       @endforeach  
