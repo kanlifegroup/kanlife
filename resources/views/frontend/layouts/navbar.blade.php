@@ -39,7 +39,7 @@ $module=explode("/", url()->current());
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav ml-auto">
-        @if(isset($categories))
+        @if(isset($is_categories) && $is_categories)
         <div class="dropdown">
           <a class="dropdown-toggle prn deu-barcat nav-link" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fa fa-bars" aria-hidden="true"></i>  Categories
@@ -105,10 +105,8 @@ $module=explode("/", url()->current());
             </button>
             <div class="dropdown-menu">
               <a class="dropdown-item deu-accountpad" href="#">Your Account</a>
-              @if(array_intersect([$user_location],['india','london']))
-            <a class="dropdown-item deu-accountpad" href="#">Your Orders</a>
-            <a class="dropdown-item deu-accountpad" href="#">Your Wishlist</a>
-            @endif
+              <a class="dropdown-item deu-accountpad" href="{{url('/my-purchase')}}">Your Orders</a>
+              <a class="dropdown-item deu-accountpad" href="{{url('/wishlist')}}">Your Wishlist</a>
             <form action="{{url('/logout')}}" method="post">
               @csrf
               <button class="dropdown-item deu-accountpad" href="#">Log Out</button>

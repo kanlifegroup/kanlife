@@ -432,7 +432,7 @@ class Product extends Model
 
   public static function checkInCart($session_id,$product_token)
 	{
-    $get=DB::table('product_orders')->where('product_token','=', $product_token)->where('session_id','=', $session_id)->where('order_status','=', 'pending')->first();
+    $get=DB::table('product_orders')->where('checked_out','=', 0)->where('product_token','=', $product_token)->where('session_id','=', $session_id)->where('order_status','=', 'pending')->first();
     if($get)
       return ['qty'=>$get->quantity,'ord_id'=>$get->ord_id];
     else
@@ -448,10 +448,12 @@ class Product extends Model
 	
   }
    public static function saveOrder($data)
-   {
-   
-     DB::table('product_orders')->insert($data);
-   
+   {   
+     DB::table('product_orders')->insert($data);   
+   }
+   public static function updateOrderCheckout($purchase_token,$data)
+   {   
+     DB::table('product_orders')->where('purchase_token', $purchase_token)->update($data);
    }
    
    public static function changeOrder($session_id,$updata)
@@ -474,7 +476,7 @@ class Product extends Model
    public static function viewNewOrder($user_id,$session_id,$translate)
   {
 
-    $value=DB::table('product_orders')->join('users','users.id','product_orders.product_user_id')->join('product','product.product_token','product_orders.product_token')->where('product_orders.user_id', '=', $user_id)->where('product_orders.session_id', '=', $session_id)->where('product_orders.order_status','=','pending')->where('product.language_code','=',$translate)->orderBy('product_orders.ord_id', 'desc')->get();
+    $value=DB::table('product_orders')->join('users','users.id','product_orders.product_user_id')->join('product','product.product_token','product_orders.product_token')->where('product_orders.user_id', '=', $user_id)->where('product_orders.session_id', '=', $session_id)->where('product_orders.order_status','=','pending')->where('product.language_code','=',$translate)->where('product_orders.checked_out','=', 0)->orderBy('product_orders.ord_id', 'desc')->get();
     return $value;
 	
   }
@@ -482,7 +484,7 @@ class Product extends Model
    public static function viewOrder($session_id,$translate)
   {
 
-    $value=DB::table('product_orders')->join('users','users.id','product_orders.product_user_id')->join('product','product.product_token','product_orders.product_token')->where('product_orders.session_id', '=', $session_id)->where('product_orders.order_status','=','pending')->where('product.language_code','=',$translate)->orderBy('product_orders.ord_id', 'asc')->get();
+    $value=DB::table('product_orders')->join('users','users.id','product_orders.product_user_id')->join('product','product.product_token','product_orders.product_token')->where('product_orders.session_id', '=', $session_id)->where('product_orders.order_status','=','pending')->where('product.language_code','=',$translate)->where('product_orders.checked_out','=', 0)->orderBy('product_orders.ord_id', 'asc')->get();
     return $value;
 	
   }
@@ -499,7 +501,7 @@ class Product extends Model
   public static function viewCheckOrder($session_id,$translate)
   {
 
-    $value=DB::table('product_orders')->join('users','users.id','product_orders.product_user_id')->join('product','product.product_token','product_orders.product_token')->where('product_orders.session_id', '=', $session_id)->where('product_orders.order_status','=','pending')->where('product.language_code','=',$translate)->orderBy('product_orders.ord_id', 'asc')->get();
+    $value=DB::table('product_orders')->join('users','users.id','product_orders.product_user_id')->join('product','product.product_token','product_orders.product_token')->where('product_orders.session_id', '=', $session_id)->where('product_orders.order_status','=','pending')->where('product.language_code','=',$translate)->where('product_orders.checked_out','=', 0)->orderBy('product_orders.ord_id', 'asc')->get();
     return $value;
 	
   }
@@ -507,7 +509,7 @@ class Product extends Model
   public static function cartCount($session_id)
   {
 
-    $get=DB::table('product_orders')->where('order_status','=', 'pending')->where('session_id','=', $session_id)->get();
+    $get=DB::table('product_orders')->where('checked_out','=', 0)->where('order_status','=', 'pending')->where('session_id','=', $session_id)->get();
 	$value = $get->count(); 
     return $value;
 	

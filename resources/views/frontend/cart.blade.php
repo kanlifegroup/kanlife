@@ -31,6 +31,7 @@
         @php 
         $subtotal = 0;
         $coupon_code = ""; 
+        $coupon_discount = 0; 
         $new_price = 0;
         @endphp
         @if($cart_count > 0)
@@ -68,7 +69,13 @@
             </div>
 						<div class="col-md-6">
 							<h4 class="deu-cardsname mt-5">{{$cart->product_name}}</h4>
+              @if($cart->discount_price != 0)
+              <h4 class="deu-cardrs" style="display:inline-block;"><i class="fa fa-inr" aria-hidden="true"></i>{{ $cart->discount_price }}</h4>
+              <span style="text-decoration: line-through;"><i class="fa fa-inr" aria-hidden="true"></i> {{$cart->price}}</span>
+              @else
               <h4 class="deu-cardrs"><i class="fa fa-inr" aria-hidden="true"></i>{{ $price }}</h4>
+              @endif
+              <!-- style="display:inline-block;" -->
 						</div>
 						<div class="col-md-3">
 							<div class="text-right">
@@ -83,7 +90,7 @@
 				<div class="panel-footer deu-proceedbg">
 					<div class="row text-right">
 						<div class="col-md-12">
-              <a href="#" class="deu-prceebtn">Proceed to checkout</a>
+              <a href="{{ url('/checkout') }}" class="deu-prceebtn">Proceed to checkout</a>
 						</div>
 					</div>
 				</div>
@@ -94,30 +101,64 @@
 			</div>
 		</div>
     <div class="col-md-5">
+      @if ($message = Session::get('success'))
+        <div class="alert alert-success" role="alert">
+          <span class="alert_icon lnr lnr-checkmark-circle"></span>
+          {{ $message }}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span class="fa fa-close" aria-hidden="true"></span>
+          </button>
+        </div>
+      @endif
+      @if ($message = Session::get('error'))
+        <div class="alert alert-danger" role="alert">
+          <span class="alert_icon lnr lnr-warning"></span>
+          {{ $message }}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span class="fa fa-close" aria-hidden="true"></span>
+          </button>
+        </div>
+      @endif
       <p class="deu-carthead">Cart Details</p>
       <table class="table table-borderless">
         <tr class="deu-cartsbg">
           <td>Price ({{$cart_count}} items)</td>
-          <td class="text-right"><i class="fa fa-inr" aria-hidden="true"></i><span class="subtotal"> @if($cart_count > 0) {{number_format((float)$subtotal, 2, '.', '');}} @else 00.00 @endif</span></td>
+          <td class="text-right"><i class="fa fa-inr" aria-hidden="true"></i><span class="subtotal">@if($cart_count > 0){{number_format((float)$subtotal, 2, '.', '');}} @else 00.00 @endif</span></td>
         </tr>
         <tr class="deu-cartsbgs">
           <td>Shipping and handling</td>
-          <td class="text-right"><i class="fa fa-inr" aria-hidden="true"></i> 00.00</td>
+          <td class="text-right"><i class="fa fa-inr" aria-hidden="true"></i>00.00</td>
         </tr>
+        @if($coupon_code != "")
+          @php 
+          $coupon_discount = $subtotal - $new_price;
+          $final = $new_price; 
+          @endphp
+        <tr class="deu-cartsbgs" style="background-color:#f2fffb">
+          <td>Coupon discount</td>
+          <td class="text-right">- <i class="fa fa-inr" aria-hidden="true"></i><span class="coupon_discount">{{number_format((float)$coupon_discount, 2, '.', '');}}</span></td>
+        </tr>
+        @else
+        @php $final = $subtotal; @endphp
+        @endif
         <tr class="deu-cartsbg">
           <td></td>
-          <td class="text-right"><i class="fa fa-inr" aria-hidden="true"></i><span class="subtotal"> {{number_format((float)$subtotal, 2, '.', '');}}</span></td>
+          <td class="text-right"><i class="fa fa-inr" aria-hidden="true"></i><span class="final">{{number_format((float)$final, 2, '.', '');}}</span></td>
         </tr>
         <tr class="deu-cartsbgs1">
           <td>Total Amount</td>
-          <td class="text-right"><i class="fa fa-inr" aria-hidden="true"></i><span class="subtotal"> @if($cart_count > 0) {{number_format((float)$subtotal, 2, '.', '');}} @else 00.00 @endif</span></td>
+          <td class="text-right"><i class="fa fa-inr" aria-hidden="true"></i><span class="final">@if($cart_count > 0){{number_format((float)$final, 2, '.', '');}} @else 00.00 @endif</span></td>
         </tr>
       </table>
       <div class="product-count mt-3 mb-3">
-          <form action="#" class="display-flex">
-          <input type="text" class="form-control deu-coupon" placeholder="Coupon Code" id="usr">
-      <a href="#" class="deu-couponss">Apply Coupon</a>
+          <form action="{{ route('coupon') }}" class="display-flex" id="coupon_form" method="post" >
+          {{ csrf_field() }}
+          <input type="text" class="form-control deu-coupon" placeholder="Coupon Code"  id="coupon" name="coupon" >
+      <button type="submit" class="deu-couponss">Apply Coupon</button>
       </form>
+      @if($coupon_code != "")
+        <a href="{{ URL::to('/cart/') }}/remove/{{ $coupon_code }}" onClick="return confirm('{{ Helper::translation(1992,$translate,'') }}');">{{ Helper::translation(2848,$translate,'') }} Coupon <strong>{{ $coupon_code }}</strong></a>
+      @endif
       </div>
 		</div>
 	</div>
@@ -164,7 +205,9 @@ function updateCart(data){
     data:{_token: "{{csrf_token()}}",'data': data},
     success:function(res)
     { 
-      $(".subtotal").text(res.subtotal);
+      $(".subtotal").text(parseFloat(res.subtotal).toFixed(2));
+      $(".coupon_discount").text(parseFloat(res.coupon_discount).toFixed(2));
+      $(".final").text(parseFloat(res.final).toFixed(2));
       if(res.remove == 1)
       window.location.reload();
     },

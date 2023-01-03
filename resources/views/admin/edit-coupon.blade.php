@@ -68,7 +68,7 @@
                        @if($demo_mode == 'on')
                            @include('admin.demo-mode')
                            @else
-                        <form action="{{ route('admin.edit-coupon') }}" method="post" id="setting_form" enctype="multipart/form-data">
+                        <form action="{{ url('/admin/edit-coupon') }}" method="post" id="setting_form" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         @endif
                          <div class="col-md-6">

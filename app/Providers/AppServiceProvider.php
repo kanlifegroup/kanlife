@@ -173,7 +173,7 @@ class AppServiceProvider extends ServiceProvider
 		View::share('categorybox', $categorybox);
 		
 		$categories['display'] = Category::with('SubCategory')->where('category_status','=','1')->where('drop_status','=','no')->where('language_code','=',$translate)->orderBy('display_order','asc')->get();
-		// View::share('categories', $categories);
+		View::share('categories', $categories);
 		
 		$attribute['display'] = Attribute::with('AttributeValue')->where('attribute_status','=','1')->where('attribute_drop_status','=','no')->orderBy('attribute_order','asc')->get();
 		View::share('attribute', $attribute);

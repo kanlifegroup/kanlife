@@ -153,8 +153,8 @@ class ProductController extends Controller
 	$user_id = Auth::user()->id;
 	$order['details'] = Product::myOrderDetails($user_id);
 	$encrypter = app('Illuminate\Contracts\Encryption\Encrypter');
-	$data = array('order' => $order, 'user_id' => $user_id, 'encrypter' => $encrypter);
-	return view('my-orders')->with($data);
+	$data = array('is_categories'=>true,'order' => $order, 'user_id' => $user_id, 'encrypter' => $encrypter);
+	return view('frontend.my-orders')->with($data);
 	}
 	
 	public function single_orders_details($ord_id,$token)
@@ -191,8 +191,9 @@ class ProductController extends Controller
 	
 	$user_id = Auth::user()->id;
 	$purchase['details'] = Product::myPurchase($user_id);
-	$data = array('purchase' => $purchase, 'user_id' => $user_id);
-	return view('my-purchase')->with($data);
+	$data = array('is_categories'=>true,'purchase' => $purchase, 'user_id' => $user_id);
+	// return view('my-purchase')->with($data);
+	return view('frontend.my_orders')->with($data);
 	}
 	
 	
@@ -267,8 +268,9 @@ class ProductController extends Controller
 	  $refund_date = date('Y-m-d', strtotime($refund_time, strtotime($purchase->payment_date)));
 	  $today_date = date('Y-m-d');
 	  $encrypter = app('Illuminate\Contracts\Encryption\Encrypter');
-	  $data = array('purchase' => $purchase, 'user_id' => $user_id, 'billcountry' => $billcountry, 'shipcountry' => $shipcountry, 'product' => $product, 'refund_date' => $refund_date, 'today_date' => $today_date, 'encrypter' => $encrypter);
-	  return view('my-purchase-details')->with($data);
+	  $data = array('purchase' => $purchase,'is_categories'=>true, 'user_id' => $user_id, 'billcountry' => $billcountry, 'shipcountry' => $shipcountry, 'product' => $product, 'refund_date' => $refund_date, 'today_date' => $today_date, 'encrypter' => $encrypter);
+	  // return view('my-purchase-details')->with($data);
+	  return view('frontend.purchase_details')->with($data);
 	}
 	
 	/* purchase */
@@ -448,8 +450,9 @@ class ProductController extends Controller
 	  $checkout_details = Product::Checkoutdata($user_id);
 	  $checkout_data = Product::countCheckout($user_id);
 	  $get_payment = explode(',', $setting['setting']->payment_option);
-	  $data = array('setting' => $setting, 'cart' => $cart, 'subtotal' => $subtotal, 'coupon_code' => $coupon_code, 'new_price' => $new_price, 'coupon_discount' => $coupon_discount, 'final' => $final, 'get_payment' => $get_payment, 'order_numbers' => $order_numbers, 'product_numbers' => $product_numbers, 'product_names' => $product_names, 'checkout_details' => $checkout_details, 'checkout_data' => $checkout_data);
-	  return view('checkout')->with($data);
+	  $data = array('is_categories'=>true,'setting' => $setting, 'cart' => $cart, 'subtotal' => $subtotal, 'coupon_code' => $coupon_code, 'new_price' => $new_price, 'coupon_discount' => $coupon_discount, 'final' => $final, 'get_payment' => $get_payment, 'order_numbers' => $order_numbers, 'product_numbers' => $product_numbers, 'product_names' => $product_names, 'checkout_details' => $checkout_details, 'checkout_data' => $checkout_data);
+	  // return view('checkout')->with($data);
+	  return view('frontend.checkout')->with($data);
 	  
 	}
 	
@@ -464,9 +467,11 @@ class ProductController extends Controller
 	   $bill_firstname = $request->input('bill_firstname');
 	   $bill_lastname = $request->input('bill_lastname');
 	   $bill_companyname = $request->input('bill_companyname');
+	   $bill_companyaddress = $request->input('bill_companyaddress');
 	   $bill_email = $request->input('bill_email');
 	   $bill_phone = $request->input('bill_phone');
 	   $bill_address = $request->input('bill_address');
+	   $bill_address_2 = $request->input('bill_address_2');
 	   $bill_city = $request->input('bill_city');
 	   $bill_state = $request->input('bill_state');
 	   $bill_postcode = $request->input('bill_postcode');
@@ -635,14 +640,14 @@ class ProductController extends Controller
 		$total_price = $total + $ship_rate + $vat_price;
 		if($check_checkout == 0)
 		{
-		   $save_data = array('purchase_token' => $purchase_token, 'token' => $token, 'ord_id' => $order_id, 'shipping_separate' => $single_rates, 'order_id_shipping' => $order_id_shipping, 'user_id' => $user_id, 'shipping_price' => $ship_rate, 'vat_price' => $vat_price, 'processing_fee' => $processing_fee, 'subtotal' => $sub_total, 'total' => $total_price, 'payment_type' => $payment_method, 'payment_date' => $payment_date, 'bill_firstname' => $bill_firstname, 'bill_lastname' => $bill_lastname, 'bill_companyname' => $bill_companyname, 'bill_email' => $bill_email, 'bill_phone' => $bill_phone, 'bill_country' => $bill_country, 'bill_address' => $bill_address, 'bill_city' => $bill_city, 'bill_state' => $bill_state, 'bill_postcode' => $bill_postcode, 'enable_ship' => $enable_shipping, 'ship_firstname' => $ship_firstname, 'ship_lastname' => $ship_lastname, 'ship_companyname' => $ship_companyname, 'ship_email' => $ship_email, 'ship_phone' => $ship_phone, 'ship_country' => $ship_country, 'ship_address' => $ship_address, 'ship_city' => $ship_city, 'ship_state' => $ship_state, 'ship_postcode' => $ship_postcode, 'other_notes' => $other_notes, 'payment_status' => $payment_status);
+		   $save_data = array('purchase_token' => $purchase_token, 'token' => $token, 'ord_id' => $order_id, 'shipping_separate' => $single_rates, 'order_id_shipping' => $order_id_shipping, 'user_id' => $user_id, 'shipping_price' => $ship_rate, 'vat_price' => $vat_price, 'processing_fee' => $processing_fee, 'subtotal' => $sub_total, 'total' => $total_price, 'payment_type' => $payment_method, 'payment_date' => $payment_date, 'bill_firstname' => $bill_firstname, 'bill_lastname' => $bill_lastname, 'bill_companyname' => $bill_companyname,'bill_companyaddress'=>$bill_companyaddress, 'bill_email' => $bill_email, 'bill_phone' => $bill_phone, 'bill_country' => $bill_country, 'bill_address' => $bill_address,'bill_address_2'=>$bill_address_2, 'bill_city' => $bill_city, 'bill_state' => $bill_state, 'bill_postcode' => $bill_postcode, 'enable_ship' => $enable_shipping, 'ship_firstname' => $ship_firstname, 'ship_lastname' => $ship_lastname, 'ship_companyname' => $ship_companyname, 'ship_email' => $ship_email, 'ship_phone' => $ship_phone, 'ship_country' => $ship_country, 'ship_address' => $ship_address, 'ship_city' => $ship_city, 'ship_state' => $ship_state, 'ship_postcode' => $ship_postcode, 'other_notes' => $other_notes, 'payment_status' => $payment_status);
 		 
 		 Product::saveCheckout($save_data); 
 		 
 		}
 		else
 		{
-		   $update_data = array('purchase_token' => $purchase_token, 'ord_id' => $order_id, 'shipping_separate' => $single_rates, 'order_id_shipping' => $order_id_shipping, 'user_id' => $user_id, 'shipping_price' => $ship_rate, 'vat_price' => $vat_price, 'processing_fee' => $processing_fee, 'subtotal' => $sub_total, 'total' => $total_price, 'payment_type' => $payment_method, 'payment_date' => $payment_date, 'bill_firstname' => $bill_firstname, 'bill_lastname' => $bill_lastname, 'bill_companyname' => $bill_companyname, 'bill_email' => $bill_email, 'bill_phone' => $bill_phone, 'bill_country' => $bill_country, 'bill_address' => $bill_address, 'bill_city' => $bill_city, 'bill_state' => $bill_state, 'bill_postcode' => $bill_postcode, 'enable_ship' => $enable_shipping, 'ship_firstname' => $ship_firstname, 'ship_lastname' => $ship_lastname, 'ship_companyname' => $ship_companyname, 'ship_email' => $ship_email, 'ship_phone' => $ship_phone, 'ship_country' => $ship_country, 'ship_address' => $ship_address, 'ship_city' => $ship_city, 'ship_state' => $ship_state, 'ship_postcode' => $ship_postcode, 'other_notes' => $other_notes);
+		   $update_data = array('purchase_token' => $purchase_token, 'ord_id' => $order_id, 'shipping_separate' => $single_rates, 'order_id_shipping' => $order_id_shipping, 'user_id' => $user_id, 'shipping_price' => $ship_rate, 'vat_price' => $vat_price, 'processing_fee' => $processing_fee, 'subtotal' => $sub_total, 'total' => $total_price, 'payment_type' => $payment_method, 'payment_date' => $payment_date, 'bill_firstname' => $bill_firstname, 'bill_lastname' => $bill_lastname, 'bill_companyname' => $bill_companyname,'bill_companyaddress'=>$bill_companyaddress, 'bill_email' => $bill_email, 'bill_phone' => $bill_phone, 'bill_country' => $bill_country, 'bill_address' => $bill_address,'bill_address_2'=>$bill_address_2, 'bill_city' => $bill_city, 'bill_state' => $bill_state, 'bill_postcode' => $bill_postcode, 'enable_ship' => $enable_shipping, 'ship_firstname' => $ship_firstname, 'ship_lastname' => $ship_lastname, 'ship_companyname' => $ship_companyname, 'ship_email' => $ship_email, 'ship_phone' => $ship_phone, 'ship_country' => $ship_country, 'ship_address' => $ship_address, 'ship_city' => $ship_city, 'ship_state' => $ship_state, 'ship_postcode' => $ship_postcode, 'other_notes' => $other_notes);
 		   
 		   Product::updateCheckout($token,$update_data);
 		}
@@ -721,10 +726,8 @@ class ProductController extends Controller
 			echo $two_checkout;
 		}	*/
 		
-			   
-	   
-	   $record = array('total_price' => $total_price, 'purchase_token' => $purchase_token, 'payment_method' => $payment_method, 'product_names' => $product_names, 'ship_rate' => $ship_rate, 'sub_total' => $sub_total, 'paypal_url' => $paypal_url, 'paypal_email' => $paypal_email, 'site_currency' => $site_currency, 'website_url' => $website_url, 'stripe_mode' => $stripe_mode, 'stripe_publish_key' => $stripe_publish_key, 'two_checkout_private' => $two_checkout_private, 'two_checkout_account' => $two_checkout_account, 'two_checkout_mode' => $two_checkout_mode, 'token' => $token, 'two_checkout_publishable' => $two_checkout_publishable, 'bill_firstname' => $bill_firstname, 'bill_lastname' => $bill_lastname, 'bill_address' => $bill_address, 'bill_city' => $bill_city, 'bill_state' => $bill_state, 'bill_postcode' => $bill_postcode, 'bill_country' => $bill_country, 'bill_email' => $bill_email, 'vat_price' => $vat_price);
-       return view('order-confirm')->with($record);
+	   $record = array('is_categories'=>true,'total_price' => $total_price, 'purchase_token' => $purchase_token, 'payment_method' => $payment_method, 'product_names' => $product_names, 'ship_rate' => $ship_rate, 'sub_total' => $sub_total, 'paypal_url' => $paypal_url, 'paypal_email' => $paypal_email, 'site_currency' => $site_currency, 'website_url' => $website_url, 'stripe_mode' => $stripe_mode, 'stripe_publish_key' => $stripe_publish_key, 'two_checkout_private' => $two_checkout_private, 'two_checkout_account' => $two_checkout_account, 'two_checkout_mode' => $two_checkout_mode, 'token' => $token, 'two_checkout_publishable' => $two_checkout_publishable, 'bill_firstname' => $bill_firstname, 'bill_lastname' => $bill_lastname, 'bill_address' => $bill_address, 'bill_city' => $bill_city, 'bill_state' => $bill_state, 'bill_postcode' => $bill_postcode, 'bill_country' => $bill_country, 'bill_email' => $bill_email, 'vat_price' => $vat_price);
+       return view('frontend.confirm_order')->with($record);
 	   
 	      		  
 	   
@@ -733,7 +736,7 @@ class ProductController extends Controller
 	}
 	
 	public function razorpay_payment(Request $request)
-    {
+  {
 	    $sid = 1;
 	    $setting['setting'] = Settings::editGeneral($sid);
         $input = $request->all();
@@ -746,8 +749,8 @@ class ProductController extends Controller
 
         //dd($paymentDetails);
          //print_r($paymentDetails);
-		if(count($input)  && !empty($input['razorpay_payment_id'])) 
-		{
+      if(count($input)  && !empty($input['razorpay_payment_id'])) 
+      {
 		
 		 $payment_token = $input['razorpay_payment_id'];
 		 $ord_token = $payment->description;
@@ -824,12 +827,12 @@ class ProductController extends Controller
 		
         
         
-    }
+  }
 	
 	
 	
 	public function handleGatewayCallback()
-    {
+  {
         $paymentDetails = Paystack::getPaymentData();
 		
 
@@ -913,7 +916,7 @@ class ProductController extends Controller
 		  return redirect('/cancel');
 		}
 		
-    }
+  }
 	
 	
 	
@@ -1121,10 +1124,12 @@ class ProductController extends Controller
 	public function confirm_cod(Request $request)
 	{
 	   $purchase_token = $request->input('purchase_token');
+     Product::updateOrderCheckout($purchase_token,['checked_out'=>1]);
 	   $sid = 1;
 	   $setting['setting'] = Settings::editGeneral($sid);
 	   $bank_data = array('purchase_token' => $purchase_token);
-	   return view('cash-on-delivery')->with($bank_data);
+	  //  return view('cash-on-delivery')->with($bank_data);
+    return redirect('/my-purchase');
 	}
 	
 	public function charge(Request $request)

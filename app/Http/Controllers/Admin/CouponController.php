@@ -169,7 +169,7 @@ class CouponController extends Controller
 		}
 		else
 		{ 
-		$data = array('coupon_code' => $coupon_code, 'discount_type' => $discount_type, 'coupon_value' => $coupon_value, 'coupon_start_date' => $coupon_start_date, 'coupon_end_date' => $coupon_end_date, 'coupon_status' => $coupon_status);
+		$data = array('user_id'=>$user_id,'coupon_code' => $coupon_code, 'discount_type' => $discount_type, 'coupon_value' => $coupon_value, 'coupon_start_date' => $coupon_start_date, 'coupon_end_date' => $coupon_end_date, 'coupon_status' => $coupon_status);
         Coupon::updateCoupon($coupon_id, $data);
         return redirect('/admin/coupons')->with('success', 'Update successfully.');
 		}

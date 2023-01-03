@@ -19,7 +19,7 @@
                             <a class="nav-link" href="{{ url('/admin/general-settings') }}"><i class="fa fa-cog"></i> {{ Helper::translation(3408,$translate,'') }}</a>
                             @endif
                             --}}
-                            @if(Auth::user()->user_type == 'deuglo')
+                            @if(Auth::user()->user_type == 'admin')
                             <form action="{{url('/logout?logout=admin')}}" method="post">
                               @else
                             <form action="{{url('/logout?logout=dealer')}}" method="post">

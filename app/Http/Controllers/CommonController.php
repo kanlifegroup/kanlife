@@ -144,8 +144,8 @@ class CommonController extends Controller
 	  /*Product::forceCart($session_id);*/
 	  $cart['product'] = Product::viewOrder($session_id,$translate);
     // dd($cart['product']);
-    $categories['display'] = Category::with('SubCategory')->where('category_status','=','1')->where('drop_status','=','no')->where('language_code','=',$translate)->orderBy('display_order','asc')->get();
-	  $data = array('setting' => $setting, 'cart' => $cart, 'session_id' => $session_id, 'categories'=> $categories);
+    
+	  $data = array('setting' => $setting, 'is_categories'=>true,'cart' => $cart, 'session_id' => $session_id);
 	  // return view('cart')->with($data);
 	  return view('frontend.cart')->with($data);
 	}
@@ -188,14 +188,29 @@ class CommonController extends Controller
     DB::table('product_orders')->where('ord_id', $ord_id)->delete();
     $carts = Product::viewOrder($session_id,$translate);
     $subtotal = 0;
+    $coupon_discount = 0; 
+    $new_price = 0;
+    $final = 0;
     foreach($carts as $cart){
+      if($cart->discount_price !=0){
+        $price = $cart->discount_price;
+        $new_price += $cart->quantity * $cart->discount_price;
+        $coupon_code = $cart->coupon_code;
+      }
+      else{
+        $price = $cart->price;
+        $new_price += $cart->quantity * $cart->price;
+      }
       $total = $cart->quantity * $cart->price;
       $subtotal += $total;
+      $final = $new_price; 
+      $coupon_discount = $subtotal - $new_price;
     }
     return response()->json([
       'success' => true,
       'subtotal' => $subtotal,
-      'test' => $request->data,
+      'coupon_discount' => $coupon_discount,
+      'final' => $final,
       'remove'=>$request->data['remove']??0,
     ]);
 	}
@@ -256,8 +271,7 @@ class CommonController extends Controller
   public function view_buy()	
   {
     $translate = $this->lang_text();
-    $categories['display'] = Category::with('SubCategory')->where('category_status','=','1')->where('drop_status','=','no')->where('language_code','=',$translate)->orderBy('display_order','asc')->get();
-    $data = array('categories'=> $categories);
+    $data = array('is_categories'=>true,);
     return view('frontend.buy')->with($data);
   }
 
@@ -267,8 +281,7 @@ class CommonController extends Controller
     $cat_id = Category::singleCat($slug);
     $category_id = 'cat-'.$cat_id->cat_id;
     $products = Product::with('ProductImages')->where('product_status','=',1)->where('product_drop_status','=','no')->where('language_code','=',$translate)->whereRaw('FIND_IN_SET(?,product_category)', [$category_id])->orderBy('product_id','desc')->paginate(12);
-    $categories['display'] = Category::with('SubCategory')->where('category_status','=','1')->where('drop_status','=','no')->where('language_code','=',$translate)->orderBy('display_order','asc')->get();
-    $data = array('categories'=> $categories,'category_name'=> $cat_id->category_name, 'products'=>$products);
+    $data = array('is_categories'=>true,'category_name'=> $cat_id->category_name, 'products'=>$products);
     // dd($products->links());
     return view('frontend.category_products')->with($data);
   }
@@ -485,8 +498,7 @@ class CommonController extends Controller
 	  }
     $session_id = Session::getId();
     $cart = Product::checkInCart($session_id,$shop->product_token);
-    $categories['display'] = Category::with('SubCategory')->where('category_status','=','1')->where('drop_status','=','no')->where('language_code','=',$translate)->orderBy('display_order','asc')->get();
-	   $data = array('setting' => $setting,'categories'=>$categories,'cart' => $cart, 'shop' => $shop, 'attributer' => $attributer, 'typer' => $typer, 'seller' => $seller, 'product_tag' => $product_tag, 'another' => $another, 'getreview' => $getreview, 'count_rating' => $count_rating, 'getreviewdata' => $getreviewdata);
+	   $data = array('setting' => $setting,'is_categories'=>true,'cart' => $cart, 'shop' => $shop, 'attributer' => $attributer, 'typer' => $typer, 'seller' => $seller, 'product_tag' => $product_tag, 'another' => $another, 'getreview' => $getreview, 'count_rating' => $count_rating, 'getreviewdata' => $getreviewdata);
 	  //  return view('product')->with($data);
 	   return view('frontend.product')->with($data);
 	}
