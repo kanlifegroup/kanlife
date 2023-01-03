@@ -153,8 +153,8 @@ class ProductController extends Controller
 	$user_id = Auth::user()->id;
 	$order['details'] = Product::myOrderDetails($user_id);
 	$encrypter = app('Illuminate\Contracts\Encryption\Encrypter');
-	$data = array('is_categories'=>true,'order' => $order, 'user_id' => $user_id, 'encrypter' => $encrypter);
-	return view('frontend.my-orders')->with($data);
+	$data = array('order' => $order, 'user_id' => $user_id, 'encrypter' => $encrypter);
+	return view('my-orders')->with($data);
 	}
 	
 	public function single_orders_details($ord_id,$token)
@@ -186,14 +186,14 @@ class ProductController extends Controller
 	  return view('my-orders-details')->with($data);
 	}
 	
-	public function view_purchase_details()
-	{  
-	
-	$user_id = Auth::user()->id;
-	$purchase['details'] = Product::myPurchase($user_id);
-	$data = array('is_categories'=>true,'purchase' => $purchase, 'user_id' => $user_id);
-	// return view('my-purchase')->with($data);
-	return view('frontend.my_orders')->with($data);
+	public function view_purchase_details(Request $request)
+	{
+    $items = $request->items ?? 10;
+    $user_id = Auth::user()->id;
+    $purchases = Product::myPurchase($user_id, $items);
+    $data = array('is_categories'=>true,'purchases' => $purchases, 'user_id' => $user_id);
+    // return view('my-purchase')->with($data);
+    return view('frontend.my_orders')->with($data);
 	}
 	
 	

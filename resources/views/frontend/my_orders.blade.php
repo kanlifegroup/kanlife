@@ -23,7 +23,12 @@
 		<h1 class="deu-meethead">My Orders</h1>
 	</div>
 </div>
-
+@php 
+  $from_item = ($purchases->currentpage()-1)*$purchases->perpage()+1;
+  $to_item = $purchases->currentpage()*$purchases->perpage();
+  if($to_item > $purchases->total())
+  $to_item = $purchases->total()
+@endphp
 <div class="container-fluid mt-5 mb-3">
 	<div class="row">
 	<div class="col-md-12">
@@ -52,11 +57,11 @@
       </tr>
     </thead>
     <tbody>
-    @php $no = 1; @endphp
-      @foreach($purchase['details'] as $product)
+    @php $no = 0; @endphp
+      @foreach($purchases as $product)
       
       <tr class="deu-td">
-        <td>{{$no}}</td>
+        <td>{{$no + $from_item}}</td>
         <td>#{{$product->purchase_token}}</td>
         <td>{{date('d-m-Y', strtotime($product->order_date))}}</td>
         <td>{{ $product->total }} Rs.</td>
@@ -72,10 +77,9 @@
 	</div>
 	</div>
 </div>
-
 <div class="container text-center">
 <div class="pagination_rounded mt-3 mb-5">
-<ul>
+<!-- <ul>
     <li><a href="#">1</a>
     </li>
     <li class="hidden-xs"><a href="#">2</a>
@@ -90,7 +94,24 @@
     </li>
     <li><a href="#" class="next"> Next</a>
     </li>
-</ul>
+</ul> -->
+    <ul>
+      @if($purchases->currentPage()!=1)
+      <li>
+        <a href="{{$purchases->path().'?page='.($purchases->currentPage()-1)}}" class="prev"> Previous</a>
+      </li>
+      @endif
+      @for($i=1; $i <= $purchases->lastPage(); $i++)
+      <li>
+        <a @if($i == $purchases->currentPage()) class="active" @endif href="{{$purchases->path().'?page='.$i}}">{{$i}}</a>
+      </li>
+      @endfor
+      @if($purchases->currentPage()!=$purchases->lastPage())
+      <li>
+        <a href="{{$purchases->path().'?page='.($purchases->currentPage()+1)}}" class="next"> Next</a>
+      </li>
+      @endif
+    </ul>
 </div>
 </div>
 

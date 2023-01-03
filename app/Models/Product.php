@@ -693,9 +693,9 @@ class Product extends Model
 	
   /* purchase */
   
-  public static function myPurchase($user_id)
+  public static function myPurchase($user_id, $items=10)
   {
-    $value=DB::table('product_checkout')->where('user_id','=',$user_id)->orderBy('cid', 'desc')->get(); 
+    $value=DB::table('product_checkout')->where('user_id','=',$user_id)->orderBy('cid', 'desc')->paginate($items); 
     return $value;
   }
   
