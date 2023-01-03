@@ -587,37 +587,29 @@ class ProductController extends Controller
 	      $shop_country = $cart->user_country;
 		  if(!empty($ship_country))
 		  {
-							   if($ship_country == $shop_country)
-							   {
-							      $ship_rate += $cart->product_local_shipping_fee;
-								  $single_rate .= $cart->product_local_shipping_fee.',';
-							   }
-							   else
-							   {
-							        $ship_rate += $cart->product_global_shipping_fee;
-								    $single_rate .= $cart->product_global_shipping_fee.',';
-							   }
-							   
-							   
-							
-							
+        if($ship_country == $shop_country)
+        {
+          $ship_rate += $cart->product_local_shipping_fee;
+        $single_rate .= $cart->product_local_shipping_fee.',';
+        }
+        else
+        {
+            $ship_rate += $cart->product_global_shipping_fee;
+          $single_rate .= $cart->product_global_shipping_fee.',';
+        }
 		  }
 		  else
 		  {
-							    
-								if($bill_country == $shop_country)
-							   {
-							      $ship_rate += $cart->product_local_shipping_fee;
-								  $single_rate .= $cart->product_local_shipping_fee.',';
-							   }
-							   else
-							   {
-							        $ship_rate += $cart->product_global_shipping_fee;
-								    $single_rate .= $cart->product_global_shipping_fee.',';
-							   }
-							   
-							 
-							   
+        if($bill_country == $shop_country)
+          {
+            $ship_rate += $cart->product_local_shipping_fee;
+          $single_rate .= $cart->product_local_shipping_fee.',';
+          }
+          else
+          {
+              $ship_rate += $cart->product_global_shipping_fee;
+            $single_rate .= $cart->product_global_shipping_fee.',';
+          }
 			}
 	   
 	   
@@ -632,25 +624,22 @@ class ProductController extends Controller
 		   $ship_price = $names[$index];
 		   $or_id = $code;
 		   $order_data = array('shipping_price' => $ship_price);
-		   Product::updateOrders($or_id,$order_data);
-		   		   
+		   Product::updateOrders($or_id,$order_data);		   		   
 		}
 		$order_id_shipping = rtrim($separate,',');
 		$check_checkout = Product::checkCheckout($token);
+    // dd($check_checkout);
 		$total_price = $total + $ship_rate + $vat_price;
-		if($check_checkout == 0)
-		{
-		   $save_data = array('purchase_token' => $purchase_token, 'token' => $token, 'ord_id' => $order_id, 'shipping_separate' => $single_rates, 'order_id_shipping' => $order_id_shipping, 'user_id' => $user_id, 'shipping_price' => $ship_rate, 'vat_price' => $vat_price, 'processing_fee' => $processing_fee, 'subtotal' => $sub_total, 'total' => $total_price, 'payment_type' => $payment_method, 'payment_date' => $payment_date, 'bill_firstname' => $bill_firstname, 'bill_lastname' => $bill_lastname, 'bill_companyname' => $bill_companyname,'bill_companyaddress'=>$bill_companyaddress, 'bill_email' => $bill_email, 'bill_phone' => $bill_phone, 'bill_country' => $bill_country, 'bill_address' => $bill_address,'bill_address_2'=>$bill_address_2, 'bill_city' => $bill_city, 'bill_state' => $bill_state, 'bill_postcode' => $bill_postcode, 'enable_ship' => $enable_shipping, 'ship_firstname' => $ship_firstname, 'ship_lastname' => $ship_lastname, 'ship_companyname' => $ship_companyname, 'ship_email' => $ship_email, 'ship_phone' => $ship_phone, 'ship_country' => $ship_country, 'ship_address' => $ship_address, 'ship_city' => $ship_city, 'ship_state' => $ship_state, 'ship_postcode' => $ship_postcode, 'other_notes' => $other_notes, 'payment_status' => $payment_status);
-		 
-		 Product::saveCheckout($save_data); 
-		 
-		}
-		else
-		{
-		   $update_data = array('purchase_token' => $purchase_token, 'ord_id' => $order_id, 'shipping_separate' => $single_rates, 'order_id_shipping' => $order_id_shipping, 'user_id' => $user_id, 'shipping_price' => $ship_rate, 'vat_price' => $vat_price, 'processing_fee' => $processing_fee, 'subtotal' => $sub_total, 'total' => $total_price, 'payment_type' => $payment_method, 'payment_date' => $payment_date, 'bill_firstname' => $bill_firstname, 'bill_lastname' => $bill_lastname, 'bill_companyname' => $bill_companyname,'bill_companyaddress'=>$bill_companyaddress, 'bill_email' => $bill_email, 'bill_phone' => $bill_phone, 'bill_country' => $bill_country, 'bill_address' => $bill_address,'bill_address_2'=>$bill_address_2, 'bill_city' => $bill_city, 'bill_state' => $bill_state, 'bill_postcode' => $bill_postcode, 'enable_ship' => $enable_shipping, 'ship_firstname' => $ship_firstname, 'ship_lastname' => $ship_lastname, 'ship_companyname' => $ship_companyname, 'ship_email' => $ship_email, 'ship_phone' => $ship_phone, 'ship_country' => $ship_country, 'ship_address' => $ship_address, 'ship_city' => $ship_city, 'ship_state' => $ship_state, 'ship_postcode' => $ship_postcode, 'other_notes' => $other_notes);
-		   
-		   Product::updateCheckout($token,$update_data);
-		}
+		// if($check_checkout == 0)
+		// {
+      $save_data = array('purchase_token' => $purchase_token, 'token' => $token, 'ord_id' => $order_id, 'shipping_separate' => $single_rates, 'order_id_shipping' => $order_id_shipping, 'user_id' => $user_id, 'shipping_price' => $ship_rate, 'vat_price' => $vat_price, 'processing_fee' => $processing_fee, 'subtotal' => $sub_total, 'total' => $total_price, 'payment_type' => $payment_method, 'payment_date' => $payment_date, 'bill_firstname' => $bill_firstname, 'bill_lastname' => $bill_lastname, 'bill_companyname' => $bill_companyname,'bill_companyaddress'=>$bill_companyaddress, 'bill_email' => $bill_email, 'bill_phone' => $bill_phone, 'bill_country' => $bill_country, 'bill_address' => $bill_address,'bill_address_2'=>$bill_address_2, 'bill_city' => $bill_city, 'bill_state' => $bill_state, 'bill_postcode' => $bill_postcode, 'enable_ship' => $enable_shipping, 'ship_firstname' => $ship_firstname, 'ship_lastname' => $ship_lastname, 'ship_companyname' => $ship_companyname, 'ship_email' => $ship_email, 'ship_phone' => $ship_phone, 'ship_country' => $ship_country, 'ship_address' => $ship_address, 'ship_city' => $ship_city, 'ship_state' => $ship_state, 'ship_postcode' => $ship_postcode, 'other_notes' => $other_notes, 'payment_status' => $payment_status);
+		  Product::saveCheckout($save_data); 
+		// }
+		// else
+		// {
+		//    $update_data = array('purchase_token' => $purchase_token, 'ord_id' => $order_id, 'shipping_separate' => $single_rates, 'order_id_shipping' => $order_id_shipping, 'user_id' => $user_id, 'shipping_price' => $ship_rate, 'vat_price' => $vat_price, 'processing_fee' => $processing_fee, 'subtotal' => $sub_total, 'total' => $total_price, 'payment_type' => $payment_method, 'payment_date' => $payment_date, 'bill_firstname' => $bill_firstname, 'bill_lastname' => $bill_lastname, 'bill_companyname' => $bill_companyname,'bill_companyaddress'=>$bill_companyaddress, 'bill_email' => $bill_email, 'bill_phone' => $bill_phone, 'bill_country' => $bill_country, 'bill_address' => $bill_address,'bill_address_2'=>$bill_address_2, 'bill_city' => $bill_city, 'bill_state' => $bill_state, 'bill_postcode' => $bill_postcode, 'enable_ship' => $enable_shipping, 'ship_firstname' => $ship_firstname, 'ship_lastname' => $ship_lastname, 'ship_companyname' => $ship_companyname, 'ship_email' => $ship_email, 'ship_phone' => $ship_phone, 'ship_country' => $ship_country, 'ship_address' => $ship_address, 'ship_city' => $ship_city, 'ship_state' => $ship_state, 'ship_postcode' => $ship_postcode, 'other_notes' => $other_notes);
+		//    Product::updateCheckout($token,$update_data);
+		// }
 		$uporder = array('purchase_token' => $purchase_token);
 		Product::upOrders($user_id,$session_id,$uporder);
 		/* settings */

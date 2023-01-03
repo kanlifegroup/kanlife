@@ -582,6 +582,7 @@ class Product extends Model
       ->where('user_id', $user_id)
 	  ->where('session_id', $session_id)
 	  ->where('order_status', 'pending')
+    ->where('checked_out','=', 0)
       ->update($uporder);
   }
   
