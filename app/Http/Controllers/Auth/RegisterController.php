@@ -98,10 +98,10 @@ class RegisterController extends Controller
       $ifsc = $request->input('ifsc');
       $account_holder = $request->input('account_holder');
       $rules = array(
-        'name' => 'required',
-        'email' => ['required', 'email', 'max:255', Rule::unique('users') -> where(function($sql){ $sql->where('drop_status','=','no');})],
+        'name' => ['required', 'max:25'],
+        'email' => ['required', 'email','min:8', 'max:50', Rule::unique('users') -> where(function($sql){ $sql->where('drop_status','=','no');})],
         'user_phone' => ['required', 'digits:10','numeric', Rule::unique('users') -> where(function($sql){ $sql->where('drop_status','=','no');})],
-        'password' => ['required', 'min:8',Password::min(8)
+        'password' => ['required', 'min:8','max:25',Password::min(8)
                                                     ->letters()
                                                     ->mixedCase()
                                                     ->numbers()
@@ -116,16 +116,16 @@ class RegisterController extends Controller
         );
       }else{
         $rules = array(
-          'name' => 'required',
-          'email' => ['required', 'email', 'max:255', Rule::unique('users') -> where(function($sql){ $sql->where('drop_status','=','no');})],
+          'name' => ['required', 'max:25'],
+          'email' => ['required', 'email','min:8', 'max:50', Rule::unique('users') -> where(function($sql){ $sql->where('drop_status','=','no');})],
           'user_phone' => ['required', 'digits:10','numeric', Rule::unique('users') -> where(function($sql){ $sql->where('drop_status','=','no');})],
-          'password' => ['required', 'min:8',Password::min(8)
+          'password' => ['required', 'min:8','max:25',Password::min(8)
                                                       ->letters()
                                                       ->mixedCase()
                                                       ->numbers()
                                                       ->symbols()],
           'user_pincode' => ['required', 'digits:6','numeric'],
-          'user_address' => 'required',
+          'user_address' => ['required', 'max:200','min:10'],
           'password_confirmation' => 'required|same:password',
            );
       }

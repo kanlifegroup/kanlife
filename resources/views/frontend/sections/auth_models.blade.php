@@ -111,7 +111,7 @@
           </div>
           <div class="form-group row justify-content-center px-3">
             <div class="col-9 px-0">
-              <input type="number" name="user_phone" value="{{ old('user_phone') }}" placeholder="+91 | Contact Number*" class="@error('user_phone') is-invalid @enderror form-control border-info placeicon deu-logininput" >
+              <input type="number" name="user_phone" value="{{ old('user_phone') }}" placeholder="+91 | Contact Number*" class="@error('user_phone') is-invalid @enderror form-control border-info placeicon deu-logininput" onkeypress="return /^[0-9\s]*$/.test(event.key)">
               @error('user_phone')
                 <span class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>
@@ -131,7 +131,7 @@
           </div>
           <div class="form-group row justify-content-center px-3">
             <div class="col-9 px-0">
-              <input type="number" name="user_pincode" value="{{ old('user_pincode') }}" placeholder="Enter Pincode*" class=" @error('user_pincode') is-invalid @enderror form-control border-info placeicon deu-logininput" >
+              <input type="number" name="user_pincode" value="{{ old('user_pincode') }}" placeholder="Enter Pincode*" class=" @error('user_pincode') is-invalid @enderror form-control border-info placeicon deu-logininput" onkeypress="return /^[0-9\s]*$/.test(event.key)">
               @error('user_pincode')
                 <span class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>

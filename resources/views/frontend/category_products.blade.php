@@ -49,7 +49,7 @@
 	    </div>
 	  </div>
     @php 
-     $from_item = ($products->currentpage()-1)*$products->perpage()+1;
+     $from_item = $products->total() == 0 ? 0 : ($products->currentpage()-1)*$products->perpage()+1;
      $to_item = $products->currentpage()*$products->perpage();
      if($to_item > $products->total())
      $to_item = $products->total()
@@ -57,7 +57,9 @@
     <div class="col-md-8">
       <div class="row">
         <div class="col-md-6">
+          @if($from_item <= $products->total())
           <p class="deu-Show">Showing {{$from_item}}-{{$to_item}} of {{$products->total()}} results</p>
+          @endif
         </div>
         <div class="col-md-6 text-right">
           <select class="deu-default">
