@@ -154,9 +154,9 @@
               <div class="form-check">
                 <label class="form-check-label">
                   <input type="radio" class="form-check-input" name="payment_method" value="paypal">Paypal 
-                  <img class="deu-visa" src="image/visa.svg"> 
-                  <img class="" src="image/visa1.svg" style="width: 50px; height: 32px;"> 
-                  <img class="" src="image/visa2.svg" style="width: 70px;">
+                  <img class="deu-visa" src="{{asset('public/image/visa.svg')}}"> 
+                  <img class="" src="{{asset('public/image/visa1.svg')}}" style="width: 50px; height: 32px;"> 
+                  <img class="" src="{{asset('public/image/visa2.svg')}}" style="width: 70px;">
                 </label>
               </div>
               </td>

@@ -60,7 +60,7 @@
                 <span><i class="fa fa-inr" aria-hidden="true"></i> {{$shop->product_price}}</span>
                 @endif
             </div>
-        <p class="" style="color:#3188CA;"><img class="deu-fealine" src="{{asset('image/line.svg')}}"> &nbsp;&nbsp;&nbsp;
+        <p class="" style="color:#3188CA;"><img class="deu-fealine" src="{{asset('public/image/line.svg')}}"> &nbsp;&nbsp;&nbsp;
          <span class="deu-filter">Features</span></p>
         <ul class="deu-proul">
           <li class="deu-margbtm"><i class="fa fa-circle deu-profa" aria-hidden="true"></i> 200 kHz, 4 kW, 100mA Mobile HF X-Ray</li>
@@ -99,7 +99,7 @@
         </div>
         <div class="col-md-4">
         <div class="deu-proright mt-4">
-        <p class="" style="color:#3188CA;"> <img class="deu-fealine" src="{{asset('image/line.svg')}}"> &nbsp;&nbsp;&nbsp;
+        <p class="" style="color:#3188CA;"> <img class="deu-fealine" src="{{asset('public/image/line.svg')}}"> &nbsp;&nbsp;&nbsp;
          <span class="deu-filter">Product Links</span></p>
         <ul class="deu-proul">
           <li><i class="fa fa-circle deu-profa" aria-hidden="true"></i> X-Ray System</li>

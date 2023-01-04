@@ -29,7 +29,7 @@
 	<div class="row">
     <div class="col-md-4">
       <div class="deu-borderblue">
-        <p style="color:#3188CA;"><img class="deu-fealine" src="{{asset('image/line.svg')}}"> &nbsp;&nbsp;&nbsp;
+        <p style="color:#3188CA;"><img class="deu-fealine" src="{{asset('public/image/line.svg')}}"> &nbsp;&nbsp;&nbsp;
          <span class="deu-filter">Product Categories</span>
         </p>
         <div class="chiller_cb">
@@ -39,7 +39,7 @@
         </div>
 	    </div>
       <div class="deu-borderblue my-5">
-        <p style="color:#3188CA;"><img class="deu-fealine" src="{{asset('image/line.svg')}}"> &nbsp;&nbsp;&nbsp;
+        <p style="color:#3188CA;"><img class="deu-fealine" src="{{asset('public/image/line.svg')}}"> &nbsp;&nbsp;&nbsp;
          <span class="deu-filter">Filter by Price</span>
         </p>
         <select class="deu-lowprice">
