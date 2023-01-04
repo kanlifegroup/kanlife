@@ -141,7 +141,7 @@
           </div>
           <div class="form-group row justify-content-center px-3">
             <div class="col-9 px-0">
-              <input type="password" name="password" placeholder="Enter Password*" class="@error('password') is-invalid @enderror form-control border-info placeicon deu-logininput" >
+              <input type="password" name="password" placeholder="Enter Password*" class="@error('password') is-invalid @enderror form-control border-info placeicon deu-logininput" onkeypress="return /^([0-9a-zA-Z!@#$%^&*(\).,<>{}[\]<>?_=+\-|;:\'\/\s])*[^\s]\1*$/.test(event.key)">
               @error('password')
                 <span class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>
@@ -151,7 +151,7 @@
           </div>
           <div class="form-group row justify-content-center px-3">
             <div class="col-9 px-0">
-              <input type="password" name="password_confirmation" placeholder="Enter Confirm Password*" class="@error('password_confirmation') is-invalid @enderror form-control border-info placeicon deu-logininput" >
+              <input type="password" name="password_confirmation" placeholder="Enter Confirm Password*" class="@error('password_confirmation') is-invalid @enderror form-control border-info placeicon deu-logininput" onkeypress="return /^([0-9a-zA-Z!@#$%^&*(\).,<>{}[\]<>?_=+\-|;:\'\/\s])*[^\s]\1*$/.test(event.key)">
               @error('password_confirmation')
                 <span class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>
