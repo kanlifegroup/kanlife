@@ -33,16 +33,18 @@
           @foreach($shop['product'] as $product) 
           <div class="col-md-3 mt-4">
             <div class="home-doctors  text-center doc-item">
-              <a href="{{url('/product').'/'.$product->product_slug}}">
               <div class="common-doctor animated fadeInUp clearfix ae-animation-fadeInUp deu-features">
                 <div class="deu-xrayfigure">
-                  <p class="deu-closed"><i class="fa fa-times" aria-hidden="true"></i></p>
+                  <p class="deu-closed" style="z-index:100;"><a href="{{ url('/wishlist') }}/{{ base64_encode($product->wid) }}"><i class="fa fa-times" aria-hidden="true"></i></a></p>
+                  <a href="{{url('/product').'/'.$product->product_slug}}">
                   @if($product->product_image != "")
-                <img src="{{ url('/') }}/public/storage/product/{{ $product->product_image }}" class="deu-widauto img-fluid doc-img animate attachment-gallery-post-single wp-post-image" alt=""> 
-                @else
-                <img src="{{ url('/') }}/public/img/no-image.jpg" class="deu-widauto img-fluid doc-img animate attachment-gallery-post-single wp-post-image" alt=""> 
-                @endif
+                  <img src="{{ url('/') }}/public/storage/product/{{ $product->product_image }}" class="deu-widauto img-fluid doc-img animate attachment-gallery-post-single wp-post-image" alt=""> 
+                  @else
+                  <img src="{{ url('/') }}/public/img/no-image.jpg" class="deu-widauto img-fluid doc-img animate attachment-gallery-post-single wp-post-image" alt=""> 
+                  @endif
+                  </a>
                 </div>
+                <a href="{{url('/product').'/'.$product->product_slug}}">
                 <div class="deu-xraypad">
                   <h5 class="deu-pro">{{$product->product_name}}</h5>
                   <h5 class="deu-protxt"><i class="fa fa-inr" aria-hidden="true"></i> 

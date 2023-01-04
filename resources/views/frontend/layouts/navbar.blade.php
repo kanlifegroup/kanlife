@@ -104,7 +104,7 @@ $module=explode("/", url()->current());
             {{ucfirst(Auth::user()->name)}}
             </button>
             <div class="dropdown-menu">
-              <a class="dropdown-item deu-accountpad" href="#">Your Account</a>
+              <a class="dropdown-item deu-accountpad" href="{{url('/my-profile')}}">Your Account</a>
               <a class="dropdown-item deu-accountpad" href="{{url('/my-purchase')}}">Your Orders</a>
               <a class="dropdown-item deu-accountpad" href="{{url('/wishlist')}}">Your Wishlist</a>
             <form action="{{url('/logout')}}" method="post">

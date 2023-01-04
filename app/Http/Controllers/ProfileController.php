@@ -13,6 +13,7 @@ use ZigKart\Models\Category;
 use Auth;
 use Mail;
 use Purifier;
+use Illuminate\Validation\Rules\Password;
 
 class ProfileController extends Controller
 {
@@ -33,51 +34,58 @@ class ProfileController extends Controller
 	
 	  $log_id = Auth::user()->id;
 	  $edit['profile'] = Members::logindataUser($log_id);
-	  return view('my-profile', ['edit' => $edit]);
+	  // return view('my-profile', ['edit' => $edit]);
+	  return view('frontend.my-profile', ['edit' => $edit]);
 	  
 	
 	}
 	
 	public function update_myprofile(Request $request)
 	{
-	
-	   $name = $request->input('name');
-	   $username = $request->input('username');
-         $email = $request->input('email');
+    // $name = $request->input('name');
+    // $username = $request->input('username');
+    // $email = $request->input('email');
 		 
 		 
-		 if(!empty($request->input('password')))
-		 {
-		 $password = bcrypt($request->input('password'));
-		 $pass = $password;
-		 }
-		 else
-		 {
-		 $pass = $request->input('save_password');
-		 }
+		//  if(!empty($request->input('password')))
+		//  {
+		//  $password = bcrypt($request->input('password'));
+		//  $pass = $password;
+		//  }
+		//  else
+		//  {
+		//  $pass = $request->input('save_password');
+		//  }
 		 
-		  $user_country = $request->input('user_country');	
-		  $user_gender = $request->input('user_gender');
-		  $user_address = $request->input('user_address');
-		  $user_phone = $request->input('user_phone'); 
-		  $user_about = Purifier::clean($request->input('user_about')); 
+		//   $user_country = $request->input('user_country');	
+		//   $user_gender = $request->input('user_gender');
+		//   $user_address = $request->input('user_address');
+		//   $user_phone = $request->input('user_phone'); 
+		//   $user_about = Purifier::clean($request->input('user_about')); 
 		  $token = $request->input('edit_id');
-		  $image_size = $request->input('image_size');
+		//   $image_size = $request->input('image_size');
 		 
          
-		 $request->validate([
-							'name' => 'required',
-							'username' => 'required',
-							'password' => 'min:6',
-							'email' => 'required|email',
-							'user_photo' => 'mimes:jpeg,jpg,png,gif|max:'.$image_size,
-							'user_banner' => 'mimes:jpeg,jpg,png,gif|max:'.$image_size,
+		//  $request->validate([
+		// 					'name' => 'required',
+		// 					'username' => 'required',
+		// 					'password' => 'min:6',
+		// 					'email' => 'required|email',
+		// 					'user_photo' => 'mimes:jpeg,jpg,png,gif|max:'.$image_size,
+		// 					'user_banner' => 'mimes:jpeg,jpg,png,gif|max:'.$image_size,
 							
-         ]);
+    //      ]);
 		 $rules = array(
-				'username' => ['required', 'regex:/^[\w-]*$/', 'max:255', Rule::unique('users') ->ignore($token, 'user_token') -> where(function($sql){ $sql->where('drop_status','=','no');})],
+				// 'username' => ['required', 'regex:/^[\w-]*$/', 'max:255', Rule::unique('users') ->ignore($token, 'user_token') -> where(function($sql){ $sql->where('drop_status','=','no');})],
+				'name' => ['required', 'max:25'],
 				'email' => ['required', 'email', 'max:255', Rule::unique('users') ->ignore($token, 'user_token') -> where(function($sql){ $sql->where('drop_status','=','no');})],
-				
+        'user_phone' => ['required', 'digits:10','numeric', Rule::unique('users')->ignore($token, 'user_token') -> where(function($sql){ $sql->where('drop_status','=','no');})],
+        'password' => ['sometimes','confirmed', 'min:8',Password::min(8)
+                                                    ->letters()
+                                                    ->mixedCase()
+                                                    ->numbers()
+                                                    ->symbols()],
+        'password_confirmation' => 'required_with:password|same:password',
 	     );
 		 
 		 $messsages = array(
@@ -89,11 +97,15 @@ class ProfileController extends Controller
 		if ($validator->fails()) 
 		{
 		 $failedRules = $validator->failed();
-		 return back()->withErrors($validator);
+		 return back()->withInput()->withErrors($validator);
 		} 
 		else
 		{
-		
+    $data = $request->only('email', 'name', 'user_phone');
+    $data['updated_at'] = date('Y-m-d H:i:s');
+    if(!empty($request->input('password')))
+    $data['password'] = bcrypt($request->input('password'));
+
 		if ($request->hasFile('user_photo')) {
 		     
 			Members::droPhoto($token); 
@@ -105,10 +117,10 @@ class ProfileController extends Controller
 			$image->move($destinationPath, $img_name);
 			$user_image = $img_name;
 		  }
-		  else
-		  {
-		     $user_image = $request->input('save_photo');
-		  }
+		  // else
+		  // {
+		  //    $user_image = $request->input('save_photo');
+		  // }
 		  
 		  if ($request->hasFile('user_banner')) {
 		     
@@ -121,15 +133,15 @@ class ProfileController extends Controller
 			$image->move($destinationPath, $img_name);
 			$user_banner = $img_name;
 		  }
-		  else
-		  {
-		     $user_banner = $request->input('save_banner');
-		  }
+		  // else
+		  // {
+		  //    $user_banner = $request->input('save_banner');
+		  // }
 		 
 		 
-		$data = array('name' => $name, 'username' => $username, 'email' => $email, 'password' => $pass, 'user_country' => $user_country, 'user_gender' => $user_gender, 
-		'user_photo' => $user_image, 'user_banner' => $user_banner, 'user_address' => $user_address, 'user_phone' => $user_phone, 'user_about' => $user_about, 
-		'updated_at' => date('Y-m-d H:i:s'));
+		// $data = array('name' => $name, 'username' => $username, 'email' => $email, 'password' => $pass, 'user_country' => $user_country, 'user_gender' => $user_gender, 
+		// 'user_photo' => $user_image, 'user_banner' => $user_banner, 'user_address' => $user_address, 'user_phone' => $user_phone, 'user_about' => $user_about, 
+		// 'updated_at' => date('Y-m-d H:i:s'));
  
             
             
