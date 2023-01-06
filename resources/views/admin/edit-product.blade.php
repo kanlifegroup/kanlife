@@ -170,11 +170,11 @@
                                             </div> 
                                             <div class="form-group">
                                                 <label for="name" class="control-label mb-1">{{ Helper::translation(1934,$translate,'') }}  ({{ $allsettings->site_currency_symbol }})<span class="require">*</span></label>
-                                                <input id="product_price" name="product_price" type="text" class="form-control" data-bvalidator="required" value="{{ $edit['product']->product_price }}">
+                                                <input id="product_price" name="product_price" type="text" class="form-control" data-bvalidator="required" value="{{ $edit['product']->product_price }}" onkeypress="return /^[0-9.\s]*$/.test(event.key)">
                                             </div>
                                              <div class="form-group">
                                                 <label for="name" class="control-label mb-1">{{ Helper::translation(1935,$translate,'') }} ({{ $allsettings->site_currency_symbol }})</label>
-                                                <input id="product_offer_price" name="product_offer_price" type="text" class="form-control" value="{{ $edit['product']->product_offer_price }}">
+                                                <input id="product_offer_price" name="product_offer_price" type="text" class="form-control" value="{{ $edit['product']->product_offer_price }}" onkeypress="return /^[0-9.\s]*$/.test(event.key)">
                                             </div>
                                             <div class="form-group">
                                                 <label for="customer_earnings" class="control-label mb-1">{{ Helper::translation(1936,$translate,'') }} <span class="require">*</span></label>
@@ -260,7 +260,7 @@
                                             </div> 
                                             <div class="form-group">
                                                 <label for="name" class="control-label mb-1">{{ Helper::translation(1949,$translate,'') }}</label>
-                                                <input id="product_estimate_time" name="product_estimate_time" type="text" class="form-control" data-bvalidator="digit,min[1]" value="{{ $edit['product']->product_estimate_time }}"><small>Days</small>
+                                                <input id="product_estimate_time" name="product_estimate_time" type="text" class="form-control" data-bvalidator="digit,min[1]" value="{{ $edit['product']->product_estimate_time }}" onkeypress="return /^[0-9\s]*$/.test(event.key)"><small>Days</small>
                                      </div>  
                                      <div class="form-group">
                                                 <label for="site_title" class="control-label mb-1">Condition <span class="require">*</span></label>
@@ -281,7 +281,7 @@
                                            </div>
                                            <div class="form-group">
                                                 <label for="name" class="control-label mb-1">{{ Helper::translation(1953,$translate,'') }}</label>
-                                                <input id="product_stock" name="product_stock" type="text" class="form-control" data-bvalidator="digit,min[0]" value="{{ $edit['product']->product_stock }}">
+                                                <input id="product_stock" name="product_stock" type="text" class="form-control" data-bvalidator="digit,min[0]" value="{{ $edit['product']->product_stock }}" onkeypress="return /^[0-9\s]*$/.test(event.key)">
                                                 <small><span class="red-color">{{ Helper::translation(1954,$translate,'') }}</span></small>
                                            </div> 
                                           @foreach($attribute_product['display'] as $attribute)
@@ -319,11 +319,11 @@
                                                 <input id="product_external_url" name="product_external_url" type="text" class="form-control" data-bvalidator="required,url" value="{{ $edit['product']->product_external_url }}"></div><div id="ifphysical" @if($edit['product']->product_type == 'physical') class="form-group force-block" @else class="form-group force-none" @endif>
                                      <div class="form-group">
                                                 <label for="name" class="control-label mb-1">{{ Helper::translation(1958,$translate,'') }} ({{ $allsettings->site_currency_symbol }})</label>
-                                                <input id="product_local_shipping_fee" name="product_local_shipping_fee" type="text" class="form-control" data-bvalidator="min[0]" value="{{ $edit['product']->product_local_shipping_fee }}"><small>({{ Helper::translation(3063,$translate,'') }}) <span class="red-color"> - {{ Helper::translation(1959,$translate,'') }}</span></small>
+                                                <input id="product_local_shipping_fee" name="product_local_shipping_fee" type="text" class="form-control" data-bvalidator="min[0]" value="{{ $edit['product']->product_local_shipping_fee }}" onkeypress="return /^[0-9.\s]*$/.test(event.key)"><small>({{ Helper::translation(3063,$translate,'') }}) <span class="red-color"> - {{ Helper::translation(1959,$translate,'') }}</span></small>
                                      </div> 
                                      <div class="form-group">
                                                 <label for="name" class="control-label mb-1">{{ Helper::translation(1960,$translate,'') }} ({{ $allsettings->site_currency_symbol }})</label>
-                                                <input id="product_global_shipping_fee" name="product_global_shipping_fee" type="text" class="form-control" data-bvalidator="min[0]" value="{{ $edit['product']->product_global_shipping_fee }}"><small>({{ Helper::translation(3066,$translate,'') }}) <span class="red-color"> - {{ Helper::translation(1959,$translate,'') }}</span></small>
+                                                <input id="product_global_shipping_fee" name="product_global_shipping_fee" type="text" class="form-control" data-bvalidator="min[0]" value="{{ $edit['product']->product_global_shipping_fee }}" onkeypress="return /^[0-9.\s]*$/.test(event.key)"><small>({{ Helper::translation(3066,$translate,'') }}) <span class="red-color"> - {{ Helper::translation(1959,$translate,'') }}</span></small>
                                      </div>
                                     </div>
                                     <div class="form-group">
