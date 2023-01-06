@@ -62,10 +62,10 @@
         </div>
         <div class="row col-12">
           <div class="col-md-6">
-            <input type="text" placeholder="Email Id" id="bill_email" name="bill_email" required value="@if($checkout_data != 0){{ $checkout_details->bill_email }}@endif" class="form-control deu-checkinput">
+            <input type="email" placeholder="Email Id" id="bill_email" name="bill_email" required value="@if($checkout_data != 0){{ $checkout_details->bill_email }}@endif" class="form-control deu-checkinput">
           </div>
           <div class="col-md-6">
-            <input type="text" placeholder="Phone Number" id="bill_phone" name="bill_phone" data-bvalidator="required" value="@if($checkout_data != 0){{ $checkout_details->bill_phone }}@endif" required class="form-control deu-checkinput">
+            <input type="text" placeholder="Phone Number" id="bill_phone" name="bill_phone" data-bvalidator="required" value="@if($checkout_data != 0){{ $checkout_details->bill_phone }}@endif" required class="form-control deu-checkinput" onkeypress="return /^[0-9\s]*$/.test(event.key)">
           </div>
         </div>
         <div class="row col-12">
@@ -94,10 +94,10 @@
         </div>
         <div class="row col-12">
           <div class="col-md-6">
-              <input type="text" placeholder="House number and street name" id="bill_address" name="bill_address" data-bvalidator="required" value="@if($checkout_data != 0){{ $checkout_details->bill_address }}@endif" class="form-control deu-checkinput">
+              <input type="text" placeholder="House number and street name" id="bill_address" name="bill_address" required value="@if($checkout_data != 0){{ $checkout_details->bill_address }}@endif" class="form-control deu-checkinput">
           </div>
           <div class="col-md-6">
-            <input type="text" placeholder="Apartment, suite, unit etc  (Optional)" id="bill_address_2" name="bill_address_2" data-bvalidator="required" value="@if($checkout_data != 0){{ $checkout_details->bill_address_2 }}@endif" class="form-control deu-checkinput">
+            <input type="text" placeholder="Apartment, suite, unit etc  (Optional)" id="bill_address_2" name="bill_address_2" value="@if($checkout_data != 0){{ $checkout_details->bill_address_2 }}@endif" class="form-control deu-checkinput">
           </div>
         </div>
         <div class="col-12">
@@ -111,7 +111,7 @@
             <input type="text" placeholder="State" id="bill_state" name="bill_state" required value="@if($checkout_data != 0){{ $checkout_details->bill_state }}@endif" class="form-control deu-checkinput">
           </div>
           <div class="col-md-4">
-            <input type="text" placeholder="Zip" id="bill_postcode" name="bill_postcode" required value="@if($checkout_data != 0){{ $checkout_details->bill_postcode }}@endif" class="form-control deu-checkinput">
+            <input type="text" placeholder="Zip" id="bill_postcode" name="bill_postcode" required value="@if($checkout_data != 0){{ $checkout_details->bill_postcode }}@endif" class="form-control deu-checkinput" onkeypress="return /^[0-9\s]*$/.test(event.key)">
           </div>
         </div>
         <div class="col-12">
@@ -135,7 +135,7 @@
               <td>
               <div class="form-check">
                 <label class="form-check-label">
-                  <input type="radio" class="form-check-input" name="payment_method" value="net_banking">Net banking
+                  <input type="radio" class="form-check-input payment_type" onchange="enable_button()" name="payment_method" value="net_banking">Net banking
                 </label>
               </div>
               </td>
@@ -144,7 +144,7 @@
               <td>
               <div class="form-check">
                 <label class="form-check-label">
-                  <input type="radio" class="form-check-input" name="payment_method" value="cash-on-delivery">Cash on Delivery
+                  <input type="radio" class="form-check-input payment_type" onchange="enable_button()" name="payment_method" value="cash-on-delivery">Cash on Delivery
                 </label>
               </div>
               </td>
@@ -153,7 +153,7 @@
               <td>
               <div class="form-check">
                 <label class="form-check-label">
-                  <input type="radio" class="form-check-input" name="payment_method" value="paypal">Paypal 
+                  <input type="radio" class="form-check-input payment_type" onchange="enable_button()" name="payment_method" value="paypal">Paypal 
                   <img class="deu-visa" src="{{asset('public/image/visa.svg')}}"> 
                   <img class="" src="{{asset('public/image/visa1.svg')}}" style="width: 50px; height: 32px;"> 
                   <img class="" src="{{asset('public/image/visa2.svg')}}" style="width: 70px;">
@@ -173,7 +173,7 @@
       <input type="hidden" name="product_id" value="{{ $product_numbers }}">
       <input type="hidden" name="product_names" value="{{ $product_names }}">
       <p class="deu-personal">Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our privacy policy.</p>
-      <button type="submit" class="round-btns">Place Order</a>
+      <button type="submit" onclick="return enable_button();" class="round-btns place_order">Place Order</a>
     </div>
     <div class="col-md-5">
       <p class="deu-carthead">Cart Details</p>
@@ -212,4 +212,15 @@
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  function enable_button() {
+    if($('.payment_type').is(':checked'))
+    {
+      return true;
+    }else{
+      alert("Please select payment method");
+      return false;
+    }
+  }
+</script>
 @endsection
