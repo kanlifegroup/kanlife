@@ -89,6 +89,9 @@
       $('#myModal2').modal('hide');
     }
   @endif
+  if(performance.navigation.type == 2){
+   location.reload(true);
+  }
 </script>
 </body>
 </html>

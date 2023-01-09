@@ -65,7 +65,7 @@
           </div>
           <div class="col-md-6">
             <label class="deu-contactadress">Password</label>
-            <input type="password" placeholder="Password" id="password" name="password" class="form-control deu-checkinput @error('password') is-invalid @enderror">
+            <input type="password" placeholder="Password" id="password" name="password" class="form-control deu-checkinput @error('password') is-invalid @enderror" onkeypress="return /^([0-9a-zA-Z!@#$%^&*(\).,<>{}[\]<>?_=+\-|;:\'\/\s])*[^\s]\1*$/.test(event.key)">
             @error('password')
               <span class="invalid-feedback" role="alert">
               <strong>{{ $message }}</strong>
@@ -85,7 +85,7 @@
           </div>
           <div class="col-md-6">
             <label class="deu-contactadress">Confirm Password</label>
-            <input type="password" placeholder="Confirm Password" id="password_confirmation" name="password_confirmation" class="form-control deu-checkinput @error('password_confirmation') is-invalid @enderror">
+            <input type="password" placeholder="Confirm Password" id="password_confirmation" name="password_confirmation" class="form-control deu-checkinput @error('password_confirmation') is-invalid @enderror" onkeypress="return /^([0-9a-zA-Z!@#$%^&*(\).,<>{}[\]<>?_=+\-|;:\'\/\s])*[^\s]\1*$/.test(event.key)">
             @error('password_confirmation')
               <span class="invalid-feedback" role="alert">
               <strong>{{ $message }}</strong>
@@ -96,7 +96,7 @@
         <div class="row col-12">
           <div class="col-md-6">
             <label class="deu-contactadress">Phone Number</label>
-            <input type="number" placeholder="Phone Number" id="user_phone" name="user_phone" value="{{ old('user_phone') ?? $edit['profile']->user_phone }}" required class="form-control deu-checkinput @error('user_phone') is-invalid @enderror">
+            <input type="number" placeholder="Phone Number" id="user_phone" name="user_phone" value="{{ old('user_phone') ?? $edit['profile']->user_phone }}" required class="form-control deu-checkinput @error('user_phone') is-invalid @enderror" onkeypress="return /^[0-9\s]*$/.test(event.key)">
             @error('user_phone')
               <span class="invalid-feedback" role="alert">
               <strong>{{ $message }}</strong>

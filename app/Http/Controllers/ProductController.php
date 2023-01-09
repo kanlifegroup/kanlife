@@ -1297,7 +1297,7 @@ class ProductController extends Controller
 			  </form>';
 			$two_checkout .= '<script>window.two_checkout_form.submit();</script>';
 			echo $two_checkout;
-	   /*include(app_path() . '/2Checkout/Twocheckout.php');
+    /*include(app_path() . '/2Checkout/Twocheckout.php');
 						Twocheckout::privateKey($two_checkout_private); 
 		                Twocheckout::sellerId($two_checkout_account); 
 		                Twocheckout::sandbox($two_checkout_mode); 
@@ -1401,7 +1401,7 @@ class ProductController extends Controller
 						
 						  echo $e->getMessage();
 					}  
-	          */
+    */
 	}
 	
 	
