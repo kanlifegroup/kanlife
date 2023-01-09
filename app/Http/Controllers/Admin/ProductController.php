@@ -1548,5 +1548,19 @@ class ProductController extends Controller
 	}
 	/* products */
 	
-	
+	/* enquiries */
+  public function view_enquiries()
+	{	  
+	  $enquiries = Product::getEnquiries();
+	  $data = array('enquiries' => $enquiries);
+	   return view('admin.enquiries')->with($data);
+	}
+  public function update_enquiry($id)
+	{
+	  $enquiry_id = base64_decode($id);
+    $data = array('status'=>1);
+    Product::updateEnquiries($data, $enquiry_id);
+    return redirect()->back()->with('success','Enquiry status updated successfully'); 
+	}
+  /* enquiries */
 }

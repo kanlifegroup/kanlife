@@ -204,6 +204,11 @@ Route::group(['middleware' => ['is_admin', 'XSS', 'HtmlMinifier']], function () 
 	Route::get('/admin/edit-coupon/{coupon_id}', 'Admin\CouponController@edit_coupon')->name('admin.edit-coupon');
 	Route::post('/admin/edit-coupon', ['as' => 'admin.edit-coupon','uses'=>'Admin\CouponController@update_coupon']);
 	/* coupon */
+
+  /* price enquiry */
+	Route::get('/admin/price-enquiries', 'Admin\ProductController@view_enquiries')->middleware('cacheable:5');
+	Route::get('/admin/replied-to-enquiry/{id}', 'Admin\ProductController@update_enquiry');
+	/* price enquiry */
 	
 	
 	/* attribute type */

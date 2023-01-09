@@ -116,7 +116,12 @@
                         </ul>
                     </li>
                     @endif
-                    @endif                    
+                    @endif
+                    @if(in_array('enquiries',$avilable)) 
+                    <li>
+                        <a href="{{ url('/admin/price-enquiries') }}"> <i class="menu-icon fa fa-file-image-o"></i>Price Enquiries</a>
+                    </li>
+                    @endif
                     @if(Auth::user()->user_type == 'deuglo')
                     @if(in_array('ads',$avilable))
                     <li>
