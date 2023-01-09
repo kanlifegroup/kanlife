@@ -25,104 +25,105 @@
 </div>
 
 <div class="container-fluid mt-5 mb-5">
-      <div class="row">
-        <div class="col-md-4">
-          <div id="slider" class="owl-carousel product-slider">
-            <div class="item">
-                <img class="img-fluid deu-detailheight" src="{{ url('/') }}/public/storage/product/{{ $shop->product_image }}" />
-            </div>
-          @foreach($shop->productimages as $images)
-            <div class="item">
-                <img class="img-fluid deu-detailheight" src="{{ url('/') }}/public/storage/product/{{ $images->product_image }}" />
-            </div>
-          @endforeach
-          </div>
-          <div id="thumb" class="owl-carousel product-thumb">
-            <div class="item">
-                <img class="img-fluid deu-detailslider" src="{{ url('/') }}/public/storage/product/{{ $shop->product_image }}" />
-            </div>
-          @foreach($shop->productimages as $images)
-            <div class="item">
-                <img class="img-fluid deu-detailslider" src="{{ url('/') }}/public/storage/product/{{ $images->product_image }}" />
-            </div>
-          @endforeach
-          </div>
+  <div class="row">
+    <div class="col-md-4">
+      <div id="slider" class="owl-carousel product-slider">
+        <div class="item">
+          <img class="img-fluid deu-detailheight" src="{{ url('/') }}/public/storage/product/{{ $shop->product_image }}" />
         </div>
-        <div class="col-md-8 row">
-          <div class="product-dtl col-md-6">
-            <div class="product-info mb-3">
-              <div class="product-name">{{$shop->product_name}}</div>
-              <div class="product-price-discount">
-              @if($shop->product_price != 0)
-                @if($shop->product_offer_price != 0)
-                <span><i class="fa fa-inr" aria-hidden="true"></i> {{$shop->product_offer_price}}</span>
-                <span class="line-through"><i class="fa fa-inr" aria-hidden="true"></i> {{$shop->product_price}}</span></div>
+        @foreach($shop->productimages as $images)
+          <div class="item">
+            <img class="img-fluid deu-detailheight" src="{{ url('/') }}/public/storage/product/{{ $images->product_image }}" />
+          </div>
+        @endforeach
+      </div>
+      <div id="thumb" class="owl-carousel product-thumb">
+        <div class="item">
+          <img class="img-fluid deu-detailslider" src="{{ url('/') }}/public/storage/product/{{ $shop->product_image }}" />
+        </div>
+        @foreach($shop->productimages as $images)
+          <div class="item">
+            <img class="img-fluid deu-detailslider" src="{{ url('/') }}/public/storage/product/{{ $images->product_image }}" />
+          </div>
+        @endforeach
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="product-dtl">
+        <div class="product-info mb-3">
+          <div class="product-name">{{$shop->product_name}}</div>
+          <div class="product-price-discount">
+            @if($shop->product_price != 0)
+              @if($shop->product_offer_price != 0)
+              <span><i class="fa fa-inr" aria-hidden="true"></i> {{$shop->product_offer_price}}</span>
+              <span class="line-through"><i class="fa fa-inr" aria-hidden="true"></i> {{$shop->product_price}}</span>
+              @else
+              <span><i class="fa fa-inr" aria-hidden="true"></i> {{$shop->product_price}}</span>
+              @endif
+            @endif
+          </div>
+          </div>
+          <p class="" style="color:#3188CA;"><img class="deu-fealine" src="{{asset('public/image/line.svg')}}"> &nbsp;&nbsp;&nbsp;
+          <span class="deu-filter">Features</span></p>
+          <ul class="deu-proul">
+            <li class="deu-margbtm"><i class="fa fa-circle deu-profa" aria-hidden="true"></i> 200 kHz, 4 kW, 100mA Mobile HF X-Ray</li>
+            <li class="deu-margbtm"><i class="fa fa-circle deu-profa" aria-hidden="true"></i> Draws clean power from mains</li>
+            <li class="deu-margbtm"><i class="fa fa-circle deu-profa" aria-hidden="true"></i> Negligible leakage radiation</li>
+            <li class="deu-margbtm"><i class="fa fa-circle deu-profa" aria-hidden="true"></i> Easy to move (85 kg) </li>
+            <li class="deu-margbtm"><i class="fa fa-circle deu-profa" aria-hidden="true"></i> 90° collimator rotation</li>
+            <li class="deu-margbtm"><i class="fa fa-circle deu-profa" aria-hidden="true"></i> Tube-head rotation</li>
+            <li class="deu-margbtm"><i class="fa fa-circle deu-profa" aria-hidden="true"></i> Light field intensity min 160 Lux @ 1m</li>
+            <li class="deu-margbtm"><i class="fa fa-circle deu-profa" aria-hidden="true"></i> Suitable for NICU, ICU, Trauma & Ortho</li>
+          </ul>
+          <div class="product-count mt-3 mb-3">
+            <form action="#" class="display-flex">
+              @if(isset($cart['qty']) && $cart['qty'] > 0)
+                <div class="qtyminus" data-id="{{base64_encode($cart['ord_id'])}}">-</div>
+                <input type="text" id="{{base64_decode($cart['ord_id'])}}" name="quantity" value="{{$cart['qty']}}" class="qty qty-{{base64_encode($cart['ord_id'])}}">
+                <div class="qtyplus" data-id="{{base64_encode($cart['ord_id'])}}">+</div>
+                <a href="javascript:void(0)" data-id="{{base64_encode($cart['ord_id'])}}" class="round-black-btn remove">Remove from cart</a>
+              @else
+                @if($shop->product_price != 0)
+                  <a href="{{url('/add_to_cart').'/'.$shop->product_slug}}" class="round-black-btn">Add To Cart</a>
                 @else
-                <span><i class="fa fa-inr" aria-hidden="true"></i> {{$shop->product_price}}</span>
+                  <a href="{{url('/price_enquiry')}}/{{ base64_encode($shop->product_id) }}" class="round-black-btn">Price Enquiry</a>
                 @endif
               @endif
-            </div>
-        <p class="" style="color:#3188CA;"><img class="deu-fealine" src="{{asset('public/image/line.svg')}}"> &nbsp;&nbsp;&nbsp;
-         <span class="deu-filter">Features</span></p>
-        <ul class="deu-proul">
-          <li class="deu-margbtm"><i class="fa fa-circle deu-profa" aria-hidden="true"></i> 200 kHz, 4 kW, 100mA Mobile HF X-Ray</li>
-          <li class="deu-margbtm"><i class="fa fa-circle deu-profa" aria-hidden="true"></i> Draws clean power from mains</li>
-          <li class="deu-margbtm"><i class="fa fa-circle deu-profa" aria-hidden="true"></i> Negligible leakage radiation</li>
-          <li class="deu-margbtm"><i class="fa fa-circle deu-profa" aria-hidden="true"></i> Easy to move (85 kg) </li>
-          <li class="deu-margbtm"><i class="fa fa-circle deu-profa" aria-hidden="true"></i> 90° collimator rotation</li>
-          <li class="deu-margbtm"><i class="fa fa-circle deu-profa" aria-hidden="true"></i> Tube-head rotation</li>
-          <li class="deu-margbtm"><i class="fa fa-circle deu-profa" aria-hidden="true"></i> Light field intensity min 160 Lux @ 1m</li>
-          <li class="deu-margbtm"><i class="fa fa-circle deu-profa" aria-hidden="true"></i> Suitable for NICU, ICU, Trauma & Ortho</li>
-        </ul>
-            <div class="product-count mt-3 mb-3">
-              <form action="#" class="display-flex">
-              @if(isset($cart['qty']) && $cart['qty'] > 0)
-              <div class="qtyminus" data-id="{{base64_encode($cart['ord_id'])}}">-</div>
-              <input type="text" id="{{base64_decode($cart['ord_id'])}}" name="quantity" value="{{$cart['qty']}}" class="qty qty-{{base64_encode($cart['ord_id'])}}">
-              <div class="qtyplus" data-id="{{base64_encode($cart['ord_id'])}}">+</div>
-              <a href="javascript:void(0)" data-id="{{base64_encode($cart['ord_id'])}}" class="round-black-btn remove">Remove from cart</a>
-              @else
-              @if($shop->product_price != 0)
-              <a href="{{url('/add_to_cart').'/'.$shop->product_slug}}" class="round-black-btn">Add To Cart</a>
-              @else
-              <a href="{{url('/price_enquiry')}}/{{ base64_encode($shop->product_id) }}" class="round-black-btn">Price Enquiry</a>
-              @endif
-              @endif
-              </form>
-            </div>
-            <p class="deu-add">
-              @if(Auth::guest())
-              <a href="{{ url('/wishlist') }}">
-                <i class="fa fa-heart-o" aria-hidden="true"></i> Add To Wishlist
-              </a>
-              @else
-              <a href="{{ url('/wishlist') }}/{{ Auth::user()->id }}/{{ $shop->product_token }}">
-                <i class="fa fa-heart-o" aria-hidden="true"></i> Add To Wishlist
-              </a>
-              @endif
-            </p>
+            </form>
           </div>
-        </div>
-        <div class="col-md-6">
-        <div class="deu-proright mt-4">
-        <p class="" style="color:#3188CA;"> <img class="deu-fealine" src="{{asset('public/image/line.svg')}}"> &nbsp;&nbsp;&nbsp;
-         <span class="deu-filter">Product Links</span></p>
-        <ul class="deu-proul">
-          <li><i class="fa fa-circle deu-profa" aria-hidden="true"></i> X-Ray System</li>
-          <li><i class="fa fa-circle deu-profa" aria-hidden="true"></i> Surgical C-Arm</li>
-          <li><i class="fa fa-circle deu-profa" aria-hidden="true"></i> Ventilators</li>
-          <li><i class="fa fa-circle deu-profa" aria-hidden="true"></i> Patient Monitoring Systems</li>
-          <li><i class="fa fa-circle deu-profa" aria-hidden="true"></i> Defibrillator</li>
-          <li><i class="fa fa-circle deu-profa" aria-hidden="true"></i> ECG</li>
-          <li><i class="fa fa-circle deu-profa" aria-hidden="true"></i> Syringe and infusion Pump</li>
-          <li><i class="fa fa-circle deu-profa" aria-hidden="true"></i> Electrosurgical Units</li>
-          <li><i class="fa fa-circle deu-profa" aria-hidden="true"></i> Dental Products</li>
-          <li><i class="fa fa-circle deu-profa" aria-hidden="true"></i> Anesthesia Delivery Systems</li>
-        </ul>
-         </div>
+          <p class="deu-add">
+            @if(Auth::guest())
+            <a href="{{ url('/wishlist') }}">
+              <i class="fa fa-heart-o" aria-hidden="true"></i> Add To Wishlist
+            </a>
+            @else
+            <a href="{{ url('/wishlist') }}/{{ Auth::user()->id }}/{{ $shop->product_token }}">
+              <i class="fa fa-heart-o" aria-hidden="true"></i> Add To Wishlist
+            </a>
+            @endif
+          </p>
         </div>
       </div>
-</div>
+      <div class="col-md-4">
+        <div class="deu-proright mt-4">
+          <p class="" style="color:#3188CA;"> <img class="deu-fealine" src="{{asset('public/image/line.svg')}}"> &nbsp;&nbsp;&nbsp;
+          <span class="deu-filter">Product Links</span></p>
+          <ul class="deu-proul">
+            <li><i class="fa fa-circle deu-profa" aria-hidden="true"></i> X-Ray System</li>
+            <li><i class="fa fa-circle deu-profa" aria-hidden="true"></i> Surgical C-Arm</li>
+            <li><i class="fa fa-circle deu-profa" aria-hidden="true"></i> Ventilators</li>
+            <li><i class="fa fa-circle deu-profa" aria-hidden="true"></i> Patient Monitoring Systems</li>
+            <li><i class="fa fa-circle deu-profa" aria-hidden="true"></i> Defibrillator</li>
+            <li><i class="fa fa-circle deu-profa" aria-hidden="true"></i> ECG</li>
+            <li><i class="fa fa-circle deu-profa" aria-hidden="true"></i> Syringe and infusion Pump</li>
+            <li><i class="fa fa-circle deu-profa" aria-hidden="true"></i> Electrosurgical Units</li>
+            <li><i class="fa fa-circle deu-profa" aria-hidden="true"></i> Dental Products</li>
+            <li><i class="fa fa-circle deu-profa" aria-hidden="true"></i> Anesthesia Delivery Systems</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 @if($shop->product_price == 0)
 <!-- The Modal forget -->
