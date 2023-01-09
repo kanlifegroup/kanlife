@@ -169,7 +169,9 @@
                                                </select>
                                             </div> 
                                             <div class="form-group">
-                                                <label for="name" class="control-label mb-1">{{ Helper::translation(1934,$translate,'') }}  ({{ $allsettings->site_currency_symbol }})<span class="require">*</span></label>
+                                                <label for="name" class="control-label mb-1">{{ Helper::translation(1934,$translate,'') }}  ({{ $allsettings->site_currency_symbol }})
+                                                  <!-- <span class="require">*</span> -->
+                                                </label>
                                                 <input id="product_price" name="product_price" type="text" class="form-control" value="{{ $edit['product']->product_price }}" onkeypress="return /^[0-9.\s]*$/.test(event.key)">
                                             </div>
                                              <div class="form-group">

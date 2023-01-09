@@ -65,7 +65,7 @@
             <input type="email" maxlength="50" minlength="8" placeholder="Email Id" id="bill_email" name="bill_email" required value="@if($checkout_data != 0){{ $checkout_details->bill_email }}@endif" class="form-control deu-checkinput">
           </div>
           <div class="col-md-6">
-            <input type="text" maxlength="10" minlength="10" placeholder="Phone Number" id="bill_phone" name="bill_phone" data-bvalidator="required" value="@if($checkout_data != 0){{ $checkout_details->bill_phone }}@endif" required class="form-control deu-checkinput" onkeypress="return /^[0-9\s]*$/.test(event.key)">
+            <input type="text" maxlength="10" minlength="10" placeholder="Phone Number" id="bill_phone" name="bill_phone" data-bvalidator="required" value="@if($checkout_data != 0){{ $checkout_details->bill_phone }}@endif" required class="form-control deu-checkinput" onkeypress="return /^[0-9]*$/.test(event.key)">
           </div>
         </div>
         <div class="row col-12">
@@ -111,7 +111,7 @@
             <input type="text" placeholder="State" id="bill_state" name="bill_state" required value="@if($checkout_data != 0){{ $checkout_details->bill_state }}@endif" class="form-control deu-checkinput">
           </div>
           <div class="col-md-4">
-            <input type="text" placeholder="Zip" id="bill_postcode" maxlength="6" minlength="6" name="bill_postcode" required value="@if($checkout_data != 0){{ $checkout_details->bill_postcode }}@endif" class="form-control deu-checkinput" onkeypress="return /^[0-9\s]*$/.test(event.key)">
+            <input type="text" placeholder="Zip" id="bill_postcode" maxlength="6" minlength="6" name="bill_postcode" required value="@if($checkout_data != 0){{ $checkout_details->bill_postcode }}@endif" class="form-control deu-checkinput" onkeypress="return /^[0-9]*$/.test(event.key)">
           </div>
         </div>
         <div class="col-12">
