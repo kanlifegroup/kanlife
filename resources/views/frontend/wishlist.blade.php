@@ -47,12 +47,14 @@
                 <a href="{{url('/product').'/'.$product->product_slug}}">
                 <div class="deu-xraypad">
                   <h5 class="deu-pro">{{$product->product_name}}</h5>
+                  @if($product->product_price != 0)
                   <h5 class="deu-protxt"><i class="fa fa-inr" aria-hidden="true"></i> 
                   @if($product->product_offer_price != 0)
                   {{$product->product_offer_price}}
                     <small><s><i class="fa fa-inr" aria-hidden="true"></i> {{$product->product_price}}</s></small>
                     @else
                   {{$product->product_price}}
+                  @endif
                   @endif
                   </h5>
                 </div>

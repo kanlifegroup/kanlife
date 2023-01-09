@@ -577,6 +577,7 @@ Route::group(['middleware' => ['XSS','web', 'HtmlMinifier']], function () {
   Route::get('/wishlist/{user_id}/{token}', 'ProductController@view_wishlist');
   Route::get('/wishlist', 'ProductController@show_wishlist');
   Route::get('/wishlist/{id}', 'ProductController@remove_wishlist');
+  Route::get('/price_enquiry/{id}', 'ProductController@price_enquiry');
 
 
   Route::get('/cart/{remove}/{coupon}', 'ProductController@remove_coupon');

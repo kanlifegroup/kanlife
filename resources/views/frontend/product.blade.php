@@ -48,17 +48,19 @@
           @endforeach
           </div>
         </div>
-        <div class="col-md-4">
-          <div class="product-dtl">
+        <div class="col-md-8 row">
+          <div class="product-dtl col-md-6">
             <div class="product-info mb-3">
               <div class="product-name">{{$shop->product_name}}</div>
               <div class="product-price-discount">
+              @if($shop->product_price != 0)
                 @if($shop->product_offer_price != 0)
                 <span><i class="fa fa-inr" aria-hidden="true"></i> {{$shop->product_offer_price}}</span>
                 <span class="line-through"><i class="fa fa-inr" aria-hidden="true"></i> {{$shop->product_price}}</span></div>
                 @else
                 <span><i class="fa fa-inr" aria-hidden="true"></i> {{$shop->product_price}}</span>
                 @endif
+              @endif
             </div>
         <p class="" style="color:#3188CA;"><img class="deu-fealine" src="{{asset('public/image/line.svg')}}"> &nbsp;&nbsp;&nbsp;
          <span class="deu-filter">Features</span></p>
@@ -80,7 +82,11 @@
               <div class="qtyplus" data-id="{{base64_encode($cart['ord_id'])}}">+</div>
               <a href="javascript:void(0)" data-id="{{base64_encode($cart['ord_id'])}}" class="round-black-btn remove">Remove from cart</a>
               @else
+              @if($shop->product_price != 0)
               <a href="{{url('/add_to_cart').'/'.$shop->product_slug}}" class="round-black-btn">Add To Cart</a>
+              @else
+              <a href="{{url('/price_enquiry')}}/{{ base64_encode($shop->product_id) }}" class="round-black-btn">Price Enquiry</a>
+              @endif
               @endif
               </form>
             </div>
@@ -97,7 +103,7 @@
             </p>
           </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-6">
         <div class="deu-proright mt-4">
         <p class="" style="color:#3188CA;"> <img class="deu-fealine" src="{{asset('public/image/line.svg')}}"> &nbsp;&nbsp;&nbsp;
          <span class="deu-filter">Product Links</span></p>
@@ -118,7 +124,23 @@
       </div>
 </div>
 </div>
-
+@if($shop->product_price == 0)
+<!-- The Modal forget -->
+<div class="modal fade" id="myModalQuery">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content" style="margin-top: 13%;">
+      <div class="modal-header">
+        <h4 class="modal-title"></h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p class="deu-loginhead">Price Enquiry</p>
+        <p class="deu-logintxt">Your enquiry submitted successfully, We will contact you soon.</p>
+      </div>
+    </div>
+  </div>
+</div>
+@endif
 @endsection
 
 @section('script')
@@ -234,6 +256,16 @@ $(document).ready(function () {
         }
       });
     }
+
+    @if(session('query') && session('query') == 'sent')
+      $('#myModalQuery').modal('show');
+      setTimeout(function(){
+        $('#myModalQuery').modal('hide');
+      }, 5000);
+    @endif
+      <?php
+        session()->forget('query');
+      ?>
 });
 </script>
 @endsection

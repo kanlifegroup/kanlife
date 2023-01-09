@@ -403,6 +403,23 @@ class Product extends Model
 	return $value;
 	
   }
+
+  public static function saveEnquiry($data){
+    $find = DB::table('price_enquiry')->where(['user_id'=>$data['user_id'], 'product_id'=>$data['product_id']])->first();
+    if($find)
+    DB::table('price_enquiry')->where(['user_id'=>$data['user_id'], 'product_id'=>$data['product_id']])->update($data);
+    else
+      DB::table('price_enquiry')->insert($data);
+  }
+  public static function getEnquiries(){
+    DB::table('price_enquiry')->latest()->get();
+  }
+  public static function updateEnquiries($data, $id){
+    DB::table('price_enquiry')->whereId($id)->update($data);
+  }
+  public static function newEnquiriesCount(){
+    return DB::table('price_enquiry')->where('status', 0)->count();
+  }
   
   public static function saveWishlist($data){
    

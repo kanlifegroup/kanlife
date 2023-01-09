@@ -296,6 +296,14 @@ class ProductController extends Controller
 	   return redirect()->back()->with('success', 'Product Removed Successfully.');
 	 
 	}
+  public function price_enquiry($id)
+	{
+	   $product_id = base64_decode($id);
+     $user_id = Auth::user()->id;
+     $data = array('user_id'=>$user_id,'product_id'=>$product_id,'status'=>0,'created_at'=>now());
+     Product::saveEnquiry($data);
+	   return redirect()->back()->with('query', 'sent');
+	}
 	
 	public function order_track(Request $request)
 	{
