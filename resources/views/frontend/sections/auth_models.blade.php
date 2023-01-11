@@ -191,10 +191,23 @@
       <div class="modal-body">
         <p class="deu-loginhead">Forgot Password</p>
         <p class="deu-logintxt">Please Enter Email for forgot password</p>
-        <form class="form-horizontal mt-5">
+        <div>
+          @if (session('reset'))
+            <div class="alert alert-success text-center" role="alert">
+                {{ session('reset') }}
+            </div>
+          @endif
+          @if (session('reset_error'))
+            <div class="alert alert-danger text-center" role="alert">
+                {{ session('reset_error') }}
+            </div>
+          @endif
+        </div>
+        <form class="form-horizontal mt-5" method="POST" action="{{ route('forgot') }}">
+          @csrf
           <div class="form-group row justify-content-center px-3">
             <div class="col-9 px-0 mt-3">
-              <input type="text" placeholder="Enter Email Address" class="form-control border-info placeicon deu-logininput">
+              <input type="email" name="email" placeholder="Enter Email Address" class="form-control border-info placeicon deu-logininput">
             </div>
           </div>
           <div class="form-group row justify-content-center mt-5 text-center">       

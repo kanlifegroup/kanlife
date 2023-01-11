@@ -18,7 +18,7 @@
         <div class="login-form mt-5">
            <div class="main-div loginform col-md-5 mx-auto">
                <div>
-                  @if ($message = Session::get('success'))
+                  @if ($message = Session::get('reset'))
                     <div class="alert alert-success" role="alert">
                        <span class="alert_icon lnr lnr-checkmark-circle"></span>
                            {{ $message }}
@@ -27,7 +27,7 @@
                            </button>
                     </div>
                     @endif
-                    @if ($message = Session::get('error'))
+                    @if ($message = Session::get('reset_error'))
                     <div class="alert alert-danger" role="alert">
                        <span class="alert_icon lnr lnr-warning"></span>
                           {{ $message }}

@@ -73,9 +73,14 @@
       @if(session('signin') && session('signin') == 'signin')
         $('#myModal').modal('show');
       @endif
+      @if(session('reset') && session('reset') != '' || session('reset_error') && session('reset_error') != '')
+        $('#myModal2').modal('show');
+      @endif
         <?php
           session()->forget('signup');
           session()->forget('signin');
+          session()->forget('reset');
+          session()->forget('reset_error');
         ?>
     });
 

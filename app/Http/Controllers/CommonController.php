@@ -1463,13 +1463,14 @@ class CommonController extends Controller
 			$message->from($from_email,$from_name);
 		});
  
-         return redirect('forgot')->with('success','We have e-mailed your password reset link!');     
+        //  return redirect('forgot')->with('success','We have e-mailed your password reset link!');     
+         return redirect()->back()->with('reset','We have e-mailed your password reset link!');     
 			  
        }
 	   else
 	   {
               
-			  return redirect()->back()->with('error', 'These credentials do not match our records.');
+			  return redirect()->back()->with('reset_error', 'These credentials do not match our records.');
        }
 	   
 	  
