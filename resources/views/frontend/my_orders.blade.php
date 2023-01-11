@@ -48,7 +48,7 @@
     <thead>
       <tr class="deu-tr">
         <th>SI No.</th>
-        <th>Order Id</th>
+        <th>Purchase Id</th>
         <th>Order Place Date</th>
         <th>Total Amount</th>
         <th>Payment</th>

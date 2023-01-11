@@ -21,7 +21,7 @@
 <div class="container-fluid bgteam-overlay">
 	<div class="text-left">
 		<h1 class="deu-meethead">Order Details</h1>
-    <p class="deu-orderno">Order No. #{{$product['view'][0]->purchase_token}}</p>
+    <p class="deu-orderno">Purchase ID #{{$product['view'][0]->purchase_token}}</p>
 	</div>
 </div>
 
