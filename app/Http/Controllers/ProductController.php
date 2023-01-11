@@ -916,6 +916,7 @@ class ProductController extends Controller
       'client_id' => 'test_z7Za1vywMM8oyrcjrFQzmFF130bNdnxb57R',
       'client_secret' => 'test_Z5svFY3tfTRcDSCrWnaQ4GJCgrfmh5SyzubsY5rYcjFf7JtyDKrcMXUqkqGe6XXSF9uoefprzniDd5bOYlnquR3KH5x4kZJE537fsgu3nrhJtJTxPaV1AqsTZJP',
     ]);
+    // dd($res->json());
     return $res->json();
   }
 
@@ -933,6 +934,7 @@ class ProductController extends Controller
     );
     $res = Http::withHeaders(['Authorization' => 'Bearer '.$token])
                 ->post('https://'.$type.'.instamojo.com/v2/payment_requests/', $payload);
+    // dd($res->json());
     return ['response'=>$res->json(), 'status'=>$res->status()];
   }
 	
