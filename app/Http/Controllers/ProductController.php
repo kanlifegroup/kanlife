@@ -3,6 +3,7 @@
 namespace ZigKart\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 use ZigKart\Http\Controllers\Controller;
 use Session;
 use ZigKart\Models\Product;
@@ -467,6 +468,7 @@ class ProductController extends Controller
 	
 	public function update_checkout(Request $request)
 	{
+    $instamojo_mode = 'test';// 'api' & 'test'
 	   $translate = $this->lang_text();
 	   $allsettings = Settings::allSettings();
 	   $additional = Settings::editAdditional();
@@ -694,7 +696,7 @@ class ProductController extends Controller
 	   /*if($payment_method == '2checkout')
 	   {
 		    $fullnames = $bill_firstname.' '.$bill_lastname;
-			$two_checkout = '<form method="post" id="two_checkout_form" action="https://www.2checkout.com/checkout/purchase">
+			  $two_checkout = '<form method="post" id="two_checkout_form" action="https://www.2checkout.com/checkout/purchase">
 			  <input type="hidden" name="sid" value="'.$two_checkout_account.'" />
 			  <input type="hidden" name="mode" value="2CO" />
 			  <input type="hidden" name="li_0_type" value="product" />
@@ -723,14 +725,216 @@ class ProductController extends Controller
 			echo $two_checkout;
 		}	*/
 		
-	   $record = array('is_categories'=>true,'total_price' => $total_price, 'purchase_token' => $purchase_token, 'payment_method' => $payment_method, 'product_names' => $product_names, 'ship_rate' => $ship_rate, 'sub_total' => $sub_total, 'paypal_url' => $paypal_url, 'paypal_email' => $paypal_email, 'site_currency' => $site_currency, 'website_url' => $website_url, 'stripe_mode' => $stripe_mode, 'stripe_publish_key' => $stripe_publish_key, 'two_checkout_private' => $two_checkout_private, 'two_checkout_account' => $two_checkout_account, 'two_checkout_mode' => $two_checkout_mode, 'token' => $token, 'two_checkout_publishable' => $two_checkout_publishable, 'bill_firstname' => $bill_firstname, 'bill_lastname' => $bill_lastname, 'bill_address' => $bill_address, 'bill_city' => $bill_city, 'bill_state' => $bill_state, 'bill_postcode' => $bill_postcode, 'bill_country' => $bill_country, 'bill_email' => $bill_email, 'vat_price' => $vat_price);
-       return view('frontend.confirm_order')->with($record);
-	   
-	      		  
-	   
-	   
-	   
+    $record = array('is_categories'=>true,'total_price' => $total_price, 'purchase_token' => $purchase_token, 'payment_method' => $payment_method, 'product_names' => $product_names, 'ship_rate' => $ship_rate, 'sub_total' => $sub_total, 'paypal_url' => $paypal_url, 'paypal_email' => $paypal_email, 'site_currency' => $site_currency, 'website_url' => $website_url, 'stripe_mode' => $stripe_mode, 'stripe_publish_key' => $stripe_publish_key, 'two_checkout_private' => $two_checkout_private, 'two_checkout_account' => $two_checkout_account, 'two_checkout_mode' => $two_checkout_mode, 'token' => $token, 'two_checkout_publishable' => $two_checkout_publishable, 'bill_firstname' => $bill_firstname, 'bill_lastname' => $bill_lastname, 'bill_address' => $bill_address, 'bill_city' => $bill_city, 'bill_state' => $bill_state, 'bill_postcode' => $bill_postcode, 'bill_country' => $bill_country, 'bill_email' => $bill_email, 'vat_price' => $vat_price);
+    if($payment_method == 'online'){
+      $pay = array('purpose'=>$product_names,'name'=>$bill_firstname.' '.$bill_lastname, 'amount'=>$total_price, 'email'=>$bill_email, 'phone'=>$bill_phone);
+      $token = $this->instamojoAccessToken($instamojo_mode)['access_token']??'';
+      if($token != ''){
+        $redirect_url = $this->instamojoPayment($token,$pay, $instamojo_mode);
+        if (array_key_exists("longurl",$redirect_url['response']))
+          {
+            return redirect(url($redirect_url['response']['longurl']));
+          }
+      }
+    }
+    return view('frontend.confirm_order')->with($record);
 	}
+
+  public function order_checkout(Request $request){
+    try{
+      $instamojo_mode = 'test';// 'api' & 'test'
+      /* Debit Card:
+      Card Number: 4242 4242 4242 4242
+      Expiry: 01/25
+      CVV: 111
+      */
+      $translate = $this->lang_text();
+      $allsettings = Settings::allSettings();
+      $additional = Settings::editAdditional();
+      $user_id = Auth::user()->id;
+      $session_id = Session::getId();
+      $bill_firstname = $request->input('bill_firstname');
+      $bill_lastname = $request->input('bill_lastname');
+      $bill_companyname = $request->input('bill_companyname');
+      $bill_companyaddress = $request->input('bill_companyaddress');
+      $bill_email = $request->input('bill_email');
+      $bill_phone = $request->input('bill_phone');
+      $bill_address = $request->input('bill_address');
+      $bill_address_2 = $request->input('bill_address_2');
+      $bill_city = $request->input('bill_city');
+      $bill_state = $request->input('bill_state');
+      $bill_postcode = $request->input('bill_postcode');
+      $bill_country = $request->input('bill_country');
+      $enable_shipping = $request->input('enable_shipping');
+      $ship_firstname = $request->input('ship_firstname');
+      $ship_lastname = $request->input('ship_lastname');
+      $ship_companyname = $request->input('ship_companyname');
+      $ship_email = $request->input('ship_email');
+      $ship_phone = $request->input('ship_phone');
+      $ship_address = $request->input('ship_address');
+      $ship_city = $request->input('ship_city');
+      $ship_state = $request->input('ship_state');
+      $ship_postcode = $request->input('ship_postcode');
+      $ship_country = $request->input('ship_country');
+      $other_notes = $request->input('other_notes');
+      $payment_method = $request->input('payment_method');
+      $purchase_token = rand(1111111,9999999);
+      $token = csrf_token();
+      $payment_date =  date("Y-m-d");
+      $order_id = $request->input('order_id');
+      $sub_total = $request->input('sub_total');
+      $processing_fee = $request->input('processing_fee');
+      $total = $request->input('total');
+      $product_id = $request->input('product_id');
+      $product_names = $request->input('product_names');
+      $payment_status = 'pending';
+      $cart_data['display'] = Product::viewNewOrder($user_id,$session_id,$translate);
+      $ship_rate = 0;
+      $single_rate = "";
+    /* vat price */
+      $vat_price = 0;
+      if($additional->tax_display == 1){
+        if($additional->tax_types == "country"){
+          if(!empty($ship_country)){
+            $get_country['details'] = Settings::editCountry($ship_country);
+            foreach($cart_data['display'] as $cart){
+              $vat_price += ($cart->price / 100) * $get_country['details']->vat_price;
+            }
+          }
+          else{
+            $get_country['details'] = Settings::editCountry($bill_country);
+            foreach($cart_data['display'] as $cart){
+              $vat_price += ($cart->price / 100) * $get_country['details']->vat_price;
+            }
+          }
+        }
+        else{
+          if(!empty($ship_postcode)){
+            $check_postcode = Settings::checkPostcode($ship_postcode);
+            if($check_postcode != 0){
+              $get_postcode = Settings::getPostcode($ship_postcode);
+              foreach($cart_data['display'] as $cart){
+                $vat_price += ($cart->price / 100) * $get_postcode->postcode_vat_price;
+              }
+            }
+            else{
+              foreach($cart_data['display'] as $cart){
+                $vat_price += ($cart->price / 100) * $additional->default_vat_price;
+              }
+            }
+          }
+          else{
+            $check_postcode = Settings::checkPostcode($bill_postcode);
+            if($check_postcode != 0){
+              $get_postcode = Settings::getPostcode($bill_postcode);
+              foreach($cart_data['display'] as $cart){
+                $vat_price += ($cart->price / 100) * $get_postcode->postcode_vat_price;
+              }
+            }
+            else{
+              foreach($cart_data['display'] as $cart){
+                $vat_price += ($cart->price / 100) * $additional->default_vat_price;
+              }
+            }
+          }
+        }	
+      }
+	    else{
+        $vat_price = 0;
+      }
+      /* vat price */
+      $cart_new['product'] = Product::viewNewOrder($user_id,$session_id,$translate);
+      foreach($cart_new['product'] as $cart){
+        $ship_rate += $cart->product_local_shipping_fee;
+        $single_rate .= $cart->product_local_shipping_fee.',';
+      }
+      $single_rates = rtrim($single_rate,",");
+      $codes = explode(",",$order_id);
+		  $names = explode(",",$single_rates);
+		  $separate = "";
+      foreach( $codes as $index => $code ) 
+      {
+        $separate .=$code.'_'.$names[$index].',';
+        $ship_price = $names[$index];
+        $or_id = $code;
+        $order_data = array('shipping_price' => $ship_price);
+        Product::updateOrders($or_id,$order_data);		   		   
+      }
+      $order_id_shipping = rtrim($separate,',');
+		  $check_checkout = Product::checkCheckout($token);
+		  $total_price = $total + $ship_rate + $vat_price;
+      $save_data = array('purchase_token' => $purchase_token, 'token' => $token, 'ord_id' => $order_id, 'shipping_separate' => $single_rates, 'order_id_shipping' => $order_id_shipping, 'user_id' => $user_id, 'shipping_price' => $ship_rate, 'vat_price' => $vat_price, 'processing_fee' => $processing_fee, 'subtotal' => $sub_total, 'total' => $total_price, 'payment_type' => $payment_method, 'payment_date' => $payment_date, 'bill_firstname' => $bill_firstname, 'bill_lastname' => $bill_lastname, 'bill_companyname' => $bill_companyname,'bill_companyaddress'=>$bill_companyaddress, 'bill_email' => $bill_email, 'bill_phone' => $bill_phone, 'bill_country' => $bill_country, 'bill_address' => $bill_address,'bill_address_2'=>$bill_address_2, 'bill_city' => $bill_city, 'bill_state' => $bill_state, 'bill_postcode' => $bill_postcode, 'enable_ship' => $enable_shipping, 'ship_firstname' => $ship_firstname, 'ship_lastname' => $ship_lastname, 'ship_companyname' => $ship_companyname, 'ship_email' => $ship_email, 'ship_phone' => $ship_phone, 'ship_country' => $ship_country, 'ship_address' => $ship_address, 'ship_city' => $ship_city, 'ship_state' => $ship_state, 'ship_postcode' => $ship_postcode, 'other_notes' => $other_notes, 'payment_status' => $payment_status);
+      $uporder = array('purchase_token' => $purchase_token);
+      Product::upOrders($user_id,$session_id,$uporder);
+      if($payment_method == 'cash-on-delivery'){
+		    Product::saveCheckout($save_data);
+        Product::updateOrderCheckout($purchase_token,['checked_out'=>1]);
+        return redirect('/my-purchase');
+      }
+      if($payment_method == 'online'){
+        $pay = array('purpose'=>$product_names,'name'=>$bill_firstname.' '.$bill_lastname, 'amount'=>$total_price, 'email'=>$bill_email, 'phone'=>$bill_phone);
+        $token = $this->instamojoAccessToken($instamojo_mode)['access_token']??'';
+        if($token != ''){
+          $redirect_url = $this->instamojoPayment($token,$pay, $instamojo_mode);
+          if (array_key_exists("longurl",$redirect_url['response']))
+            {
+              $save_data['payment_token']=$redirect_url['response']['id'];
+              Product::saveOnlineCheckoutDetails($save_data);
+              return redirect(url($redirect_url['response']['longurl']));
+            }
+        }
+      }
+    }catch(Exception $e){
+      return redirect()->back();
+    }
+  }
+
+  public function updateOnlineCheckoutData(Request $request){
+    $data = array('payment_id'=>$request->payment_id, 'payment_status'=>$request->payment_status);
+    $details = (array) Product::updateOnlineCheckoutDetails($request->payment_request_id, $data);
+    if($request->payment_status == 'Credit'){
+    unset($details['cid']);
+    $details['payment_status']='completed';
+    Product::saveCheckout($details);
+    Product::updateOrderCheckout($details['purchase_token'],['checked_out'=>1]);
+    return redirect('/my-purchase');
+    }
+    else
+    return redirect('/checkout');
+  }
+
+  private function instamojoAccessToken($type){
+    if($type == 'api')
+    $res = Http::post('https://api.instamojo.com/oauth2/token/', [
+      'grant_type' => 'client_credentials',
+      'client_id' => 'x3oGq5MEnThouTeXJTuBHrDHd7BZOtKb8orpz66e',
+      'client_secret' => 'uK9EhsqdkwnCRie97uhlm3Tc6iW728eSlwhf8WaRNpaKpQFi26n1MaZgl2lw07yNyTdSydpOfC0ZvSaZC12Zzf25KJ9pacv6mWpiXWHDVCRyTksYop7jspCAzOl2JCQn',
+    ]);
+    else
+    $res = Http::post('https://test.instamojo.com/oauth2/token/', [
+      'grant_type' => 'client_credentials',
+      'client_id' => 'test_z7Za1vywMM8oyrcjrFQzmFF130bNdnxb57R',
+      'client_secret' => 'test_Z5svFY3tfTRcDSCrWnaQ4GJCgrfmh5SyzubsY5rYcjFf7JtyDKrcMXUqkqGe6XXSF9uoefprzniDd5bOYlnquR3KH5x4kZJE537fsgu3nrhJtJTxPaV1AqsTZJP',
+    ]);
+    return $res->json();
+  }
+
+  private function instamojoPayment($token,$pay, $type){
+    $payload = Array(
+      'purpose' => $pay['purpose'],
+      'amount' => $pay['amount'],
+      'buyer_name' => $pay['name'],
+      'email' => $pay['email'],
+      'phone' => $pay['phone'],
+      'redirect_url' => url('/updateCheckoutDetails'),
+      'send_email' => 'False',
+      'send_sms' => 'False',
+      'allow_repeated_payments' => 'False',
+    );
+    $res = Http::withHeaders(['Authorization' => 'Bearer '.$token])
+                ->post('https://'.$type.'.instamojo.com/v2/payment_requests/', $payload);
+    return ['response'=>$res->json(), 'status'=>$res->status()];
+  }
 	
 	public function razorpay_payment(Request $request)
   {

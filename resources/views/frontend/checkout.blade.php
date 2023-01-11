@@ -43,7 +43,7 @@
       </button>
     </div>
   @endif
-  <form action="{{ route('checkout') }}" class="setting_form" id="checkout_form" method="post" enctype="multipart/form-data">
+  <form action="{{ url('/checkout') }}" class="setting_form" id="checkout_form" method="post" enctype="multipart/form-data">
   {{ csrf_field() }}    
   <div class="row">
     <div class="col-md-12">
@@ -135,7 +135,9 @@
               <td>
               <div class="form-check">
                 <label class="form-check-label">
-                  <input type="radio" class="form-check-input payment_type" onchange="enable_button()" name="payment_method" value="net_banking">Net banking
+                  <input type="radio" class="form-check-input payment_type" onchange="enable_button()" name="payment_method" value="online">Pay Online
+                  <img class="deu-visa" src="{{asset('public/image/visa.svg')}}"> 
+                  <img class="" src="{{asset('public/image/visa1.svg')}}" style="width: 50px; height: 32px;"> 
                 </label>
               </div>
               </td>
@@ -148,7 +150,7 @@
                 </label>
               </div>
               </td>
-            </tr>
+            </tr>{{--
             <tr class="deu-td">
               <td>
               <div class="form-check">
@@ -160,7 +162,7 @@
                 </label>
               </div>
               </td>
-            </tr>
+            </tr> --}}
           </tbody>
         </table>
       </div>

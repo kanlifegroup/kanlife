@@ -588,7 +588,9 @@ Route::group(['middleware' => ['XSS','web', 'HtmlMinifier']], function () {
   Route::get('/cart/{remove}/{coupon}', 'ProductController@remove_coupon');
   Route::post('/coupon', ['as' => 'coupon','uses'=>'ProductController@view_coupon']);
 
-  Route::post('/checkout', ['as' => 'checkout','uses'=>'ProductController@update_checkout']);
+  // Route::post('/checkout', ['as' => 'checkout','uses'=>'ProductController@update_checkout']);
+  Route::post('/checkout', ['as' => 'checkout','uses'=>'ProductController@order_checkout']);
+  Route::get('/updateCheckoutDetails', ['uses'=>'ProductController@updateOnlineCheckoutData']);
   Route::post('/confirm-paypal', ['as' => 'confirm-paypal','uses'=>'ProductController@confirm_paypal']);
   Route::post('/2checkout', ['as' => '2checkout','uses'=>'ProductController@confirm_2checkout']);
   Route::post('/charge', ['as' => 'charge','uses'=>'ProductController@charge']);

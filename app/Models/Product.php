@@ -584,6 +584,15 @@ class Product extends Model
      DB::table('product_checkout')->insert($save_data);
    
    }
+  public static function saveOnlineCheckoutDetails($save_data)
+   {   
+     DB::table('online_checkout_details')->insert($save_data);   
+   }
+   public static function updateOnlineCheckoutDetails($token, $save_data)
+   {   
+     DB::table('online_checkout_details')->where('payment_token', $token)->insert($save_data);
+     return DB::table('online_checkout_details')->where('payment_token', $token)->first();
+   }
    
    public static function updateCheckout($token,$update_data)
   {
