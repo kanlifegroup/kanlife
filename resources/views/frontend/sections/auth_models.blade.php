@@ -1,17 +1,15 @@
 <!-- The Modal login -->
 <div class="modal fade logS1" id="myModal">
-  <div class="modal-dialog modal-xl">
-    <div class="modal-content" style="margin-top: 9%;">
-      <div class="modal-header">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
+    <div class="modal-content">
+      <div class="modal-header pt-xxl-5">
         <h4 class="modal-title"></h4>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body py-5">
         <p class="deu-loginhead">Login</p>
         <p class="deu-loginhead">To Your Account</p>
         <p class="deu-logintxt">Please enter your email address and password</p>
-        
-        <form class="form-horizontal" action="{{ route('login') }}" method="POST" id="login_form">
+        <form class="form-horizontal pb-xxl-5" action="{{ route('login') }}" method="POST" id="login_form">
           @csrf
           <div class="form-group row justify-content-center px-3">
             @if ($message = Session::get('success'))
@@ -54,11 +52,9 @@
             <div class="col-9">
               <div class="row">
                 <div class="col-6 px-0">
-                  <!-- <span><a href="#" class="deu-loginforget logS12" data-toggle="modal" data-target="#myModal2"><b class="deu-underline">Forgot Password?</b></a></span> -->
                   <span><a href="#" class="deu-loginforget logS12" onclick="openModel('myModal2')"><b class="deu-underline">Forgot Password?</b></a></span>
                 </div>
-                <div class="col-6 px-0 text-right">
-                  <!-- <span><a href="#" class="deu-loginforget logS" data-toggle="modal" data-target="#myModal1"><b class="deu-underline">Don’t have an account?</b></a></span> -->
+                <div class="col-6 px-0 text-end">
                   <span><a href="#" class="deu-loginforget logS" onclick="openModel('myModal1')"><b class="deu-underline">Don’t have an account?</b></a></span>
                 </div>
               </div>
@@ -66,7 +62,7 @@
           </div>
           <div class="form-group row justify-content-center mt-4 text-center">       
             <div class="col-3 px-3">
-              <button type="submit" class="about-more">Login</button>
+              <button type="submit" class="about-more w-100">Login</button>
             </div>
           </div>
         </form>
@@ -74,14 +70,13 @@
     </div>
   </div>
 </div>
-
+             
 <!-- The Modal Register -->
 <div class="modal fade regiS" style="overflow-y: scroll;" id="myModal1">
-  <div class="modal-dialog modal-xl">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
         <h4 class="modal-title"></h4>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
       <div class="modal-body">
         <p class="deu-loginhead">Register <br> Your Account</p>
@@ -162,8 +157,7 @@
           <div class="form-group row justify-content-center px-3">
             <div class="col-9">
               <div class="row">
-                <div class="col-12 px-0 text-right">
-                  <!-- <span><a href="#" class="deu-loginforget" data-target="#myModal"><b class="deu-underline">Already have an Account?</b></a></span> -->
+                <div class="col-12 px-0 text-end">
                   <span><a href="#" class="deu-loginforget" onclick="openModel('myModal')"><b class="deu-underline">Already have an Account?</b></a></span>
                 </div>
               </div>
@@ -171,7 +165,7 @@
           </div>
           <div class="form-group row justify-content-center mt-3 text-center">       
             <div class="col-3 px-3">
-              <button type="submit" class="about-more">Register</button>
+              <button type="submit" class="about-more w-100">Register</button>
             </div>
           </div>
         </form>
@@ -182,11 +176,10 @@
 
 <!-- The Modal forget -->
 <div class="modal fade forgeT" id="myModal2">
-  <div class="modal-dialog modal-xl">
-    <div class="modal-content" style="margin-top: 13%;">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
       <div class="modal-header">
         <h4 class="modal-title"></h4>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
       <div class="modal-body">
         <p class="deu-loginhead">Forgot Password</p>
