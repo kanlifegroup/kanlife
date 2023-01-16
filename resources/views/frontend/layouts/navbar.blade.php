@@ -60,7 +60,7 @@
         <button class="btn bg-transparent text-white d-flex align-items-center gap-2 dropdown-toggle border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
           <img class="top-navemail ms-auto me-0" src="{{ asset('public/image/global.svg') }}">
           {{ucfirst($user_location)}}
-          <img src="image/counrty-dd-icon.svg" alt="" width="15" class="ms-5">
+          <img src="{{ asset('public/image/counrty-dd-icon.svg') }}" alt="" width="15" class="ms-5">
         </button>
         <ul class="dropdown-menu">
           <li onclick="set_location('india')"><a class="dropdown-item" href="javascript:void(0)">India</a></li>
