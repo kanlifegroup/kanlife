@@ -10,11 +10,11 @@
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('public/image/logo.png') }}">
 
     <title>@yield('title') - KanLife</title>
-    <link rel="stylesheet" href="{{asset('public/css/style.css')}}">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     @yield('style')
+    <link rel="stylesheet" href="{{asset('public/css/style.css')}}">
     <style>
     /* Chrome, Safari, Edge, Opera */
     input::-webkit-outer-spin-button,
@@ -37,6 +37,9 @@
     .regiS {
       -ms-overflow-style: none;  /* IE and Edge */
       scrollbar-width: none;  /* Firefox */
+    }
+    #about_us_menu::after{
+      content: none;
     }
     </style>
 </head>

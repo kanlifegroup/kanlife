@@ -4,16 +4,16 @@
 @endsection
 
 @section('style')
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/7.3.1/swiper-bundle.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.theme.min.css">
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
-	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"><div class="pd-wrap">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <!-- <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500&display=swap" rel="stylesheet"> -->
-  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&family=Montserrat:wght@500&family=Nunito:wght@500;600;700;900&family=Roboto:wght@500&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/7.3.1/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&family=Montserrat:wght@500&family=Nunito:wght@500;600;700;900&family=Roboto:wght@500&display=swap"
+        rel="stylesheet">
 @endsection
 
 @section('content')
@@ -24,8 +24,8 @@
 	</div>
 </div>
 
-<div class="container-fluid mt-5 mb-5">
-  <div class="row">
+<div class="container-fluid px-4 mt-5 mb-5">
+  <div class="row g-5">
     <div class="col-md-4">
       <div id="slider" class="owl-carousel product-slider">
         <div class="item">
@@ -48,45 +48,80 @@
         @endforeach
       </div>
     </div>
-    <div class="col-md-4">
-      <div class="product-dtl">
-        <div class="product-info mb-3">
-          <div class="product-name">{{$shop->product_name}}</div>
-          <div class="product-price-discount">
-            @if($shop->product_price != 0)
-              @if($shop->product_offer_price != 0)
-              <span><i class="fa fa-inr" aria-hidden="true"></i> {{$shop->product_offer_price}}</span>
-              <span class="line-through"><i class="fa fa-inr" aria-hidden="true"></i> {{$shop->product_price}}</span>
-              @else
-              <span><i class="fa fa-inr" aria-hidden="true"></i> {{$shop->product_price}}</span>
-              @endif
-            @endif
+    <div class="col">
+      <div class="product-dtl pt-2">
+          <div class="product-info mb-3">
+              <div class="product-name">{{$shop->product_name}}</div>
+              <div class="product-price-discount">
+                @if($shop->product_price != 0)
+                  @if($shop->product_offer_price != 0)
+                  <span><i class="fa fa-inr" aria-hidden="true"></i> {{$shop->product_offer_price}}</span>
+                  <span class="line-through"><i class="fa fa-inr" aria-hidden="true"></i> {{$shop->product_price}}</span>
+                  @else
+                  <span><i class="fa fa-inr" aria-hidden="true"></i> {{$shop->product_price}}</span>
+                  @endif
+                @endif
+              </div>
           </div>
-          </div>
-          <p class="" style="color:#3188CA;"><img class="deu-fealine" src="{{asset('public/image/line.svg')}}"> &nbsp;&nbsp;&nbsp;
-          <span class="deu-filter">Features</span></p>
+          <p class="d-flex align-items-center" style="color:#3188CA;"><img class="deu-fealine" src="{{asset('public/image/line.svg')}}"> &nbsp;&nbsp;&nbsp;
+              <span class="deu-filter">Features</span>
+          </p>
           <ul class="deu-proul">
-            <li class="deu-margbtm"><i class="fa fa-circle deu-profa" aria-hidden="true"></i> 200 kHz, 4 kW, 100mA Mobile HF X-Ray</li>
-            <li class="deu-margbtm"><i class="fa fa-circle deu-profa" aria-hidden="true"></i> Draws clean power from mains</li>
-            <li class="deu-margbtm"><i class="fa fa-circle deu-profa" aria-hidden="true"></i> Negligible leakage radiation</li>
-            <li class="deu-margbtm"><i class="fa fa-circle deu-profa" aria-hidden="true"></i> Easy to move (85 kg) </li>
-            <li class="deu-margbtm"><i class="fa fa-circle deu-profa" aria-hidden="true"></i> 90° collimator rotation</li>
-            <li class="deu-margbtm"><i class="fa fa-circle deu-profa" aria-hidden="true"></i> Tube-head rotation</li>
-            <li class="deu-margbtm"><i class="fa fa-circle deu-profa" aria-hidden="true"></i> Light field intensity min 160 Lux @ 1m</li>
-            <li class="deu-margbtm"><i class="fa fa-circle deu-profa" aria-hidden="true"></i> Suitable for NICU, ICU, Trauma & Ortho</li>
+              <li class="deu-margbtm row g-0"><i class="fa pt-2 col-auto fa-circle deu-profa" aria-hidden="true"></i>
+                  <span class="col">200 kHz, 4 kW,
+                  100mA Mobile HF X-Ray
+                  </span>
+              </li>
+              <li class="deu-margbtm row g-0"><i class="fa pt-2 col-auto fa-circle deu-profa" aria-hidden="true"></i>
+                  <span class="col">Draws clean
+                  power from mains
+                  </span>
+              </li>
+              <li class="deu-margbtm row g-0"><i class="fa pt-2 col-auto fa-circle deu-profa" aria-hidden="true"></i>
+                  <span class="col">Negligible
+                  leakage radiation
+                  </span>
+              </li>
+              <li class="deu-margbtm row g-0"><i class="fa pt-2 col-auto fa-circle deu-profa" aria-hidden="true"></i>
+                  <span class="col">Easy to move
+                  (85 kg) 
+                  </span>
+              </li>
+              <li class="deu-margbtm row g-0"><i class="fa pt-2 col-auto fa-circle deu-profa" aria-hidden="true"></i>
+                  <span class="col">90° collimator
+                  rotation
+                  </span>
+              </li>
+              <li class="deu-margbtm row g-0"><i class="fa pt-2 col-auto fa-circle deu-profa" aria-hidden="true"></i>
+                  <span class="col">Tube-head
+                  rotation
+                  </span>
+              </li>
+              <li class="deu-margbtm row g-0"><i class="fa pt-2 col-auto fa-circle deu-profa" aria-hidden="true"></i>
+                  <span class="col">Light field
+                  intensity min 160 Lux @ 1m
+                  </span>
+              </li>
+              <li class="deu-margbtm row g-0"><i class="fa pt-2 col-auto fa-circle deu-profa" aria-hidden="true"></i>
+                  <span class="col">Suitable for
+                  NICU, ICU, Trauma & Ortho
+                  </span>
+              </li>
           </ul>
           <div class="product-count mt-3 mb-3">
-            <form action="#" class="display-flex">
+            <form action="#" class="d-flex align-items-center">
               @if(isset($cart['qty']) && $cart['qty'] > 0)
-                <div class="qtyminus" data-id="{{base64_encode($cart['ord_id'])}}">-</div>
-                <input type="text" id="{{base64_decode($cart['ord_id'])}}" name="quantity" value="{{$cart['qty']}}" class="qty qty-{{base64_encode($cart['ord_id'])}}">
-                <div class="qtyplus" data-id="{{base64_encode($cart['ord_id'])}}">+</div>
+                <div class="product-count mt-3 mb-3 d-flex">
+                  <div class="qtyminus" data-id="{{base64_encode($cart['ord_id'])}}">-</div>
+                  <input type="text" id="{{base64_decode($cart['ord_id'])}}" name="quantity" value="{{$cart['qty']}}" class="qty qty-{{base64_encode($cart['ord_id'])}}">
+                  <div class="qtyplus" data-id="{{base64_encode($cart['ord_id'])}}">+</div>
+                </div>
                 <a href="javascript:void(0)" data-id="{{base64_encode($cart['ord_id'])}}" class="round-black-btn remove">Remove from cart</a>
               @else
                 @if($shop->product_price != 0)
-                  <a href="{{url('/add_to_cart').'/'.$shop->product_slug}}" class="round-black-btn">Add To Cart</a>
+                  <a href="{{url('/add_to_cart').'/'.$shop->product_slug}}" class="enquirys-btn">Add To Cart</a>
                 @else
-                  <a href="{{url('/price_enquiry')}}/{{ base64_encode($shop->product_id) }}" class="round-black-btn">Price Enquiry</a>
+                  <a href="{{url('/price_enquiry')}}/{{ base64_encode($shop->product_id) }}" class="enquirys-btn">Price Enquiry</a>
                 @endif
               @endif
             </form>
@@ -102,25 +137,26 @@
             </a>
             @endif
           </p>
-        </div>
       </div>
-      <div class="col-md-4">
-        <div class="deu-proright mt-4">
-          <p class="" style="color:#3188CA;"> <img class="deu-fealine" src="{{asset('public/image/line.svg')}}"> &nbsp;&nbsp;&nbsp;
-          <span class="deu-filter">Product Links</span></p>
-          <ul class="deu-proul">
-            <li><i class="fa fa-circle deu-profa" aria-hidden="true"></i> X-Ray System</li>
-            <li><i class="fa fa-circle deu-profa" aria-hidden="true"></i> Surgical C-Arm</li>
-            <li><i class="fa fa-circle deu-profa" aria-hidden="true"></i> Ventilators</li>
-            <li><i class="fa fa-circle deu-profa" aria-hidden="true"></i> Patient Monitoring Systems</li>
-            <li><i class="fa fa-circle deu-profa" aria-hidden="true"></i> Defibrillator</li>
-            <li><i class="fa fa-circle deu-profa" aria-hidden="true"></i> ECG</li>
-            <li><i class="fa fa-circle deu-profa" aria-hidden="true"></i> Syringe and infusion Pump</li>
-            <li><i class="fa fa-circle deu-profa" aria-hidden="true"></i> Electrosurgical Units</li>
-            <li><i class="fa fa-circle deu-profa" aria-hidden="true"></i> Dental Products</li>
-            <li><i class="fa fa-circle deu-profa" aria-hidden="true"></i> Anesthesia Delivery Systems</li>
-          </ul>
-        </div>
+    </div>
+    <div class="col-auto">
+      <div class="deu-proright mt-4">
+        <p class="" style="color:#3188CA;"> <img class="deu-fealine" src="{{asset('public/image/line.svg')}}">
+          &nbsp;&nbsp;&nbsp;
+          <span class="deu-filter">Product Links</span>
+        </p>
+        <ul class="deu-proul">
+          <li><i class="fa fa-circle deu-profa" aria-hidden="true"></i> X-Ray System</li>
+          <li><i class="fa fa-circle deu-profa" aria-hidden="true"></i> Surgical C-Arm</li>
+          <li><i class="fa fa-circle deu-profa" aria-hidden="true"></i> Ventilators</li>
+          <li><i class="fa fa-circle deu-profa" aria-hidden="true"></i> Patient Monitoring Systems</li>
+          <li><i class="fa fa-circle deu-profa" aria-hidden="true"></i> Defibrillator</li>
+          <li><i class="fa fa-circle deu-profa" aria-hidden="true"></i> ECG</li>
+          <li><i class="fa fa-circle deu-profa" aria-hidden="true"></i> Syringe and infusion Pump</li>
+          <li><i class="fa fa-circle deu-profa" aria-hidden="true"></i> Electrosurgical Units</li>
+          <li><i class="fa fa-circle deu-profa" aria-hidden="true"></i> Dental Products</li>
+          <li><i class="fa fa-circle deu-profa" aria-hidden="true"></i> Anesthesia Delivery Systems</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -145,10 +181,18 @@
 @endsection
 
 @section('script')
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+        integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script> -->
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 <script>
 $(document).ready(function () {
     var slider = $("#slider");

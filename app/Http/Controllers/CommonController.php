@@ -270,8 +270,9 @@ class CommonController extends Controller
 
   public function view_buy()	
   {
-    $translate = $this->lang_text();
-    $data = array('is_categories'=>true,);
+    $translate = $this->lang_text();    
+    $slideshow['view'] = Slideshow::viewSlideshow($translate);
+    $data = array('is_categories'=>true,'slideshow' => $slideshow,);
     return view('frontend.buy')->with($data);
   }
 

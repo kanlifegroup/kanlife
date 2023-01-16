@@ -5,15 +5,22 @@
 @endsection
 
 @section('style')
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/7.3.1/swiper-bundle.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.theme.min.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500&display=swap" rel="stylesheet"> -->
-  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&family=Montserrat:wght@500&family=Nunito:wght@500;600;700;900&family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/7.3.1/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.theme.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/7.3.1/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/css/swiper.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&family=Montserrat:wght@500&family=Nunito:wght@500;600;700;900&family=Roboto:wght@500&display=swap"
+        rel="stylesheet">
 @endsection
 
 @section('content')
@@ -87,7 +94,7 @@ $items = count($product['view']);
           <td></td>
           <td class="text-right"><i class="fa fa-inr" aria-hidden="true"></i> {{ $purchase->total }}</td>
         </tr>
-        <tr class="deu-cartsbgs1">
+        <tr class="deu-cartsbgs text-dark">
           <td>Total Amount</td>
           <td class="text-right"><i class="fa fa-inr" aria-hidden="true"></i> {{ $purchase->total }}</td>
         </tr>
@@ -97,59 +104,71 @@ $items = count($product['view']);
 </div>
 
 <div class="container-fluid mb-5 mb-5">
-  <div class="col-md-12 deu-probar">
-    <div class="container">
-      <div class="">
-        <div class="progressBox">
-          <div class="step step1">
-            <div class="step-progress"></div>
-            <div class="icon-wrapper">
-              <div class="step-text">Order Placed</div>
-              <svg class="icon icon-checkmark" viewBox="0 0 32 32"><path class="path1" d="M27 4l-15 15-7-7-5 5 12 12 20-20z"></path>  </svg>
+        <div class="col-md-12 deu-probar p-2">
+            <div class="container me-0 pe-0">
+                <div class="">
+                    <div class="progress">
+                        <div class="step">
+                            <div class="step-progress"></div>
+                            <div class="icon-wrapper">
+                                <svg class="icon icon-checkmark" viewBox="0 0 32 32">
+                                    <path class="path1" d="M27 4l-15 15-7-7-5 5 12 12 20-20z"></path>
+                                </svg>
+                                <div class="step-text">Order Placed</div>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-progress"></div>
+                            <div class="icon-wrapper">
+                                <svg class="icon icon-checkmark" viewBox="0 0 32 32">
+                                    <path class="path1" d="M27 4l-15 15-7-7-5 5 12 12 20-20z"></path>
+                                </svg>
+                                <div class="step-text">Order Confirmed</div>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-progress"></div>
+                            <div class="icon-wrapper">
+                                <svg class="icon icon-checkmark" viewBox="0 0 32 32">
+                                    <path class="path1" d="M27 4l-15 15-7-7-5 5 12 12 20-20z"></path>
+                                </svg>
+                                <div class="step-text">Shipped</div>
+                            </div>
+                        </div>
+                        <div class="step" style="flex: initial; vertical-align: bottom;">
+                            <div class="icon-wrapper w-auto">
+                                <svg class="icon icon-checkmark" viewBox="0 0 32 32">
+                                    <path class="path1" d="M27 4l-15 15-7-7-5 5 12 12 20-20z"></path>
+                                </svg>
+                                <div class="step-text">Delivered</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="step step1">
-            <div class="step-progress"></div>
-            <div class="icon-wrapper">
-              <svg class="icon icon-checkmark" viewBox="0 0 32 32"><path class="path1" d="M27 4l-15 15-7-7-5 5 12 12 20-20z"></path>  </svg>
-              <div class="step-text">Order Confirmed</div>
-            </div>
-          </div>
-          <div class="step ">
-            <div class="step-progress"></div>
-            <div class="icon-wrapper">
-              <svg class="icon icon-checkmark" viewBox="0 0 32 32"><path class="path1" d="M27 4l-15 15-7-7-5 5 12 12 20-20z"></path>  </svg>
-              <div class="step-text">Shipped</div>
-            </div>
-          </div>
-          <div class="step ">
-            <div class="icon-wrapper">
-              <svg class="icon icon-checkmark" viewBox="0 0 32 32"><path class="path1" d="M27 4l-15 15-7-7-5 5 12 12 20-20z"></path>  </svg>   
-              <div class="step-text">Delivered</div>
-            </div>
-          </div>
         </div>
-      </div>
     </div>
-  </div>
-</div>
 
 @endsection
 
 @section('script')
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+        integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+        crossorigin="anonymous"></script>
 <script>
-  var steps = $(".step1");
-console.dir(steps);
-setTimeout(function() {
-  steps.each(function(index) {
-    var _t = $(this);
+   var steps = $(".step");
+    console.dir(steps);
     setTimeout(function() {
-      _t.addClass('done');
-    }, 1250*index*1.5);
-  });
-}, 500);
+      steps.each(function(index) {
+        var _t = $(this);
+        setTimeout(function() {
+          _t.addClass('done');
+        }, 1250*index*1.5);
+      });
+    }, 500);
 </script>
 @endsection

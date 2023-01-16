@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Kanlife</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/7.3.1/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css">
+    <link
+    href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&family=Montserrat:wght@500&family=Nunito:wght@500;600;700;900&family=Roboto:wght@500&display=swap"
+    rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="container-fluid top-nav text-white py-2">
+        <div class="row g-0 align-items-center flex-column gap-3 justify-content-center flex-md-row">
+            <div class="col d-flex gap-2 justify-content-center justify-content-md-start px-3">
+                <div class="social-bg d-flex justify-content-center align-items-center">
+                    <img src="image/facebook.svg" alt="" class="img-fluid">
+                </div>
+                <div class="social-bg d-flex justify-content-center align-items-center">
+                    <img src="image/instagram.svg" alt="" class="img-fluid">
+                </div>
+                <div class="social-bg d-flex justify-content-center align-items-center">
+                    <img src="image/youtube.svg" alt="" class="img-fluid">
+                </div>
+                <div class="social-bg d-flex justify-content-center align-items-center">
+                    <img src="image/twitter.svg" alt="" class="img-fluid">
+                </div>
+                <div class="social-bg d-flex justify-content-center align-items-center">
+                    <img src="image/linkedin.svg" alt="" class="img-fluid">
+                </div>
+            </div>
+            <div class="col-auto d-flex align-items-center gap-2 px-5">
+                <img class="top-navemail" src="image/email.svg" />
+                <a href="mailto:contact@kanlifemedical.asia">
+                    <span class="kan-email">contact@kanlifemedical.asia<span>
+                </a>
+            </div>
+            <div class="col-auto text-white d-flex align-items-center optionbox">
+                <div class="dropdown-center">
+                    <button class="btn bg-transparent text-white d-flex align-items-center gap-2 dropdown-toggle border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img class="top-navemail ms-auto me-0" src="image/global.svg">
+                        India
+                        <img src="image/counrty-dd-icon.svg" alt="" width="15" class="ms-5">
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="index.html">India</a></li>
+                        <li><a class="dropdown-item" href="home_singapore.html">Singapore</a></li>
+                        <li><a class="dropdown-item" href="home_london.html">London</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-md py-0">
+        <div class="container-fluid py-1">
+            <a class="navbar-brand" href="#">
+                <img src="image/Image 39.png" width="" class="logo img-fluid" />
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse px-2" id="navbarSupportedContent">
+                <div class="navbar-nav gap-lg-4 gap-xxl-5 ms-auto align-items-md-center">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link" href="#">Buy</a>
+                    <a class="nav-link" href="#">Rent</a>
+                    <a class="nav-link text-nowrap" href="#">Dr. Consultant</a>
+                    <a class="nav-link" href="#">About</a>
+                    <div class="dropdown">
+                        <button class="btn nav-link border-0 dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            Jesmin
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </div>
+                    <div class="cart-icon">
+                        <img src="image/cart-after-login.svg" alt="" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="banner slider">
+        <div id="demo" class="carousel slide" data-ride="carousel" data-interval="false">
+
+            <!-- Indicators -->
+            <ul class="carousel-indicators">
+                <li data-target="#demo" data-slide-to="0" class="active"></li>
+                <li data-target="#demo" data-slide-to="1"></li>
+            </ul>
+
+            <!-- The slideshow -->
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="img-fluid deu-slideheight" src="image/slider.png" alt="">
+                    <div class="carousel-caption deu-slidepad text-left">
+                        <div class="col-12 ">
+                            <h1 class="pb-2 deu-slidehead text-start">Kanlife Group </h1>
+                            <div class="d-flex flex-column flex-md-row flex-wrap gap-1 gap-md-4 ms-3">
+                                <div class="d-flex">
+                                    <img class="img-fluid deu-healthimg" src="image/s1.png">
+                                    <p class="deu-health">Health</p>
+                                </div>
+                                <div class="d-flex">
+                                    <img class="img-fluid deu-healthimg" src="image/s2.png">
+                                    <p class="deu-health">Medical</p>
+                                </div>
+                                <div class="d-flex">
+                                    <img class="img-fluid deu-healthimg" src="image/s3.png">
+                                    <p class="deu-health">Wellness</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="img-fluid deu-slideheight" src="image/slider.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid my-5">
+        <div class="row g-0 gap-3">
+            <div class="col-12 col-md">
+                <div class="inforide h-100">
+                    <div class="row g-0 justify-content-between">
+                        <div class="order-2 order-md-1 col-md-7 fontsty d-flex flex-column justify-content-between">
+                            <h4 class="deu-buytxt">Buy Medical Equipment’s.</h4>
+                            <button class="deu-buybtn">Buy Now</button>
+                        </div>
+                        <div class="order-1 order-md-2 col-md-5 rideone d-flex justify-content-md-end justify-content-center mb-4 mb-md-0 align-items-center">
+                            <img class="img-fluid deu-buyheight" src="image/buy1.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md">
+                <div class="inforide1 h-100">
+                    <div class="row g-0 justify-content-between">
+                        <div class="order-2 order-md-1 col-md-7 fontsty d-flex flex-column justify-content-between">
+                            <h4 class="deu-buytxt">Rent Medical Equipment’s.</h4>
+                            <button class="deu-buybtn">Rent Now</button>
+                        </div>
+                        <div class="order-1 order-md-2 col-md-5 rideone d-flex justify-content-md-end justify-content-center mb-4 mb-md-0 align-items-center">
+                            <img class="img-fluid deu-buyheight" src="image/buy2.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md">
+                <div class="inforide2 h-100">
+                    <div class="row h-100 g-0 justify-content-between">
+                        <div class="order-2 order-md-1 col-md-7 fontsty d-flex flex-column justify-content-between">
+                            <h4 class="deu-buytxt">Consult A Dr.</h4>
+                            <button class="deu-buybtn">Consult Now</button>
+                        </div>
+                        <div class="order-1 order-md-2 col-md-5 rideone d-flex justify-content-md-end justify-content-center mb-4 mb-md-0 align-items-center">
+                            <img class="img-fluid deu-buyheight" src="image/buy3.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="us-section">
+        <div class="container">
+            <h3 class="text-center mb-5 deu-bloghead">About Us</h3>
+            <div class="row mt-3 align-items-center">
+                <div class="col-md-5 col-sm-6 h-100">
+                    <div class="about-img d-flex align-items-center">
+                        <img class="img-fluid deu-marg" src="image/us.png" alt="">
+                    </div>
+                </div>
+                <div class="col-md-7 col-sm-6">
+                    <div class="about-title clearfix">
+                        <div class="sub-head">Global medical and health care delivered locally</div>
+                        <div class="mt-3 mb-3 contents">Kanlife Group was conceptualized and founded in 2009 in Singapore as
+                            Kanlife Asia Pte. Ltd. with a vision to provide a go-to-market platform
+                            to medical technology and healthcare companies from across the globe that are looking to
+                            establish a presence or strengthen their distribution foothold in Asia.</div>
+                        <div class="mt-3 mb-3 contents">Over the years Kanlife grew from a single shareholder company based out of
+                            Singapore to a multi-national group with shareholder limited companies at strategic global
+                            business locations like India and the UK.</div>
+                        <button class="about-more">Know More</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="about-section">
+        <div class="container">
+            <div class="row deu-knowborder align-items-center">
+                <div class="col-md-7 col-sm-6">
+                    <div class="about-title clearfix">
+                        <div class="sub-head">Enabling efficient product distribution</div>
+                        <div class="mt-3 mb-3 contents">Over the years Kanlife has become the partner of choice for medical
+                            equipment manufacturers looking to introduce,
+                            establish and grow their business and channel partner network in India and South East Asia.
+                        </div>
+                        <button class="about-more">Know More</button>
+                    </div>
+                </div>
+                <div class="col-md-5 col-sm-6">
+                    <div class="about-img">
+                        <img class="img-fluid" src="image/video.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="us-section">
+        <div class="container">
+            <h3 class="text-center mb-5 mt-4 deu-bloghead">CEO’s Desk</h3>
+            <div class="row deu-deskbg">
+                <div class="col-md-4 col-sm-6">
+                    <div class="about-img">
+                        <img class="img-fluid deu-marg" src="image/ceo.png" alt="">
+                    </div>
+                </div>
+                <div class="col-md-8 col-sm-6">
+                    <div class="about-title clearfix">
+                        <div class="sub-head">Shri, Ramesh Verma, IAS,</div >
+                        <h6 class="deu-chief">Chief Electoral Officer, Goa</h6>
+                        <hr>
+                        <h6 class="mt-4 deu-ceos">&nbsp;&nbsp;&nbsp;&nbsp; lorem lorem lorem lorem lorem lorem lorem
+                            lorem lorem lorem lorem lorem lorem lorem lorem lorem </h6>
+                        <h6 class="mt-4 deu-ceos">&nbsp;&nbsp;&nbsp;&nbsp; lorem lorem lorem lorem lorem lorem lorem
+                            lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem
+                            lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem
+                            lorem lorem </h6>
+                        <h6 class="mt-4 deu-ceos">&nbsp;&nbsp;&nbsp;&nbsp; lorem lorem lorem lorem lorem lorem lorem
+                            lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem
+                            lorem lorem lorem lorem lorem lorem lorem lorem lorem </h6>
+                        <h6 class="mt-4 deu-ceos">&nbsp;&nbsp;&nbsp;&nbsp; lorem lorem lorem lorem lorem lorem lorem
+                            lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem </h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section>
+        <div class="container-fluid px-4">
+            <h3 class="text-center mt-5 mb-5 deu-bloghead">Our Team</h3>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="container-fluid">
+                        <ul class="row portfolio lightbox list-unstyled mb-0 shuffle boxed-portfolio" id="grid">
+                            <!-- project -->
+                            <li class="col-md-6 col-lg-4 project shuffle-item filtered">
+                                <div class="card mb-0">
+                                    <div class="project m-0">
+                                        <figure class="portfolio-item">
+                                            <div class="hovereffect">
+                                                <img class="img-responsive" src="image/team.png" alt="">
+                                            </div>
+                                        </figure>
+                                    </div>
+                                    <div class="card-body text-center">
+                                        <a href="#" class="card-title title-link mt-5">Dr. Jessica Tailor</a>
+                                        <p class="card-txt mt-2">Dental Surgeon</p>
+                                        <p class="card-text mt-3 mb-4">
+                                            <i class="fa fa-facebook-official larger deu-teamfa" aria-hidden="true"></i>
+                                            <i class="fa fa-twitter deu-teamfa" aria-hidden="true"></i>
+                                            <i class="fa fa-instagram deu-teamfa" aria-hidden="true"></i>
+                                            <i class="fa fa-linkedin-square deu-teamfa" aria-hidden="true"></i>
+                                        </p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="col-md-6 col-lg-4 project shuffle-item filtered">
+                                <div class="card mb-0">
+                                    <div class="project m-0">
+                                        <figure class="portfolio-item">
+                                            <div class="hovereffect">
+                                                <img class="img-responsive" src="image/team.png" alt="">
+                                            </div>
+                                        </figure>
+                                    </div>
+                                    <div class="card-body text-center">
+                                        <a href="#" class="card-title title-link mt-5">Dr. Jessica Tailor</a>
+                                        <p class="card-txt mt-2">Dental Surgeon</p>
+                                        <p class="card-text mt-3 mb-4">
+                                            <i class="fa fa-facebook-official larger deu-teamfa" aria-hidden="true"></i>
+                                            <i class="fa fa-twitter deu-teamfa" aria-hidden="true"></i>
+                                            <i class="fa fa-instagram deu-teamfa" aria-hidden="true"></i>
+                                            <i class="fa fa-linkedin-square deu-teamfa" aria-hidden="true"></i>
+                                        </p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="col-md-6 col-lg-4 project shuffle-item filtered">
+                                <div class="card mb-0">
+                                    <div class="project m-0">
+                                        <figure class="portfolio-item">
+                                            <div class="hovereffect">
+                                                <img class="img-responsive" src="image/team.png" alt="">
+                                            </div>
+                                        </figure>
+                                    </div>
+                                    <div class="card-body text-center">
+                                        <a href="#" class="card-title title-link mt-5">Dr. Jessica Tailor</a>
+                                        <p class="card-txt mt-2">Dental Surgeon</p>
+                                        <p class="card-text mt-3 mb-4">
+                                            <i class="fa fa-facebook-official larger deu-teamfa" aria-hidden="true"></i>
+                                            <i class="fa fa-twitter deu-teamfa" aria-hidden="true"></i>
+                                            <i class="fa fa-instagram deu-teamfa" aria-hidden="true"></i>
+                                            <i class="fa fa-linkedin-square deu-teamfa" aria-hidden="true"></i>
+                                        </p>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h3 class="text-center mt-5 mb-5 deu-bloghead">Rapidly Expanding Network</h3>
+        </div>
+        <div class="container-fluid bg-overlay">
+            <div class="container-fluid px-5">
+                <div class="row text-center deu-rapidbg p-3">
+                    <div class="row g-0 gap-4 justify-content-around">
+                        <div class="col-12 col-md-auto">
+                            <div class="deu-dealers">Dealers Network</div>
+                            <div class="deu-dealershead">150+</div>
+                            <div class="deu-dealerstxt">Dealres</div>
+                        </div>
+                        <div class="col-12 col-md-auto">
+                            <div class="deu-dealers">Reach-India</div>
+                            <div class="deu-dealershead">50+</div>
+                            <div class="deu-dealerstxt">Cities</div>
+                        </div>
+                        <div class="col-12 col-md-auto">
+                            <div class="deu-dealers">Reach-Global</div>
+                            <div class="deu-dealershead">20+</div>
+                            <div class="deu-dealerstxt">Countries</div>
+                        </div>
+                        <div class="col-12 col-md-auto">
+                            <div class="deu-dealers">Offices</div>
+                            <div class="deu-dealershead">6</div>
+                        </div>
+                        <div class="col-12 col-md-auto">
+                            <div class="deu-dealers">Warehouses</div>
+                            <div class="deu-dealershead">3</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="deu-ourblg">
+        <div class="container-fluid">
+            <h3 class="text-center mt-5 mb-5 deu-bloghead">Our Blogs</h3>
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row owl-carousel">
+                            <div class="owl-item">
+                                <div class="post-slide10">
+                                    <img class="pic-1" src="image/blog1.png">
+                                    <p class="deu-dec">December 2020</p>
+                                    <h3 class="post-title">
+                                        <a href="#">Kanlife Partners with Echosens</a>
+                                    </h3>
+                                    <p class="post-description">
+                                        Kanlife partners with Echosens - France, to import and distribute their
+                                        best-in-class liver diagnostics equipment
+                                    </p>
+                                    <button class="read-more">read more</button>
+                                </div>
+                            </div>
+                            <div class="owl-item">
+                                <div class="post-slide10">
+                                    <img class="pic-1" src="image/blog1.png">
+                                    <p class="deu-dec">December 2020</p>
+                                    <h3 class="post-title">
+                                        <a href="#">Kanlife Partners with Echosens</a>
+                                    </h3>
+                                    <p class="post-description">
+                                        Kanlife partners with Echosens - France, to import and distribute their
+                                        best-in-class liver diagnostics equipment
+                                    </p>
+                                    <button class="read-more">read more</button>
+                                </div>
+                            </div>
+                            <div class="owl-item">
+                                <div class="post-slide10">
+                                    <img class="pic-1" src="image/blog1.png">
+                                    <p class="deu-dec">December 2020</p>
+                                    <h3 class="post-title">
+                                        <a href="#">Kanlife Partners with Echosens</a>
+                                    </h3>
+                                    <p class="post-description">
+                                        Kanlife partners with Echosens - France, to import and distribute their
+                                        best-in-class liver diagnostics equipment
+                                    </p>
+                                    <button class="read-more">read more</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row">
+                            <div class="owl-item">
+                                <div class="post-slide10">
+                                    <img class="pic-1" src="image/blog1.png">
+                                    <p class="deu-dec">December 2020</p>
+                                    <h3 class="post-title">
+                                        <a href="#">Kanlife Partners with Echosens</a>
+                                    </h3>
+                                    <p class="post-description">
+                                        Kanlife partners with Echosens - France, to import and distribute their
+                                        best-in-class liver diagnostics equipment
+                                    </p>
+                                    <button class="read-more">read more</button>
+                                </div>
+                            </div>
+                            <div class="owl-item">
+                                <div class="post-slide10">
+                                    <img class="pic-1" src="image/blog1.png">
+                                    <p class="deu-dec">December 2020</p>
+                                    <h3 class="post-title">
+                                        <a href="#">Kanlife Partners with Echosens</a>
+                                    </h3>
+                                    <p class="post-description">
+                                        Kanlife partners with Echosens - France, to import and distribute their
+                                        best-in-class liver diagnostics equipment
+                                    </p>
+                                    <button class="read-more">read more</button>
+                                </div>
+                            </div>
+                            <div class="owl-item">
+                                <div class="post-slide10">
+                                    <img class="pic-1" src="image/blog1.png">
+                                    <p class="deu-dec">December 2020</p>
+                                    <h3 class="post-title">
+                                        <a href="#">Kanlife Partners with Echosens</a>
+                                    </h3>
+                                    <p class="post-description">
+                                        Kanlife partners with Echosens - France, to import and distribute their
+                                        best-in-class liver diagnostics equipment
+                                    </p>
+                                    <button class="read-more">read more</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row">
+                            <div class="owl-item">
+                                <div class="post-slide10">
+                                    <img class="pic-1" src="image/blog1.png">
+                                    <p class="deu-dec">December 2020</p>
+                                    <h3 class="post-title">
+                                        <a href="#">Kanlife Partners with Echosens</a>
+                                    </h3>
+                                    <p class="post-description">
+                                        Kanlife partners with Echosens - France, to import and distribute their
+                                        best-in-class liver diagnostics equipment
+                                    </p>
+                                    <button class="read-more">read more</button>
+                                </div>
+                            </div>
+                            <div class="owl-item">
+                                <div class="post-slide10">
+                                    <img class="pic-1" src="image/blog1.png">
+                                    <p class="deu-dec">December 2020</p>
+                                    <h3 class="post-title">
+                                        <a href="#">Kanlife Partners with Echosens</a>
+                                    </h3>
+                                    <p class="post-description">
+                                        Kanlife partners with Echosens - France, to import and distribute their
+                                        best-in-class liver diagnostics equipment
+                                    </p>
+                                    <button class="read-more">read more</button>
+                                </div>
+                            </div>
+                            <div class="owl-item">
+                                <div class="post-slide10">
+                                    <img class="pic-1" src="image/blog1.png">
+                                    <p class="deu-dec">December 2020</p>
+                                    <h3 class="post-title">
+                                        <a href="#">Kanlife Partners with Echosens</a>
+                                    </h3>
+                                    <p class="post-description">
+                                        Kanlife partners with Echosens - France, to import and distribute their
+                                        best-in-class liver diagnostics equipment
+                                    </p>
+                                    <button class="read-more">read more</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center gap-3 mb-3">
+                    <button class="btn border-0" type="button">
+                        <img src="image/carousal-left.svg" alt="" class="img-fluid d-block w-75">
+                    </button>
+                    <button class="btn border-0" type="button">
+                        <img src="image/carousal-right.svg" alt="" class="img-fluid d-block w-75">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container-fluid mb-5">
+        <p class="text-center deu-bloghead mt-5">Testimonials</p>
+        <div class="owl-carousel owl-theme mt-5">
+            <div class="owl-item">
+                <div class="card">
+                    <div class="row col-md-12">
+                        <div class="col-md-4">
+                            <img class="img-fluid" src="image/testimonial.png" alt="">
+                        </div>
+                        <div class="col-md-8">
+                            <p class="deu-john">John Doe</p>
+                            <p class="deu-entro">Entrepreneur</p>
+                        </div>
+                    </div>
+                    <div class="testimonial mt-4 mb-2">
+                        Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
+                        Ipsum Ipsum
+                    </div>
+                </div>
+            </div>
+            <div class="owl-item">
+                <div class="card">
+                    <div class="row col-md-12">
+                        <div class="col-md-4">
+                            <img class="img-fluid" src="image/testimonial.png" alt="">
+                        </div>
+                        <div class="col-md-8">
+                            <p class="deu-john">John Doe</p>
+                            <p class="deu-entro">Entrepreneur</p>
+                        </div>
+                    </div>
+                    <div class="testimonial mt-4 mb-2">
+                        Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
+                        Ipsum Ipsum
+                    </div>
+                </div>
+            </div>
+            <div class="owl-item">
+                <div class="card">
+                    <div class="row col-md-12">
+                        <div class="col-md-4">
+                            <img class="img-fluid" src="image/testimonial.png" alt="">
+                        </div>
+                        <div class="col-md-8">
+                            <p class="deu-john">John Doe</p>
+                            <p class="deu-entro">Entrepreneur</p>
+                        </div>
+                    </div>
+                    <div class="testimonial mt-4 mb-2">
+                        Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
+                        Ipsum Ipsum
+                    </div>
+                </div>
+            </div>
+            <div class="owl-item">
+                <div class="card">
+                    <div class="row col-md-12">
+                        <div class="col-md-4">
+                            <img class="img-fluid" src="image/testimonial.png" alt="">
+                        </div>
+                        <div class="col-md-8">
+                            <p class="deu-john">John Doe</p>
+                            <p class="deu-entro">Entrepreneur</p>
+                        </div>
+                    </div>
+                    <div class="testimonial mt-4 mb-2">
+                        Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
+                        Ipsum Ipsum
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="deu-bandbg">
+        <div class="container">
+            <p class="text-center deu-bloghead">Our Brands</p>
+            <p class="text-center deu-bandtxt">World class products from the best Global brands</p>
+        </div>
+        <div class="container deu-bandlogopad">
+            <div class="row col-md-12 mt-5">
+                <div class="col-md-4 text-center">
+                    <img class="img-fluid deu-bandlogowid deu-bandlogomarg" src="image/our1.png">
+                </div>
+                <div class="col-md-4 text-center">
+                    <img class="img-fluid deu-bandlogowid deu-bandlogomarg" src="image/our2.png">
+                </div>
+                <div class="col-md-4 text-center">
+                    <img class="img-fluid deu-bandlogowid" src="image/our3.png">
+                </div>
+            </div>
+            <div class="col-md-12 mt-5 mb-5">
+                <div class="row offset-2 col-8">
+                    <div class="col-md-6 text-center">
+                        <img class="img-fluid deu-bandlogowid" src="image/our4.png">
+                    </div>
+                    <div class="col-md-6 text-center">
+                        <img class="img-fluid deu-bandlogowid deu-bandlogomarg" src="image/our5.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="footer-wrap">
+        <div class="container">
+            <div class="copyright">All Rights Reserved @ Company 2022</div>
+        </div>
+    </div>
+
+
+    <!-- The Modal login -->
+    <div class="modal fade logS1" id="myModal">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title"></h4>
+                </div>
+                <div class="modal-body">
+                    <p class="deu-loginhead">Login</p>
+                    <p class="deu-loginhead">To Your Account</p>
+                    <p class="deu-logintxt">Please enter your email address and password</p>
+                    <form class="form-horizontal">
+                        <div class="form-group row justify-content-center px-3">
+                            <div class="col-9 px-0">
+                                <input type="text" placeholder="Email*"
+                                    class="form-control rounded-0 border-info placeicon deu-logininput">
+                            </div>
+                        </div>
+                        <div class="form-group row justify-content-center px-3">
+                            <div class="col-9 px-0">
+                                <input type="password" placeholder="Password*"
+                                    class="form-control rounded-0 border-info placeicon deu-logininput">
+                            </div>
+                        </div>
+                        <div class="form-group row justify-content-center px-3">
+                            <div class="col-9">
+                                <div class="row">
+                                    <div class="col-6 px-0">
+                                        <span><a href="#" class="deu-loginforget logS12" data-bs-toggle="modal"
+                                                data-bs-target="#myModal2"><b class="deu-underline">Forgot
+                                                    Password?</b></a></span>
+                                    </div>
+                                    <div class="col-6 px-0 text-end">
+                                        <span>
+                                            <a href="#" class="deu-loginforget logS" data-bs-toggle="modal" data-bs-target="#myModal1">
+                                                <b class="deu-underline">Don’t have an account?</b>
+                                            </a>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row justify-content-center mt-4 text-center">
+                            <div class="col-3 px-3">
+                                <button class="about-more" type="button">Login</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- The Modal Register -->
+    <div class="modal fade regiS" id="myModal1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title"></h4>
+                </div>
+                <div class="modal-body">
+                    <p class="deu-loginhead">Register <br> Your Account</p>
+                    <p class="deu-logintxt">Please fill the following fields with appropriate information to register
+                        form</p>
+                    <form class="form-horizontal">
+                        <div class="form-group row justify-content-center px-3">
+                            <div class="col-9 px-0">
+                                <input type="text" placeholder="Enter your name"
+                                    class="rounded-0 form-control border-info placeicon deu-logininput">
+                            </div>
+                        </div>
+                        <div class="form-group row justify-content-center px-3">
+                            <div class="col-9 px-0">
+                                <input type="text" placeholder="Enter Email Address"
+                                    class="rounded-0 form-control border-info placeicon deu-logininput">
+                            </div>
+                        </div>
+                        <div class="form-group row justify-content-center px-3">
+                            <div class="col-9 px-0">
+                                <input type="text" placeholder="+91 | Contact Number"
+                                    class="rounded-0 form-control border-info placeicon deu-logininput">
+                            </div>
+                        </div>
+                        <div class="form-group row justify-content-center px-3">
+                            <div class="col-9 px-0">
+                                <textarea class="rounded-0 form-control border-info placeicon deu-logininput"
+                                    placeholder="Enter Address" rows="3" id="comment"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group row justify-content-center px-3">
+                            <div class="col-9 px-0">
+                                <input type="text" placeholder="Enter Pincode"
+                                    class="rounded-0 form-control border-info placeicon deu-logininput">
+                            </div>
+                        </div>
+                        <div class="form-group row justify-content-center px-3">
+                            <div class="col-9 px-0">
+                                <input type="text" placeholder="Enter Password"
+                                    class="rounded-0 form-control border-info placeicon deu-logininput">
+                            </div>
+                        </div>
+                        <div class="form-group row justify-content-center px-3">
+                            <div class="col-9 px-0">
+                                <input type="text" placeholder="Enter Confirm Password"
+                                    class="rounded-0 form-control border-info placeicon deu-logininput">
+                            </div>
+                        </div>
+                        <div class="form-group row justify-content-center px-3">
+                            <div class="col-9">
+                                <div class="row">
+                                    <div class="col-12 px-0 text-right">
+                                        <span>
+                                            <a href="#" class="deu-loginforget" data-bs-toggle="modal" data-bs-target="#myModal">
+                                                <b class="deu-underline">Already have an Account?</b>
+                                            </a>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row justify-content-center mt-3 text-center">
+                            <div class="col-3 px-3">
+                                <button class="about-more">Register</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- The Modal forget -->
+    <div class="modal fade forgeT" id="myModal2">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title"></h4>
+                </div>
+                <div class="modal-body">
+                    <p class="deu-loginhead">Forgot Password</p>
+                    <p class="deu-logintxt">Please Enter Email for forgot password</p>
+                    <form class="form-horizontal mt-5">
+                        <div class="form-group row justify-content-center px-3">
+                            <div class="col-9 px-0 mt-3">
+                                <input type="text" placeholder="Enter Email Address"
+                                    class="form-control border-info rounded-0 placeicon deu-logininput">
+                            </div>
+                        </div>
+                        <div class="form-group row justify-content-center mt-5 text-center">
+                            <div class="col-auto px-3">
+                                <button class="about-more">Reset Password</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.js"></script>
+    <script>
+        $(document).ready(function () {
+            var silder = $(".owl-carousel");
+            silder.owlCarousel({
+                autoplay: true,
+                autoplayTimeout: 3000,
+                autoplayHoverPause: false,
+                items: 1,
+                stagePadding: 20,
+                center: true,
+                nav: false,
+                margin: 30,
+                dots: true,
+                loop: true,
+                responsive: {
+                    0: { items: 1 },
+                    480: { items: 2 },
+                    575: { items: 2 },
+                    768: { items: 2 },
+                    991: { items: 3 },
+                    1200: { items: 3 }
+                }
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $("#news-slider10").owlCarousel({
+                items: 3,
+                itemsDesktop: [1199, 3],
+                itemsDesktopSmall: [980, 2],
+                itemsMobile: [600, 1],
+                navigation: true,
+                navigationText: ["", ""],
+                pagination: true,
+                autoPlay: true,
+                responsive: {
+                    0: { items: 1 },
+                    480: { items: 2 },
+                    575: { items: 2 },
+                    768: { items: 2 },
+                    991: { items: 3 },
+                    1200: { items: 3 }
+                }
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $(".logS").click(function () {
+                $(".regiS").show();
+            });
+            $(".logS").click(function () {
+                $(".logS1").hide();
+            });
+            $(".logS12").click(function () {
+                $(".forgeT").show();
+            });
+            $(".logS12").click(function () {
+                $(".logS1").hide();
+            });
+        });
+    </script>
+
+</body>
+
+</html>

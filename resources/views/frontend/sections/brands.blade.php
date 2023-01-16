@@ -1,7 +1,7 @@
 <!-- Our Brands -->
 <section class="deu-bandbg">
   <div class="container">
-    <p class="text-center deu-bandhead">Our Brands</p>
+    <p class="text-center deu-bloghead">Our Brands</p>
     <p class="text-center deu-bandtxt">World class products from the best Global brands</p>
   </div>
   <div class="container deu-bandlogopad">

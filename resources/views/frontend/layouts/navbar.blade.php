@@ -1,3 +1,4 @@
+{{--
 <div class="container-fluid top-nav">
   <div class="row">
     <div class="col-md-7">
@@ -24,19 +25,61 @@
     </div>
   </div>
 </div>
+--}}
+<div class="container-fluid top-nav text-white py-2">
+  <div class="row g-0 align-items-center flex-column gap-3 justify-content-center flex-md-row">
+    <div class="col d-flex gap-2 justify-content-center justify-content-md-start px-3">
+      <div class="social-bg d-flex justify-content-center align-items-center">
+        <!-- <img src="image/facebook.svg" alt="" class="img-fluid"> -->
+        <i class="fa fa-facebook top-navsocial" aria-hidden="true"></i>
+      </div>
+      <div class="social-bg d-flex justify-content-center align-items-center">
+        <img src="{{ asset('public/image/instragam.svg') }}" alt="" class="img-fluid">
+      </div>
+      <div class="social-bg d-flex justify-content-center align-items-center">
+        <!-- <img src="image/youtube.svg" alt="" class="img-fluid"> -->
+        <i class="fa fa-youtube-play top-navsocial" aria-hidden="true"></i>
+      </div>
+      <div class="social-bg d-flex justify-content-center align-items-center">
+        <!-- <img src="image/twitter.svg" alt="" class="img-fluid"> -->
+        <i class="fa fa-twitter top-navsocial" aria-hidden="true"></i>
+      </div>
+      <div class="social-bg d-flex justify-content-center align-items-center">
+        <!-- <img src="image/linkedin.svg" alt="" class="img-fluid"> -->
+        <i class="fa fa-linkedin top-navsocial" aria-hidden="true"></i>
+      </div>
+    </div>
+    <div class="col-auto d-flex align-items-center gap-2 px-5">
+      <img class="top-navemail" src="{{ asset('public/image/email.svg') }}" />
+      <a href="mailto:contact@kanlifemedical.asia">
+        <span class="kan-email">contact@kanlifemedical.asia<span>
+      </a>
+    </div>
+    <div class="col-auto text-white d-flex align-items-center optionbox">
+      <div class="dropdown-center">
+        <button class="btn bg-transparent text-white d-flex align-items-center gap-2 dropdown-toggle border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <img class="top-navemail ms-auto me-0" src="{{ asset('public/image/global.svg') }}">
+          {{ucfirst($user_location)}}
+          <img src="image/counrty-dd-icon.svg" alt="" width="15" class="ms-5">
+        </button>
+        <ul class="dropdown-menu">
+          <li onclick="set_location('india')"><a class="dropdown-item" href="javascript:void(0)">India</a></li>
+          <li onclick="set_location('singapore')"><a class="dropdown-item" href="javascript:void(0)">Singapore</a></li>
+          <li onclick="set_location('london')"><a class="dropdown-item" href="javascript:void(0)">London</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 @php
 $module=explode("/", url()->current());
 @endphp
-
+{{--
 <nav class="navbar navbar-expand-lg">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">
-      <img src="{{ asset('public/image/logo.png') }}" width="" class="logo img-fluid"/>
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"><i class="fa fa-bars" aria-hidden="true"></i></span>
-    </button>
+    
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav ml-auto">
         @if(isset($is_categories) && $is_categories)
@@ -74,48 +117,97 @@ $module=explode("/", url()->current());
           </ul>
         </div>
         @endif
+      </div>
+    </div>
+  </div>
+</nav>
+--}}
+
+<nav class="navbar navbar-expand-md py-0">
+  <div class="container-fluid py-1">
+    <a class="navbar-brand" href="#">
+      <img src="{{ asset('public/image/logo.png') }}" width="" class="logo img-fluid" />
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse px-2" id="navbarSupportedContent">
+      <div class="navbar-nav gap-lg-4 gap-xxl-5 ms-auto align-items-md-center">
+        @if(isset($is_categories) && $is_categories)
+        <div class="dropdown">
+          <a class="dropdown-toggle prn deu-barcat nav-link" type="button" id="dropdownMenu1" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fa fa-bars" aria-hidden="true"></i>  Categories
+          </a>
+          <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+            <!-- <li class="dropdown-submenu">
+              <a  class="dropdown-item" tabindex="-1" href="#">X-RAY Systems</a>
+              <ul class="dropdown-menu">
+                <li class="dropdown-item"><a tabindex="-1" class="deu-droptxt" href="#">Second level</a></li>
+                <li class="dropdown-submenu">
+                  <a class="dropdown-item" href="#">Even More..</a>
+                  <ul class="dropdown-menu">
+                    <li class="dropdown-item"><a class="deu-droptxt" href="#">3rd level</a></li>
+                    <li class="dropdown-submenu"><a class="dropdown-item" href="#">another level</a>
+                      <ul class="dropdown-menu">
+                        <li class="dropdown-item"><a class="deu-droptxt" href="#">4th level</a></li>
+                        <li class="dropdown-item"><a class="deu-droptxt" href="#">4th level</a></li>
+                        <li class="dropdown-item"><a class="deu-droptxt" href="#">4th level</a></li>
+                      </ul>
+                    </li>
+                    <li class="dropdown-item"><a class="deu-droptxt" href="#">3rd level</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown-item"><a class="deu-droptxt" href="#">Second level</a></li>
+                <li class="dropdown-item"><a class="deu-droptxt" href="#">Second level</a></li>
+              </ul>
+            </li> -->
+            @foreach($categories['display'] as $category)
+            <li class="dropdown-item"><a class="deu-droptxt" href="{{url('category/'.$category->category_slug)}}">{{ $category->category_name }}</a></li>
+            @endforeach
+            <li class="dropdown-item"><a href="#"><button class="about-more deu-wid">More</button></a></li>
+          </ul>
+        </div>
+        @endif
         <a class="nav-link {{ url('/') == url()->current() ? 'active' : '' }}" aria-current="page" href="{{ url('/') }}">Home</a>
         @if(array_intersect([$user_location],['india','london']))
-        <a class="nav-link {{ url('/buy') == url()->current() ? 'active' : '' }}" href="{{ url('/buy') }}">Buy</a>
+          <a class="nav-link {{ url('/buy') == url()->current() ? 'active' : '' }}" href="{{ url('/buy') }}">Buy</a>
         @endif
         @if(array_intersect([$user_location],['india']))
-        <a class="nav-link" href="#">Rent</a>
+          <a class="nav-link" href="#">Rent</a>
         @endif
-        <a class="nav-link {{ array_intersect($module, ['consultant']) ? 'active' : '' }}" href="#">Dr. Consultant</a>
-        <div class="dropdown ">
-          <button type="button" class="btn btn-link dropdown-toggles deu-dropdowns" data-toggle="dropdown">
+        <a class="nav-link text-nowrap {{ array_intersect($module, ['consultant']) ? 'active' : '' }}" href="#">Dr. Consultant</a>
+        <div class="dropdown">
+          <button class="btn nav-link border-0 dropdown-toggle" type="button" id="about_us_menu"
+            data-bs-toggle="dropdown" aria-expanded="false">
             About Us
           </button>
-          <div class="dropdown-menu">
-            <a class="dropdown-item deu-accountpad {{ array_intersect($module, ['our-story']) ? 'active' : '' }}" href="{{ route('about.story') }}">Our Story</a>
-            <a class="dropdown-item deu-accountpad {{ array_intersect($module, ['contact-us']) ? 'active' : '' }}" href="{{ route('about.contact') }}">Contact Us</a>
-            <a class="dropdown-item deu-accountpad {{ array_intersect($module, ['our-team']) ? 'active' : '' }}" href="{{ route('about.team') }}">Our Team</a>
-            <a class="dropdown-item deu-accountpad" href="#">Blogs</a>
-          </div>
+          <ul class="dropdown-menu" aria-labelledby="about_us_menu">
+            <li><a class="dropdown-item" href="{{ route('about.story') }}">Our Story</a></li>
+            <li><a class="dropdown-item" href="{{ route('about.contact') }}">Contact Us</a></li>
+            <li><a class="dropdown-item" href="{{ route('about.team') }}">Our Team</a></li>
+            <li><a class="dropdown-item" href="#">Blogs</a></li>
+          </ul>
         </div>
-        @if(Auth::guest())
-          <a class="nav-link" href="#">
-            <!-- <button class="deu-login" data-toggle="modal" data-target="#myModal">Login</button> -->
-            <button class="deu-login" onclick="openModel('myModal')">Login</button>
-          </a>
+        @if(Auth::guest())        
+          <button class="deu-login btn nav-link text-white px-3 px-lg-5" onclick="openModel('myModal')">Login</button>
         @else
           <div class="dropdown">
-            <button type="button" class="btn btn-link dropdown-toggle deu-dropdowns" data-toggle="dropdown">
+            <button class="btn nav-link border-0 dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
             {{ucfirst(Auth::user()->name)}}
             </button>
-            <div class="dropdown-menu">
-              <a class="dropdown-item deu-accountpad" href="{{url('/my-profile')}}">Your Account</a>
-              <a class="dropdown-item deu-accountpad" href="{{url('/my-purchase')}}">Your Orders</a>
-              <a class="dropdown-item deu-accountpad" href="{{url('/wishlist')}}">Your Wishlist</a>
-            <form action="{{url('/logout')}}" method="post">
-              @csrf
-              <button class="dropdown-item deu-accountpad" href="#">Log Out</button>
-            </form>
-            </div>
-          </div>          
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item" href="{{url('/my-profile')}}">Your Account</a></li>
+              <li><a class="dropdown-item" href="{{url('/my-purchase')}}">Your Orders</a></li>
+              <li><a class="dropdown-item" href="{{url('/wishlist')}}">Your Wishlist</a></li>
+              <form action="{{url('/logout')}}" method="post">
+                @csrf
+                <button class="dropdown-item deu-accountpad" href="#">Log Out</button>
+              </form>
+            </ul>
+          </div>
         @endif
         @if(array_intersect([$user_location],['india','london']))
-          <a class="nav-link" style="margin-right: 0px;" href="{{url('/cart')}}"><img class="deu-cart" src="{{ url('/cart') == url()->current() ? asset('public/image/cart_active.svg') : asset('public/image/cart.svg')}}">
+          <a class="nav-link" href="{{url('/cart')}}"><img class="deu-cart" src="{{ url('/cart') == url()->current() ? asset('public/image/cart_active.svg') : asset('public/image/cart.svg')}}">
             @if($cart_count > 0)
               <span class="deu-cartxts">{{ $cart_count }}</span>
             @endif
