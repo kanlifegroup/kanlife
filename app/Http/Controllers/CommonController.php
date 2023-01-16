@@ -191,6 +191,7 @@ class CommonController extends Controller
     $coupon_discount = 0; 
     $new_price = 0;
     $final = 0;
+    $shipping = 0;
     foreach($carts as $cart){
       if($cart->discount_price !=0){
         $price = $cart->discount_price;
@@ -201,6 +202,7 @@ class CommonController extends Controller
         $price = $cart->price;
         $new_price += $cart->quantity * $cart->price;
       }
+      $shipping += $cart->product_local_shipping_fee;
       $total = $cart->quantity * $cart->price;
       $subtotal += $total;
       $final = $new_price; 
@@ -209,8 +211,9 @@ class CommonController extends Controller
     return response()->json([
       'success' => true,
       'subtotal' => $subtotal,
+      'shipping' => $shipping,
       'coupon_discount' => $coupon_discount,
-      'final' => $final,
+      'final' => $final + $shipping,
       'remove'=>$request->data['remove']??0,
     ]);
 	}

@@ -193,7 +193,7 @@
         </tr>
         <tr class="deu-cartsbgs">
           <td>Shipping and handing</td>
-          <td class="text-right"><i class="fa fa-inr" aria-hidden="true"></i> 00.00</td>
+          <td class="text-right"><i class="fa fa-inr" aria-hidden="true"></i> {{number_format((float)$shipping, 2, '.', '');}}</td>
         </tr>
         @if($coupon_discount > 0)
         <tr class="deu-cartsbgs" style="background-color:#f2fff3">
@@ -203,11 +203,11 @@
         @endif
         <tr class="deu-cartsbg">
           <td></td>
-          <td class="text-right"><i class="fa fa-inr" aria-hidden="true"></i>{{number_format((float)$final, 2, '.', '');}}</td>
+          <td class="text-right"><i class="fa fa-inr" aria-hidden="true"></i>{{number_format((float)$final+$shipping, 2, '.', '');}}</td>
         </tr>
-        <tr class="deu-cartsbgs1">
+        <tr class="deu-cartsbgs text-dark">
           <td>Total Amount</td>
-          <td class="text-right"><i class="fa fa-inr" aria-hidden="true"></i>{{number_format((float)$final, 2, '.', '');}}</td>
+          <td class="text-right"><i class="fa fa-inr" aria-hidden="true"></i>{{number_format((float)$final+$shipping, 2, '.', '');}}</td>
         </tr>
       </table>
     </div>

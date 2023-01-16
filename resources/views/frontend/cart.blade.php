@@ -34,6 +34,7 @@
         $coupon_code = ""; 
         $coupon_discount = 0; 
         $new_price = 0;
+        $shipping = 0;
         @endphp
         @if($cart_count > 0)
 				<div class="panel-body deu-cardborder">        
@@ -50,6 +51,7 @@
             $price = $cart->price;
             $new_price += $cart->quantity * $cart->price;
           }
+          $shipping += $cart->product_local_shipping_fee;
           $total = $cart->quantity * $cart->price;
           $subtotal += $total;
         @endphp
@@ -128,19 +130,19 @@
         </tr>
         <tr class="deu-cartsbgs">
           <td>Shipping and handling</td>
-          <td class="text-right"><i class="fa fa-inr" aria-hidden="true"></i> 00.00</td>
+          <td class="text-right"><i class="fa fa-inr" aria-hidden="true"></i><span class="shipping_charge"> {{number_format((float)$shipping, 2, '.', '');}}</span></td>
         </tr>
         @if($coupon_code != "")
           @php 
           $coupon_discount = $subtotal - $new_price;
-          $final = $new_price; 
+          $final = $new_price + $shipping; 
           @endphp
         <tr class="deu-cartsbgs" style="background-color:#f2fffb">
           <td>Coupon discount</td>
           <td class="text-right">- <i class="fa fa-inr" aria-hidden="true"></i><span class="coupon_discount"> {{number_format((float)$coupon_discount, 2, '.', '');}}</span></td>
         </tr>
         @else
-        @php $final = $subtotal; @endphp
+        @php $final = $subtotal + $shipping; @endphp
         @endif
         <tr class="deu-cartsbg">
           <td></td>
@@ -215,6 +217,7 @@ function updateCart(data){
     success:function(res)
     { 
       $(".subtotal").text(parseFloat(res.subtotal).toFixed(2));
+      $(".shipping_charge").text(parseFloat(res.shipping).toFixed(2));
       $(".coupon_discount").text(parseFloat(res.coupon_discount).toFixed(2));
       $(".final").text(parseFloat(res.final).toFixed(2));
       if(res.remove == 1)
