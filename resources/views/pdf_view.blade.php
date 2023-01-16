@@ -76,25 +76,25 @@
       </a></td>
       <td>{{ $product->product_attribute_values }}</td>
       <td><a href="{{ url('/user') }}/{{ $product->username }}">{{ $product->name }}</a></td>
-      <td>{{ $product->quantity }} X {{ $allsettings->site_currency_symbol }}{{ $product->price }}</td>
+      <td>{{ $product->quantity }} X <span style="font-family: DejaVu Sans; sans-serif;">{{ $allsettings->site_currency_symbol }}</span> {{ $product->price }}</td>
     </tr>
     @php $no++; @endphp
     @endforeach 
     <tr>
       <td colspan="5" class="bg-light-2 text-right"><strong>{{ Helper::translation(2090,$translate,'') }}</strong></td>
-      <td class="bg-light-2">{{ $allsettings->site_currency_symbol }}{{ $purchase->shipping_price }}</td>
+      <td class="bg-light-2"><span style="font-family: DejaVu Sans; sans-serif;">{{ $allsettings->site_currency_symbol }}</span> {{ $purchase->shipping_price }}</td>
       </tr>
     <tr>
       <td colspan="5" class="bg-light-2 text-right"><strong>{{ Helper::translation(1993,$translate,'') }}</strong></td>
-      <td class="bg-light-2">{{ $allsettings->site_currency_symbol }}{{ $purchase->processing_fee }}</td>
+      <td class="bg-light-2"><span style="font-family: DejaVu Sans; sans-serif;">{{ $allsettings->site_currency_symbol }}</span> {{ $purchase->processing_fee }}</td>
       </tr>
       <tr>
       <td colspan="5" class="bg-light-2 text-right"><strong>{{ Helper::translation(2092,$translate,'') }}</strong></td>
-      <td class="bg-light-2">{{ $allsettings->site_currency_symbol }}{{ $purchase->subtotal }}</td>
+      <td class="bg-light-2"><span style="font-family: DejaVu Sans; sans-serif;">{{ $allsettings->site_currency_symbol }}</span> {{ $purchase->subtotal }}</td>
       </tr>
        <tr>
       <td colspan="5" class="bg-light-2 text-right"><strong>{{ Helper::translation(2093,$translate,'') }}</strong></td>
-      <td class="bg-light-2">{{ $allsettings->site_currency_symbol }}{{ $purchase->total }}</td>
+      <td class="bg-light-2"><span style="font-family: DejaVu Sans; sans-serif;">{{ $allsettings->site_currency_symbol }}</span> {{ $purchase->total }}</td>
       </tr>
   </tbody>
 </table>
