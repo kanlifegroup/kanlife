@@ -43,9 +43,10 @@
   <p class="deu-carthead mb-5">Orders</p>
   <p class="deu-colrs deu-positions"><span>Show</span> 
   <span>
-    <select class="deu-tens">
-      <option>10</option>
-      <option>01</option>
+    <select class="deu-tens" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
+      <option @if($entries == 10) selected @endif value="{{url('/my-purchase?entries=10')}}">10</option>
+      <option @if($entries == 20) selected @endif value="{{url('/my-purchase?entries=20')}}">20</option>
+      <option @if($entries == 50) selected @endif value="{{url('/my-purchase?entries=50')}}">50</option>
     </select>
   </span> 
   <span>Entries</span></p>
@@ -65,8 +66,7 @@
     </thead>
     <tbody>
     @php $no = 0; @endphp
-      @foreach($purchases as $product)
-      
+      @forelse($purchases as $product)    
       <tr class="deu-td">
         <td>{{$no + $from_item}}</td>
         <td>#{{$product->purchase_token}}</td>
@@ -76,8 +76,12 @@
         <td><a href="{{ url('/invoice') }}/{{ $product->purchase_token }}"><span class="view-under">View</span></a></td>
         <td><a href="my-purchase-details/{{ $product->purchase_token }}"><span class="view-under">View Details</span></a></td>
         @php $no++; @endphp
-      @endforeach  
       </tr>
+      @empty
+      <tr class="deu-td">
+        <td colspan="7" class="text-center">No Data Found!</td>
+      </tr>
+      @endforelse  
     </tbody>
   </table>
   </div>
@@ -108,11 +112,13 @@
         <a href="{{$purchases->path().'?page='.($purchases->currentPage()-1)}}" class="prev"> Previous</a>
       </li>
       @endif
+      @if($purchases->lastPage() > 1)
       @for($i=1; $i <= $purchases->lastPage(); $i++)
       <li>
         <a @if($i == $purchases->currentPage()) class="active" @endif href="{{$purchases->path().'?page='.$i}}">{{$i}}</a>
       </li>
       @endfor
+      @endif
       @if($purchases->currentPage()!=$purchases->lastPage())
       <li>
         <a href="{{$purchases->path().'?page='.($purchases->currentPage()+1)}}" class="next"> Next</a>

@@ -189,10 +189,15 @@ class ProductController extends Controller
 	
 	public function view_purchase_details(Request $request)
 	{
-    $items = $request->items ?? 10;
+    if($request->has('entries')){
+    Session::put('my_order_entries', $request->entries);
+    return redirect(url('/my-purchase'));
+    }
+    $items = Session::get('my_order_entries') ?? 10;
+    // $items = $request->entries ?? 10;
     $user_id = Auth::user()->id;
     $purchases = Product::myPurchase($user_id, $items);
-    $data = array('is_categories'=>true,'purchases' => $purchases, 'user_id' => $user_id);
+    $data = array('is_categories'=>true,'purchases' => $purchases, 'user_id' => $user_id, 'entries'=>$items);
     // return view('my-purchase')->with($data);
     return view('frontend.my_orders')->with($data);
 	}
