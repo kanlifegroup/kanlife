@@ -140,6 +140,7 @@
                                                 @endphp
                                                 
                                                 <option value="{{ $cats }}" @if(in_array($cats,$product_categories)) selected="selected" @endif>{{ $menu->category_name }}</option>
+                                                {{--
                                                      @foreach($menu->subcategory as $sub_category)
                                                         @php 
                                                         if($sub_category->language_code == 'en')
@@ -152,7 +153,10 @@
                                                         $subcats = 'subcat-'.$sub_category->subcategory_page_parent;
                                                         }
                                                         @endphp
-                                                     <option value="{{ $subcats }}" class="ml-2" @if(in_array($subcats,$product_categories)) selected="selected" @endif>- {{ $sub_category->subcategory_name }}</option>@endforeach @endforeach 
+                                                     <option value="{{ $subcats }}" class="ml-2" @if(in_array($subcats,$product_categories)) selected="selected" @endif>- {{ $sub_category->subcategory_name }}</option>
+                                                     @endforeach 
+                                                  --}}
+                                                    @endforeach 
                                                </select>
                                             </div> 
                                             <div class="form-group">
@@ -179,11 +183,14 @@
                                                     @endforeach
                                                     <div class="clearfix"></div>
                                              </div>
+                                             {{--
                                              <div class="form-group">
                                                 <label for="name" class="control-label mb-1">{{ Helper::translation(1933,$translate,'') }}</label>
                                                 <input id="product_video_url" name="product_video_url" type="text" class="form-control" value="{{ $edit['product']->product_video_url }}">
                                                 <small>( Example : https://www.youtube.com/watch?v=C0DPdy98e4c )</small>
                                              </div> 
+                                             --}}
+                                             <input id="product_video_url" name="product_video_url" type="hidden" class="form-control" value="">
                                              <div class="form-group">
                                                 <label for="site_title" class="control-label mb-1"> {{ Helper::translation(1941,$translate,'') }} <span class="require">*</span></label>
                                                 <select name="product_allow_seo" id="product_allow_seo" class="form-control" data-bvalidator="required">
@@ -219,6 +226,7 @@
                                                 <option value="0" @if($edit['product']->product_featured == 0) selected @endif>{{ Helper::translation(1943,$translate,'') }}</option>
                                                 </select>
                                             </div>
+                                            {{--
                                          <div class="form-group">
                                                 <label for="site_title" class="control-label mb-1"> {{ Helper::translation(1946,$translate,'') }} <span class="require">*</span></label>
                                                 <select name="product_type" id="product_type" class="form-control" data-bvalidator="required">
@@ -228,6 +236,8 @@
                                                 @endforeach
                                                 </select>
                                            </div>
+                                           --}}
+                                           <input type="hidden" name="product_type" value="physical">
                                           <div id="ifphysical_external" @if($edit['product']->product_type == 'physical' or $edit['product']->product_type == 'external') class="form-group force-block" @else class="form-group force-none" @endif><div class="form-group">
                                                 <label for="site_keywords" class="control-label mb-1">{{ Helper::translation(1948,$translate,'') }}</label>
                                             <textarea name="product_return_policy" id="product_return_policy" rows="6" class="form-control noscroll_textarea">{{ $edit['product']->product_return_policy }}</textarea>
@@ -258,6 +268,7 @@
                                                 <input id="product_stock" name="product_stock" type="text" class="form-control" data-bvalidator="digit,min[0]" value="{{ $edit['product']->product_stock }}">
                                                 <small><span class="red-color">{{ Helper::translation(1954,$translate,'') }}</span></small>
                                            </div> 
+                                           {{--
                                           @foreach($attribute_product['display'] as $attribute)
                                           <div class="form-group">
                                                 <label for="site_title" class="control-label mb-1">{{ $attribute->attribute_name }}</label>
@@ -268,6 +279,7 @@
                                                 </select>
                                             </div>
                                           @endforeach
+                                          --}}
                                          </div>
                                          <div id="ifdigital" @if($edit['product']->product_type == 'digital') class="form-group force-block" @else class="form-group force-none" @endif>
                                                 <label for="customer_earnings" class="control-label mb-1">{{ Helper::translation(1955,$translate,'') }}<span class="require">*</span></label>
@@ -295,10 +307,13 @@
                                                 <label for="name" class="control-label mb-1">{{ Helper::translation(1958,$translate,'') }} ({{ $allsettings->site_currency_symbol }})</label>
                                                 <input id="product_local_shipping_fee" name="product_local_shipping_fee" type="text" class="form-control" data-bvalidator="min[0]" value="{{ $edit['product']->product_local_shipping_fee }}"><small>({{ Helper::translation(3063,$translate,'') }}) <span class="red-color"> - {{ Helper::translation(1959,$translate,'') }}</span></small>
                                      </div> 
+                                     {{--
                                      <div class="form-group">
                                                 <label for="name" class="control-label mb-1">{{ Helper::translation(1960,$translate,'') }} ({{ $allsettings->site_currency_symbol }})</label>
                                                 <input id="product_global_shipping_fee" name="product_global_shipping_fee" type="text" class="form-control" data-bvalidator="min[0]" value="{{ $edit['product']->product_global_shipping_fee }}"><small>({{ Helper::translation(3066,$translate,'') }}) <span class="red-color"> - {{ Helper::translation(1959,$translate,'') }}</span></small>
                                      </div>
+                                     --}}
+                                     <input id="product_global_shipping_fee" name="product_global_shipping_fee" value="0" type="hidden" class="form-control" data-bvalidator="min[0]" value="{{ $edit['product']->product_global_shipping_fee }}" onkeypress="return /^[0-9.\s]*$/.test(event.key)">
                                     </div>
                                     <div class="form-group">
                                                 <label for="site_title" class="control-label mb-1"> {{ Helper::translation(1961,$translate,'') }} <span class="require">*</span></label>

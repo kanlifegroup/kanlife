@@ -129,6 +129,7 @@
                                                 }
                                                 @endphp
                                                 <option value="{{ $cats }}">{{ $menu->category_name }}</option>
+                                                {{--
                                                      @foreach($menu->subcategory as $sub_category)
                                                      @php 
                                                         if($sub_category->language_code == 'en')
@@ -143,6 +144,7 @@
                                                         @endphp
                                                      <option value="{{ $subcats }}" class="ml-2">- {{ $sub_category->subcategory_name }}</option>
                                                      @endforeach
+                                                  --}}
                                                 @endforeach 
                                                 </select>
                                             </div> 
@@ -161,11 +163,14 @@
                                                 <label for="customer_earnings" class="control-label mb-1">{{ Helper::translation(1938,$translate,'') }}</label>
                                                 <input type="file" id="product_gallery[]" name="product_gallery[]" class="form-control-file" data-bvalidator="extension[jpg:png:jpeg]" data-bvalidator-msg="{{ Helper::translation(1937,$translate,'') }}" multiple>
                                              </div>
+                                             {{--
                                              <div class="form-group">
                                                 <label for="name" class="control-label mb-1">{{ Helper::translation(1933,$translate,'') }}</label>
                                                 <input id="product_video_url" name="product_video_url" type="text" class="form-control">
                                                 <small>( Example : https://www.youtube.com/watch?v=C0DPdy98e4c )</small>
                                      </div> 
+                                     --}}
+                                     <input id="product_video_url" name="product_video_url" type="hidden" class="form-control" value="">
                                      <div class="form-group">
                                                 <label for="site_title" class="control-label mb-1"> {{ Helper::translation(1941,$translate,'') }} <span class="require">*</span></label>
                                                 <select name="product_allow_seo" id="product_allow_seo" class="form-control" data-bvalidator="required">
@@ -205,6 +210,7 @@
                                                 <option value="0">{{ Helper::translation(1943,$translate,'') }}</option>
                                                 </select>
                                              </div>
+                                  {{--
                                     <div class="form-group">
                                                 <label for="site_title" class="control-label mb-1"> {{ Helper::translation(1946,$translate,'') }} <span class="require">*</span></label>
                                                 <select name="product_type" id="product_type" class="form-control" data-bvalidator="required">
@@ -214,6 +220,8 @@
                                                 @endforeach
                                                 </select>
                                             </div>
+                                    --}}
+                                    <input type="hidden" name="product_type" value="physical">
                                   <div id="ifphysical_external">
                                      <div class="form-group">
                                                 <label for="site_keywords" class="control-label mb-1">{{ Helper::translation(1948,$translate,'') }}</label>
@@ -246,6 +254,7 @@
                                                 <input id="product_stock" name="product_stock" type="text" class="form-control" data-bvalidator="digit,min[0]">
                                                 <small><span class="red-color">{{ Helper::translation(1954,$translate,'') }}</span></small>
                                      </div> 
+                                     {{--
                                      @foreach($attribute_product['display'] as $attribute)
                                      <div class="form-group">
                                                 <label for="site_title" class="control-label mb-1">{{ $attribute->attribute_name }}</label>
@@ -257,24 +266,30 @@
                                                 
                                             </div>
                                      @endforeach
+                                     --}}
                                      </div>
+                                     {{--
                                      <div class="form-group" id="ifdigital">
                                                 <label for="customer_earnings" class="control-label mb-1">{{ Helper::translation(1955,$translate,'') }}<span class="require">*</span></label>
                                                 <input type="file" id="product_file" name="product_file" class="form-control-file" data-bvalidator="required,extension[zip]" data-bvalidator-msg="{{ Helper::translation(1956,$translate,'') }}"></div>   <div class="form-group" id="ifexternal">
                                                 <label for="name" class="control-label mb-1">{{ Helper::translation(1957,$translate,'') }} <span class="require">*</span></label>
                                                 <input id="product_external_url" name="product_external_url" type="text" class="form-control" data-bvalidator="required,url">
                                      </div> 
+                                     --}}
+                                     <input id="product_external_url" name="product_external_url" value="" type="hidden" class="form-control">
                                      <div id="ifphysical">
                                      <div class="form-group">
                                                 <label for="name" class="control-label mb-1">{{ Helper::translation(1958,$translate,'') }} ({{ $allsettings->site_currency_symbol }})</label>
                                                 <input id="product_local_shipping_fee" name="product_local_shipping_fee" type="text" class="form-control" data-bvalidator="min[0]">
                                                 <small>({{ Helper::translation(3063,$translate,'') }}) <span class="red-color"> - if leave empty "free shipping"</span></small>
                                      </div> 
+                                     {{--
                                      <div class="form-group">
                                                 <label for="name" class="control-label mb-1">{{ Helper::translation(1960,$translate,'') }} ({{ $allsettings->site_currency_symbol }})</label>
                                                 <input id="product_global_shipping_fee" name="product_global_shipping_fee" type="text" class="form-control" data-bvalidator="min[0]">
                                                 <small>({{ Helper::translation(3066,$translate,'') }}) <span class="red-color"> - {{ Helper::translation(1959,$translate,'') }}</span></small>
                                      </div>
+                                     --}}
                                     </div>
                                     <div class="form-group">
                                                 <label for="site_title" class="control-label mb-1"> {{ Helper::translation(1961,$translate,'') }} <span class="require">*</span></label>
