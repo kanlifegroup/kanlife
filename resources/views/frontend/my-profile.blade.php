@@ -67,9 +67,11 @@
                         </span>
                       @enderror
                   </div>
-                  <div class="col-md-6">
+                  <div class="col-md-6 position-relative">
                       <label class="deu-contactadress">Password</label>
                       <input type="password" placeholder="Password" id="password" name="password" class="form-control deu-checkinput @error('password') is-invalid @enderror" onkeypress="return /^([0-9a-zA-Z!@#$%^&*(\).,<>{}[\]<>?_=+\-|;:\'\/\s])*[^\s]\1*$/.test(event.key)">
+                      <span class="seepassword" style="display:none; top:41px;" onclick="hide_password(this)"><i class="fa fa-eye"></i></span>
+                      <span class="seepassword" style="top:41px;" onclick="see_password(this)"><i class="fa fa-eye-slash"></i></span>
             @error('password')
               <span class="invalid-feedback" role="alert">
               <strong>{{ $message }}</strong>
@@ -87,9 +89,11 @@
               </span>
             @enderror
                   </div>
-                  <div class="col-md-6">
+                  <div class="col-md-6 position-relative">
                       <label class="deu-contactadress">Confirm Password</label>
                       <input type="password" placeholder="Confirm Password" id="password_confirmation" name="password_confirmation" class="form-control deu-checkinput @error('password_confirmation') is-invalid @enderror" onkeypress="return /^([0-9a-zA-Z!@#$%^&*(\).,<>{}[\]<>?_=+\-|;:\'\/\s])*[^\s]\1*$/.test(event.key)">
+                      <span class="seepassword" style="display:none;top:41px;" onclick="hide_password(this)"><i class="fa fa-eye"></i></span>
+                      <span class="seepassword" style="top:41px;" onclick="see_password(this)"><i class="fa fa-eye-slash"></i></span>
             @error('password_confirmation')
               <span class="invalid-feedback" role="alert">
               <strong>{{ $message }}</strong>

@@ -184,6 +184,12 @@ body {
   color: #807c7c;
 }
 
+.seepassword{
+  position: absolute;
+  top: 4px;
+  right: 20px;
+}
+
 .deu-logininputs {
   border: 2px solid #3188CA;
   border-radius: 0px;

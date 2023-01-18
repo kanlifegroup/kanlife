@@ -44,8 +44,10 @@
             </div>
           </div>
           <div class="form-group row justify-content-center px-3">
-            <div class="col-9 px-0">
-              <input type="password" name="password" placeholder="Password*" class="form-control border-info placeicon deu-logininput">
+            <div class="col-9 px-0 position-relative">
+              <input type="password" name="password" placeholder="Password*" class="form-control password border-info placeicon deu-logininput">
+              <span class="seepassword" style="display:none;" onclick="hide_password(this)"><i class="fa fa-eye"></i></span>
+              <span class="seepassword" onclick="see_password(this)"><i class="fa fa-eye-slash"></i></span>
             </div>
           </div>
           <div class="form-group row justify-content-center px-3">
@@ -135,8 +137,10 @@
             </div>
           </div>
           <div class="form-group row justify-content-center px-3">
-            <div class="col-9 px-0">
+            <div class="col-9 px-0 position-relative">
               <input type="password" name="password" placeholder="Enter Password*" class="@error('password') is-invalid @enderror form-control border-info placeicon deu-logininput" onkeypress="return /^([0-9a-zA-Z!@#$%^&*(\).,<>{}[\]<>?_=+\-|;:\'\/\s])*[^\s]\1*$/.test(event.key)">
+              <span class="seepassword" style="display:none;" onclick="hide_password(this)"><i class="fa fa-eye"></i></span>
+              <span class="seepassword" onclick="see_password(this)"><i class="fa fa-eye-slash"></i></span>
               @error('password')
                 <span class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>
@@ -145,8 +149,10 @@
             </div>
           </div>
           <div class="form-group row justify-content-center px-3">
-            <div class="col-9 px-0">
+            <div class="col-9 px-0 position-relative">
               <input type="password" name="password_confirmation" placeholder="Enter Confirm Password*" class="@error('password_confirmation') is-invalid @enderror form-control border-info placeicon deu-logininput" onkeypress="return /^([0-9a-zA-Z!@#$%^&*(\).,<>{}[\]<>?_=+\-|;:\'\/\s])*[^\s]\1*$/.test(event.key)">
+              <span class="seepassword" style="display:none;" onclick="hide_password(this)"><i class="fa fa-eye"></i></span>
+              <span class="seepassword" onclick="see_password(this)"><i class="fa fa-eye-slash"></i></span>
               @error('password_confirmation')
                 <span class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>
@@ -204,7 +210,7 @@
             </div>
           </div>
           <div class="form-group row justify-content-center mt-5 text-center">       
-            <div class="col-3 px-3">
+            <div class="col-4 px-3">
               <button class="about-more">Reset Password</button>
             </div>
           </div>

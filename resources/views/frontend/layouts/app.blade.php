@@ -97,6 +97,16 @@
       $('#myModal2').modal('hide');
     }
   @endif
+  function see_password(e){
+    $(e).parent().find("input").prop("type", "text");
+    $(e).hide();
+    $(e).siblings("span.seepassword").show();
+  }
+  function hide_password(e){
+    $(e).parent().find("input").prop("type", "password");
+    $(e).hide();
+    $(e).siblings("span.seepassword").show();
+    }
   if(performance.navigation.type == 2){
    location.reload(true);
   }
