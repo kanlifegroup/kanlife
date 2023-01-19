@@ -313,7 +313,7 @@
                                                 <input id="product_global_shipping_fee" name="product_global_shipping_fee" type="text" class="form-control" data-bvalidator="min[0]" value="{{ $edit['product']->product_global_shipping_fee }}"><small>({{ Helper::translation(3066,$translate,'') }}) <span class="red-color"> - {{ Helper::translation(1959,$translate,'') }}</span></small>
                                      </div>
                                      --}}
-                                     <input id="product_global_shipping_fee" name="product_global_shipping_fee" value="0" type="hidden" class="form-control" data-bvalidator="min[0]" value="{{ $edit['product']->product_global_shipping_fee }}" onkeypress="return /^[0-9.\s]*$/.test(event.key)">
+                                     <input id="product_global_shipping_fee" name="product_global_shipping_fee" value="0" type="hidden">
                                     </div>
                                     <div class="form-group">
                                                 <label for="site_title" class="control-label mb-1"> {{ Helper::translation(1961,$translate,'') }} <span class="require">*</span></label>

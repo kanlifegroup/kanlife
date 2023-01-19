@@ -32,10 +32,10 @@ class ProductController extends Controller
 	/* brands */
 	
 	public function view_brands()
-    {
+  {
       	$brandData['view'] = Product::brandData();
 		return view('admin.brands',[ 'brandData' => $brandData]);
-    }
+  }
     
 	
 	public function add_brand()
@@ -48,7 +48,7 @@ class ProductController extends Controller
 	public function brand_slug($string){
 		   $slug=preg_replace('/[^A-Za-z0-9-]+/', '-', $string);
 		   return $slug;
-    }
+  }
 	
 	public function delete_orders($order_id)
 	{
@@ -639,15 +639,15 @@ class ProductController extends Controller
 	  
 	  
 	  $data = array('itemData' => $itemData, 'single_data' => $single_data, 'billcountry_name' => $billcountry_name, 'shipcountry_name' => $shipcountry_name);
-	  return view('admin.order-details')->with($data);
+	  return view('dealer.order-details')->with($data);
 	}
 	
 	
 	public function view_products()
-    {
+  {
       	$product['view'] = Product::where('user_id', auth()->id())->where('product.product_drop_status','=','no')->where('product.product_page_parent','=',0)->orderBy('product.product_id', 'desc')->get(); 
 		return view('dealer.products',[ 'product' => $product]);
-    }
+  }
 	
 	public function delete_product($token)
 	{
@@ -1129,7 +1129,7 @@ class ProductController extends Controller
         $randomString .= $characters[rand(0, $charactersLength - 1)];
     }
     return $randomString;
-    }
+  }
 	
 	
 	public function save_product(Request $request)

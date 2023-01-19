@@ -67,7 +67,7 @@
                            @if($demo_mode == 'on')
                            @include('admin.demo-mode')
                            @else
-                            <form action="{{ route('admin.addproduct') }}" method="post" id="category_form" enctype="multipart/form-data">
+                            <form action="{{ route('dealer.add-product') }}" method="post" id="category_form" enctype="multipart/form-data">
                            {{ csrf_field() }}
                            @endif
                            <div class="col-md-6">
@@ -290,6 +290,7 @@
                                                 <small>({{ Helper::translation(3066,$translate,'') }}) <span class="red-color"> - {{ Helper::translation(1959,$translate,'') }}</span></small>
                                      </div>
                                      --}}
+                                     <input id="product_global_shipping_fee" name="product_global_shipping_fee" value="0" type="hidden" class="form-control" data-bvalidator="min[0]" onkeypress="return /^[0-9.\s]*$/.test(event.key)">
                                     </div>
                                     <div class="form-group">
                                                 <label for="site_title" class="control-label mb-1"> {{ Helper::translation(1961,$translate,'') }} <span class="require">*</span></label>

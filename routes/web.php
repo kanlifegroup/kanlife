@@ -419,11 +419,11 @@ Route::group(['middleware' => ['is_dealer', 'XSS', 'HtmlMinifier']], function ()
 	/* orders */
 	
 	Route::get('/dealer/orders', 'Dealer\ProductController@view_orders')->middleware('cacheable:5');
-	// Route::get('/admin/order-details/{token}', 'Admin\ProductController@view_order_single');
-	// Route::get('/admin/order-details/{ord_id}/{user_type}', 'Admin\ProductController@view_payment_approval');
-	// Route::get('/admin/orders/{ord_id}/{payment_type}', 'Admin\ProductController@complete_orders');
-	// Route::post('/admin/order-track', ['as' => 'admin.order-track','uses'=>'Admin\ProductController@order_track']);
-	// Route::get('/admin/orders/{ord_id}', 'Admin\ProductController@delete_orders');
+	Route::get('/dealer/order-details/{token}', 'Dealer\ProductController@view_order_single');
+	Route::get('/dealer/order-details/{ord_id}/{user_type}', 'Dealer\ProductController@view_payment_approval');
+	Route::get('/dealer/orders/{ord_id}/{payment_type}', 'Dealer\ProductController@complete_orders');
+	Route::post('/dealer/order-track', ['as' => 'dealer.order-track','uses'=>'Dealer\ProductController@order_track']);
+	Route::get('/dealer/orders/{ord_id}', 'Dealer\ProductController@delete_orders');
 	/* orders */
 	
 	/* rating */
