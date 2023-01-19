@@ -884,13 +884,16 @@ class ProductController extends Controller
         $token = $this->instamojoAccessToken($instamojo_mode)['access_token']??'';
         if($token != ''){
           $redirect_url = $this->instamojoPayment($token,$pay, $instamojo_mode);
-          if (array_key_exists("longurl",$redirect_url['response']))
-            {
-              $save_data['payment_token']=$redirect_url['response']['id'];
-              Product::saveOnlineCheckoutDetails($save_data);
-              return redirect(url($redirect_url['response']['longurl']));
-            }
+          if (array_key_exists("longurl",$redirect_url['response'])){
+            $save_data['payment_token']=$redirect_url['response']['id'];
+            Product::saveOnlineCheckoutDetails($save_data);
+            return redirect(url($redirect_url['response']['longurl']));
+          }
+          else
+          return redirect()->back()->with('error', 'Sorry, Payment gateway is under maintenance !!');
         }
+        else
+        return redirect()->back()->with('error', 'Sorry, Payment gateway is under maintenance !!');
       }
     }catch(Exception $e){
       return redirect()->back();
