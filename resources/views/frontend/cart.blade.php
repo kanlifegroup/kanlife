@@ -108,18 +108,18 @@
         <div class="alert alert-success" role="alert">
           <span class="alert_icon lnr lnr-checkmark-circle"></span>
           {{ $message }}
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <!-- <button type="button" class="close" data-dismiss="alert" aria-label="Close">
           <span class="fa fa-close" aria-hidden="true"></span>
-          </button>
+          </button> -->
         </div>
       @endif
       @if ($message = Session::get('error'))
         <div class="alert alert-danger" role="alert">
           <span class="alert_icon lnr lnr-warning"></span>
           {{ $message }}
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <!-- <button type="button" class="close" data-dismiss="alert" aria-label="Close">
           <span class="fa fa-close" aria-hidden="true"></span>
-          </button>
+          </button> -->
         </div>
       @endif
       <p class="deu-carthead">Cart Details</p>

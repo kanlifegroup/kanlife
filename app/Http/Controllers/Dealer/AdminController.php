@@ -13,7 +13,7 @@ use ZigKart\Models\Members;
 use ZigKart\Models\Category;
 use ZigKart\Models\Causes;
 use Auth;
-use Mail;
+use Mail, DB;
 
 class AdminController extends Controller
 {
