@@ -41,6 +41,17 @@
     #about_us_menu::after{
       content: none;
     }
+    .close_model{
+      border: none;
+      font-weight: 900;
+      background: none;
+      font-size: 36px;
+      position: absolute;
+      top: -7px;
+      right: 4px;
+      cursor: pointer;
+      z-index:1000;
+    }
     </style>
 </head>
 

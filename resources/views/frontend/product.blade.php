@@ -171,7 +171,7 @@
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
       <div class="modal-body">
-        <p class="deu-loginhead">Price Enquiry</p>
+        <p class="product-name text-center">Price Enquiry</p>
         <p class="deu-logintxt">Your enquiry submitted successfully, We will contact you soon.</p>
       </div>
     </div>

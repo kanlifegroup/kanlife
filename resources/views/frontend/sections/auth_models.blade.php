@@ -4,6 +4,7 @@
     <div class="modal-content">
       <div class="modal-header pt-xxl-5">
         <h4 class="modal-title"></h4>
+        <button type="button" class="close close_model" onclick="closeModels()" data-dismiss="modal">&times;</button>
       </div>
       <div class="modal-body py-5">
         <p class="deu-loginhead">Login</p>
@@ -72,13 +73,13 @@
     </div>
   </div>
 </div>
-             
 <!-- The Modal Register -->
 <div class="modal fade regiS" style="overflow-y: scroll;" id="myModal1">
   <div class="modal-dialog modal-xl modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
         <h4 class="modal-title"></h4>
+        <button type="button" class="close close_model" onclick="closeModels()" data-dismiss="modal">&times;</button>
       </div>
       <div class="modal-body">
         <p class="deu-loginhead">Register <br> Your Account</p>
@@ -186,6 +187,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h4 class="modal-title"></h4>
+        <button type="button" class="close close_model" onclick="closeModels()" data-dismiss="modal">&times;</button>
       </div>
       <div class="modal-body">
         <p class="deu-loginhead">Forgot Password</p>
