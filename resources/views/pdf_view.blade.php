@@ -55,7 +55,7 @@
       <th scope="col">{{ Helper::translation(1964,$translate,'') }}</th>
       <th scope="col">{{ Helper::translation(2076,$translate,'') }}</th>
       <th scope="col">{{ Helper::translation(1984,$translate,'') }}</th>
-      <th scope="col">{{ Helper::translation(2079,$translate,'') }}</th>
+      {{--<th scope="col">{{ Helper::translation(2079,$translate,'') }}</th>--}}
       <th scope="col">{{ Helper::translation(2112,$translate,'') }}</th>
       <th scope="col">{{ Helper::translation(2078,$translate,'') }}</th>
      </tr>
@@ -74,7 +74,7 @@
       <img src="{{ url('/') }}/public/storage/product/{{ $product->product_image }}"  class="img-thumb" alt="{{ $product->product_name }}"/>@else <img src="{{ url('/') }}/public/img/no-image.jpg"  class="img-thumb" alt="{{ $product->product_name }}"/>  
       @endif
       </a></td>
-      <td>{{ $product->product_attribute_values }}</td>
+     {{-- <td>{{ $product->product_attribute_values }}</td> --}}
       <td><a href="{{ url('/user') }}/{{ $product->username }}">{{ $product->name }}</a></td>
       <td>{{ $product->quantity }} X <span style="font-family: DejaVu Sans; sans-serif;">{{ $allsettings->site_currency_symbol }}</span> {{ $product->price }}</td>
     </tr>
