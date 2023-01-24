@@ -34,6 +34,11 @@
 
 @php
 $items = count($product['view']);
+$subtotal = 0;
+$coupon_code = ""; 
+$coupon_discount = 0; 
+$new_price = 0;
+$shipping = 0;
 @endphp
 <div class="container-fluid mt-5 mb-5">
   <div class="row">
@@ -41,6 +46,22 @@ $items = count($product['view']);
       <div class="panel panel-info">
         <div class="panel-body deu-cardborder">
           @foreach($product['view'] as $key => $product)
+          @php
+            if($product->discount_price != 0)
+            {
+              $price = $product->discount_price;
+              $new_price += $product->quantity * $product->discount_price;
+              $coupon_code = $product->coupon_code;
+            }
+            else
+            {
+              $price = $product->price;
+              $new_price += $product->quantity * $product->price;
+            }
+            $shipping += $product->product_local_shipping_fee;
+            $total = $product->quantity * $product->price;
+            $subtotal += $total;
+          @endphp
           @if($key!=0)          
 					<hr>
           @endif
@@ -84,19 +105,31 @@ $items = count($product['view']);
       <table class="table table-borderless">
         <tr class="deu-cartsbg">
           <td>Price ({{$items}} items)</td>
-          <td class="text-right"><i class="fa fa-inr" aria-hidden="true"></i> {{ $purchase->subtotal }}</td>
+          <td class="text-right"><i class="fa fa-inr" aria-hidden="true"></i> {{number_format((float)$purchase->subtotal, 2, '.', '');}}</td>
         </tr>
         <tr class="deu-cartsbgs">
           <td>Shipping and handing</td>
-          <td class="text-right"><i class="fa fa-inr" aria-hidden="true"></i> {{ $purchase->shipping_price }}</td>
+          <td class="text-right"><i class="fa fa-inr" aria-hidden="true"></i> {{number_format((float)$purchase->shipping_price, 2, '.', '');}}</td>
         </tr>
+        @if($coupon_code != "")
+        @php 
+        $coupon_discount = $subtotal - $new_price;
+        $final = $new_price + $shipping; 
+        @endphp
+        <tr class="deu-cartsbgs" style="background-color:#f2fffb">
+          <td>Coupon discount</td>
+          <td class="text-right">- <i class="fa fa-inr" aria-hidden="true"></i><span class="coupon_discount"> {{number_format((float)$coupon_discount, 2, '.', '');}}</span></td>
+        </tr>
+        @else
+        @php $final = $subtotal + $shipping; @endphp
+        @endif
         <tr class="deu-cartsbg">
           <td></td>
-          <td class="text-right"><i class="fa fa-inr" aria-hidden="true"></i> {{ $purchase->total }}</td>
+          <td class="text-right"><i class="fa fa-inr" aria-hidden="true"></i> {{number_format((float)$purchase->total, 2, '.', '');}}</td>
         </tr>
         <tr class="deu-cartsbgs text-dark">
           <td>Total Amount</td>
-          <td class="text-right"><i class="fa fa-inr" aria-hidden="true"></i> {{ $purchase->total }}</td>
+          <td class="text-right"><i class="fa fa-inr" aria-hidden="true"></i> {{number_format((float)$purchase->total, 2, '.', '');}}</td>
         </tr>
       </table>
 		</div>

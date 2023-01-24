@@ -57,12 +57,35 @@
       <th scope="col">{{ Helper::translation(1984,$translate,'') }}</th>
       {{--<th scope="col">{{ Helper::translation(2079,$translate,'') }}</th>--}}
       <th scope="col">{{ Helper::translation(2112,$translate,'') }}</th>
-      <th scope="col">{{ Helper::translation(2078,$translate,'') }}</th>
+      <th scope="col" colspan=2>{{ Helper::translation(2078,$translate,'') }}</th>
      </tr>
   </thead>
   <tbody class="text-center">
-    @php $no = 1; @endphp
+    @php 
+    $no = 1; 
+    $subtotal = 0;
+    $coupon_code = ""; 
+    $coupon_discount = 0; 
+    $new_price = 0;
+    $shipping = 0;
+    @endphp
     @foreach($product['view'] as $product)
+    @php
+      if($product->discount_price != 0)
+      {
+        $price = $product->discount_price;
+        $new_price += $product->quantity * $product->discount_price;
+        $coupon_code = $product->coupon_code;
+      }
+      else
+      {
+        $price = $product->price;
+        $new_price += $product->quantity * $product->price;
+      }
+      $shipping += $product->product_local_shipping_fee;
+      $total = $product->quantity * $product->price;
+      $subtotal += $total;
+    @endphp
     <tr class="mb-5 mt-2">
       <th scope="row">{{ $no }}</th>
       <td>{{ $product->ord_id }}
@@ -76,22 +99,32 @@
       </a></td>
      {{-- <td>{{ $product->product_attribute_values }}</td> --}}
       <td><a href="{{ url('/user') }}/{{ $product->username }}">{{ $product->name }}</a></td>
-      <td>{{ $product->quantity }} X <span style="font-family: DejaVu Sans; sans-serif;">{{ $allsettings->site_currency_symbol }}</span> {{ $product->price }}</td>
+      <td colspan=2>{{ $product->quantity }} X <span style="font-family: DejaVu Sans; sans-serif;">{{ $allsettings->site_currency_symbol }}</span> {{ $product->price }}</td>
     </tr>
     @php $no++; @endphp
     @endforeach 
     <tr>
+      <td colspan="5" class="bg-light-2 text-right"><strong>{{ Helper::translation(2092,$translate,'') }}</strong></td>
+      <td class="bg-light-2"><span style="font-family: DejaVu Sans; sans-serif;">{{ $allsettings->site_currency_symbol }}</span> {{ $subtotal }}</td>
+      </tr>
       <td colspan="5" class="bg-light-2 text-right"><strong>{{ Helper::translation(2090,$translate,'') }}</strong></td>
       <td class="bg-light-2"><span style="font-family: DejaVu Sans; sans-serif;">{{ $allsettings->site_currency_symbol }}</span> {{ $purchase->shipping_price }}</td>
       </tr>
+      {{--
     <tr>
       <td colspan="5" class="bg-light-2 text-right"><strong>{{ Helper::translation(1993,$translate,'') }}</strong></td>
       <td class="bg-light-2"><span style="font-family: DejaVu Sans; sans-serif;">{{ $allsettings->site_currency_symbol }}</span> {{ $purchase->processing_fee }}</td>
       </tr>
+      --}}
+      @if($coupon_code != "")
+      @php 
+        $coupon_discount = $subtotal - $new_price;
+      @endphp
       <tr>
-      <td colspan="5" class="bg-light-2 text-right"><strong>{{ Helper::translation(2092,$translate,'') }}</strong></td>
-      <td class="bg-light-2"><span style="font-family: DejaVu Sans; sans-serif;">{{ $allsettings->site_currency_symbol }}</span> {{ $purchase->subtotal }}</td>
+      <td colspan="5" class="bg-light-2 text-right"><strong>Coupon Discount</strong></td>
+      <td class="bg-light-2"><span style="font-family: DejaVu Sans; sans-serif;">- {{ $allsettings->site_currency_symbol }}</span> {{ $coupon_discount }}</td>
       </tr>
+      @endif
        <tr>
       <td colspan="5" class="bg-light-2 text-right"><strong>{{ Helper::translation(2093,$translate,'') }}</strong></td>
       <td class="bg-light-2"><span style="font-family: DejaVu Sans; sans-serif;">{{ $allsettings->site_currency_symbol }}</span> {{ $purchase->total }}</td>
@@ -99,7 +132,7 @@
   </tbody>
 </table>
 </div>
-  <div class="row align-items-center">
+  <div class="">
   <div class="row align-items-center">
     <div class="col-sm-6 text-center text-sm-left"><strong>{{ Helper::translation(2080,$translate,'') }}</strong> {{ $payment_type }}</div>
     <div class="col-sm-6 text-right" style="float:right;"> <strong>{{ Helper::translation(2089,$translate,'') }}</strong> {{ $payment_token }}</div>

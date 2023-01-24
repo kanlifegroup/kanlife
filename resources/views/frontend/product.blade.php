@@ -25,6 +25,28 @@
 </div>
 
 <div class="container-fluid px-4 mt-5 mb-5">
+  <div class="row">
+    <div class="col-md-12">
+      @if ($message = Session::get('success'))
+      <div class="alert alert-success" role="alert">
+        <span class="alert_icon lnr lnr-checkmark-circle"></span>
+          {{ $message }}
+          <!-- <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span class="fa fa-close" aria-hidden="true"></span>
+          </button> -->
+      </div>
+      @endif
+      @if ($message = Session::get('error'))
+      <div class="alert alert-danger" role="alert">
+        <span class="alert_icon lnr lnr-warning"></span>
+        {{ $message }}
+        <!-- <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span class="fa fa-close" aria-hidden="true"></span>
+        </button> -->
+      </div>
+      @endif
+    </div>
+  </div>
   <div class="row g-5">
     <div class="col-md-4">
       <div id="slider" class="owl-carousel product-slider">
@@ -116,7 +138,8 @@
                   <input type="text" id="{{base64_decode($cart['ord_id'])}}" name="quantity" value="{{$cart['qty']}}" class="qty qty-{{base64_encode($cart['ord_id'])}}">
                   <div class="qtyplus" data-id="{{base64_encode($cart['ord_id'])}}">+</div>
                 </div>
-                <a href="javascript:void(0)" data-id="{{base64_encode($cart['ord_id'])}}" class="round-black-btn remove">Remove from cart</a>
+                {{-- <a href="javascript:void(0)" data-id="{{base64_encode($cart['ord_id'])}}" class="round-black-btn remove">Remove from cart</a> --}}
+                <a href="{{ url('/cart') }}/{{base64_encode($cart['ord_id'])}}" onClick="return confirm('Are You Sure?');" class="round-black-btn">Remove from cart</a>
               @else
                 @if($shop->product_price != 0)
                   <a href="{{url('/add_to_cart').'/'.$shop->product_slug}}" class="enquirys-btn">Add To Cart</a>
