@@ -189,25 +189,25 @@
       <table class="table table-borderless">
         <tr class="deu-cartsbg">
           <td>Price ({{$cart_count}} items)</td>
-          <td class="text-right"><i class="fa fa-inr" aria-hidden="true"></i>{{number_format((float)$subtotal, 2, '.', '');}}</td>
+          <td class="text-right" align="right"><i class="fa fa-inr" aria-hidden="true"></i>{{number_format((float)$subtotal, 2, '.', '');}}</td>
         </tr>
         <tr class="deu-cartsbgs">
           <td>Shipping and handing</td>
-          <td class="text-right"><i class="fa fa-inr" aria-hidden="true"></i> {{number_format((float)$shipping, 2, '.', '');}}</td>
+          <td class="text-right" align="right"><i class="fa fa-inr" aria-hidden="true"></i> {{number_format((float)$shipping, 2, '.', '');}}</td>
         </tr>
         @if($coupon_discount > 0)
         <tr class="deu-cartsbgs" style="background-color:#f2fff3">
           <td>Coupon discount ({{explode(',',$coupon_code)[0]}})</td>
-          <td class="text-right">- <i class="fa fa-inr" aria-hidden="true"></i>{{number_format((float)$coupon_discount, 2, '.', '');}}</td>
+          <td class="text-right" align="right">- <i class="fa fa-inr" aria-hidden="true"></i>{{number_format((float)$coupon_discount, 2, '.', '');}}</td>
         </tr>
         @endif
         <tr class="deu-cartsbg">
           <td></td>
-          <td class="text-right"><i class="fa fa-inr" aria-hidden="true"></i>{{number_format((float)$final+$shipping, 2, '.', '');}}</td>
+          <td class="text-right" align="right"><i class="fa fa-inr" aria-hidden="true"></i>{{number_format((float)$final+$shipping, 2, '.', '');}}</td>
         </tr>
         <tr class="deu-cartsbgs text-dark">
           <td>Total Amount</td>
-          <td class="text-right"><i class="fa fa-inr" aria-hidden="true"></i>{{number_format((float)$final+$shipping, 2, '.', '');}}</td>
+          <td class="text-right" align="right"><i class="fa fa-inr" aria-hidden="true"></i>{{number_format((float)$final+$shipping, 2, '.', '');}}</td>
         </tr>
       </table>
     </div>

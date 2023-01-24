@@ -127,11 +127,11 @@
       <table class="table table-borderless">
         <tr class="deu-cartsbg">
           <td>Price ({{$cart_count}} items)</td>
-          <td class="text-right"><i class="fa fa-inr" aria-hidden="true"></i><span class="subtotal"> @if($cart_count > 0){{number_format((float)$subtotal, 2, '.', '');}} @else 00.00 @endif</span></td>
+          <td class="text-right" align="right"><i class="fa fa-inr" aria-hidden="true"></i><span class="subtotal"> @if($cart_count > 0){{number_format((float)$subtotal, 2, '.', '');}} @else 00.00 @endif</span></td>
         </tr>
         <tr class="deu-cartsbgs">
           <td>Shipping and handling</td>
-          <td class="text-right"><i class="fa fa-inr" aria-hidden="true"></i><span class="shipping_charge"> {{number_format((float)$shipping, 2, '.', '');}}</span></td>
+          <td class="text-right" align="right"><i class="fa fa-inr" aria-hidden="true"></i><span class="shipping_charge"> {{number_format((float)$shipping, 2, '.', '');}}</span></td>
         </tr>
         @if($coupon_code != "")
           @php 
@@ -140,18 +140,18 @@
           @endphp
         <tr class="deu-cartsbgs" style="background-color:#f2fffb">
           <td>Coupon discount</td>
-          <td class="text-right">- <i class="fa fa-inr" aria-hidden="true"></i><span class="coupon_discount"> {{number_format((float)$coupon_discount, 2, '.', '');}}</span></td>
+          <td class="text-right" align="right">- <i class="fa fa-inr" aria-hidden="true"></i><span class="coupon_discount"> {{number_format((float)$coupon_discount, 2, '.', '');}}</span></td>
         </tr>
         @else
         @php $final = $subtotal + $shipping; @endphp
         @endif
         <tr class="deu-cartsbg">
           <td></td>
-          <td class="text-right"><i class="fa fa-inr" aria-hidden="true"></i><span class="final"> {{number_format((float)$final, 2, '.', '');}}</span></td>
+          <td class="text-right" align="right"><i class="fa fa-inr" aria-hidden="true"></i><span class="final"> {{number_format((float)$final, 2, '.', '');}}</span></td>
         </tr>
         <tr class="deu-cartsbgs text-dark">
           <td>Total Amount</td>
-          <td class="text-right"><i class="fa fa-inr" aria-hidden="true"></i><span class="final"> @if($cart_count > 0){{number_format((float)$final, 2, '.', '');}} @else 00.00 @endif</span></td>
+          <td class="text-right" align="right"><i class="fa fa-inr" aria-hidden="true"></i><span class="final"> @if($cart_count > 0){{number_format((float)$final, 2, '.', '');}} @else 00.00 @endif</span></td>
         </tr>
       </table>
       <div class="product-count mt-3 mb-3">

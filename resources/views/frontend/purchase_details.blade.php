@@ -105,11 +105,11 @@ $shipping = 0;
       <table class="table table-borderless">
         <tr class="deu-cartsbg">
           <td>Price ({{$items}} items)</td>
-          <td class="text-right"><i class="fa fa-inr" aria-hidden="true"></i> {{number_format((float)$purchase->subtotal, 2, '.', '');}}</td>
+          <td class="text-right" align="right"><i class="fa fa-inr" aria-hidden="true"></i> {{number_format((float)$subtotal, 2, '.', '');}}</td>
         </tr>
         <tr class="deu-cartsbgs">
           <td>Shipping and handing</td>
-          <td class="text-right"><i class="fa fa-inr" aria-hidden="true"></i> {{number_format((float)$purchase->shipping_price, 2, '.', '');}}</td>
+          <td class="text-right" align="right"><i class="fa fa-inr" aria-hidden="true"></i> {{number_format((float)$purchase->shipping_price, 2, '.', '');}}</td>
         </tr>
         @if($coupon_code != "")
         @php 
@@ -118,18 +118,18 @@ $shipping = 0;
         @endphp
         <tr class="deu-cartsbgs" style="background-color:#f2fffb">
           <td>Coupon discount</td>
-          <td class="text-right">- <i class="fa fa-inr" aria-hidden="true"></i><span class="coupon_discount"> {{number_format((float)$coupon_discount, 2, '.', '');}}</span></td>
+          <td class="text-right" align="right">- <i class="fa fa-inr" aria-hidden="true"></i><span class="coupon_discount"> {{number_format((float)$coupon_discount, 2, '.', '');}}</span></td>
         </tr>
         @else
         @php $final = $subtotal + $shipping; @endphp
         @endif
         <tr class="deu-cartsbg">
           <td></td>
-          <td class="text-right"><i class="fa fa-inr" aria-hidden="true"></i> {{number_format((float)$purchase->total, 2, '.', '');}}</td>
+          <td class="text-right" align="right"><i class="fa fa-inr" aria-hidden="true"></i> {{number_format((float)$purchase->total, 2, '.', '');}}</td>
         </tr>
         <tr class="deu-cartsbgs text-dark">
           <td>Total Amount</td>
-          <td class="text-right"><i class="fa fa-inr" aria-hidden="true"></i> {{number_format((float)$purchase->total, 2, '.', '');}}</td>
+          <td class="text-right" align="right"><i class="fa fa-inr" aria-hidden="true"></i> {{number_format((float)$purchase->total, 2, '.', '');}}</td>
         </tr>
       </table>
 		</div>
