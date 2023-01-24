@@ -58,6 +58,7 @@
                                             <th>{{ Helper::translation(2077,$translate,'') }}</th>
                                             <th>{{ Helper::translation(2076,$translate,'') }}</th>
                                             <th>{{ Helper::translation(1928,$translate,'') }}</th>
+                                            <th>Quantity</th>
                                             <th>{{ Helper::translation(2112,$translate,'') }}</th>
                                             @if($allsettings->type_of_marketplace == 'multi-vendor')
                                             <th>{{ Helper::translation(3585,$translate,'') }}</th>
@@ -70,13 +71,37 @@
                                           </tr>
                                     </thead>
                                     <tbody>
-                                    @php $no = 1; @endphp
+                                    @php 
+                                      $no = 1;
+                                      $subtotal = 0;
+                                      $coupon_code = ""; 
+                                      $coupon_discount = 0; 
+                                      $new_price = 0;
+                                      $shipping = 0;
+                                    @endphp
                                     @foreach($itemData['item'] as $order)
+                                    @php
+                                      if($order->discount_price != 0)
+                                      {
+                                        $price = $order->discount_price;
+                                        $new_price += $order->quantity * $order->discount_price;
+                                        $coupon_code = $order->coupon_code;
+                                      }
+                                      else
+                                      {
+                                        $price = $order->price;
+                                        $new_price += $order->quantity * $order->price;
+                                      }
+                                      $shipping += $order->product_local_shipping_fee;
+                                      $total = $order->quantity * $order->price;
+                                      $subtotal += $total;
+                                    @endphp
                                         <tr>
                                             <td>{{ $no }}</td>
                                             <td>{{ $order->purchase_token }} </td>
                                             <td>{{ $order->ord_id }} </td>
                                             <td>{{ $order->product_name }} </td>
+                                            <td>{{ $order->quantity }} </td>
                                             <td><a href="{{ URL::to('/user') }}/{{ $order->username }}" target="_blank" class="blue-color">{{ $order->username }}</a></td>
                                             @if($allsettings->type_of_marketplace == 'multi-vendor')
                                             <td>{{ $allsettings->site_currency_symbol }}{{ $order->vendor_amount }} </td>
@@ -152,6 +177,7 @@
                                             {{ str_replace("-"," ",$single_data->payment_type) }}
                                         </td>
                                     </tr>
+                                    
                                     <tr>
                                         <td>
                                             {{ Helper::translation(2091,$translate,'') }}
@@ -159,6 +185,30 @@
                                         
                                         <td>
                                             {{ $single_data->payment_date }}
+                                        </td>
+                                    </tr>
+                                    @if($coupon_code != "")
+                                    @php 
+                                    $coupon_discount = $subtotal - $new_price;
+                                    $final = $new_price + $shipping; 
+                                    @endphp
+                                    <tr>
+                                        <td>
+                                            Coupon Code
+                                        </td>
+                                        
+                                        <td>
+                                            {{ $coupon_code }}
+                                        </td>
+                                    </tr>
+                                    @endif
+                                    <tr>
+                                        <td>
+                                            {{ Helper::translation(3615,$translate,'') }}
+                                        </td>
+                                        
+                                        <td>
+                                            {{ $allsettings->site_currency_symbol }}{{ $subtotal }}
                                         </td>
                                     </tr>
                                     <tr>
@@ -181,6 +231,7 @@
                                         </td>
                                     </tr>
                                     @endif
+                                    {{--
                                     <tr>
                                         <td>
                                             {{ Helper::translation(3612,$translate,'') }}
@@ -190,6 +241,23 @@
                                             {{ $allsettings->site_currency_symbol }}{{ $single_data->processing_fee }}
                                         </td>
                                     </tr>
+                                    --}}
+                                    @if($coupon_code != "")
+                                    @php 
+                                    $coupon_discount = $subtotal - $new_price;
+                                    $final = $new_price + $shipping; 
+                                    @endphp
+                                    <tr>
+                                        <td>
+                                            Coupon Discount
+                                        </td>
+                                        
+                                        <td>
+                                            {{ $allsettings->site_currency_symbol }}{{ $coupon_discount }}
+                                        </td>
+                                    </tr>
+                                    @endif
+                                    {{--
                                     <tr>
                                         <td>
                                             {{ Helper::translation(3615,$translate,'') }}
@@ -199,6 +267,7 @@
                                             {{ $allsettings->site_currency_symbol }}{{ $single_data->subtotal }}
                                         </td>
                                     </tr>
+                                    --}}
                                     <tr>
                                         <td>
                                             {{ Helper::translation(2093,$translate,'') }}
