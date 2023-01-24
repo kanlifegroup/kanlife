@@ -83,7 +83,7 @@
 						<div class="col">
 							<div class="text-end">
 								<!-- <h6 data-id="{{base64_encode($cart->ord_id)}}" class="mt-5 cursor-pointer deu-cardremove remove">REMOVE</h6> -->
-                <a href="{{ url('/cart') }}/{{base64_encode($cart->ord_id)}}" onClick="return confirm('Are You Sure?');" class="mt-5 cursor-pointer deu-cardremove">REMOVE</a>
+                <a href="{{ url('/cart') }}/{{base64_encode($cart->ord_id)}}" onClick="return confirm('Are you sure you want to remove?');" class="mt-5 cursor-pointer deu-cardremove">REMOVE</a>
 							</div>
 						</div>
 					</div>

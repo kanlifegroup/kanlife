@@ -79,6 +79,11 @@
       }
     });
   }
+  $(document).ready(function() {
+    $(".alert").fadeTo(10000, 500).slideUp(500, function(){
+      $(".alert").slideUp(500);
+    });
+  });
   @if(Auth::guest())
     $(document).ready(function() {
       @if(session('signup') && session('signup') == 'signup')

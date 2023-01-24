@@ -139,7 +139,7 @@
                   <div class="qtyplus" data-id="{{base64_encode($cart['ord_id'])}}">+</div>
                 </div>
                 {{-- <a href="javascript:void(0)" data-id="{{base64_encode($cart['ord_id'])}}" class="round-black-btn remove">Remove from cart</a> --}}
-                <a href="{{ url('/cart') }}/{{base64_encode($cart['ord_id'])}}" onClick="return confirm('Are You Sure?');" class="round-black-btn">Remove from cart</a>
+                <a href="{{ url('/cart') }}/{{base64_encode($cart['ord_id'])}}" onClick="return confirm('Are you sure you want to remove?');" class="round-black-btn">Remove from cart</a>
               @else
                 @if($shop->product_price != 0)
                   <a href="{{url('/add_to_cart').'/'.$shop->product_slug}}" class="enquirys-btn">Add To Cart</a>
