@@ -34,6 +34,7 @@
     <div class="row">
         <div class="col-md-12">
             <p class="deu-carthead">Wishlist Products</p>
+            @if(count($shop['product']) > 0)
             <div class="col-md-12">
                 <div class="row mt-4 g-5 px-5">
                   @foreach($shop['product'] as $product) 
@@ -74,6 +75,9 @@
                   @endforeach    
                 </div>
             </div>
+            @else
+            No products found in your wishlist!!
+            @endif
         </div>
     </div>
 </div>

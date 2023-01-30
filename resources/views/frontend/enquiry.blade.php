@@ -34,6 +34,7 @@
     <div class="row">
         <div class="col-md-12">
             <p class="deu-carthead">Enquired Products</p>
+            @if(count($shop['product']) > 0)
             <div class="col-md-12">
                 <div class="row mt-4 g-5 px-5">
                   @foreach($shop['product'] as $product) 
@@ -71,6 +72,9 @@
                   @endforeach    
                 </div>
             </div>
+            @else
+            No enquiry found for any product!!
+            @endif
         </div>
     </div>
 </div>
