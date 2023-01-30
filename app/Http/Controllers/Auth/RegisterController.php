@@ -124,8 +124,8 @@ class RegisterController extends Controller
                                                       ->mixedCase()
                                                       ->numbers()
                                                       ->symbols()],
-          'user_pincode' => ['required', 'digits:6','numeric'],
-          'user_address' => ['required', 'max:200','min:10'],
+          // 'user_pincode' => ['required', 'digits:6','numeric'],
+          // 'user_address' => ['required', 'max:200','min:10'],
           'password_confirmation' => 'required|same:password',
            );
       }

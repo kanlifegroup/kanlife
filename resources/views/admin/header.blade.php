@@ -13,7 +13,11 @@
                         <img src="{{ url('/') }}/public/storage/users/{{ Auth::user()->user_photo }}"  class="user-avatar rounded-circle" alt="{{ Auth::user()->name }}"/>@else <img src="{{ url('/') }}/public/img/no-user.png"  class="user-avatar rounded-circle" alt="{{ Auth::user()->name }}"/>  @endif
                         </a>
                         <div class="user-menu dropdown-menu">
+                            @if(Auth::user()->user_type == 'admin')
                             <a class="nav-link" href="{{ url('/admin/edit-profile') }}"><i class="fa fa-user"></i> {{ Helper::translation(2043,$translate,'') }}</a>
+                            @else
+                            <a class="nav-link" href="{{ url('/dealer/edit-profile') }}"><i class="fa fa-user"></i> {{ Helper::translation(2043,$translate,'') }}</a>
+                            @endif
                             {{--
                             @if(in_array('settings',$avilable)) 
                             <a class="nav-link" href="{{ url('/admin/general-settings') }}"><i class="fa fa-cog"></i> {{ Helper::translation(3408,$translate,'') }}</a>
