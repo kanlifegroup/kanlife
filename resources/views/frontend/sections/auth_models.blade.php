@@ -1,3 +1,4 @@
+@if(Auth::guest())
 <!-- The Modal login -->
 <div class="modal fade logS1" id="myModal">
   <div class="modal-dialog modal-dialog-centered modal-xl">
@@ -226,3 +227,20 @@
     </div>
   </div>
 </div>
+@endif
+@if(Auth::user())
+<!-- The Modal forget -->
+<div class="modal fade" id="myModal3">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content" style="margin-top: 13%;">
+      <div class="modal-header">
+        <h4 class="modal-title"></h4>
+      </div>
+      <div class="modal-body">
+        <p class="product-name text-center">Registered Successfully!!</p>
+        <p class="deu-logintxt">Congratulation! Your account has been created successfully.</p>
+      </div>
+    </div>
+  </div>
+</div>
+@endif

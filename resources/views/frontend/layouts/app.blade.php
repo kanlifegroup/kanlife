@@ -59,9 +59,9 @@
 
 @include('frontend.layouts.navbar')
 @yield('content')
-@if(Auth::guest())
+
 @include('frontend.sections.auth_models')
-@endif
+
 @include('frontend.layouts.footer')
 
 @yield('script')
@@ -83,6 +83,15 @@
     $(".alert").fadeTo(10000, 500).slideUp(500, function(){
       $(".alert").slideUp(500);
     });
+    @if(session('registered'))
+      $('#myModal3').modal('show');
+      setTimeout(function(){
+        $('#myModal3').modal('hide');
+      }, 5000);
+      <?php
+        session()->forget('registered');
+      ?>
+    @endif
   });
   @if(Auth::guest())
     $(document).ready(function() {

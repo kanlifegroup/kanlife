@@ -91,7 +91,7 @@ class RegisterController extends Controller
 		 {
 		  $referral_by = "";
 		 }
-    //  dd($user_type);
+     
      if($user_type=='vendor'){
       $gst = $request->input('gst');
       $account_no = $request->input('account_no');
@@ -124,8 +124,8 @@ class RegisterController extends Controller
                                                       ->mixedCase()
                                                       ->numbers()
                                                       ->symbols()],
-          // 'user_pincode' => ['required', 'digits:6','numeric'],
-          // 'user_address' => ['required', 'max:200','min:10'],
+          'user_pincode' => ['required', 'digits:6','numeric'],
+          'user_address' => ['required', 'max:200','min:10'],
           'password_confirmation' => 'required|same:password',
            );
       }
@@ -195,10 +195,10 @@ class RegisterController extends Controller
         Session::setId($session_id);
         $updata = array('user_id' => auth()->user()->id); 
         Product::changeOrder($session_id,$updata);
-        if($request->input('user_type'))
+        if($request->input('user_type') == 'vendor')
           return redirect('/dealer');
         else
-        return redirect('/');
+        return redirect('/')->with('registered', 'registered');
       }
       return back()->with('signin','signin');
       
