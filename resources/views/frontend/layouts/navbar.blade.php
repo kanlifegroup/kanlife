@@ -199,6 +199,7 @@ $module=explode("/", url()->current());
               <li><a class="dropdown-item" href="{{url('/my-profile')}}">Your Account</a></li>
               <li><a class="dropdown-item" href="{{url('/my-purchase')}}">Your Orders</a></li>
               <li><a class="dropdown-item" href="{{url('/wishlist')}}">Your Wishlist</a></li>
+              <li><a class="dropdown-item" href="{{url('/enquiries')}}">Your Enquiries</a></li>
               <form action="{{url('/logout')}}" method="post">
                 @csrf
                 <button class="dropdown-item deu-accountpad" href="#">Log Out</button>

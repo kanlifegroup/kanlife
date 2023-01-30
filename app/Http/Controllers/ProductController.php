@@ -284,6 +284,17 @@ class ProductController extends Controller
 	
 	
 	/* products */
+  public function show_enquiries()
+	{
+	   $translate = $this->lang_text();
+	   $sid = 1;
+	   $setting['setting'] = Settings::editGeneral($sid);
+	   $user_id = Auth::user()->id;
+     $product_ids = Product::myEnquiries($user_id);
+	   $shop['product'] = Product::with('ProductImages')->whereIn('product_id', $product_ids)->where('product_status','=',1)->where('product_drop_status','=','no')->where('language_code','=',$translate)->orderBy('product_id','desc')->get();
+	   $data = array('setting' => $setting, 'shop' => $shop);
+	   return view('frontend.enquiry')->with($data);
+	}
 	
 	public function show_wishlist()
 	{

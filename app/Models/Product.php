@@ -414,6 +414,9 @@ class Product extends Model
   public static function getEnquiries(){
     return DB::table('price_enquiry')->join('product','product.product_id','price_enquiry.product_id')->join('users','users.id','price_enquiry.user_id')->select('price_enquiry.id','price_enquiry.status','product.product_name','users.name','users.email','users.user_phone')->get();
   }
+  public static function myEnquiries($id){
+    return DB::table('price_enquiry')->where('user_id', $id)->pluck('product_id');
+  }
   public static function updateEnquiries($data, $id){
     DB::table('price_enquiry')->whereId($id)->update($data);
   }
