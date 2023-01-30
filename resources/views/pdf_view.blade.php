@@ -33,18 +33,18 @@
   <div class="row align-items-center mt-3">
   <div class="col-sm-6 text-center text-sm-left"> <strong>Pay To:</strong>
       <address>
+      {{ $allsettings->office_address }}<br />
+      {{ $allsettings->office_email }}<br />
+      {{ $allsettings->office_phone }}
+      </address>
+    </div>
+    <div class="col-sm-6 text-right" style="float:right;"> <strong>Invoiced To:</strong>
+      <address>      
       {{ $buyer_name }}<br />
       {{ $buyer_address }}<br />
       {{ $buyer_city }}, {{ $buyer_zip }}<br />
       {{ $buyer_country }}<br/>
-	  {{ $buyer_email }}
-      </address>
-    </div>
-    <div class="col-sm-6 text-right" style="float:right;"> <strong>Invoiced To:</strong>
-      <address>
-      {{ $allsettings->office_address }}<br />
-      {{ $allsettings->office_email }}<br />
-      {{ $allsettings->office_phone }}
+	    {{ $buyer_email }}
       </address>
     </div>
    </div> 
@@ -106,7 +106,8 @@
     <tr>
       <td colspan="5" class="bg-light-2 text-right"><strong>{{ Helper::translation(2092,$translate,'') }}</strong></td>
       <td class="bg-light-2"><span style="font-family: DejaVu Sans; sans-serif;">{{ $allsettings->site_currency_symbol }}</span> {{ $subtotal }}</td>
-      </tr>
+    </tr>
+    <tr>
       <td colspan="5" class="bg-light-2 text-right"><strong>{{ Helper::translation(2090,$translate,'') }}</strong></td>
       <td class="bg-light-2"><span style="font-family: DejaVu Sans; sans-serif;">{{ $allsettings->site_currency_symbol }}</span> {{ $purchase->shipping_price }}</td>
       </tr>

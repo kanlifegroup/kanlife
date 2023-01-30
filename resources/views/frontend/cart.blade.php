@@ -94,7 +94,7 @@
         <div class="panel-footer deu-proceedbg">
             <div class="row h-100 pe-4">
                 <div class="col-md-12 d-flex justify-content-end align-items-center">
-                    <a href="{{ url('/checkout') }}" class="deu-prceebtn btn text-white px-5 py-3">Proceed to checkout</a>
+                    <a href="{{ url('/checkout') }}" class="deu-prceebtn text-white px-5 py-3">Proceed to checkout</a>
                 </div>
             </div>
         </div>
