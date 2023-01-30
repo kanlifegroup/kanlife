@@ -73,6 +73,7 @@
     </div>
   </div>
 </div>
+
 <!-- The Modal Register -->
 <div class="modal fade regiS" style="overflow-y: scroll;" id="myModal1">
   <div class="modal-dialog modal-xl modal-dialog-centered">
@@ -117,6 +118,7 @@
               @enderror
             </div>
           </div>
+          {{--
           <div class="form-group row justify-content-center px-3">
             <div class="col-9 px-0">
               <textarea name="user_address" class="@error('user_address') is-invalid @enderror form-control border-info placeicon deu-logininput" placeholder="Enter Address*" rows="3" id="comment" >{{ old('user_address') }}</textarea>
@@ -137,9 +139,12 @@
               @enderror
             </div>
           </div>
+          --}}
           <div class="form-group row justify-content-center px-3">
             <div class="col-9 px-0 position-relative">
-              <input type="password" name="password" placeholder="Enter Password*" class="@error('password') is-invalid @enderror form-control border-info placeicon deu-logininput" onkeypress="return /^([0-9a-zA-Z!@#$%^&*(\).,<>{}[\]<>?_=+\-|;:\'\/\s])*[^\s]\1*$/.test(event.key)">
+              <input style="margin-bottom: 0;" type="password" name="password" placeholder="Enter Password*" class="@error('password') is-invalid @enderror form-control border-info placeicon deu-logininput" onkeypress="return /^([0-9a-zA-Z!@#$%^&*(\).,<>{}[\]<>?_=+\-|;:\'\/\s])*[^\s]\1*$/.test(event.key)">
+              <p style="margin:9px 0 15px 5px; font-size:9px; line-height: 0;">Please enter atleast 8 characters, a number, a special character, an upper case and a lower case alphabate.</p>
+              
               <span class="seepassword" style="display:none;" onclick="hide_password(this)"><i class="fa fa-eye"></i></span>
               <span class="seepassword" onclick="see_password(this)"><i class="fa fa-eye-slash"></i></span>
               @error('password')

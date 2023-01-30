@@ -61,7 +61,7 @@
         </div>
         <div class="row col-12">
           <div class="col-md-6">
-            <input type="text" placeholder="First name" maxlength="25" minlength="1" id="bill_firstname" name="bill_firstname" value="@if($checkout_data != 0){{ $checkout_details->bill_firstname }}@endif" class="form-control deu-checkinput" required>
+            <input type="text" placeholder="First name" maxlength="25" minlength="1" id="bill_firstname" name="bill_firstname" value="@if($checkout_data != 0){{ $checkout_details->bill_firstname }}@else{{Auth::user()->name??''}}@endif" class="form-control deu-checkinput" required>
           </div>
           <div class="col-md-6">
             <input type="text" placeholder="Last name" maxlength="25" id="bill_lastname" name="bill_lastname" value="@if($checkout_data != 0){{ $checkout_details->bill_lastname }}@endif" class="form-control deu-checkinput" required>
@@ -69,10 +69,10 @@
         </div>
         <div class="row col-12">
           <div class="col-md-6">
-            <input type="email" maxlength="50" minlength="8" placeholder="Email Id" id="bill_email" name="bill_email" required value="@if($checkout_data != 0){{ $checkout_details->bill_email }}@endif" class="form-control deu-checkinput">
+            <input type="email" maxlength="50" minlength="8" placeholder="Email Id" id="bill_email" name="bill_email" required value="@if($checkout_data != 0){{ $checkout_details->bill_email }}@else{{Auth::user()->email??''}}@endif" class="form-control deu-checkinput">
           </div>
           <div class="col-md-6">
-            <input type="text" maxlength="10" minlength="10" placeholder="Phone Number" id="bill_phone" name="bill_phone" data-bvalidator="required" value="@if($checkout_data != 0){{ $checkout_details->bill_phone }}@endif" required class="form-control deu-checkinput" onkeypress="return /^[0-9]*$/.test(event.key)">
+            <input type="text" maxlength="10" minlength="10" placeholder="Phone Number" id="bill_phone" name="bill_phone" data-bvalidator="required" value="@if($checkout_data != 0){{ $checkout_details->bill_phone }}@else{{Auth::user()->user_phone??''}}@endif" required class="form-control deu-checkinput" onkeypress="return /^[0-9]*$/.test(event.key)">
           </div>
         </div>
         <div class="row col-12">
@@ -142,13 +142,14 @@
               <td>
               <div class="form-check">
                 <label class="form-check-label">
-                  <input type="radio" class="form-check-input payment_type" onchange="enable_button()" name="payment_method" value="online">Pay Online
+                  <input type="radio" checked="checked" class="form-check-input payment_type" onchange="enable_button()" name="payment_method" value="online">Pay Online
                   <img class="deu-visa" src="{{asset('public/image/visa.svg')}}"> 
                   <img class="" src="{{asset('public/image/visa1.svg')}}" style="width: 50px; height: 32px;"> 
                 </label>
               </div>
               </td>
             </tr>
+            {{--
             <tr class="deu-td">
               <td>
               <div class="form-check">
@@ -157,7 +158,7 @@
                 </label>
               </div>
               </td>
-            </tr>{{--
+            </tr>
             <tr class="deu-td">
               <td>
               <div class="form-check">
@@ -169,7 +170,8 @@
                 </label>
               </div>
               </td>
-            </tr> --}}
+            </tr>
+            --}}
           </tbody>
         </table>
       </div>
