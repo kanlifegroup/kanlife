@@ -203,6 +203,7 @@ class CommonController extends Controller
         $price = $cart->price;
         $new_price += $cart->quantity * $cart->price;
       }
+      $gst += $price * $cart->quantity * $cart->product_gst / 100;
       $shipping += $cart->product_local_shipping_fee;
       $total = $cart->quantity * $cart->price;
       $subtotal += $total;
@@ -215,6 +216,7 @@ class CommonController extends Controller
       'shipping' => $shipping,
       'coupon_discount' => $coupon_discount,
       'final' => $final + $shipping,
+      'gst' => $gst,
       'remove'=>$request->data['remove']??0,
     ]);
 	}

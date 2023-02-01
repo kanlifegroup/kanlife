@@ -158,7 +158,7 @@
           <td class="text-right" align="right"><i class="fa fa-inr" aria-hidden="true"></i><span class="final"> {{number_format((float)$final, 2, '.', '');}}</span></td>
         </tr>
         <tr class="deu-cartsbgs text-dark">
-          <td>Total Amount {{$gst}}</td>
+          <td>Total Amount</td>
           <td class="text-right" align="right"><i class="fa fa-inr" aria-hidden="true"></i><span class="final"> @if($cart_count > 0){{number_format((float)$final, 2, '.', '');}} @else 00.00 @endif</span></td>
         </tr>
       </table>
@@ -229,6 +229,7 @@ function updateCart(data){
       $(".shipping_charge").text(parseFloat(res.shipping).toFixed(2));
       $(".coupon_discount").text(parseFloat(res.coupon_discount).toFixed(2));
       $(".final").text(parseFloat(res.final).toFixed(2));
+      if(res.gst != 0) $(".gst").text(parseFloat(res.gst).toFixed(2));
       if(res.remove == 1)
       window.location.reload();
     },
