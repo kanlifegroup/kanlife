@@ -59,8 +59,8 @@
                                             <th>{{ Helper::translation(2076,$translate,'') }}</th>
                                             <th>{{ Helper::translation(1928,$translate,'') }}</th>
                                             <th>Quantity</th>
-                                            <th>{{ Helper::translation(2112,$translate,'') }}</th>
                                             @if($allsettings->type_of_marketplace == 'multi-vendor')
+                                            <th>{{ Helper::translation(2112,$translate,'') }}</th>
                                             <th>{{ Helper::translation(3585,$translate,'') }}</th>
                                             <th>{{ Helper::translation(3588,$translate,'') }}</th>
                                             @endif
@@ -77,6 +77,7 @@
                                       $coupon_code = ""; 
                                       $coupon_discount = 0; 
                                       $new_price = 0;
+                                      $gst = 0;
                                       $shipping = 0;
                                     @endphp
                                     @foreach($itemData['item'] as $order)
@@ -92,6 +93,7 @@
                                         $price = $order->price;
                                         $new_price += $order->quantity * $order->price;
                                       }
+                                      $gst += ($price * $order->quantity) * $order->gst / 100;
                                       $shipping += $order->product_local_shipping_fee;
                                       $total = $order->quantity * $order->price;
                                       $subtotal += $total;
@@ -102,8 +104,8 @@
                                             <td>{{ $order->ord_id }} </td>
                                             <td>{{ $order->product_name }} </td>
                                             <td>{{ $order->quantity }} </td>
-                                            <td><a href="{{ URL::to('/user') }}/{{ $order->username }}" target="_blank" class="blue-color">{{ $order->username }}</a></td>
                                             @if($allsettings->type_of_marketplace == 'multi-vendor')
+                                            <td><a href="{{ URL::to('/user') }}/{{ $order->username }}" target="_blank" class="blue-color">{{ $order->username }}</a></td>
                                             <td>{{ $allsettings->site_currency_symbol }}{{ $order->vendor_amount }} </td>
                                             <td>{{ $allsettings->site_currency_symbol }}{{ $order->admin_amount }} </td>
                                             @endif

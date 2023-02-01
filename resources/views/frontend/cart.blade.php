@@ -35,6 +35,7 @@
         $coupon_discount = 0; 
         $new_price = 0;
         $shipping = 0;
+        $gst = 0;
         @endphp
         @if($cart_count > 0)
 				<div class="panel-body deu-cardborder">        
@@ -44,13 +45,14 @@
           {
             $price = $cart->discount_price;
             $new_price += $cart->quantity * $cart->discount_price;
-            $coupon_code = $cart->coupon_code;
           }
           else
           {
             $price = $cart->price;
             $new_price += $cart->quantity * $cart->price;
           }
+          $coupon_code = $cart->coupon_code;
+          $gst += ($cart->quantity * $price) * $cart->product_gst / 100;
           $shipping += $cart->product_local_shipping_fee;
           $total = $cart->quantity * $cart->price;
           $subtotal += $total;
@@ -132,25 +134,31 @@
         <tr class="deu-cartsbgs">
           <td>Shipping and handling</td>
           <td class="text-right" align="right"><i class="fa fa-inr" aria-hidden="true"></i><span class="shipping_charge"> {{number_format((float)$shipping, 2, '.', '');}}</span></td>
+        </tr>      
+        @if($gst > 0)
+        <tr class="deu-cartsbgs" style="background-color:#fff2fc">
+          <td>GST</td>
+          <td class="text-right" align="right"><i class="fa fa-inr" aria-hidden="true"></i><span class="gst"> {{number_format((float)$gst, 2, '.', '');}}</span></td>
         </tr>
+        @endif
         @if($coupon_code != "")
           @php 
           $coupon_discount = $subtotal - $new_price;
-          $final = $new_price + $shipping; 
+          $final = $new_price + $shipping + $gst; 
           @endphp
         <tr class="deu-cartsbgs" style="background-color:#f2fffb">
           <td>Coupon discount</td>
           <td class="text-right" align="right">- <i class="fa fa-inr" aria-hidden="true"></i><span class="coupon_discount"> {{number_format((float)$coupon_discount, 2, '.', '');}}</span></td>
         </tr>
         @else
-        @php $final = $subtotal + $shipping; @endphp
-        @endif
+        @php $final = $subtotal + $shipping + $gst; @endphp
+        @endif  
         <tr class="deu-cartsbg">
           <td></td>
           <td class="text-right" align="right"><i class="fa fa-inr" aria-hidden="true"></i><span class="final"> {{number_format((float)$final, 2, '.', '');}}</span></td>
         </tr>
         <tr class="deu-cartsbgs text-dark">
-          <td>Total Amount</td>
+          <td>Total Amount {{$gst}}</td>
           <td class="text-right" align="right"><i class="fa fa-inr" aria-hidden="true"></i><span class="final"> @if($cart_count > 0){{number_format((float)$final, 2, '.', '');}} @else 00.00 @endif</span></td>
         </tr>
       </table>

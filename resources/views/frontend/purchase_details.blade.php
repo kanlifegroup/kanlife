@@ -36,6 +36,7 @@
 $items = count($product['view']);
 $subtotal = 0;
 $coupon_code = ""; 
+$gst = 0;
 $coupon_discount = 0; 
 $new_price = 0;
 $shipping = 0;
@@ -58,6 +59,7 @@ $shipping = 0;
               $price = $product->price;
               $new_price += $product->quantity * $product->price;
             }
+            $gst += ($product->quantity * $price) * $product->product_gst / 100;
             $shipping += $product->product_local_shipping_fee;
             $total = $product->quantity * $product->price;
             $subtotal += $total;
@@ -111,17 +113,23 @@ $shipping = 0;
           <td>Shipping and handing</td>
           <td class="text-right" align="right"><i class="fa fa-inr" aria-hidden="true"></i> {{number_format((float)$purchase->shipping_price, 2, '.', '');}}</td>
         </tr>
+        @if($gst > 0)
+        <tr class="deu-cartsbgs" style="background-color:#fff2fc">
+          <td>GST</td>
+          <td class="text-right" align="right"> <i class="fa fa-inr" aria-hidden="true"></i><span class="coupon_discount"> {{number_format((float)$gst, 2, '.', '');}}</span></td>
+        </tr>
+        @endif
         @if($coupon_code != "")
         @php 
         $coupon_discount = $subtotal - $new_price;
-        $final = $new_price + $shipping; 
+        $final = $new_price + $shipping + $gst; 
         @endphp
         <tr class="deu-cartsbgs" style="background-color:#f2fffb">
           <td>Coupon discount</td>
           <td class="text-right" align="right">- <i class="fa fa-inr" aria-hidden="true"></i><span class="coupon_discount"> {{number_format((float)$coupon_discount, 2, '.', '');}}</span></td>
         </tr>
         @else
-        @php $final = $subtotal + $shipping; @endphp
+        @php $final = $subtotal + $shipping + $gst; @endphp
         @endif
         <tr class="deu-cartsbg">
           <td></td>

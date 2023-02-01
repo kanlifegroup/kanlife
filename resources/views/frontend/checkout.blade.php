@@ -197,6 +197,12 @@
           <td>Shipping and handing</td>
           <td class="text-right" align="right"><i class="fa fa-inr" aria-hidden="true"></i> {{number_format((float)$shipping, 2, '.', '');}}</td>
         </tr>
+        @if($gst > 0)
+        <tr class="deu-cartsbgs" style="background-color:#fff2fc">
+          <td>GST</td>
+          <td class="text-right" align="right"> <i class="fa fa-inr" aria-hidden="true"></i>{{number_format((float)$gst, 2, '.', '');}}</td>
+        </tr>
+        @endif
         @if($coupon_discount > 0)
         <tr class="deu-cartsbgs" style="background-color:#f2fff3">
           <td>Coupon discount ({{explode(',',$coupon_code)[0]}})</td>

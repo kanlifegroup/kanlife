@@ -434,6 +434,7 @@ class ProductController extends Controller
 	  $subtotal = 0;
     $coupon_code = ""; 
     $new_price = 0;
+    $gst = 0;
     $shipping = 0;
 	  $order_id = "";
 	  $product_id = "";
@@ -454,6 +455,7 @@ class ProductController extends Controller
 							$coupon_code .= "";
                             
                           }
+              $gst += ($price * $cart->quantity) * $cart->product_gst / 100;
               $shipping += $cart->product_local_shipping_fee;
 						  $total = $cart->quantity * $cart->price;
                           $subtotal += $total;
@@ -475,10 +477,11 @@ class ProductController extends Controller
 	  $final = $subtotal+$setting['setting']->site_processing_fee;
 	  $coupon_discount = 0;
 	  }
+    $final += $gst;
 	  $checkout_details = Product::Checkoutdata($user_id);
 	  $checkout_data = Product::countCheckout($user_id);
 	  $get_payment = explode(',', $setting['setting']->payment_option);
-	  $data = array('is_categories'=>true,'setting' => $setting, 'cart' => $cart, 'subtotal' => $subtotal,'shipping'=>$shipping, 'coupon_code' => $coupon_code, 'new_price' => $new_price, 'coupon_discount' => $coupon_discount, 'final' => $final, 'get_payment' => $get_payment, 'order_numbers' => $order_numbers, 'product_numbers' => $product_numbers, 'product_names' => $product_names, 'checkout_details' => $checkout_details, 'checkout_data' => $checkout_data);
+	  $data = array('is_categories'=>true,'setting' => $setting, 'cart' => $cart, 'subtotal' => $subtotal,'shipping'=>$shipping,'gst'=>$gst, 'coupon_code' => $coupon_code, 'new_price' => $new_price, 'coupon_discount' => $coupon_discount, 'final' => $final, 'get_payment' => $get_payment, 'order_numbers' => $order_numbers, 'product_numbers' => $product_numbers, 'product_names' => $product_names, 'checkout_details' => $checkout_details, 'checkout_data' => $checkout_data);
 	  // return view('checkout')->with($data);
 	  return view('frontend.checkout')->with($data);
 	  
@@ -711,38 +714,7 @@ class ProductController extends Controller
 	      $additional =  array('total_price' => $total_price, 'purchase_token' => $purchase_token, 'payment_method' => $payment_method, 'product_names' => $product_names);
 		  $aid = 1;
 	      Product::upAdditional($aid,$additional);
-	   }	
-	   /*if($payment_method == '2checkout')
-	   {
-		    $fullnames = $bill_firstname.' '.$bill_lastname;
-			  $two_checkout = '<form method="post" id="two_checkout_form" action="https://www.2checkout.com/checkout/purchase">
-			  <input type="hidden" name="sid" value="'.$two_checkout_account.'" />
-			  <input type="hidden" name="mode" value="2CO" />
-			  <input type="hidden" name="li_0_type" value="product" />
-			  <input type="hidden" name="li_0_name" value="'.$product_names.'" />
-			  <input type="hidden" name="li_0_price" value="'.$total_price.'" />
-			  <input type="hidden" name="currency_code" value="'.$site_currency.'" />
-			  <input type="hidden" name="merchant_order_id" value="'.$purchase_token.'" />';
-			  if($two_checkout_mode == 0)
-			  {
-			  $two_checkout .= '<input type="hidden" name="card_holder_name" value="John Doe" />
-			                 <input type="hidden" name="demo" value="Y" />';
-			  
-			  }
-			  else
-			  {
-			  $two_checkout .= '<input type="hidden" name="card_holder_name" value="'.$fullnames.'" />';
-			  }
-			  $two_checkout .= '<input type="hidden" name="street_address" value="'.$bill_address.'" />
-			  <input type="hidden" name="city" value="'.$bill_city.'" />
-			  <input type="hidden" name="state" value="'.$bill_state.'" />
-			  <input type="hidden" name="zip" value="'.$bill_postcode.'" />
-			  <input type="hidden" name="country" value="'.$bill_country.'" />
-			  <input type="hidden" name="email" value="'.$bill_email.'" />
-			  </form>';
-			$two_checkout .= '<script>window.two_checkout_form.submit();</script>';
-			echo $two_checkout;
-		}	*/
+	   }	   
 		
     $record = array('is_categories'=>true,'total_price' => $total_price, 'purchase_token' => $purchase_token, 'payment_method' => $payment_method, 'product_names' => $product_names, 'ship_rate' => $ship_rate, 'sub_total' => $sub_total, 'paypal_url' => $paypal_url, 'paypal_email' => $paypal_email, 'site_currency' => $site_currency, 'website_url' => $website_url, 'stripe_mode' => $stripe_mode, 'stripe_publish_key' => $stripe_publish_key, 'two_checkout_private' => $two_checkout_private, 'two_checkout_account' => $two_checkout_account, 'two_checkout_mode' => $two_checkout_mode, 'token' => $token, 'two_checkout_publishable' => $two_checkout_publishable, 'bill_firstname' => $bill_firstname, 'bill_lastname' => $bill_lastname, 'bill_address' => $bill_address, 'bill_city' => $bill_city, 'bill_state' => $bill_state, 'bill_postcode' => $bill_postcode, 'bill_country' => $bill_country, 'bill_email' => $bill_email, 'vat_price' => $vat_price);
     if($payment_method == 'online'){
@@ -1116,9 +1088,6 @@ class ProductController extends Controller
         
         
   }
-	
-	
-	
 	public function handleGatewayCallback()
   {
         $paymentDetails = Paystack::getPaymentData();
@@ -1205,14 +1174,10 @@ class ProductController extends Controller
 		}
 		
   }
-	
-	
-	
 	public function redirectToGateway()
-    {
-        return Paystack::getAuthorizationUrl()->redirectNow();
-    }
-	
+  {
+      return Paystack::getAuthorizationUrl()->redirectNow();
+  }
 	
 	public function confirm_coinpayments(Request $request)
 	{
@@ -1248,7 +1213,6 @@ class ProductController extends Controller
 			$coinpayments .= '<script>window.coinpayments_form.submit();</script>';
 			echo $coinpayments;
 	}
-	
 	
 	public function confirm_paystack(Request $request)
 	{
@@ -1408,7 +1372,6 @@ class ProductController extends Controller
 	   return view('bank-details')->with($bank_data);
 	}
 	
-	
 	public function confirm_cod(Request $request)
 	{
 	   $purchase_token = $request->input('purchase_token');
@@ -1421,7 +1384,7 @@ class ProductController extends Controller
 	}
 	
 	public function charge(Request $request)
-    {
+  {
 	
 	   $token = $request->input('token');
 	   $user_id = $request->input('user_id');
@@ -1596,116 +1559,9 @@ class ProductController extends Controller
 			  </form>';
 			$two_checkout .= '<script>window.two_checkout_form.submit();</script>';
 			echo $two_checkout;
-    /*include(app_path() . '/2Checkout/Twocheckout.php');
-						Twocheckout::privateKey($two_checkout_private); 
-		                Twocheckout::sellerId($two_checkout_account); 
-		                Twocheckout::sandbox($two_checkout_mode); 
-						try {
-							$charge = Twocheckout_Charge::auth(array(
-								"merchantOrderId" => $purchase_token,
-								"token"      => $token,
-								"currency"   => $site_currency,
-								"total"      => $amount,
-								"billingAddr" => array(
-									"name" => $user_name,
-									"addrLine1" => $user_name,
-									"city" => $user_name,
-									"state" => "US",
-									"zipCode" => $user_phone,
-									"country" => "US",
-									"email" => $user_email,
-									"phoneNumber" => $user_phone
-								)
-							));
-							
-						if ($charge['response']['responseCode'] == 'APPROVED')
-			            {
-		                  $payment_token = $charge['response']['transactionId'];
-						  $ord_token = $purchase_token;
-							$sid = 1;
-							$setting['setting'] = Settings::editGeneral($sid);
-							$order_update = array('order_status' => 'completed', 'payment_type' => '2checkout', 'payment_token' => $payment_token);
-							Product::returnOrders($ord_token,$order_update);
-							$check_update = array('payment_status' => 'completed', 'payment_token' => $payment_token);
-							Product::returnCheckout($ord_token,$check_update);
-							$order_count = Product::doneOrder($ord_token);
-							$order['details'] = Product::getOrders($ord_token);
-							foreach($order['details'] as $orders)
-							{
-							   $order_id = $orders->ord_id;
-							   if($orders->discount_price != 0)
-							   {
-							   $subtotal = $orders->quantity * $orders->discount_price;
-							   $total = $subtotal + $orders->shipping_price;
-							   }
-							   else
-							   {
-							   $subtotal = $orders->quantity * $orders->price;
-							   $total = $subtotal + $orders->shipping_price;
-							   }
-							   
-							   
-							   $product_token = $orders->product_token;
-							   $get_product = Product::editproductData($product_token);
-							   $total_stock = $get_product->product_stock - $orders->quantity;
-							   $qtydata = array('product_stock' => $total_stock);
-							   Product::QtyproductData($product_token,$qtydata);
-							  
-							   $commission = ($setting['setting']->site_admin_commission * $subtotal) / 100;
-							   $vendor_amount = $subtotal - $commission;
-							   $admin_amount = $commission;
-							   $edit_data = array('subtotal' => $subtotal, 'total' => $total, 'vendor_amount' => $vendor_amount, 'admin_amount' => $admin_amount); 
-							   Product::editedOrder($order_id,$edit_data);
-							}				
-								
-							$user_details = Product::getCheckout($ord_token);						
-							$order_id = $ord_token;
-							$name = $user_details->name;
-							$email = $user_details->email;
-							$phone = $user_details->user_phone;			
-							$amount = $user_details->total;
-							$url = URL::to("/");
-							$site_logo=$url.'/public/storage/settings/'.$setting['setting']->site_logo;
-							$site_name = $setting['setting']->site_title;
-							$admin_name = $setting['setting']->sender_name;
-							$admin_email = $setting['setting']->sender_email;
-							$site_currency = $setting['setting']->site_currency_symbol;
-							$data_record = [
-									'site_logo' => $site_logo, 'site_name' => $site_name, 'name' => $name,  'email' => $email, 'phone' => $phone, 'amount' => $amount, 'url' => $url, 'site_currency' => $site_currency, 'order_id' => $order_id
-								];
-								Mail::send('order_email', $data_record, function($message) use ($admin_name, $admin_email, $email, $name) {
-										$message->to($admin_email,$admin_name)
-												->subject('New Order Received');
-										$message->from($admin_email,$admin_name);
-									});
-								Mail::send('order_email', $data_record, function($message) use ($admin_name, $admin_email, $email, $name) {
-										$message->to($email, $name)
-												->subject('New Order Received');
-										$message->from($admin_email,$admin_name);
-									});
-							 
-						  
-						  $data_record = array('payment_token' => $payment_token);
-						 return view('success')->with($data_record);
-						 
-						  
-						}
-						else
-						{
-						   return redirect('/cancel');
-						}
-					} 
-					catch (Twocheckout_Error $e)
-					{
-						
-						  echo $e->getMessage();
-					}  
-    */
+    
 	}
-	
-	
-	
-	
+
 	public function confirm_paypal(Request $request)
 	{
 	   $paypal_url = $request->input('paypal_url');
@@ -1734,19 +1590,18 @@ class ProductController extends Controller
 	   
 	}
 	
-	
-	
 	public function view_coupon(Request $request)
 	{
 	   $allsettings = Settings::allSettings();
 	   $coupon = $request->input('coupon');
 	   $user_id = Auth::user()->id;
+     $session_id = Session::getId();
 	   $coupon_key = uniqid();
 	   $check_coupon = Product::checkCoupon($coupon);
 	   if($check_coupon == 1)
 	   {
 	      $single = Product::singleCoupon($coupon);
-	      $coupondata['get'] = Product::getCoupon($coupon,$user_id);
+	      $coupondata['get'] = Product::getCoupon($coupon,$user_id,$session_id);
 		  foreach($coupondata['get'] as $couponview)
 		  {
 		     $order_id = $couponview->ord_id;
@@ -1770,11 +1625,6 @@ class ProductController extends Controller
 	
 	}
 	
-	
-	
-	
-	
-	
 	public function view_wishlist($user_id,$token)
 	{
 	  $check = Product::wishlistCount($user_id,$token);
@@ -1791,11 +1641,11 @@ class ProductController extends Controller
 	}
 	
 	public function view_products()
-    {
+  {
 	    $user_token = Auth::user()->id;
       	$product['view'] = Product::userproductData($user_token);
 		return view('my-product',[ 'product' => $product]);
-    }
+  }
 	
 	public function delete_product($token)
 	{
@@ -2100,187 +1950,6 @@ class ProductController extends Controller
 	
 	}
 	
-	/*public function update_product(Request $request)
-	{
-	     $allsettings = Settings::allSettings();
-	     $product_name = $request->input('product_name');
-		 $product_slug = $this->brand_slug($product_name);
-         $image_size = $request->input('image_size');
-		 $file_size = $request->input('file_size');
-		 $product_sku = $request->input('product_sku');
-		 $product_short_desc = $request->input('product_short_desc');
-		 $product_desc = Purifier::clean($request->input('product_desc'));
-		 if(!empty($request->input('product_category')))
-	     {
-	      
-		  $category1 = "";
-		  foreach($request->input('product_category') as $category)
-		  {
-		     $category1 .= $category.',';
-		  }
-		  $product_category = rtrim($category1,",");
-		  
-	     }
-	     else
-	     {
-	     $product_category = "";
-	     }
-		 $product_price = $request->input('product_price');
-		 $product_token = $request->input('product_token');
-		 $product_offer_price = $request->input('product_offer_price');
-		 $user_id = $request->input('user_id');
-		 $product_return_policy = $request->input('product_return_policy');
-		 $product_video_url = $request->input('product_video_url');
-		 $product_allow_seo = $request->input('product_allow_seo');
-		 $product_seo_keyword = $request->input('product_seo_keyword');
-		 $product_seo_desc = $request->input('product_seo_desc');
-		 $product_estimate_time = $request->input('product_estimate_time');
-		 $product_condition = $request->input('product_condition');
-		 $product_tags = $request->input('product_tags');
-		 $product_type = $request->input('product_type');
-		 if($product_type != 'digital')
-		 {
-		 $product_stock = $request->input('product_stock');
-		 }
-		 else
-		 {
-		 $product_stock = 1;
-		 }
-		 $product_file = $request->input('product_file');
-		 $product_external_url = $request->input('product_external_url');
-		 $product_local_shipping_fee = $request->input('product_local_shipping_fee');
-		 $product_global_shipping_fee = $request->input('product_global_shipping_fee');
-		 if(!empty($request->input('product_attribute')))
-	     {
-	      
-		  $attributes = "";
-		  $type = "";
-		  foreach($request->input('product_attribute') as $attribute)
-		  {
-		     $split = explode("-", $attribute);
-		     $attributes .= $split[0].',';
-			 $type .= $split[1].',';
-		  }
-		  $product_attribute = rtrim($attributes,",");
-		  $product_attribute_type = rtrim($type,",");
-		  
-	     }
-	     else
-	     {
-	     $product_attribute = "";
-		 $product_attribute_type = "";
-	     }
-		 $product_date = date('Y-m-d');
-		 if($allsettings->product_approval == 1)
-		 {
-		 $product_status = 1;
-		 $product_approve_status = "Your product updated successfully.";
-		 }
-		 else
-		 {
-		 $product_status = 0;
-		 $product_approve_status = "Thanks for your submission. Once admin will approved your product. will publish on our marketplace."; 
-		 }
-		 $flash_deals = $request->input('flash_deals');
-		 $flash_deal_start_date = $request->input('flash_deal_start_date');
-		 $flash_deal_end_date = $request->input('flash_deal_end_date');
-		 $product_brand = $request->input('product_brand');
-         
-		 $request->validate([
-		                    'product_image' => 'mimes:jpeg,jpg,png|max:'.$image_size,
-							'product_gallery.*' => 'image|mimes:jpeg,jpg,png|max:'.$image_size,
-							'product_file' => 'max:'.$file_size,
-							'product_desc' => 'required',
-							'product_name' => 'required',
-							
-							
-         ]);
-		 $rules = array(
-		 
-				'product_name' => ['required', 'max:100', Rule::unique('product') ->ignore($product_token, 'product_token') -> where(function($sql){ $sql->where('product_drop_status','=','no');})],
-				
-	     );
-		 
-		 $messsages = array(
-		      
-	    );
-		 
-		$validator = Validator::make($request->all(), $rules,$messsages);
-		
-		if ($validator->fails()) 
-		{
-		 $failedRules = $validator->failed();
-		 return back()->withErrors($validator);
-		} 
-		else
-		{
-		
-		   if ($request->hasFile('product_image')) 
-		   {
-		    Product::dropProductimg($product_token);
-			$image = $request->file('product_image');
-			$img_name = time() . '1.'.$image->getClientOriginalExtension();
-			$destinationPath = public_path('/storage/product');
-			$imagePath = $destinationPath. "/".  $img_name;
-			$image->move($destinationPath, $img_name);
-			$product_image = $img_name;
-		  }
-		  else
-		  {
-		     $product_image = $request->input('save_product_image');
-		  }
-		  
-		  		  
-		  if ($request->hasFile('product_file')) 
-		  {
-			  $image = $request->file('product_file');
-			  $img_name = time() . '147.'.$image->getClientOriginalExtension();
-			  if($allsettings->site_s3_storage == 1)
-			  {
-			     Storage::disk('s3')->delete($request->input('save_product_file'));
-				 Storage::disk('s3')->put($img_name, file_get_contents($image), 'public');
-				 $product_file = $img_name;
-			  }
-			  else
-			  {
-			    Product::dropProductfile($product_token);
-				$destinationPath = public_path('/storage/product');
-				$imagePath = $destinationPath. "/".  $img_name;
-				$image->move($destinationPath, $img_name);
-				$product_file = $img_name;
-			  }	
-			
-		  }
-		  else
-		  {
-		     $product_file = $request->input('save_product_file');
-		  }
-		 
-		$data = array('user_id' => $user_id, 'product_name' => $product_name, 'product_sku' => $product_sku, 'product_slug' => $product_slug, 'product_category' => $product_category, 'product_short_desc' => $product_short_desc, 'product_desc' => $product_desc, 'product_price' => $product_price, 'product_offer_price' => $product_offer_price, 'product_image' => $product_image, 'product_return_policy' => $product_return_policy, 'product_video_url' => $product_video_url, 'product_allow_seo' => $product_allow_seo, 'product_seo_keyword' => $product_seo_keyword, 'product_seo_desc' => $product_seo_desc, 'product_estimate_time' => $product_estimate_time, 'product_condition' => $product_condition, 'product_tags' => $product_tags, 'product_type' => $product_type, 'product_file' => $product_file, 'product_external_url' => $product_external_url, 'product_local_shipping_fee' => $product_local_shipping_fee, 'product_global_shipping_fee' => $product_global_shipping_fee, 'product_attribute' => $product_attribute, 'product_stock' => $product_stock, 'product_date' => $product_date, 'product_status' => $product_status, 'flash_deals' => $flash_deals, 'flash_deal_start_date' => $flash_deal_start_date, 'flash_deal_end_date' => $flash_deal_end_date, 'product_attribute_type' => $product_attribute_type, 'product_brand' => $product_brand);
-        Product::updateproductData($product_token,$data);
-		if ($request->hasFile('product_gallery')) 
-			{
-				$files = $request->file('product_gallery');
-				foreach($files as $file)
-				{
-					$extension = $file->getClientOriginalExtension();
-					$fileName = Str::random(5)."-".date('his')."-".Str::random(3).".".$extension;
-					$folderpath  = public_path('/storage/product');
-					$file->move($folderpath , $fileName);
-					$imgdata = array('product_token' => $product_token, 'product_image' => $fileName);
-				    Product::saveproductImages($imgdata);
-			    }
-		 }
-        return redirect('/my-product')->with('success', $product_approve_status);
-            
- 
-       } 
-     
-	   
-	
-	}*/
-	
-	
 	public function add_product()
 	{ 
 	   $language_page['data'] = Languages::pageLanguage();
@@ -2291,7 +1960,8 @@ class ProductController extends Controller
 	   return view('add-product',[ 'attributer' => $attributer, 'brand' => $brand, 'language_page' => $language_page, 'languages_page' => $languages_page]);
 	}
 	
-	public function generateRandomString($length = 25) {
+	public function generateRandomString($length = 25) 
+  {
     $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
     $charactersLength = strlen($characters);
     $randomString = '';
@@ -2299,13 +1969,13 @@ class ProductController extends Controller
         $randomString .= $characters[rand(0, $charactersLength - 1)];
     }
     return $randomString;
-    }
+  }	
 	
-	
-	public function brand_slug($string){
-		   $slug=preg_replace('/[^A-Za-z0-9-]+/', '-', $string);
-		   return $slug;
-    }
+	public function brand_slug($string)
+  {
+      $slug=preg_replace('/[^A-Za-z0-9-]+/', '-', $string);
+      return $slug;
+  }
 	
 	public function save_product(Request $request)
 	{
@@ -2526,193 +2196,7 @@ class ProductController extends Controller
 			  }
 			  return redirect('/my-product')->with('success', $product_approve_status);
 		}
-			
-		
-     
-    
   }
-	
-	/*public function save_product(Request $request)
-	{
-         $allsettings = Settings::allSettings();
-		 $product_name = $request->input('product_name');
-		 $product_sku = $request->input('product_sku');
-		 $product_slug = $this->brand_slug($product_name);
-         $image_size = $request->input('image_size');
-		 $file_size = $request->input('file_size');
-		 
-		 $product_short_desc = $request->input('product_short_desc');
-		 $product_desc = Purifier::clean($request->input('product_desc'));
-		 if(!empty($request->input('product_category')))
-	     {
-	      
-		  $category1 = "";
-		  foreach($request->input('product_category') as $category)
-		  {
-		     $category1 .= $category.',';
-		  }
-		  $product_category = rtrim($category1,",");
-		  
-	     }
-	     else
-	     {
-	     $product_category = "";
-	     }
-		 $product_video_url = $request->input('product_video_url');
-		 $product_price = $request->input('product_price');
-		 $product_offer_price = $request->input('product_offer_price');
-		 $product_token = $this->generateRandomString();
-		 $user_id = $request->input('user_id');
-		 $product_tags = $request->input('product_tags');
-		 $product_allow_seo = $request->input('product_allow_seo');
-		 $product_seo_keyword = $request->input('product_seo_keyword');
-		 $product_seo_desc = $request->input('product_seo_desc');
-		 $product_type = $request->input('product_type');
-		 $product_return_policy = $request->input('product_return_policy');
-		 $product_estimate_time = $request->input('product_estimate_time');
-		 $product_condition = $request->input('product_condition');
-		 if($product_type != 'digital')
-		 {
-		 $product_stock = $request->input('product_stock');
-		 }
-		 else
-		 {
-		 $product_stock = 1;
-		 }
-		 $product_file = $request->input('product_file');
-		 $product_external_url = $request->input('product_external_url');
-		 $product_local_shipping_fee = $request->input('product_local_shipping_fee');
-		 $product_global_shipping_fee = $request->input('product_global_shipping_fee');
-		 if(!empty($request->input('product_attribute')))
-	     {
-	      
-		  $attributes = "";
-		  $type = "";
-		  foreach($request->input('product_attribute') as $attribute)
-		  {
-		     $split = explode("-", $attribute);
-		     $attributes .= $split[0].',';
-			 $type .= $split[1].',';
-		  }
-		  $product_attribute = rtrim($attributes,",");
-		  $product_attribute_type = rtrim($type,",");
-		  
-	     }
-	     else
-	     {
-	     $product_attribute = "";
-		 $product_attribute_type = "";
-	     }
-		 $product_date = date('Y-m-d');
-		 if($allsettings->product_approval == 1)
-		 {
-		 $product_status = 1;
-		 $product_approve_status = "Your product updated successfully.";
-		 }
-		 else
-		 {
-		 $product_status = 0;
-		 $product_approve_status = "Thanks for your submission. Once admin will approved your product. will publish on our marketplace."; 
-		 }
-		 $flash_deals = $request->input('flash_deals');
-		 $flash_deal_start_date = $request->input('flash_deal_start_date');
-		 $flash_deal_end_date = $request->input('flash_deal_end_date');
-		 $product_brand = $request->input('product_brand');
-         
-		 $request->validate([
-		                    'product_image' => 'mimes:jpeg,jpg,png|max:'.$image_size,
-							'product_gallery.*' => 'image|mimes:jpeg,jpg,png|max:'.$image_size,
-							'product_file' => 'max:'.$file_size,
-							'product_desc' => 'required',
-							'product_name' => 'required',
-							
-							
-         ]);
-		 $rules = array(
-		 
-				'product_name' => ['required', 'max:100', Rule::unique('product') -> where(function($sql){ $sql->where('product_drop_status','=','no');})],
-				
-	     );
-		 
-		 $messsages = array(
-		      
-	    );
-		 
-		$validator = Validator::make($request->all(), $rules,$messsages);
-		
-		if ($validator->fails()) 
-		{
-		 $failedRules = $validator->failed();
-		 return back()->withErrors($validator);
-		} 
-		else
-		{
-		
-		   if ($request->hasFile('product_image')) 
-		   {
-		   
-			$image = $request->file('product_image');
-			$img_name = time() . '1.'.$image->getClientOriginalExtension();
-			$destinationPath = public_path('/storage/product');
-			$imagePath = $destinationPath. "/".  $img_name;
-			$image->move($destinationPath, $img_name);
-			$product_image = $img_name;
-		  }
-		  else
-		  {
-		     $product_image = "";
-		  }
-		  
-		  
-		  	  
-		  
-		  if ($request->hasFile('product_file')) 
-		  {
-			  $image = $request->file('product_file');
-			  $img_name = time() . '147.'.$image->getClientOriginalExtension();
-			  if($allsettings->site_s3_storage == 1)
-			  {
-				 Storage::disk('s3')->put($img_name, file_get_contents($image), 'public');
-				 $product_file = $img_name;
-			  }
-			  else
-			  {
-			
-				$destinationPath = public_path('/storage/product');
-				$imagePath = $destinationPath. "/".  $img_name;
-				$image->move($destinationPath, $img_name);
-				$product_file = $img_name;
-			  }	
-			
-		  }
-		  else
-		  {
-		     $product_file = "";
-		  }
-		  
-		 
-		$data = array('user_id' => $user_id, 'product_token' => $product_token, 'product_name' => $product_name, 'product_sku' => $product_sku, 'product_slug' => $product_slug, 'product_category' => $product_category, 'product_short_desc' => $product_short_desc, 'product_desc' => $product_desc, 'product_price' => $product_price, 'product_offer_price' => $product_offer_price, 'product_image' => $product_image, 'product_return_policy' => $product_return_policy, 'product_video_url' => $product_video_url, 'product_allow_seo' => $product_allow_seo, 'product_seo_keyword' => $product_seo_keyword, 'product_seo_desc' => $product_seo_desc, 'product_estimate_time' => $product_estimate_time, 'product_condition' => $product_condition, 'product_tags' => $product_tags, 'product_type' => $product_type, 'product_file' => $product_file, 'product_external_url' => $product_external_url, 'product_local_shipping_fee' => $product_local_shipping_fee, 'product_global_shipping_fee' => $product_global_shipping_fee, 'product_attribute' => $product_attribute, 'product_stock' => $product_stock, 'product_date' => $product_date, 'product_status' => $product_status, 'flash_deals' => $flash_deals, 'flash_deal_start_date' => $flash_deal_start_date, 'flash_deal_end_date' => $flash_deal_end_date, 'product_attribute_type' => $product_attribute_type, 'product_brand' => $product_brand);
-        Product::saveproductData($data);
-		if ($request->hasFile('product_gallery')) 
-			{
-				$files = $request->file('product_gallery');
-				foreach($files as $file)
-				{
-					$extension = $file->getClientOriginalExtension();
-					$fileName = Str::random(5)."-".date('his')."-".Str::random(3).".".$extension;
-					$folderpath  = public_path('/storage/product');
-					$file->move($folderpath , $fileName);
-					$imgdata = array('product_token' => $product_token, 'product_image' => $fileName);
-				    Product::saveproductImages($imgdata);
-			    }
-		 }
-        return redirect('/my-product')->with('success', $product_approve_status);
-            
- 
-       } 
-     
-    
-  }*/
 	
 	/* products */
 	

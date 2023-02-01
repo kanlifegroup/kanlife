@@ -190,13 +190,13 @@ class CommonController extends Controller
     $subtotal = 0;
     $coupon_discount = 0; 
     $new_price = 0;
+    $gst = 0;
     $final = 0;
     $shipping = 0;
     foreach($carts as $cart){
       if($cart->discount_price !=0){
         $price = $cart->discount_price;
         $new_price += $cart->quantity * $cart->discount_price;
-        $coupon_code = $cart->coupon_code;
       }
       else{
         $price = $cart->price;

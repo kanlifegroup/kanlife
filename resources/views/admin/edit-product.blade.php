@@ -184,6 +184,10 @@
                                                 <input id="product_offer_price" name="product_offer_price" type="text" class="form-control" value="{{ $edit['product']->product_offer_price }}" onkeypress="return /^[0-9.\s]*$/.test(event.key)">
                                             </div>
                                             <div class="form-group">
+                                                <label for="name" class="control-label mb-1">GST(%)</label>
+                                                <input id="product_offer_price" name="product_gst" type="number" class="form-control" value="{{ $edit['product']->product_gst }}">
+                                            </div>
+                                            <div class="form-group">
                                                 <label for="customer_earnings" class="control-label mb-1">{{ Helper::translation(1936,$translate,'') }} <span class="require">*</span></label>
                                                 <input type="file" id="product_image" name="product_image" class="form-control-file" @if($edit['product']->product_image == '') data-bvalidator="required,extension[jpg:png:jpeg]" @else data-bvalidator="extension[jpg:png:jpeg]" @endif data-bvalidator-msg="{{ Helper::translation(1937,$translate,'') }}"> @if($edit['product']->product_image != '')
                                           <img src="{{ url('/') }}/public/storage/product/{{ $edit['product']->product_image }}"  class="image-size" alt="{{ $edit['product']->product_name }}"/>@else <img src="{{ url('/') }}/public/img/no-image.jpg"  class="image-size" alt="{{ $edit['product']->product_name }}"/>

@@ -68,7 +68,7 @@
                                             <th>{{ Helper::translation(1964,$translate,'') }}</th>
                                             <th>{{ Helper::translation(2099,$translate,'') }}</th>
                                             <th>{{ Helper::translation(1928,$translate,'') }}</th>
-                                            <th>{{ Helper::translation(3567,$translate,'') }}</th>
+                                            {{--<th>{{ Helper::translation(3567,$translate,'') }}</th>--}}
                                             <th>{{ Helper::translation(1934,$translate,'') }}</th>
                                             {{--<th>{{ Helper::translation(1946,$translate,'') }}</th>--}}
                                             <th>{{ Helper::translation(2100,$translate,'') }}</th>
@@ -82,11 +82,11 @@
                                         <tr>
                                             <td>{{ $no }}</td>
                                             <td>
-                                            @if($product->product_image != '')
-                                                <img src="{{ url('/') }}/public/storage/product/{{ $product->product_image }}"  class="image-size" alt="{{ $product->product_name }}"/>@else <img src="{{ url('/') }}/public/img/no-image.jpg"  class="image-size" alt="{{ $product->product_name }}"/>  @endif
-                                                </td>
+                                              @if($product->product_image != '')
+                                              <img src="{{ url('/') }}/public/storage/product/{{ $product->product_image }}"  class="image-size" alt="{{ $product->product_name }}"/>@else <img src="{{ url('/') }}/public/img/no-image.jpg"  class="image-size" alt="{{ $product->product_name }}"/>  @endif
+                                            </td>
                                             <td>{{ $product->product_name }} </td>
-                                            <td>{{ $product->name }} </td>
+                                            {{--<td>{{ $product->name }} </td>--}}
                                             <td>{{ $allsettings->site_currency_symbol }} {{ $product->product_price }} </td>
                                             {{--<td>{{ $product->product_type }} </td>--}}
                                             <td>@if($product->flash_deals == 1) <span class="badge badge-success">{{ Helper::translation(1942,$translate,'') }}</span> @else <span class="badge badge-danger">{{ Helper::translation(1943,$translate,'') }}</span> @endif</td>
