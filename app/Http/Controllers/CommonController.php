@@ -164,8 +164,9 @@ class CommonController extends Controller
 	  $product_id = $product->product_id;
 	  $product_price = $product->product_offer_price != 0 ? $product->product_offer_price : $product->product_price;
 	  $product_user_id = $product->user_id; 
+	  $product_gst = $product->product_gst; 
     $order_status = 'pending';
-    $savedata = array('session_id' => $token, 'product_id' => $product_id, 'product_user_id' => $product_user_id, 'product_token' => $product_token, 'token' => $token, 'quantity' => $product_quantity, 'product_attribute' => $product_attribute, 'product_attribute_values' => $product_attribute_values, 'price' => $product_price, 'order_status' => $order_status); 
+    $savedata = array('session_id' => $token, 'product_id' => $product_id, 'product_user_id' => $product_user_id, 'product_token' => $product_token, 'token' => $token, 'quantity' => $product_quantity, 'product_attribute' => $product_attribute, 'product_attribute_values' => $product_attribute_values, 'price' => $product_price,'product_gst'=>$product_gst, 'order_status' => $order_status); 
     Product::saveOrder($savedata);
 	  return redirect(url('/product').'/'.$slug)->with('success', 'Product Added Successfully.');
 	}

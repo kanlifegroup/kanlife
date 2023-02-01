@@ -694,10 +694,10 @@ class Product extends Model
 	
    }
    
-   public static function getCoupon($coupon,$user_id)
+   public static function getCoupon($coupon,$user_id,$session_id)
   {
     
-    $value=DB::table('coupon')->join('product_orders','product_orders.product_user_id','coupon.user_id')->where('coupon.coupon_code','=',$coupon)->where('coupon.coupon_status','=',1)->where('product_orders.order_status','=','pending')->where('product_orders.user_id','=',$user_id)->get();
+    $value=DB::table('coupon')->join('product_orders','product_orders.product_user_id','coupon.user_id')->where('coupon.coupon_code','=',$coupon)->where('coupon.coupon_status','=',1)->where('product_orders.order_status','=','pending')->where('product_orders.user_id','=',$user_id)->where('product_orders.session_id','=',$session_id)->where('product_orders.checked_out','=',0)->get();
     return $value;
 	
   }

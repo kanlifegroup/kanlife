@@ -93,7 +93,7 @@
                                         $price = $order->price;
                                         $new_price += $order->quantity * $order->price;
                                       }
-                                      $gst += ($price * $order->quantity) * $order->gst / 100;
+                                      $gst += ($price * $order->quantity) * $order->product_gst / 100;
                                       $shipping += $order->product_local_shipping_fee;
                                       $total = $order->quantity * $order->price;
                                       $subtotal += $total;
@@ -221,6 +221,17 @@
                                             {{ $allsettings->site_currency_symbol }}{{ $single_data->shipping_price }}
                                         </td>
                                     </tr>
+                                   @if($gst > 0)
+                                    <tr>
+                                        <td>
+                                            GST
+                                        </td>
+                                        
+                                        <td>
+                                            {{ $allsettings->site_currency_symbol }}{{ $gst }}
+                                        </td>
+                                    </tr>
+                                   @endif
                                     @if($single_data->vat_price != 0)
                                     <tr>
                                         <td>
