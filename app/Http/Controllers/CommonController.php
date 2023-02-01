@@ -42,7 +42,8 @@ class CommonController extends Controller
 	  return view('404');
 	}
 	
-	public function lang_text(){
+	public function lang_text()
+  {
 		   if(!empty(Cookie::get('translate')))
 		{
 		$translate = Cookie::get('translate');
@@ -67,9 +68,10 @@ class CommonController extends Controller
 		}
 		
 		   return $translate;
-    }
+  }
 	
-	/* cart */
+	
+    /* cart */
 	
 	public function view_cart(Request $request)
 	{
