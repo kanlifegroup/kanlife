@@ -68,8 +68,7 @@ class CommonController extends Controller
 		}
 		
 		   return $translate;
-  }
-	
+  }	
 	
     /* cart */
 	
