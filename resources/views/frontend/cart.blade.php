@@ -147,7 +147,7 @@
           $final = $new_price + $shipping + $gst; 
           @endphp
         <tr class="deu-cartsbgs" style="background-color:#f2fffb">
-          <td>Coupon discount</td>
+          <td>Coupon discount ({{ $coupon_code }})</td>
           <td class="text-right" align="right">- <i class="fa fa-inr" aria-hidden="true"></i><span class="coupon_discount"> {{number_format((float)$coupon_discount, 2, '.', '');}}</span></td>
         </tr>
         @else

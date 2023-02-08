@@ -216,7 +216,7 @@ class CommonController extends Controller
       'subtotal' => $subtotal,
       'shipping' => $shipping,
       'coupon_discount' => $coupon_discount,
-      'final' => $final + $shipping,
+      'final' => $final + $shipping + $gst,
       'gst' => $gst,
       'remove'=>$request->data['remove']??0,
     ]);
