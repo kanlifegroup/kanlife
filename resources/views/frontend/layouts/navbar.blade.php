@@ -31,14 +31,20 @@
     <div class="col d-flex gap-2 justify-content-center justify-content-md-start px-3">
       <div class="social-bg d-flex justify-content-center align-items-center">
         <!-- <img src="image/facebook.svg" alt="" class="img-fluid"> -->
+        <a href="https://lnkd.in/gCW9EFfv">
         <i class="fa fa-facebook top-navsocial" aria-hidden="true"></i>
+        </a>
       </div>
       <div class="social-bg d-flex justify-content-center align-items-center">
+        <a href="https://lnkd.in/g3NJ6F5M">
         <img src="{{ asset('public/image/instragam.svg') }}" alt="" class="img-fluid">
+        </a>
       </div>
       <div class="social-bg d-flex justify-content-center align-items-center">
         <!-- <img src="image/youtube.svg" alt="" class="img-fluid"> -->
+        <a href="https://lnkd.in/gJeydyQD">
         <i class="fa fa-youtube-play top-navsocial" aria-hidden="true"></i>
+        </a>
       </div>
       <div class="social-bg d-flex justify-content-center align-items-center">
         <!-- <img src="image/twitter.svg" alt="" class="img-fluid"> -->
@@ -46,7 +52,9 @@
       </div>
       <div class="social-bg d-flex justify-content-center align-items-center">
         <!-- <img src="image/linkedin.svg" alt="" class="img-fluid"> -->
+        <a href="https://in.linkedin.com/company/kanlife-group">
         <i class="fa fa-linkedin top-navsocial" aria-hidden="true"></i>
+        </a>
       </div>
     </div>
     <div class="col-auto d-flex align-items-center gap-2 px-5">
