@@ -25,7 +25,7 @@
     <div class="carousel-inner">
       @foreach($slideshow['view'] as $key => $slide)
       <div class="carousel-item @if($key == 0) active @endif">
-        <img src="{{ url('/') }}/public/storage/slideshow/{{ $slide->slide_image }}" class="d-block w-100" style="height:100vh;" alt="...">
+        <img src="{{ url('/') }}/public/storage/slideshow/{{ $slide->slide_image }}" class="d-block w-100 banerw"  alt="...">
         <div class="carousel-caption deu-slidepad text-left">
           <div class="col-12">
             <h1 class="deu-slidehead text-start pb-4">Kanlife Group </h1>

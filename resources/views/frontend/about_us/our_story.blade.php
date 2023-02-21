@@ -89,7 +89,151 @@
         <div class="col-md-12 position-relative">
             <p class="deu-journey">Our Journey</p>
         </div>
-        <img class="img-fluid" src="{{ asset('public/image/time1.png') }}">
+        <div>
+        <div class="container mt-5 mb-5">
+	<div class="row py-5">
+		<div class="col-md-12 offset-md-0">
+            <div class="d-flex">
+                <img style="width:150px; margin-left:-40px; height: fit-content;" src="{{ asset('public/img/logo1.png') }}" alt="">
+                <div class="toptext">
+                <h4>OUR JOURNEY</h4>
+                <h1>HOW IT ALL BEGAN</h1>
+                <h5>The Foundation of Kanlife</h5>
+                <li>
+                Started As A Small Family Owned Trading Firm - Mumbai- India
+            </li>
+
+                </div>
+                
+            </div>
+			<ul class="timeline">
+				<li>
+					<a data-bs-toggle="collapse" class="design1" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">2004</a>
+                    <div class="collapse multi-collapse show" id="multiCollapseExample1">
+                    <div class="row">
+                    <div class="col-md-5 text-end">
+                        <img  src="{{ asset('public/img/stock_ui.png') }}" alt="">
+                    </div>
+                    <div class="col-md-6 m-auto offset-md-0">
+                        <ul>
+                            <li>  Established Kanlife Asia Pte Ltd. Singapore. Medical / Healthcare Import & Export</li>
+                        </ul>    
+                    </div>
+                        </div>
+					  </div>
+                </li>
+				<li>
+					<a data-bs-toggle="collapse" class="design1"  href="#multiCollapseExample2" role="button" aria-expanded="false" aria-controls="multiCollapseExample2">2008</a>
+                    <div class="collapse multi-collapse show" id="multiCollapseExample2">
+                    <div class="row">
+                   
+                    <div class="col-md-5 m-auto offset-md-2 order-2 order-md-1">
+                    <ul>
+                        <li>  Established Direct Sales Team In Malaysia And Indonesia.
+                  </li>
+                    </ul>  
+                    </div>
+                    <div class="col-md-5 text-end  order-1 order-md-2">
+                        <img src="{{ asset('public/img/maskg.png') }}" alt="">
+                    </div>
+                   
+                        </div>
+					  </div>
+                   	</li>
+				<li>
+					<a data-bs-toggle="collapse" class="design1"  href="#multiCollapseExample3" role="button" aria-expanded="false" aria-controls="multiCollapseExample3">2009</a>
+                    <div class="collapse multi-collapse show" id="multiCollapseExample3">
+                    <div class="row">
+                    <div class="col-md-5 text-end">
+                        <img src="{{ asset('public/img/stock_ui.png') }}" alt="">
+                    </div>
+                    <div class="col-md-6 m-auto offset-md-0">
+                    <ul>
+                        <li> Increased Channel Partner Base Toa Total Of 120 Across 9 Countries.
+                  </li>
+                    </ul>
+                    </div>
+                        </div>
+					  </div>	
+                </li>
+                <li>
+					<a data-bs-toggle="collapse" class="design1"  href="#multiCollapseExample4" role="button" aria-expanded="false" aria-controls="multiCollapseExample4">2019</a>
+                    <div class="collapse multi-collapse show" id="multiCollapseExample4">
+                    <div class="row">
+                   
+                    <div class="col-md-6 m-auto offset-md-2 order-2 order-md-1">
+                    <ul>
+                        <li> Established Kanlife India Pvt Ltd. Bangalore-India Import And Distribution.
+                  </li>
+                    </ul>
+                    </div>
+                    <div class="col-md-5 text-end order-1 order-md-2">
+                        <img src="{{ asset('public/img/maskg.png') }}" alt="">
+                    </div>
+                        </div>
+					  </div>	
+                </li>
+                <li>
+					<a data-bs-toggle="collapse" class="design1"  href="#multiCollapseExample5" role="button" aria-expanded="false" aria-controls="multiCollapseExample5">2020</a>
+                    <div class="collapse multi-collapse show" id="multiCollapseExample5">
+                    <div class="row">
+                    <div class="col-md-5 text-end">
+                        <img src="{{ asset('public/img/stock_ui.png') }}" alt="">
+                    </div>
+                    <div class="col-md-6 m-auto offset-md-0">
+                    <ul>
+                        <li> Gastroenterology / Mepatology Products Equipment Pan-India
+                  </li>
+                  <li>Established Kanlife London Ltd Import Distribution Pan-Eu L Hygiene And Wellness Products.</li>
+                  <li>Started Mfq Of Tamboos Range Of Women And Child Products</li>
+                    </ul>
+                    </div>
+                    
+                        </div>
+					  </div>	
+                </li>
+                <li>
+					<a data-bs-toggle="collapse" class="design1"  href="#multiCollapseExample6" role="button" aria-expanded="false" aria-controls="multiCollapseExample5">2021</a>
+                    <div class="collapse multi-collapse show" id="multiCollapseExample6">
+                    <div class="row">
+                   
+                    <div class="col-md-6 m-auto offset-md-0 order-2 order-md-1">
+                    <ul >
+                        <li> Dental Xray Products Distribution Pan-India
+                  </li>
+                  <li>Established Kanlife London Ltd Import Distribution Pan-Eu L Hygiene And Wellness Products</li>
+                  <li>Started Mfq Of Tamboos Range Of Women And Child Products</li>
+                    </ul>
+                    </div>
+                    <div class="col-md-5 text-end order-1 order-md-2">
+                        <img src="{{ asset('public/img/maskg.png') }}" alt="">
+                    </div>
+                        </div>
+					  </div>	
+                </li>
+                <li>
+					<a data-bs-toggle="collapse" class="design1"  href="#multiCollapseExample7" role="button" aria-expanded="false" aria-controls="multiCollapseExample5">2022</a>
+                    <div class="collapse multi-collapse show" id="multiCollapseExample7">
+                    <div class="row">
+                    <div class="col-md-5 text-end">
+                        <img src="{{ asset('public/img/stock_ui.png') }}" alt="">
+                    </div>
+                    <div class="col-md-6 m-auto offset-md-0">
+                    <ul >
+                        <li> Kanlife Kolkata And Mumbai Branches </li>
+                    </ul>
+                    </div>
+                   
+                        </div>
+					  </div>	
+                </li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+        </div>
+        <!-- <img class="img-fluid" src="{{ asset('public/image/time1.png') }}"> -->
     </div>
 </div>
 

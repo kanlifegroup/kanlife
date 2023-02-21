@@ -67,7 +67,7 @@
               <div class="product-count mt-3 mb-3">
                 <form action="#" class="d-flex justify-content-center align-items-center">
                   <div class="qtyminus" data-id="{{base64_encode($cart->ord_id)}}">-</div>
-                  <input type="text" id="{{base64_decode($cart->ord_id)}}" name="quantity" value="{{$cart->quantity}}" class="qty qty-{{base64_encode($cart->ord_id)}}">
+                  <input type="text" readonly id="{{base64_decode($cart->ord_id)}}" name="quantity" value="{{$cart->quantity}}" class="qty qty-{{base64_encode($cart->ord_id)}}">
                   <div class="qtyplus" data-id="{{base64_encode($cart->ord_id)}}">+</div>
                 </form>
               </div>

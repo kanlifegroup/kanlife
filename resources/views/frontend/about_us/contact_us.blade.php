@@ -130,7 +130,7 @@
                         </div>
                     </div>
                     <div class="form-group row justify-content-center mt-5 text-center">
-                        <div class="col-3 px-3">
+                        <div class="col-5 px-3 col-lg-4">
                             <button class="about-more">Submit</button>
                         </div>
                     </div>
@@ -145,7 +145,7 @@
 </div>
 <div class="container deu-branchgray">
     <div class="row">
-        <div class="col-lg-4">
+        <div class="col-lg-4 mb-4 mb-lg-0">
             <div class="card deu-teamcards">
                 <div class="card-body">
                     <p class="deu-conlocation">BANGALORE</p>
@@ -164,7 +164,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-4">
+        <div class="col-lg-4 mb-4 mb-lg-0">
             <div class="card deu-teamcards">
                 <div class="card-body">
                     <p class="deu-conlocation">MUMBAI</p>

@@ -67,7 +67,7 @@
           @endif
         </div>
         <div class="col-4 d-flex justify-content-end d-sort">
-          <select class="form-select deu-default rounded-0 px-5 py-2">
+          <select class="form-select deu-default rounded-0 px-2 px-lg-4 py-2">
             <option class="top-select">Default Sorting</option>
             <option class="top-select">lorem</option>
           </select>

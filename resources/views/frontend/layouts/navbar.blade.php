@@ -27,8 +27,8 @@
 </div>
 --}}
 <div class="container-fluid top-nav text-white py-2">
-  <div class="row g-0 align-items-center flex-column gap-3 justify-content-center flex-md-row">
-    <div class="col d-flex gap-2 justify-content-center justify-content-md-start px-3">
+  <div class="row g-0 align-items-left flex-column gap-3 justify-content-left flex-md-row">
+    <div class="col d-flex gap-2 justify-content-left justify-content-md-start px-3">
       <div class="social-bg d-flex justify-content-center align-items-center">
         <!-- <img src="image/facebook.svg" alt="" class="img-fluid"> -->
         <a href="https://lnkd.in/gCW9EFfv">
@@ -57,7 +57,7 @@
         </a>
       </div>
     </div>
-    <div class="col-auto d-flex align-items-center gap-2 px-5">
+    <div class="col-auto d-flex align-items-center gap-2 px-3">
       <img class="top-navemail" src="{{ asset('public/image/email.svg') }}" />
       <a href="mailto:contact@kanlifemedical.asia">
         <span class="kan-email">contact@kanlifemedical.asia<span>
@@ -140,41 +140,51 @@ $module=explode("/", url()->current());
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse px-2" id="navbarSupportedContent">
-      <div class="navbar-nav gap-lg-4 gap-xxl-5 ms-auto align-items-md-center">
+      <div class="navbar-nav gap-lg-3 gap-md-3 gap-xxl-3 ms-auto align-items-md-center">
         @if(isset($is_categories) && $is_categories)
         <div class="dropdown">
           <a class="dropdown-toggle prn deu-barcat nav-link" type="button" id="dropdownMenu1" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fa fa-bars" aria-hidden="true"></i>  Categories
           </a>
-          <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
-            <!-- <li class="dropdown-submenu">
-              <a  class="dropdown-item" tabindex="-1" href="#">X-RAY Systems</a>
-              <ul class="dropdown-menu">
-                <li class="dropdown-item"><a tabindex="-1" class="deu-droptxt" href="#">Second level</a></li>
-                <li class="dropdown-submenu">
-                  <a class="dropdown-item" href="#">Even More..</a>
-                  <ul class="dropdown-menu">
-                    <li class="dropdown-item"><a class="deu-droptxt" href="#">3rd level</a></li>
-                    <li class="dropdown-submenu"><a class="dropdown-item" href="#">another level</a>
-                      <ul class="dropdown-menu">
-                        <li class="dropdown-item"><a class="deu-droptxt" href="#">4th level</a></li>
-                        <li class="dropdown-item"><a class="deu-droptxt" href="#">4th level</a></li>
-                        <li class="dropdown-item"><a class="deu-droptxt" href="#">4th level</a></li>
-                      </ul>
-                    </li>
-                    <li class="dropdown-item"><a class="deu-droptxt" href="#">3rd level</a></li>
-                  </ul>
-                </li>
-                <li class="dropdown-item"><a class="deu-droptxt" href="#">Second level</a></li>
-                <li class="dropdown-item"><a class="deu-droptxt" href="#">Second level</a></li>
-              </ul>
-            </li> -->
-            @foreach($categories['display'] as $category)
+          <ul class="dropdown-menu multi-level drop1" role="menu" aria-labelledby="dropdownMenu">
+            {{--
+             @foreach($categories['display'] as $category)
             <li class="dropdown-item"><a class="deu-droptxt" href="{{url('category/'.$category->category_slug)}}">{{ $category->category_name }}</a></li>
             @endforeach
-            <li class="dropdown-item"><a href="#"><button class="about-more deu-wid">More</button></a></li>
+            --}}
+            <div class="container">
+              @php $count_categories = count($categories['display']); @endphp
+            <div class="row">
+                <div class="col-6 col-md-4">
+                  @foreach($categories['display'] as $key => $category)
+                    @if($key < 10)
+                    <li class="dropdown-item"><a class="deu-droptxt" href="{{url('category/'.$category->category_slug)}}">{{ $category->category_name }}</a></li>
+                    @endif
+                  @endforeach
+                </div>
+                @if($count_categories > 10)
+                <div class="col-6 col-md-4 bg-light">
+                  @foreach($categories['display'] as $key => $category)
+                    @if($key >= 10 && $key < 20)
+                    <li class="dropdown-item"><a class="deu-droptxt" href="{{url('category/'.$category->category_slug)}}">{{ $category->category_name }}</a></li>
+                    @endif
+                  @endforeach
+                </div>
+                @endif
+                @if($count_categories > 20)
+                <div class="col-6 col-md-4">
+                  @foreach($categories['display'] as $key => $category)
+                    @if($key >= 20 && $key < 30)
+                    <li class="dropdown-item"><a class="deu-droptxt" href="{{url('category/'.$category->category_slug)}}">{{ $category->category_name }}</a></li>
+                    @endif
+                  @endforeach
+                </div>
+                @endif
+            </div>
+            </div>           
           </ul>
         </div>
+        
         @endif
         <a class="nav-link {{ url('/') == url()->current() ? 'active' : '' }}" aria-current="page" href="{{ url('/') }}">Home</a>
         @if(array_intersect([$user_location],['india','london']))

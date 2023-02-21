@@ -1,7 +1,7 @@
 @if(Auth::guest())
 <!-- The Modal login -->
 <div class="modal fade logS1" id="myModal">
-  <div class="modal-dialog modal-dialog-centered modal-xl">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
     <div class="modal-content">
       <div class="modal-header pt-xxl-5">
         <h4 class="modal-title"></h4>
@@ -65,7 +65,7 @@
             </div>
           </div>
           <div class="form-group row justify-content-center mt-4 text-center">       
-            <div class="col-3 px-3">
+            <div class="col-6 px-3 col-lg-3">
               <button type="submit" class="about-more w-100">Login</button>
             </div>
           </div>
@@ -144,7 +144,7 @@
           <div class="form-group row justify-content-center px-3">
             <div class="col-9 px-0 position-relative">
               <input style="margin-bottom: 0;" type="password" name="password" placeholder="Enter Password*" class="@error('password') is-invalid @enderror form-control border-info placeicon deu-logininput" onkeypress="return /^([0-9a-zA-Z!@#$%^&*(\).,<>{}[\]<>?_=+\-|;:\'\/\s])*[^\s]\1*$/.test(event.key)">
-              <p style="margin:9px 0 15px 5px; font-size:12px; line-height: 0;">Please enter atleast 8 characters, a number, a special character, an upper case and a lower case alphabate.</p>
+              <p style="margin: 9px 0 10px 5px;font-size: 12px;line-height: 12px;">Please enter atleast 8 characters, a number, a special character, an upper case and a lower case alphabate.</p>
               
               <span class="seepassword" style="display:none;" onclick="hide_password(this)"><i class="fa fa-eye"></i></span>
               <span class="seepassword" onclick="see_password(this)"><i class="fa fa-eye-slash"></i></span>
@@ -177,7 +177,7 @@
             </div>
           </div>
           <div class="form-group row justify-content-center mt-3 text-center">       
-            <div class="col-3 px-3">
+            <div class="col-6 px-3 col-lg-3">
               <button type="submit" class="about-more w-100">Register</button>
             </div>
           </div>
@@ -196,7 +196,7 @@
         <button type="button" class="close close_model" onclick="closeModels()" data-dismiss="modal">&times;</button>
       </div>
       <div class="modal-body">
-        <p class="deu-loginhead">Forgot Password</p>
+        <p class="deu-loginhead mt-4">Forgot Password</p>
         <p class="deu-logintxt">Please Enter Email for forgot password</p>
         <div>
           @if (session('reset'))
@@ -218,7 +218,7 @@
             </div>
           </div>
           <div class="form-group row justify-content-center mt-5 text-center">       
-            <div class="col-4 px-3">
+            <div class="col-9 px-3 col-lg-6">
               <button class="about-more">Reset Password</button>
             </div>
           </div>
@@ -229,14 +229,15 @@
 </div>
 @endif
 @if(Auth::user())
-<!-- The Modal forget -->
+<!-- The Modal success -->
 <div class="modal fade" id="myModal3">
   <div class="modal-dialog modal-md">
-    <div class="modal-content" style="margin-top: 13%;">
+    <div class="modal-content" style="margin-top: 25%;">
       <div class="modal-header">
         <h4 class="modal-title"></h4>
       </div>
-      <div class="modal-body">
+      <div class="modal-body text-center">
+        <img width="200px"  src="{{ url('/') }}/public/img/success.gif" alt="">
         <p class="product-name text-center">Registered Successfully!!</p>
         <p class="deu-logintxt">Congratulation! Your account has been created successfully.</p>
       </div>
