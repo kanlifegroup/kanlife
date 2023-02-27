@@ -478,6 +478,8 @@ Route::group(['middleware' => ['XSS','web', 'HtmlMinifier']], function () {
   Route::get('/about-us/our-story', 'CommonController@ourStory')->name('about.story');
   Route::get('/about-us/contact-us', 'CommonController@contactUs')->name('about.contact');
   Route::get('/about-us/our-team', 'CommonController@ourTeam')->name('about.team');
+  Route::get('/about-us/our-blogs', 'CommonController@ourBlog')->name('about.blog');
+  Route::get('/about-us/blogs-detail/{id}', 'CommonController@blogDetail')->name('about.detail.blog');
 
 
   /*Route::get('/mollie-payment','MollieController@preparePayment')->name('mollie.payment');

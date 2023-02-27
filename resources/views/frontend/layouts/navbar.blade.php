@@ -205,7 +205,7 @@ $module=explode("/", url()->current());
             <li><a class="dropdown-item" href="{{ route('about.story') }}">Our Story</a></li>
             <li><a class="dropdown-item" href="{{ route('about.contact') }}">Contact Us</a></li>
             <li><a class="dropdown-item" href="{{ route('about.team') }}">Our Team</a></li>
-            <li><a class="dropdown-item" href="#">Blogs</a></li>
+            <li><a class="dropdown-item" href="{{ route('about.blog') }}">Blogs</a></li>
           </ul>
         </div>
         @if(Auth::guest())        

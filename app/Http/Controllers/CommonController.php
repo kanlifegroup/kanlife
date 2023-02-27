@@ -275,6 +275,29 @@ class CommonController extends Controller
     return view('frontend.about_us.our_team')->with($data);
   }
 
+  public function ourBlog(Request $request){
+    $translate = $this->lang_text();
+    $category_id = $request->category_id ?? 0;
+    $take = $request->limit ?? 10;
+    $blogPost['latest'] = Blog::getlatestData($translate, $take, $category_id);
+    $blogPost['categories'] = Blog::getblogcategoryData();
+    $postCount = Blog::getPostCount($translate);
+    $more_post = false;
+    if ($postCount > $take)
+    $more_post = true;
+    $take += 10;
+    // catpostData
+    $data = array('blogPost' => $blogPost,'limit' => $take, 'more_post'=>$more_post, 'category_id'=>$category_id);
+    return view('frontend.about_us.our_blog')->with($data);
+  }
+
+  public function blogDetail($id){
+    $translate = $this->lang_text();
+    $blogPost = Blog::postsinglar($id);
+    $data = array('blogPost' => $blogPost);
+    return view('frontend.about_us.blog_detail')->with($data);
+  }
+
   public function view_buy()	
   {
     $translate = $this->lang_text();    

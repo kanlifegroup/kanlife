@@ -2456,6 +2456,9 @@ a:link {
   font-family: 'Nunito', sans-serif;
 }
 
+.carousel-indicators{
+  margin-left: 21%;
+}
 .carousel-indicators button {
   box-sizing: content-box;
   -ms-flex: 0 1 auto;
@@ -2692,7 +2695,15 @@ a:link {
     margin-left: 0;
   }
 
-
+  .carousel .carousel .carousel-item {
+    padding: 0px !important;
+    }
+    .carousel .carousel-control-prev {
+      top: 50px;
+    }
+    .carousel .carousel-control-next {
+      top: 8px;
+    }
 }
 
 .deu-fealine {
@@ -3133,14 +3144,14 @@ a:link {
   }
 }
 
- .drop1 {
+.drop1 {
   width: max-content;
 }
 
 /* .drop1 .dropdown-item:focus,
 .dropdown-item:hover {
   background-color: #c7e5fb;
-}  */
+} */
 
 
 
@@ -3249,3 +3260,93 @@ ul.timeline>li {
   margin-left: 50px;
 padding: 10px 0;
 }
+
+
+.blog-section {
+  padding: 2% 0;
+}
+.blog-pads{
+  background-color: #F5F6F8;
+    padding: 20px;
+    padding-top: 39px;
+}
+.blog-pads .title1{
+  font-size: 30px;
+  color: #3C3C3C;
+  font-weight: 700;
+
+}
+
+.blog-pads .ctext{
+  font-size: 18px;
+  color: #656565;
+}
+
+.bloghead {
+  color: #9D9D9D;
+  font-size: 2.5rem;
+  font-weight: 900;
+  margin-bottom: 0;
+  font-family: 'Josefin Sans', sans-serif;
+}
+.sel2{
+  background: #F5F6F4;
+  padding: 12px 22px;
+  border: 0;
+  font-size: 14px;
+  color: #656565;
+  font-weight: 700;
+  border-radius: 0;
+  width: 200px
+
+}
+.caret2{
+  position: absolute;
+  top: 20px;
+  left: 180px;
+}
+.social{
+  background: #3188CA;
+  padding: 10px;
+  border-radius: 50%;
+  width: 37px;
+  color: #FFFFFF;
+  margin-right: 10px;
+}
+
+
+
+.carousel-dark .carousel-indicators [data-bs-target]{
+  background-color: #f5f6f8  !important;
+  text-align: end;
+  margin: 0 65px;
+  margin-bottom: 40px;
+}
+.carousel-indicators img{
+  width: 100px;
+  height: 65px;
+}
+.carousel-control-prev{
+  position: relative !important;
+  top: 109px;
+  left:-40px;
+}
+.carousel-control-next{
+  position: relative !important;
+  top: 65px;
+  right: -40px;
+}
+.carousel .carousel .carousel-item {
+padding: 30px;
+}
+.title2 h1{
+  color: #3C3C3C;
+  font-weight: bold;
+}
+.arr-l{
+width: 40px;
+}
+.arr-r{
+  width: 40px;
+  transform: rotateY(180deg);
+  }
