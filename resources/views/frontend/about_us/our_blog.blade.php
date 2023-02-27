@@ -38,7 +38,7 @@
           @endphp
           <button class="sel2 nav-link border-0 dropdown-toggle" style="text-align:left" type="button" id="about_us_menu"
             data-bs-toggle="dropdown" aria-expanded="false">
-            @if($selected_cat) {{$selected_cat->blog_category_name}} @else All @endif
+            @if($selected_cat) {{mb_strimwidth($selected_cat->blog_category_name, 0, 23, "...")}} @else All @endif
             <img src="{{ asset('public/image/arrow-234.svg') }}" alt="" width="12" class="caret2" style="cursor:pointer;">
           </button>
           <ul class="dropdown-menu" style="min-width: 200px;" aria-labelledby="about_us_menu">
@@ -48,8 +48,6 @@
             @endforeach
           </ul>
         </div>
-        
-        
             <!-- <select class="form-select sel2" aria-label="Default select example">
             <option selected>Select...</option>
             <option value="1">Travel</option>
