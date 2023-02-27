@@ -48,7 +48,9 @@
       </div>
       <div class="social-bg d-flex justify-content-center align-items-center">
         <!-- <img src="image/twitter.svg" alt="" class="img-fluid"> -->
+        <a href="https://twitter.com/kanlife_group">
         <i class="fa fa-twitter top-navsocial" aria-hidden="true"></i>
+        </a>
       </div>
       <div class="social-bg d-flex justify-content-center align-items-center">
         <!-- <img src="image/linkedin.svg" alt="" class="img-fluid"> -->
