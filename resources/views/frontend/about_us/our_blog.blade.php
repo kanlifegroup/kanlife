@@ -32,6 +32,7 @@
         <h3 class="text-end bloghead">Categories</h3>
         </div>
         <div class="col-7 text-start m-auto position-relative">
+        {{--
         <div class="dropdown">
           @php 
           $selected_cat = $blogPost['categories']->where('blog_cat_id', $category_id)->first();
@@ -48,13 +49,15 @@
             @endforeach
           </ul>
         </div>
-            <!-- <select class="form-select sel2" aria-label="Default select example">
-            <option selected>Select...</option>
-            <option value="1">Travel</option>
-            <option value="2">Tech</option>
-            <option value="3">Latest</option>
+        --}}
+            <select id="category_select" class="form-select sel2" aria-label="Default select example">
+            <option selected value="{{ route('about.blog') }}">Select category</option>
+            @foreach($blogPost['categories'] as $category)
+            <option @if($category_id == $category->blog_cat_id) selected @endif value="{{ route('about.blog').'?category_id='.$category->blog_cat_id }}">{{$category->blog_category_name}}</option>
+            @endforeach
             </select>
-            <img src="{{ asset('public/img/arr_icon.svg') }}" alt="" width="12" class="caret2"> -->
+            <img src="{{ asset('public/image/arr_icon.svg') }}" alt="" width="12" class="caret2">
+          
         </div>
     </div>
 </div>
@@ -138,6 +141,11 @@ $(document).ready(function() {
         navigationText:["",""],
         pagination:true,
         autoPlay:true
+    });
+
+
+    $('#category_select').change(function() {
+      window.location = $(this).val();
     });
 });
 </script>
