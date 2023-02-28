@@ -118,10 +118,11 @@
 
         </div>
       </div>
+      {{--
       <div class="form-group">
                                                 <label for="name" class="control-label mb-1">{{ Helper::translation(2982,$translate,'') }} <span class="require">*</span></label>
                                                 <input id="post_slug" name="post_slug" type="text" class="form-control" value="{{ $edit['post']->post_slug }}" data-bvalidator="required">
-                                            </div>
+                                            </div>--}}
                        <div class="form-group">
                                                 <label for="cat_id" class="control-label mb-1">{{ Helper::translation(3045,$translate,'') }} <span class="require">*</span></label>
                                                 <select name="blog_cat_id" class="form-control" data-bvalidator="required">
@@ -144,8 +145,9 @@
                                                 <label for="name" class="control-label mb-1">{{ Helper::translation(3051,$translate,'') }} <span class="require">*</span></label>
                                                 <input id="post_video" name="post_video" type="text" class="form-control" data-bvalidator="required,url" value="{{ $edit['post']->post_video }}">
                                                 (example video url : https://www.youtube.com/watch?v=cXxAVn3rASk )
-                                            </div>--}}
-                                            <div id="" @if($edit['post']->post_media_type == 'image') class="form-group force-block" @else class="form-group force-none" @endif>
+                                            </div>
+                                            <div @if($edit['post']->post_media_type == 'image') class="form-group force-block" @else class="form-group force-none" @endif>--}}
+                                            <div>
                                                 <label for="site_favicon" class="control-label mb-1">{{ Helper::translation(2099,$translate,'') }}<span class="require">*</span></label>
                                             <input type="file" id="post_image" name="post_image" class="form-control-file" @if($edit['post']->post_image == '') data-bvalidator="required,extension[jpg:png:jpeg]" data-bvalidator-msg="{{ Helper::translation(1937,$translate,'') }}" @else data-bvalidator="extension[jpg:png:jpeg]" data-bvalidator-msg="Please select file of type .jpg, .png or .jpeg" @endif>
                                             @if($edit['post']->post_image != '')
