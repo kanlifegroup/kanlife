@@ -294,7 +294,8 @@ class CommonController extends Controller
   public function blogDetail($id){
     $translate = $this->lang_text();
     $blogPost = Blog::postsinglar($id);
-    $data = array('blogPost' => $blogPost);
+    $postImages = Blog::postImages($id);
+    $data = array('blogPost' => $blogPost, 'postImages'=>$postImages);
     return view('frontend.about_us.blog_detail')->with($data);
   }
 

@@ -34,26 +34,27 @@
     <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1">
         <img src="{{ url('/') }}/public/storage/post/{{ $blogPost->post_image }}" alt="">
     </button>
-    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2">
-    <img src="{{ url('/') }}/public/storage/post/{{ $blogPost->post_image }}" alt="">
+    @if(!empty($postImages))
+    @foreach($postImages as $key => $postImage)
+    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="{{$key+1}}" aria-label="Slide {{$key+2}}">
+    <img src="{{ url('/') }}/public/storage/post/{{ $postImage->image }}" alt="">
     </button>
-    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3">
-    <img src="{{ url('/') }}/public/storage/post/{{ $blogPost->post_image }}" alt="">
-    </button>
+    @endforeach
+    @endif
   </div>
   <div class="carousel-inner">
     <div class="carousel-item active" data-bs-interval="10000">
       <img src="{{ url('/') }}/public/storage/post/{{ $blogPost->post_image }}" class="d-block w-100" alt="...">
      
     </div>
+    @if(!empty($postImages))
+    @foreach($postImages as $key => $postImage)
     <div class="carousel-item" data-bs-interval="2000">
-      <img src="{{ url('/') }}/public/storage/post/{{ $blogPost->post_image }}" class="d-block w-100" alt="...">
+      <img src="{{ url('/') }}/public/storage/post/{{ $postImage->image }}" class="d-block w-100" alt="...">
      
     </div>
-    <div class="carousel-item">
-      <img src="{{ url('/') }}/public/storage/post/{{ $blogPost->post_image }}" class="d-block w-100" alt="...">
-     
-    </div>
+    @endforeach
+    @endif
   </div>
   <button class="carousel-control-prev m-auto" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
   <img class="arr-l" src="{{ asset('public/image/arr-l.svg') }}" alt=""> 
@@ -66,11 +67,18 @@
 </div>
             </div>    
             <div class="sociala mt-5 pt-md-5 mb-5 text-center">
-            
-      <i class="fa fa-facebook social" aria-hidden="true"></i>
-      <i class="fa fa-instagram social" aria-hidden="true"></i>
-      <i class="fa fa-twitter social" aria-hidden="true"></i>
-      <i class="fa fa-linkedin social" aria-hidden="true"></i>
+      @if($blogPost->facebook)  
+      <a href="{{$blogPost->facebook}}"><i class="fa fa-facebook social" aria-hidden="true"></i></a>
+      @endif
+      @if($blogPost->instagram)  
+      <a href="{{$blogPost->instagram}}"><i class="fa fa-instagram social" aria-hidden="true"></i></a>
+      @endif
+      @if($blogPost->twitter) 
+      <a href="{{$blogPost->twitter}}"><i class="fa fa-twitter social" aria-hidden="true"></i></a>
+      @endif
+      @if($blogPost->linkedin) 
+      <a href="{{$blogPost->linkedin}}"><i class="fa fa-linkedin social" aria-hidden="true"></i></a>
+      @endif
     
             </div>
             <div class="para">

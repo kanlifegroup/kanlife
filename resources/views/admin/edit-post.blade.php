@@ -96,15 +96,7 @@
           @php $i = 1; @endphp
           @foreach($languages['data'] as $language)
           @php
-          if($language->language_code == 'en')
-		  {
 		     $view = Blog::postsinglar($post_id);
-		  }
-		  else
-		  {
-		    $code = $language->language_code;
-		    $view = Blog::postothers($post_id,$code);
-		  }
           @endphp
           <div class="tab-pane fade @if($i == 1) show active @endif mt-4" id="{{ $language->language_name }}" role="tabpanel">
               <div class="form-group">
@@ -138,6 +130,8 @@
                                                 <option value="{{ $category->blog_cat_id }}" @if($edit['post']->blog_cat_id == $category->blog_cat_id) selected="selected" @endif>{{ $category->blog_category_name }}</option>@endforeach   
                                                 </select>
                                             </div>
+                                            <input type="hidden" name="post_media_type" value="image">
+                                            {{--
                                             <div class="form-group">
                                                 <label for="cat_id" class="control-label mb-1">{{ Helper::translation(3048,$translate,'') }} <span class="require">*</span></label>
                                                 <select name="post_media_type" id="post_media_type" class="form-control" data-bvalidator="required">
@@ -150,8 +144,8 @@
                                                 <label for="name" class="control-label mb-1">{{ Helper::translation(3051,$translate,'') }} <span class="require">*</span></label>
                                                 <input id="post_video" name="post_video" type="text" class="form-control" data-bvalidator="required,url" value="{{ $edit['post']->post_video }}">
                                                 (example video url : https://www.youtube.com/watch?v=cXxAVn3rASk )
-                                            </div>
-                                            <div id="ifImage" @if($edit['post']->post_media_type == 'image') class="form-group force-block" @else class="form-group force-none" @endif>
+                                            </div>--}}
+                                            <div id="" @if($edit['post']->post_media_type == 'image') class="form-group force-block" @else class="form-group force-none" @endif>
                                                 <label for="site_favicon" class="control-label mb-1">{{ Helper::translation(2099,$translate,'') }}<span class="require">*</span></label>
                                             <input type="file" id="post_image" name="post_image" class="form-control-file" @if($edit['post']->post_image == '') data-bvalidator="required,extension[jpg:png:jpeg]" data-bvalidator-msg="{{ Helper::translation(1937,$translate,'') }}" @else data-bvalidator="extension[jpg:png:jpeg]" data-bvalidator-msg="Please select file of type .jpg, .png or .jpeg" @endif>
                                             @if($edit['post']->post_image != '')
@@ -159,9 +153,35 @@
                                                 @endif
                                             </div>
                                             <div class="form-group">
+                                                <label for="customer_earnings" class="control-label mb-1">Additional Images</label>
+                                                <input type="file" id="images[]" name="images[]" class="form-control-file" data-bvalidator="extension[jpg:png:jpeg]" data-bvalidator-msg="{{ Helper::translation(1937,$translate,'') }}" multiple>
+                                                <br/>@foreach($editimageData as $post_image)
+                                                 <div class="item-img"><img src="{{ url('/') }}/public/storage/post/{{ $post_image->image }}" alt="{{ $post_image->image }}" class="item-thumb">
+                                                    <a href="{{ url('/admin/remove-image') }}/dropimg/{{ base64_encode($post_image->post_image_id) }}" onClick="return confirm('{{ Helper::translation(1968,$translate,'') }}');" class="drop-icon"><span class="ti-trash drop-icon"></span></a>
+                                                    </div>
+                                                    @endforeach
+                                                    <div class="clearfix"></div>
+                                             </div>
+                                            <div class="form-group">
                                                 <label for="site_desc" class="control-label mb-1">{{ Helper::translation(1939,$translate,'') }}</label>
                                             <textarea name="post_tags" rows="6"  class="form-control">{{ $edit['post']->post_tags }}</textarea>
                                             <small>(Tags separated by comma <strong>example:</strong> post,blog,category)</small>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="name" class="control-label mb-1">Facebook URL</label>
+                                                <input type="text" name="facebook" value="@if(!empty($view->facebook)){{ $view->facebook }}@endif"   class="form-control">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="name" class="control-label mb-1">Instagram URL</label>
+                                                <input type="text" name="instagram" value="@if(!empty($view->instagram)){{ $view->instagram }}@endif"   class="form-control">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="name" class="control-label mb-1">Twitter URL</label>
+                                                <input type="text" name="twitter" value="@if(!empty($view->twitter)){{ $view->twitter }}@endif"   class="form-control">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="name" class="control-label mb-1">Linkedin URL</label>
+                                                <input type="text" name="linkedin" value="@if(!empty($view->linkedin)){{ $view->linkedin }}@endif"   class="form-control">
                                             </div>
                                             <div class="form-group">
                                                 <label for="site_title" class="control-label mb-1"> {{ Helper::translation(1915,$translate,'') }} <span class="require">*</span></label>

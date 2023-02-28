@@ -306,6 +306,7 @@ Route::group(['middleware' => ['is_admin', 'XSS', 'HtmlMinifier']], function () 
 	Route::get('/admin/post/{post_id}', 'Admin\BlogController@delete_post');
 	Route::get('/admin/edit-post/{post_id}', 'Admin\BlogController@edit_post')->name('admin.edit-post');
 	Route::post('/admin/edit-post', ['as' => 'admin.edit-post','uses'=>'Admin\BlogController@update_post']);
+  Route::get('/admin/remove-image/{dropimg}/{img_id}', 'Admin\BlogController@delete_single_image');
 	
 	/* post */
 	

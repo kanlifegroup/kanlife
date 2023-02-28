@@ -128,6 +128,13 @@ class Blog extends Model
       ->first();
 	return $value;
   }
+
+  public static function postImages($post_id){
+    $value = DB::table('post_images')
+	  ->where('post_id','=', $post_id)
+      ->get();
+	return $value;
+  }
   
   public static function postothers($post_id,$code){
     $value = DB::table('post')
@@ -207,11 +214,33 @@ class Blog extends Model
   }
   
    public static function getLastPostId($data){
+     $id = DB::table('post')->insertGetId($data);
+      return $id;
+    }    
+
+    public static function savePostImages($data){
    
-      $id = DB::table('post')->insertGetId($data);
-     
+      DB::table('post_images')->insert($data);
  
     }
+    public static function editimageData($id)
+    {
+  
+      $value=DB::table('post_images')->where('post_id','=',$id)->get(); 
+      return $value;
+    
+    }
+    public static function deleteimgdata($token){
+    
+      $image = DB::table('post_images')->where('post_image_id', '=', $token)->first();
+        $file= $image->image;
+        $filename = public_path().'/storage/post/'.$file;
+        File::delete($filename);
+      
+      DB::table('post_images')->where('post_image_id', '=', $token)->delete();	
+      
+      
+      }
   
   public static function getpostData()
   {

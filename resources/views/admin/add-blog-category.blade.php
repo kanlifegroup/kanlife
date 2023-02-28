@@ -107,10 +107,10 @@
 
         </div>
       </div>              
-      <div class="form-group">
+      {{--<div class="form-group">
                               <label for="name" class="control-label mb-1">{{ Helper::translation(2982,$translate,'') }} <span class="require">*</span></label>
                                                 <input id="blog_category_slug" name="blog_category_slug" type="text" class="form-control" data-bvalidator="required">
-                                            </div>
+                                            </div>--}}
       <div class="form-group">
                                                 <label for="site_title" class="control-label mb-1"> {{ Helper::translation(1915,$translate,'') }} <span class="require">*</span></label>
                                                 <select name="blog_category_status" class="form-control" data-bvalidator="required">

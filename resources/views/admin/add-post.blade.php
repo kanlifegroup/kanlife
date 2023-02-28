@@ -114,10 +114,10 @@
 
         </div>
       </div>
-      <div class="form-group">
+      {{--<div class="form-group">
                                                 <label for="name" class="control-label mb-1">{{ Helper::translation(2982,$translate,'') }} <span class="require">*</span></label>
                                                 <input id="post_slug" name="post_slug" type="text" class="form-control" data-bvalidator="required">
-                                            </div>
+                                            </div>--}}
               <div class="form-group">
                         <label for="cat_id" class="control-label mb-1">{{ Helper::translation(3045,$translate,'') }} <span class="require">*</span></label>
                                                 <select name="blog_cat_id" class="form-control" data-bvalidator="required">
@@ -128,7 +128,8 @@
                                                 </select>
                                             </div>
                                             
-                                            
+                                            <input type="hidden" name="post_media_type" value="image">
+                                            {{--
                                             <div class="form-group">
                                                 <label for="cat_id" class="control-label mb-1">{{ Helper::translation(3048,$translate,'') }} <span class="require">*</span></label>
                                                 <select name="post_media_type" id="post_media_type" class="form-control" data-bvalidator="required">
@@ -141,14 +142,36 @@
                                                 <label for="name" class="control-label mb-1">{{ Helper::translation(3051,$translate,'') }} <span class="require">*</span></label>
                                                 <input id="post_video" name="post_video" type="text" class="form-control" data-bvalidator="required,url">
                                                 (example video url : https://www.youtube.com/watch?v=cXxAVn3rASk )
+                                            </div>--}}
+                                            <!-- <div class="form-group" id="ifImage"> -->
+                                            <div class="form-group" id="">
+                                                <label for="site_favicon" class="control-label mb-1">Main {{ Helper::translation(2099,$translate,'') }}<span class="require">*</span></label>
+                                             <input type="file" id="post_image" name="post_image" class="form-control-file" data-bvalidator="required,extension[jpg:png:jpeg]" data-bvalidator-msg="Please select file of type .jpg, .png or .jpeg">
                                             </div>
-                                            <div class="form-group" id="ifImage">
-                                                <label for="site_favicon" class="control-label mb-1">{{ Helper::translation(2099,$translate,'') }}<span class="require">*</span></label>
-                                             <input type="file" id="post_image" name="post_image" class="form-control-file" data-bvalidator="required,extension[jpg:png:jpeg]" data-bvalidator-msg="Please select file of type .jpg, .png or .jpeg"></div>        
+                                            <div class="form-group">
+                                                <label for="customer_earnings" class="control-label mb-1">Additional Images</label>
+                                                <input type="file" id="images[]" name="images[]" class="form-control-file" data-bvalidator="extension[jpg:png:jpeg]" data-bvalidator-msg="{{ Helper::translation(1937,$translate,'') }}" multiple>
+                                             </div>
                                              <div class="form-group">
                                                 <label for="site_desc" class="control-label mb-1">{{ Helper::translation(1939,$translate,'') }}</label>
                                                 <textarea name="post_tags" rows="6"  class="form-control"></textarea>
                                                  <small>({{ Helper::translation(3054,$translate,'') }} <strong>{{ Helper::translation(3057,$translate,'') }}:</strong> post,blog,category)</small>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="name" class="control-label mb-1">Facebook URL</label>
+                                                <input type="text" name="facebook" value=""   class="form-control">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="name" class="control-label mb-1">Instagram URL</label>
+                                                <input type="text" name="instagram" value=""   class="form-control">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="name" class="control-label mb-1">Twitter URL</label>
+                                                <input type="text" name="twitter" value=""   class="form-control">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="name" class="control-label mb-1">Linkedin URL</label>
+                                                <input type="text" name="linkedin" value=""   class="form-control">
                                             </div>
                                             <div class="form-group">
                                                 <label for="site_title" class="control-label mb-1"> {{ Helper::translation(1915,$translate,'') }} <span class="require">*</span></label>
@@ -159,6 +182,7 @@
                                                 </select>
                                             </div> 
                                             <input type="hidden" name="token" value="{{ uniqid() }}">     
+                                            <input type="hidden" name="image_size" value="{{ $allsettings->site_max_image_size }}"> 
                                      </div>
                                 </div>
                           </div>

@@ -12,6 +12,7 @@ use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Input;
 use Purifier;
+use Illuminate\Support\Str;
 
 class BlogController extends Controller
 {
@@ -74,7 +75,7 @@ class BlogController extends Controller
 				   $blog_category_name = "";
 				}
 				
-		        $blog_category_slug = $this->category_slug($data['blog_category_slug']);
+		        $blog_category_slug = $this->category_slug($data['blog_category_name'][0]);
 				$blog_category_status = $request->input('blog_category_status');
 		        $token = $data['token'];
 				foreach($data['language_code'] as $index => $code)
@@ -216,7 +217,7 @@ class BlogController extends Controller
 			   $blog_category_name = "";
 			}
 		    $blog_category_status = $request->input('blog_category_status');
-			$blog_category_slug = $this->category_slug($data['blog_category_slug']);
+			$blog_category_slug = $this->category_slug($data['blog_category_name'][0]);
 			$blog_cat_id = $request->input('blog_cat_id');
 		$token = $data['token'];
 		foreach($data['language_code'] as $index => $code)
@@ -395,11 +396,11 @@ class BlogController extends Controller
 	
 	public function save_post(Request $request)
 	{
-            
-		 
+    $image_size = $request->image_size;
 		 $this->validate($request, [
 		 
-		     'post_image' => 'mimes:jpeg,jpg,png|max:1000'
+		     'post_image' => 'mimes:jpeg,jpg,png|max:1000',
+         'images.*' => 'image|mimes:jpeg,jpg,png|max:'.$image_size,
 
         	]);
         $rules = array();
@@ -437,12 +438,16 @@ class BlogController extends Controller
 				{
 				  $post_desc = "";
 				}
-		        $post_slug = $this->post_slug($data['post_slug']);
-				$post_status = $request->input('post_status');
-				 $blog_cat_id = $request->input('blog_cat_id');
-				 $post_tags = $request->input('post_tags');
-				 $post_media_type = $request->input('post_media_type');
-				 $post_video = $request->input('post_video');
+		        $post_slug = $this->post_slug($data['post_title'][0]);
+            $post_status = $request->input('post_status');
+            $blog_cat_id = $request->input('blog_cat_id');
+            $post_tags = $request->input('post_tags');
+            $post_media_type = $request->input('post_media_type');
+            $post_video = $request->input('post_video');
+            $facebook = $request->input('facebook');
+            $instagram = $request->input('instagram');
+            $twitter = $request->input('twitter');
+            $linkedin = $request->input('linkedin');
 		        $token = $data['token'];
 				$post_date = date('Y-m-d');
 				   if ($request->hasFile('post_image')) {
@@ -486,106 +491,34 @@ class BlogController extends Controller
 						   }
 					   
 					  }
-				    
-					$record = array('post_title' => $post_heading, 'post_slug' => $post_slug, 'post_short_desc' => $post_short_description, 'post_image' => $post_image, 'post_desc' => htmlentities($post_description), 'post_date' => $post_date, 'post_status' => $post_status, 'blog_cat_id' => $blog_cat_id, 'post_tags' => $post_tags, 'post_media_type' => $post_media_type, 'post_video' => $post_video, 'token' => $token, 'language_code' => $code, 'post_page_parent' => $parent);
+					$record = array('post_title' => $post_heading, 'post_slug' => $post_slug, 'post_short_desc' => $post_short_description, 'post_image' => $post_image, 'post_desc' => htmlentities($post_description), 'post_date' => $post_date, 'post_status' => $post_status, 'blog_cat_id' => $blog_cat_id, 'post_tags' => $post_tags, 'post_media_type' => $post_media_type, 'post_video' => $post_video, 'token' => $token, 'language_code' => $code, 'post_page_parent' => $parent, 'facebook'=>$facebook, 'instagram'=>$instagram, 'twitter'=>$twitter, 'linkedin'=>$linkedin);
 					
 					$insertedId = Blog::getLastPostId($record);
-		      }
+          if ($request->hasFile('images')) 
+			  {
+          
+					$files = $request->file('images');
+          if($files)
+					foreach($files as $file)
+					{
+            $image = $file;
+            $img_name = Str::random(5)."_".date('his')."_".Str::random(3) . '.'.$image->getClientOriginalExtension();
+            $destinationPath = public_path('/storage/post');
+            $image->move($destinationPath, $img_name);
+            $imgdata = array('post_id' => $insertedId, 'image' => $img_name);
+						Blog::savePostImages($imgdata);
+					}
+			  }
+      }
 			  
 			  return redirect('/admin/post')->with('success', 'Insert successfully.');
 		
-		}
-			
-		
-     
-    
-  }
-  
-	
-	/*
-	public function save_post(Request $request)
-	{
- 
-    
-         $post_title = $request->input('post_title');
-		 $post_short_desc = $request->input('post_short_desc');
-		 $post_desc = Purifier::clean($request->input('post_desc'));
-         $post_slug = $this->post_slug($post_title);
-		 $post_status = $request->input('post_status');
-		 $blog_cat_id = $request->input('blog_cat_id');
-		 $post_tags = $request->input('post_tags');
-		 $post_media_type = $request->input('post_media_type');
-		 $post_video = $request->input('post_video');
-		
-		 
-		 
-         
-		 $request->validate([
-							'post_title' => 'required',
-							'post_short_desc' => 'required',
-							'post_desc' => 'required',
-							'post_image' => 'mimes:jpeg,jpg,png|max:1000',
-							'post_status' => 'required',
-							'blog_cat_id' => 'required',
-							
-         ]);
-		 $rules = array(
-				
-				
-	     );
-		 
-		 $messsages = array(
-		      
-	    );
-		 
-		$validator = Validator::make($request->all(), $rules,$messsages);
-		
-		if ($validator->fails()) 
-		{
-		 $failedRules = $validator->failed();
-		 return back()->withErrors($validator);
-		} 
-		else
-		{
-		
-		$post_date = date('Y-m-d');
-		
-		if ($request->hasFile('post_image')) {
-		     
-				   
-			$image = $request->file('post_image');
-			$img_name = time() . '.'.$image->getClientOriginalExtension();
-			$destinationPath = public_path('/storage/post');
-			$imagePath = $destinationPath. "/".  $img_name;
-			$image->move($destinationPath, $img_name);
-			$post_image = $img_name;
-		  }
-		  else
-		  {
-		     $post_image = "";
-		  }
-		 
-		$data = array('post_title' => $post_title, 'post_slug' => $post_slug, 'post_short_desc' => $post_short_desc, 'post_image' => $post_image, 'post_desc' => $post_desc, 'post_date' => $post_date, 'post_status' => $post_status, 'blog_cat_id' => $blog_cat_id, 'post_tags' => $post_tags, 'post_media_type' => $post_media_type, 'post_video' => $post_video);
-        Blog::insertpostData($data);
-        return redirect('/admin/post')->with('success', 'Insert successfully.');
-            
- 
-       } 
-     
-    
-  }*/
-  
-	
+		}    
+  } 
 	
 	public function delete_post($post_id){
-
-      
-	  
-      Blog::deletePostdata($post_id);
-	  
-	  return redirect()->back()->with('success', 'Delete successfully.');
-
-    
+    Blog::deletePostdata($post_id);	  
+	  return redirect()->back()->with('success', 'Deleted successfully.');
   }
   
   
@@ -595,7 +528,15 @@ class BlogController extends Controller
 	   $languages['data'] = Languages::pageLanguage();
 	   $edit['post'] = Blog::editpostData($post_id);
 	   $catData['view'] = Blog::getpostcategoryData();
-	   return view('admin.edit-post', [ 'edit' => $edit, 'post_id' => $post_id, 'catData' => $catData, 'language' => $language, 'languages' => $languages]);
+     $editimageData = Blog::editimageData($post_id);
+	   return view('admin.edit-post', [ 'edit' => $edit, 'post_id' => $post_id, 'catData' => $catData, 'language' => $language, 'languages' => $languages, 'editimageData'=> $editimageData]);
+	}
+
+  public function delete_single_image($dropimg,$img_id)
+	{
+	   $token = base64_decode($img_id); 
+	   Blog::deleteimgdata($token);	  
+	  return redirect()->back()->with('success', 'Delete successfully.');	
 	}
 	
 	
@@ -603,7 +544,7 @@ class BlogController extends Controller
 	{
 	
 	   $this->validate($request, [
-	   'post_image' => 'mimes:jpeg,jpg,png|max:1000',
+	   'post_image' => 'mimes:jpeg,jpg,png|max:2000',
 	   ]);
        $data = $request->all();
 	   $rules = array();
@@ -640,12 +581,16 @@ class BlogController extends Controller
 				{
 				  $post_desc = "";
 				}
-		        $post_slug = $this->post_slug($data['post_slug']);
+		        $post_slug = $this->post_slug($data['post_title'][0]);
 				$post_status = $request->input('post_status');
 				 $blog_cat_id = $request->input('blog_cat_id');
 				 $post_tags = $request->input('post_tags');
 				 $post_media_type = $request->input('post_media_type');
 				 $post_video = $request->input('post_video');
+         $facebook = $request->input('facebook');
+         $instagram = $request->input('instagram');
+         $twitter = $request->input('twitter');
+         $linkedin = $request->input('linkedin');
 		    $save_post_image = $request->input('save_post_image');
 			$post_id = $request->input('post_id');
 			if ($request->hasFile('post_image')) 
@@ -674,7 +619,7 @@ class BlogController extends Controller
 		   	
 		   if($code=="en")
 			{
-			  $data = array('post_title' => $post_heading, 'post_slug' => $post_slug, 'post_short_desc' => $post_short_description, 'post_image' => $post_image, 'post_desc' => htmlentities($post_description), 'post_date' => $post_date, 'post_status' => $post_status, 'blog_cat_id' => $blog_cat_id, 'post_tags' => $post_tags, 'post_media_type' => $post_media_type, 'post_video' => $post_video, 'language_code' => $code);
+			  $data = array('post_title' => $post_heading, 'post_slug' => $post_slug, 'post_short_desc' => $post_short_description, 'post_image' => $post_image, 'post_desc' => htmlentities($post_description), 'post_date' => $post_date, 'post_status' => $post_status, 'blog_cat_id' => $blog_cat_id, 'post_tags' => $post_tags, 'post_media_type' => $post_media_type, 'post_video' => $post_video, 'language_code' => $code, 'facebook'=>$facebook, 'instagram'=>$instagram, 'twitter'=>$twitter, 'linkedin'=>$linkedin);
 			  
 			  Blog::updatepostData($post_id, $data);
 			}
@@ -695,7 +640,7 @@ class BlogController extends Controller
 						   $postshortdesc = "";
 						   $postdesc = "";
 						}
-					 $save = array('post_title' => $postheading, 'post_slug' => $post_slug, 'post_short_desc' => $postshortdesc, 'post_image' => $post_image, 'post_desc' => htmlentities($postdesc), 'post_date' => $post_date, 'post_status' => $post_status, 'blog_cat_id' => $blog_cat_id, 'post_tags' => $post_tags, 'post_media_type' => $post_media_type, 'post_video' => $post_video, 'language_code' => $code, 'token' => $token, 'post_page_parent' => $post_id);	
+					 $save = array('post_title' => $postheading, 'post_slug' => $post_slug, 'post_short_desc' => $postshortdesc, 'post_image' => $post_image, 'post_desc' => htmlentities($postdesc), 'post_date' => $post_date, 'post_status' => $post_status, 'blog_cat_id' => $blog_cat_id, 'post_tags' => $post_tags, 'post_media_type' => $post_media_type, 'post_video' => $post_video, 'language_code' => $code, 'token' => $token, 'post_page_parent' => $post_id, 'facebook'=>$facebook, 'instagram'=>$instagram, 'twitter'=>$twitter, 'linkedin'=>$linkedin);	
 					 	
 				     Blog::insertpostData($save);
 					 					 
@@ -710,6 +655,18 @@ class BlogController extends Controller
 			
 			}
 		}
+
+    $files = $request->file('images');
+    if($files)
+    foreach($files as $file)
+    {
+      $image = $file;
+      $img_name = Str::random(5)."_".date('his')."_".Str::random(3) . '.'.$image->getClientOriginalExtension();
+      $destinationPath = public_path('/storage/post');
+      $image->move($destinationPath, $img_name);
+      $imgdata = array('post_id' => $post_id, 'image' => $img_name);
+      Blog::savePostImages($imgdata);
+    }
 		
 		 return redirect('/admin/post')->with('success', 'Update successfully.');
 		
