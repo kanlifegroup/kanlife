@@ -71,10 +71,10 @@ class Blog extends Model
  
     }
   
-  public static function getblogcategoryData()
+  public static function getblogcategoryData($status = [0,1])
   {
 
-    $value=DB::table('blog_category')->where('drop_status','=','no')->where('blog_page_parent','=',0)->orderBy('blog_cat_id', 'desc')->get(); 
+    $value=DB::table('blog_category')->whereIn('blog_category_status',$status)->where('drop_status','=','no')->where('blog_page_parent','=',0)->orderBy('blog_cat_id', 'desc')->get(); 
     return $value;
 	
   }
@@ -300,9 +300,9 @@ class Blog extends Model
   public static function getlatestData($translate, $take=5, $id=0)
   {
     if($id == 0)
-    $value=DB::table('post')->where('post_status','=',1)->where('language_code','=',$translate)->orderBy('post_id', 'desc')->take($take)->get(); 
+    $value=DB::table('post')->select('post.*')->join('blog_category','blog_category.blog_cat_id','post.blog_cat_id')->where('blog_category.drop_status','=','no')->where('blog_category.blog_category_status','=',1)->where('post.post_status','=',1)->where('post.language_code','=',$translate)->orderBy('post.post_id', 'desc')->take($take)->get(); 
     else
-    $value=DB::table('post')->select('post.*')->join('blog_category','blog_category.blog_cat_id','post.blog_cat_id')->where('blog_category.blog_cat_id','=',$id)->where('post.post_status','=',1)->where('post.language_code','=',$translate)->orderBy('post.post_id', 'desc')->take($take)->get(); 
+    $value=DB::table('post')->select('post.*')->join('blog_category','blog_category.blog_cat_id','post.blog_cat_id')->where('blog_category.drop_status','=','no')->where('blog_category.blog_category_status','=',1)->where('blog_category.blog_cat_id','=',$id)->where('post.post_status','=',1)->where('post.language_code','=',$translate)->orderBy('post.post_id', 'desc')->take($take)->get(); 
     return $value;
 	
   }  
