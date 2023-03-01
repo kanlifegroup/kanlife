@@ -100,7 +100,7 @@ tinymce.init({
 		
         }
     };
-    
+    $(".alert").delay(5000).slideUp(300);
     $('#item_form').bValidator(options);
 	$('#profile_form').bValidator(options);
 	$('#comment_form').bValidator(options);

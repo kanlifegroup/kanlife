@@ -67,10 +67,10 @@
                                         <tr>
                                             <th>{{ Helper::translation(1964,$translate,'') }}</th>
                                             <th>{{ Helper::translation(2018,$translate,'') }}</th>
-                                            <th>{{ Helper::translation(3048,$translate,'') }}</th>
+                                            {{--<th>{{ Helper::translation(3048,$translate,'') }}</th>--}}
                                             <th>{{ Helper::translation(2099,$translate,'') }}</th>
                                             <th>{{ Helper::translation(3045,$translate,'') }}</th>
-                                            <th>{{ Helper::translation(3192,$translate,'') }}</th>
+                                            {{--<th>{{ Helper::translation(3192,$translate,'') }}</th>--}}
                                             <th>{{ Helper::translation(1915,$translate,'') }}</th>
                                             <th>{{ Helper::translation(1965,$translate,'') }}</th>
                                         </tr>
@@ -81,7 +81,7 @@
                                         <tr>
                                             <td>{{ $no }}</td>
                                             <td>{{ substr($post->post_title,0,20).'...' }} </td>
-                                            <td>{{ $post->post_media_type }} </td>
+                                            {{--<td>{{ $post->post_media_type }} </td>--}}
                                             <td>
                                             @if($post->post_media_type =='image')
                                             @if($post->post_image != '') <img height="50" width="50" src="{{ url('/') }}/public/storage/post/{{ $post->post_image }}" alt="{{ $post->post_title }}"/>@else <img height="50" width="50" src="{{ url('/') }}/public/img/no-image.png" alt="{{ $post->post_title }}" />  
@@ -96,7 +96,7 @@
                                             @endif
                                             </td>
                                             <td>{{ $post->blog_category_name }}</td>
-                                            <td><a href="comment/{{ $post->post_id }}" class="blue-color">{{ Helper::translation(3192,$translate,'') }} [{{ $comments->has($post->post_id) ? count($comments[$post->post_id]) : 0 }}]</a></td>
+                                            {{--<td><a href="comment/{{ $post->post_id }}" class="blue-color">{{ Helper::translation(3192,$translate,'') }} [{{ $comments->has($post->post_id) ? count($comments[$post->post_id]) : 0 }}]</a></td>--}}
                                             <td>@if($post->post_status == 1) <span class="badge badge-success">{{ Helper::translation(1916,$translate,'') }}</span> @else <span class="badge badge-danger">{{ Helper::translation(1917,$translate,'') }}</span> @endif</td>
                                             <td><a href="edit-post/{{ $post->post_id }}" class="btn btn-success btn-sm"><i class="fa fa-edit"></i>&nbsp; {{ Helper::translation(1966,$translate,'') }}</a> 
                                             @if($demo_mode == 'on') 

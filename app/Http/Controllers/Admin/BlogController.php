@@ -108,7 +108,7 @@ class BlogController extends Controller
 					 $record = array('blog_category_name' => $blogcategoryname, 'blog_category_slug' => $blog_category_slug, 'blog_category_status' => $blog_category_status, 'token' => $token, 'language_code' => $code, 'blog_page_parent' => $parent);
 		            $insertedId = Blog::getLastInsertedId($record);
 		      }
-			  return redirect('/admin/blog-category')->with('success', 'Insert successfully.');
+			  return redirect('/admin/blog-category')->with('success', 'Inserted successfully.');
 		}
 			
 		
@@ -175,7 +175,7 @@ class BlogController extends Controller
         
       Blog::deleteBlogcategorydata($blog_cat_id,$data);
 	  
-	  return redirect()->back()->with('success', 'Delete successfully.');
+	  return redirect()->back()->with('success', 'Deleted successfully.');
 
     
   }
@@ -260,7 +260,7 @@ class BlogController extends Controller
 			}
 		}
 		
-		return redirect('/admin/blog-category')->with('success', 'Update successfully.');
+		return redirect('/admin/blog-category')->with('success', 'Updated successfully.');
 		
         
 		
@@ -338,7 +338,7 @@ class BlogController extends Controller
 	  
       Blog::deleteCommentdata($comment_id);
 	  
-	  return redirect()->back()->with('success', 'Delete successfully.');
+	  return redirect()->back()->with('success', 'Deleted successfully.');
 
     
   }
@@ -357,7 +357,7 @@ class BlogController extends Controller
 	 $data = array( 'comment_status' => $status_value);
 	 
 	 Blog::updatecommentData($comment_id, $data);
-     return redirect()->back()->with('success', 'Update successfully.');
+     return redirect()->back()->with('success', 'Updated successfully.');
   
   }
   
@@ -511,7 +511,7 @@ class BlogController extends Controller
 			  }
       }
 			  
-			  return redirect('/admin/post')->with('success', 'Insert successfully.');
+			  return redirect('/admin/post')->with('success', 'Inserted successfully.');
 		
 		}    
   } 
@@ -536,7 +536,7 @@ class BlogController extends Controller
 	{
 	   $token = base64_decode($img_id); 
 	   Blog::deleteimgdata($token);	  
-	  return redirect()->back()->with('success', 'Delete successfully.');	
+	  return redirect()->back()->with('success', 'Deleted successfully.');	
 	}
 	
 	
@@ -668,7 +668,7 @@ class BlogController extends Controller
       Blog::savePostImages($imgdata);
     }
 		
-		 return redirect('/admin/post')->with('success', 'Update successfully.');
+		 return redirect('/admin/post')->with('success', 'Updated successfully.');
 		
         
 		

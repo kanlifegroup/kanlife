@@ -126,7 +126,7 @@
                   <div class="form-group">
                                                 <label for="site_title" class="control-label mb-1"> {{ Helper::translation(1915,$translate,'') }} <span class="require">*</span></label>
                                                 <select name="blog_category_status" class="form-control" data-bvalidator="required">
-                                                <option value=""></option>
+                                                <option value="">Select status</option>
                                                 <option value="1" @if($edit['category']->blog_category_status == 1) selected="selected" @endif>{{ Helper::translation(1916,$translate,'') }}</option>
                                                 <option value="0" @if($edit['category']->blog_category_status == 0) selected="selected" @endif>{{ Helper::translation(1917,$translate,'') }}</option>
                                                 </select>

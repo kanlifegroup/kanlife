@@ -81,7 +81,7 @@
       @endif
     
             </div>
-            <div class="para">
+            <div class="para" style="font-size: 18px; text-align: justify; color:#656565">
                 <p class="mb-5"> {!! html_entity_decode($blogPost->post_desc) !!} </p>
                 
             </div> 

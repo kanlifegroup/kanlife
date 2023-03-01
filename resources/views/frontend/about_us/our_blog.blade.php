@@ -31,37 +31,38 @@
         <div class="col-5 m-auto ">
         <h3 class="text-end bloghead">Categories</h3>
         </div>
-        <div class="col-7 text-start m-auto position-relative">
         {{--
-        <div class="dropdown">
-          @php 
-          $selected_cat = $blogPost['categories']->where('blog_cat_id', $category_id)->first();
-          @endphp
-          <button class="sel2 nav-link border-0 dropdown-toggle" style="text-align:left" type="button" id="about_us_menu"
-            data-bs-toggle="dropdown" aria-expanded="false">
-            @if($selected_cat) {{mb_strimwidth($selected_cat->blog_category_name, 0, 23, "...")}} @else All @endif
-            <img src="{{ asset('public/image/arrow-234.svg') }}" alt="" width="12" class="caret2" style="cursor:pointer;">
-          </button>
-          <ul class="dropdown-menu" style="min-width: 200px;" aria-labelledby="about_us_menu">
-          <li><a class="dropdown-item" href="{{ route('about.blog') }}">All</a></li>
-          @foreach($blogPost['categories'] as $category)
-            <li><a class="dropdown-item" href="{{ route('about.blog').'?category_id='.$category->blog_cat_id }}">{{$category->blog_category_name}}</a></li>
-            @endforeach
-          </ul>
-        </div>
-        --}}
+        <div class="col-7 text-start m-auto position-relative">   
             <select id="category_select" class="form-select sel2" aria-label="Default select example">
-            <option selected value="{{ route('about.blog') }}">Select category</option>
+            <option class="" selected value="{{ route('about.blog') }}">Select category</option>
             @foreach($blogPost['categories'] as $category)
             <option @if($category_id == $category->blog_cat_id) selected @endif value="{{ route('about.blog').'?category_id='.$category->blog_cat_id }}">{{$category->blog_category_name}}</option>
             @endforeach
             </select>
             <img src="{{ asset('public/image/arr_icon.svg') }}" alt="" width="12" class="caret2">
-          
+        </div>
+        --}}
+        <div class="col-7 text-start m-auto position-relative">   
+          <div class="dropdown">
+            @php 
+            $selected_cat = $blogPost['categories']->where('blog_cat_id', $category_id)->first();
+            @endphp
+            <button class="sel2 nav-link border-0 dropdown-toggle" style="text-align:left" type="button" id="about_us_menu"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              @if($selected_cat) {{mb_strimwidth($selected_cat->blog_category_name, 0, 23, "...")}} @else Select category @endif
+              <img src="{{ asset('public/image/arr_icon.svg') }}" alt="" width="12" class="caret2" style="cursor:pointer;">
+            </button>
+            <ul class="dropdown-menu" style="min-width: 200px;" aria-labelledby="about_us_menu">
+            <li class="dropdown-item"><a href="{{ route('about.blog') }}">Select category</a></li>
+            @foreach($blogPost['categories'] as $category)
+              <li class="dropdown-item"><a href="{{ route('about.blog').'?category_id='.$category->blog_cat_id }}">{{$category->blog_category_name}}</a></li>
+              @endforeach
+            </ul>
+          </div>
         </div>
     </div>
 </div>
-@foreach($blogPost['latest'] as $post)
+@forelse($blogPost['latest'] as $post)
 <div class="blog-section" id="{{$post->post_id}}">
     <div class="container-fluid px-5">
         <div class="row blog-pads align-items-center">
@@ -74,7 +75,7 @@
                       <div class="card-body">
                         <h4 class="title1">{{ $post->post_title }}</h4>
                         <p class="ctext"><small class="text-primary">{{ date('M Y', strtotime($post->post_date)) }}</small></p>
-                        <p class="ctext py-4">{{ $post->post_short_desc }} ...</p>
+                        <p class="ctext py-4" style="text-align: justify;">{{ $post->post_short_desc }} ...</p>
                         <a href="{{ route('about.detail.blog', $post->post_id) }}" class="btn text-light btn-primary btn-lg px-5 rounded-0">Read More</a>
                      </div>
                     </div>
@@ -83,7 +84,23 @@
         </div>
     </div>
 </div>
-@endforeach
+@empty
+<div class="blog-section">
+    <div class="container-fluid px-5">
+        <div class="row blog-pads align-items-center">
+            <div class="card mb-3">
+                <div class="row g-0">
+                    <div class="px-2">
+                      <div class="card-body">
+                        <h4 class="title1">Oops!! No blogs Found...</h4>
+                     </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endforelse
 @if($more_post)
   <div class="text-center mt-3 mb-5">
       <a href="{{ route('about.blog').'?limit='.$limit.'category_id='.$category_id.'#'.$post->post_id }}" class="btn text-light btn-primary py-3 btn-lg px-5 rounded-0">View More</a>
