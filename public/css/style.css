@@ -3350,3 +3350,9 @@ width: 40px;
   width: 40px;
   transform: rotateY(180deg);
   }
+
+  .scrollable-menu {
+    height: auto;
+    max-height: 200px;
+    overflow-x: hidden;
+}

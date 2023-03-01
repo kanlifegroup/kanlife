@@ -52,7 +52,7 @@
               @if($selected_cat) {{mb_strimwidth($selected_cat->blog_category_name, 0, 23, "...")}} @else Select category @endif
               <img src="{{ asset('public/image/arr_icon.svg') }}" alt="" width="12" class="caret2" style="cursor:pointer;">
             </button>
-            <ul class="dropdown-menu" style="min-width: 200px;" aria-labelledby="about_us_menu">
+            <ul class="dropdown-menu scrollable-menu" style="min-width: 200px;" aria-labelledby="about_us_menu">
             <li class="dropdown-item"><a href="{{ route('about.blog') }}">Select category</a></li>
             @foreach($blogPost['categories'] as $category)
               <li class="dropdown-item"><a href="{{ route('about.blog').'?category_id='.$category->blog_cat_id }}">{{$category->blog_category_name}}</a></li>
