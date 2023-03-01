@@ -138,20 +138,25 @@
                   <input type="text" readonly id="{{base64_decode($cart['ord_id'])}}" name="quantity" value="{{$cart['qty']}}" class="qty qty-{{base64_encode($cart['ord_id'])}}">
                   <div class="qtyplus" data-id="{{base64_encode($cart['ord_id'])}}">+</div>
                 </div>
-                {{-- <a href="javascript:void(0)" data-id="{{base64_encode($cart['ord_id'])}}" class="round-black-btn remove">Remove from cart</a> --}}
-                <a href="{{ url('/cart') }}/{{base64_encode($cart['ord_id'])}}" onClick="return confirm('Are you sure you want to remove?');" class="round-black-btn px-3 px-lg-5">Remove from cart</a>
+                {{-- <a href="javascript:void(0)" data-id="{{base64_encode($cart['ord_id'])}}" class="round-black-btn remove">Remove from cart</a> 
+                <a href="{{ url('/cart') }}/{{base64_encode($cart['ord_id'])}}" onClick="return confirm('Are you sure you want to remove?');" class="round-black-btn px-3 px-lg-5">Remove from cart</a>--}}
+                <a href="{{ url('/cart') }}" class="enquirys-btn mx-3 px-3 px-lg-5 text-light">Go to cart</a>
               @else
                 @if($shop->product_price != 0)
-                  <a href="{{url('/add_to_cart').'/'.$shop->product_slug}}" class="enquirys-btn">Add To Cart</a>
+                  <a href="{{url('/add_to_cart').'/'.$shop->product_slug}}" class="enquirys-btn text-light">Add To Cart</a>
                 @else
-                  <a href="{{url('/price_enquiry')}}/{{ base64_encode($shop->product_id) }}" class="enquirys-btn">Price Enquiry</a>
+                  @guest
+                  <a href="javascript:void(0);" onclick="openModel('myModal')" class="enquirys-btn text-light">Price Enquiry</a>
+                  @else
+                  <a href="{{url('/price_enquiry')}}/{{ base64_encode($shop->product_id) }}" class="enquirys-btn text-light">Price Enquiry</a>
+                  @endif
                 @endif
               @endif
             </form>
           </div>
           <p class="deu-add">
             @if(Auth::guest())
-            <a href="{{ url('/wishlist') }}">
+            <a href="javascript:void(0);" onclick="openModel('myModal')" >
               <i class="fa fa-heart-o" aria-hidden="true"></i> Add To Wishlist
             </a>
             @else

@@ -96,7 +96,11 @@
         <div class="panel-footer deu-proceedbg">
             <div class="row h-100 pe-4">
                 <div class="col-md-12 d-flex justify-content-end align-items-center">
+                  @guest
+                    <a href="javascript:void(0);" onclick="openModel('myModal')" class="deu-prceebtn text-white px-5 py-3">Proceed to checkout</a>
+                  @else
                     <a href="{{ url('/checkout') }}" class="deu-prceebtn text-white px-5 py-3">Proceed to checkout</a>
+                  @endif
                 </div>
             </div>
         </div>

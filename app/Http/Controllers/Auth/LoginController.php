@@ -149,7 +149,8 @@ class LoginController extends Controller
 			}
 			else
 			{
-			  return redirect('/');
+			  // return redirect('/');
+			  return redirect()->back();
 			}
 	
 		}

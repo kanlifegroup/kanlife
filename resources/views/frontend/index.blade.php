@@ -57,7 +57,7 @@
       <div class="inforide h-100">
         <div class="row g-0 justify-content-between">
           <div class="order-2 order-md-1 col-md-7 fontsty d-flex flex-column justify-content-between">
-            <h4 class="deu-buytxt">Buy Medical Equipment’s.</h4>
+            <h4 class="deu-buytxt">Buy Medical Equipment.</h4>
             <button class="deu-buybtn">Buy Now</button>
           </div>
           <div class="order-1 order-md-2 col-md-5 rideone d-flex justify-content-md-end justify-content-center mb-4 mb-md-0 align-items-center">
@@ -70,7 +70,7 @@
       <div class="inforide1 h-100">
         <div class="row g-0 justify-content-between">
           <div class="order-2 order-md-1 col-md-7 fontsty d-flex flex-column justify-content-between">
-            <h4 class="deu-buytxt">Rent Medical Equipment’s.</h4>
+            <h4 class="deu-buytxt">Rent Medical Equipment.</h4>
             <button class="deu-buybtn">Rent Now</button>
           </div>
           <div class="order-1 order-md-2 col-md-5 rideone d-flex justify-content-md-end justify-content-center mb-4 mb-md-0 align-items-center">

@@ -195,7 +195,7 @@ $module=explode("/", url()->current());
         @if(array_intersect([$user_location],['india']))
           <a class="nav-link" href="#">Rent</a>
         @endif
-        <a class="nav-link text-nowrap {{ array_intersect($module, ['consultant']) ? 'active' : '' }}" href="#">Dr. Consultant</a>
+        <a class="nav-link text-nowrap {{ array_intersect($module, ['consultant']) ? 'active' : '' }}" href="#">Consult A Dr.</a>
         <div class="dropdown">
           <button class="btn nav-link border-0 dropdown-toggle" type="button" id="about_us_menu"
             data-bs-toggle="dropdown" aria-expanded="false">
