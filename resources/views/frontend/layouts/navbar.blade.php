@@ -28,7 +28,7 @@
 --}}
 <div class="container-fluid top-nav text-white py-2">
   <div class="row g-0 align-items-left flex-column gap-3 justify-content-left flex-md-row">
-    <div class="col d-flex gap-2 justify-content-left justify-content-md-start px-3">
+    <div class="col d-flex gap-2 justify-content-left justify-content-md-start px-3 m-auto">
       <div class="social-bg d-flex justify-content-center align-items-center">
         <!-- <img src="image/facebook.svg" alt="" class="img-fluid"> -->
         <a href="https://lnkd.in/gCW9EFfv">
@@ -70,7 +70,7 @@
         <button class="btn bg-transparent text-white d-flex align-items-center gap-2 dropdown-toggle border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
           <img class="top-navemail ms-auto me-0" src="{{ asset('public/image/global.svg') }}">
           {{ucfirst($user_location)}}
-          <img src="{{ asset('public/image/counrty-dd-icon.svg') }}" alt="" width="15" class="ms-5">
+          <img src="{{ asset('public/image/counrty-dd-icon.svg') }}" alt="" width="10" class="ms-3">
         </button>
         <ul class="dropdown-menu">
           <li onclick="set_location('india')"><a class="dropdown-item" href="javascript:void(0)">India</a></li>

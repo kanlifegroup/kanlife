@@ -1,6 +1,6 @@
 <!-- Our Brands -->
 <section class="deu-bandbg">
-  <div class="container">
+  <div class="container mt-5">
     <p class="text-center deu-bloghead">Our Brands</p>
     <p class="text-center deu-bandtxt">World class products from the best Global brands</p>
   </div>

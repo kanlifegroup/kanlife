@@ -1,15 +1,15 @@
 <!-- Our Blog -->
 
-<section class="deu-ourblg">
+<section class="deu-ourblg pt-5">
   <div class="container-fluid">
     <h3 class="text-center mt-5 mb-5 deu-bloghead">Our Blogs</h3>
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
-      <div class="carousel-inner">
+      <div class="carousel-inner" aos="fade-left">
         <div class="carousel-item active">
-          <div class="row owl-carousel">
+          <div class="row owl-carousel" id="owl-blog">
             @foreach($blogPost['latest'] as $key => $post)
               @if($key < 3)
-              <div class="owl-item">
+              <div class="owl-item" >
                 <div class="post-slide10">
                   @if($post->post_media_type =='image')
                   @if($post->post_image!='')
