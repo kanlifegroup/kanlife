@@ -200,7 +200,7 @@ body {
 .deu-login:hover {
   background-color: #3188CA;
   border-radius: 5px !important;
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-family: 'Nunito', sans-serif;
   min-width: max-content;
 }
@@ -1192,7 +1192,7 @@ body {
 }
 
 .deu-cart {
-  width: 40px;
+  width: 25px;
   margin-bottom: 7px;
 }
 
@@ -3059,7 +3059,7 @@ a:link {
 @media screen and (max-width: 990px) and (min-width: 720px) {
 
   .deu-cart {
-    width: 30px;
+    width: 25px;
   }
 }
 
@@ -3084,7 +3084,7 @@ a:link {
   }
 
   .deu-cart {
-    width: 27px;
+    width: 25px;
     margin-bottom: 10px;
   }
 
