@@ -26,7 +26,7 @@
   </div>
 </div>
 --}}
-<div class="container-fluid top-nav text-white py-2">
+<div class="container-fluid top-nav text-white py-1">
   <div class="row g-0 align-items-left flex-column gap-3 justify-content-left flex-md-row">
     <div class="col d-flex gap-2 justify-content-left justify-content-md-start px-3 m-auto">
       <div class="social-bg d-flex justify-content-center align-items-center">
@@ -209,7 +209,7 @@ $module=explode("/", url()->current());
           </ul>
         </div>
         @if(Auth::guest())        
-          <button class="deu-login btn nav-link text-white px-3 px-lg-4" onclick="openModel('myModal')">Login</button>
+          <button class="deu-login btn nav-link text-white px-2 px-lg-3" onclick="openModel('myModal')">Login</button>
         @else
           <div class="dropdown">
             <button class="btn nav-link border-0 dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">

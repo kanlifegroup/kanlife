@@ -115,24 +115,24 @@ body {
 .social-bg {
   background-color: white;
   color: #3787C9;
-  height: 2.813rem;
-  width: 2.813rem;
+  height: 2.2rem;
+  width: 2.2rem;
   border-radius: 50%;
 }
 
 .top-navemail {
-  width: 2.3rem;
+  width: 2rem;
   margin-right: 6px;
 }
 
 .optionbox button {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 
 .kan-email {
   color: #FFFFFF;
   font-family: 'Nunito', sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 
 .top-navselect {
@@ -154,7 +154,7 @@ body {
   color: #3C3C3C;
   font-family: 'Nunito', sans-serif;
   font-weight: 700;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
 }
 
 .carousel-control-next,
@@ -186,9 +186,9 @@ body {
 
 .logo {
   /* margin-bottom: 10px !important; */
-  width: 15rem;
+  width: 12rem;
   padding: 5px 0px;
-  margin-left: 10px
+  margin-left: 15px
 
 }
 
@@ -200,7 +200,7 @@ body {
 .deu-login:hover {
   background-color: #3188CA;
   border-radius: 5px !important;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-family: 'Nunito', sans-serif;
   min-width: max-content;
 }
@@ -1018,7 +1018,7 @@ body {
 .deu-slidehead {
   color: #FFFFFF;
   font-family: 'Josefin Sans', sans-serif;
-  font-size: 5.625rem;
+  font-size: 5rem;
   font-weight: 900;
 }
 
@@ -1043,9 +1043,8 @@ body {
 
 .deu-healthimg {
   float: left;
-  width: 6.25rem;
-  border-radius: 50%;
-  height: 6.25rem;
+  width: 6rem;
+  height: 6rem;
   margin-right: 10px;
   margin-bottom: 0px;
 }
@@ -1084,7 +1083,7 @@ body {
 }
 
 .deu-bandlogopad {
-  background-color: #fff;
+  /* background-color: #fff; */
   padding: 10px 0;
 }
 
@@ -1129,17 +1128,16 @@ body {
   font-family: 'Josefin Sans', sans-serif;
   letter-spacing: 0px;
   color: #000000;
-  font-size: 2.75rem;
+  font-size: 2rem;
   font-weight: 800;
 }
 
 .deu-buybtn {
   color: #fff;
-  font-size: 2rem;
+  font-size: 1.4rem;
   background-color: #3188CA;
   border: 1px solid #3188CA;
   padding: 10px 23px;
-  margin: 8px 0;
   width: 100%;
   font-family: 'Nunito', sans-serif;
   text-transform: capitalize;
@@ -1528,7 +1526,7 @@ body {
   background-color: transparent;
   border: 0;
   font-family: 'Nunito', sans-serif;
-  font-size: 1.375rem;
+  font-size: 1.2rem;
 }
 
 .dropdown-item:focus,
@@ -1859,6 +1857,9 @@ body {
   font-size: 1.625rem;
   margin-bottom: 10px;
 }
+.deu-marg{
+ 
+}
 
 .deu-add {
   color: #9D9D9D !important;
@@ -2075,6 +2076,7 @@ body {
 .contents {
   font-size: 1.5rem;
   color: #9D9D9D;
+  text-align: justify;
 }
 
 .sub-head {
@@ -2444,7 +2446,6 @@ a:link {
 }
 
 .deu-deskbg {
-  background-color: #fff;
   padding: 30px;
 }
 
@@ -2580,6 +2581,8 @@ a:link {
   color: #9D9D9D;
   font-size: 15px;
   margin: 0 0 15px;
+  padding: 0 20px;
+  text-align: justify;
 }
 
 .deu-aboutbtn1 {

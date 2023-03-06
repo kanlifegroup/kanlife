@@ -1,8 +1,8 @@
 <!-- CEO’s Desk -->
 
-<div class="us-section">
-  <div class="container">
-    <h3 class="text-center mb-5 mt-4 deu-bloghead">CEO’s Desk</h3>
+<div class="us-section ">
+  <div class="container mt-5">
+    <h3 class="text-center mb-3 mt-4 deu-bloghead">CEO’s Desk</h3>
     <div class="row deu-deskbg">
       <div class="col-md-4 col-sm-6" aos="zoom-in">
         <div class="about-img">
