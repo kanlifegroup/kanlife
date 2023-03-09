@@ -292,7 +292,7 @@ class Product extends Model
   public static function autoSearch($query,$translate)
   {
 
-    $value=DB::table('product')->where('product_name', 'LIKE', '%'. $query. '%')->where('product_drop_status','=','no')->where('language_code','=',$translate)->orderBy('product_name', 'asc')->get(); 
+    $value=DB::table('product')->where('product_name', 'LIKE', '%'. $query. '%')->where('product_drop_status','=','no')->where('language_code','=',$translate)->orderBy('product_name', 'asc')->where('product_status','=',1)->get();
     return $value;
 	
   }

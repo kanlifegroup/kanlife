@@ -474,6 +474,8 @@ Route::group(['middleware' => ['XSS','web', 'HtmlMinifier']], function () {
 
   Route::get('/buy', 'CommonController@view_buy');
   Route::get('/category/{slug}', 'CommonController@view_category');
+  Route::get('/search/items', 'CommonController@search_products');
+  Route::post('/search/items', 'CommonController@search_products')->name('search.products');
 
   Route::get('/set-my-location/{location}', 'CommonController@setLocation');
   Route::get('/about-us/our-story', 'CommonController@ourStory')->name('about.story');

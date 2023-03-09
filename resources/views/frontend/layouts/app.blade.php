@@ -14,7 +14,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     @yield('style')
-    <link rel="stylesheet" href="{{asset('public/css/style.css')}}">
+    <link rel="stylesheet" href="{{ URL::to('resources/views/admin/template/picker/jquery-ui.css') }}" />
+    <link rel="stylesheet" href="{{ URL::to('resources/views/template/filter/jplist.jquery-ui-bundle.min.css') }}">
+    <link rel="stylesheet" href="{{asset('public/css/style.css')}}">    
     <style>
     /* Chrome, Safari, Edge, Opera */
     input::-webkit-outer-spin-button,
@@ -52,6 +54,12 @@
       cursor: pointer;
       z-index:1000;
     }
+    .ui-widget{
+      font-size: 16px;
+      height: auto;
+      max-height: 200px;
+      overflow-x: hidden;
+    }
     </style>
 </head>
 
@@ -65,6 +73,7 @@
 @include('frontend.layouts.footer')
 
 @yield('script')
+<script src="{{ URL::to('resources/views/template/autosearch/jquery-ui.js') }}"></script>
 <script>
   function set_location(location){
     $.ajax({
@@ -80,6 +89,24 @@
     });
   }
   $(document).ready(function() {
+    src = "{{ route('searchajax') }}";
+     $("#search_text").autocomplete({
+        source: function(request, response) {
+            $.ajax({
+                url: src,
+                dataType: "json",
+                data: {
+                    term : request.term
+                },
+                success: function(data) {
+                    response(data);
+                   
+                }
+            });
+        },
+        minLength: 1,
+       
+    });
     $(".alert").fadeTo(10000, 500).slideUp(500, function(){
       $(".alert").slideUp(500);
     });

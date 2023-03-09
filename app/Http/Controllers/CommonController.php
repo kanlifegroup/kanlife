@@ -307,6 +307,18 @@ class CommonController extends Controller
     return view('frontend.buy')->with($data);
   }
 
+  public function search_products(Request $request)
+  {
+    $translate = $this->lang_text();
+    if(!empty($request->input('search_text')))
+    $search_txt = $request->input('search_text');
+    else
+    $search_txt = "";
+    $products = Product::with('ProductImages')->where('product_name', 'LIKE', '%'.$search_txt.'%')->where('product_status','=',1)->where('product_drop_status','=','no')->where('language_code','=',$translate)->orderBy('product_id','desc')->paginate(12);
+    $data = array('products'=>$products);
+    return view('frontend.search_products')->with($data);
+  }
+
   public function view_category($slug)
   {
     $translate = $this->lang_text();

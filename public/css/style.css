@@ -3387,3 +3387,24 @@ width: 40px;
   /* Vertical centering (cross axis): */
   align-items: center;
 }
+
+.deu-search-bar{
+  background-color: #3188CA;
+  border-radius: 0 5px 5px 0 !important;
+  font-size: 1.3rem;
+  border: none;
+  font-family: 'Nunito', sans-serif;
+  min-width: max-content;
+}
+
+@media screen and (max-width: 992px){
+  .deu-search-bar{
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 480px){
+  .deu-search-bar{
+    font-size: 2.3rem;
+  }
+}

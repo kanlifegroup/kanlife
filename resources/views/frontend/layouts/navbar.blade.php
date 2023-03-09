@@ -138,10 +138,23 @@ $module=explode("/", url()->current());
     <a class="navbar-brand" href="#">
       <img src="{{ asset('public/image/logo.png') }}" width="" class="logo img-fluid" />
     </a>
+    <div class="col-md-3">
+      <form action="{{ route('search.products') }}" class="search_form" id="search_form" method="post">
+      {{ csrf_field() }}
+          <div class="input-group flex-fill">
+            <input type="text" class="form-control" id="search_text" name="search_text" placeholder="{{ Helper::translation(2039,$translate,'') }}">
+            <div style="margin-left: -1px; z-index: 10000;">
+              <button class="btn btn-secondary button-color deu-search-bar" type="submit">
+                <i class="fa fa-search"></i>
+              </button>
+            </div>
+        </div>
+      </form>
+    </div> 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse px-2" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse px-2" id="navbarSupportedContent" style="flex-grow: 0;">   
       <div class="navbar-nav gap-lg-3 gap-md-3 gap-xxl-3 ms-auto align-items-md-center">
         @if(isset($is_categories) && $is_categories)
         <div class="dropdown">
@@ -186,7 +199,6 @@ $module=explode("/", url()->current());
             </div>           
           </ul>
         </div>
-        
         @endif
         <a class="nav-link {{ url('/') == url()->current() ? 'active' : '' }}" aria-current="page" href="{{ url('/') }}">Home</a>
         @if(array_intersect([$user_location],['india','london']))
