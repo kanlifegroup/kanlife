@@ -59,7 +59,9 @@
         <div class="row g-0 justify-content-between">
           <div class="order-2 order-md-1 col-md-7 fontsty d-flex flex-column justify-content-between ">
             <h4 class="deu-buytxt">Buy Medical Equipment.</h4>
-            <a href="{{ url('/buy') }}" class="deu-buybtn">Buy Now</a>
+            <a href="{{ url('/buy') }}">
+              <button class="deu-buybtn">Buy Now</button>
+            </a>
           </div>
           <div class="order-1 order-md-2 col-md-5 rideone d-flex justify-content-md-end justify-content-center mb-4 mb-md-0 align-items-center">
             <img class="img-fluid deu-buyheight" src="{{ asset('public/image/buy1.png') }}">
