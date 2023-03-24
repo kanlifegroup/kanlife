@@ -1,5 +1,5 @@
 <!-- Our Brands -->
-<section class="deu-bandbg">
+<!-- <section class="deu-bandbg">
   <div class="container mt-5">
     <p class="text-center deu-bloghead">Our Brands</p>
     <p class="text-center deu-bandtxt">World class products from the best Global brands</p>
@@ -27,4 +27,41 @@
       </div>
     </div>
   </div>
+</section> -->
+
+
+
+<!-- Our Brands -->
+<section class="deu-bandbg">
+  <div class="container mt-5">
+    <p class="text-center deu-bloghead">Our Brands</p>
+    <p class="text-center deu-bandtxt">World class products from the best Global brands</p>
+  </div>
+  <div class="container deu-bandlogopad">
+  <div class="row">
+<div class="owl-carousel owl-theme" id="owl-carousel">
+  
+  <div class="item  ">
+     <img src="{{ asset('public/image/our1.png') }}" class="img-responsive" alt="client-logo">
+                    </div>
+  
+  <div class="item ">
+     <img src="{{ asset('public/image/our2.png') }}" class="img-responsive" alt="client-logo">
+                    </div>
+  
+   <div class="item ">
+    <img src="{{ asset('public/image/our3.png') }}" class="img-responsive" alt="client-logo">
+                    </div>
+  
+   <div class="item">
+      <img src="{{ asset('public/image/our4.png') }}" class="img-responsive" alt="client-logo">
+                    </div>
+  
+   <div class="item">
+      <img src="{{ asset('public/image/our5.png') }}" class="img-responsive" alt="client-logo">
+                    </div>
+                </div>
+            </div>
+
+</div>
 </section>

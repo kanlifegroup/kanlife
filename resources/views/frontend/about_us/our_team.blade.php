@@ -32,9 +32,9 @@
 <div class="container-fluid px-5 deu-teamgray">
     <div class="row g-0 gap-3">
         <div class="col-12 col-lg">
-            <div class="card deu-teamcards">
+            <div class="card deu-teamcards" aos="fade-right">
                 <div class="card-body text-center pt-5">
-                    <img src="{{ asset('public/image/m1.png') }}" class="img-fluid" width="300" height="250">
+                    <img aos="zoom-in" src="{{ asset('public/image/m1.png') }}" class="img-fluid" width="300" height="250">
                     <h5 class="card-title mt-3 m-3 mb-1 deu-teamname">Meena Ganesh</h5>
                     <p class="mb-3 mt-3 font-weight-bold deu-teamtxt1">Co-founder and chairperson</p>
                     <div class="px-4">
@@ -53,9 +53,9 @@
             </div>
         </div>
         <div class="col-12 col-lg">
-            <div class="card deu-teamcards">
+            <div class="card deu-teamcards" aos="fade-up">
                 <div class="card-body text-center pt-5">
-                    <img src="{{ asset('public/image/m2.png') }}" class="img-fluid" width="300" height="250">
+                    <img aos="zoom-in" src="{{ asset('public/image/m2.png') }}" class="img-fluid" width="300" height="250">
                     <h5 class="card-title mt-3 m-3 mb-1 deu-teamname">Ganesh Krishnan</h5>
                     <p class="mb-3 mt-3 font-weight-bold deu-teamtxt1">Co-founder and Director</p>
                     <div class="px-4">
@@ -74,9 +74,9 @@
             </div>
         </div>
         <div class="col-12 col-lg">
-            <div class="card deu-teamcards">
+            <div class="card deu-teamcards" aos="fade-left">
                 <div class="card-body text-center pt-5">
-                    <img src="{{ asset('public/image/m3.png') }}" class="img-fluid" width="300" height="250">
+                    <img aos="zoom-in" src="{{ asset('public/image/m3.png') }}" class="img-fluid" width="300" height="250">
                     <h5 class="card-title mt-3 m-3 mb-1 deu-teamname">Vaibhav Tewari</h5>
                     <p class="mb-3 mt-3 font-weight-bold deu-teamtxt1">Co-founder and CEO</p>
                     <div class="px-4">

@@ -30,11 +30,11 @@
 </div>
 <div class="container-fl px-5 mt-5">
     <div class="row deu-conpads align-items-center">
-        <div class="col-md-3 col-sm-3 text-center deu-conborder">
+        <div class="col-md-3 col-sm-3 text-center deu-conborder" aos="fade-right">
           <img class="img-fluid deucontactwid" src="{{ asset('public/image/location.png') }}">
             <p class="mt-1 mb-1 deu-contactadress1">Address</p>
         </div>
-        <div class="col-md-9 col-sm-9">
+        <div class="col-md-9 col-sm-9" aos="fade-left">
             <p class="my-5 ps-3 deu-contacttxt">36/3, 1st Cross, Pukhraj Layout, Adugodi, Bangalore - 560030</p>
         </div>
     </div>
@@ -42,11 +42,11 @@
 
 <div class="container-fluid px-5 mt-5">
         <div class="row deu-conpads align-items-center">
-            <div class="col-md-3 col-sm-3 text-center deu-conborder">
+            <div class="col-md-3 col-sm-3 text-center deu-conborder" aos="fade-right">
             <img class="img-fluid deucontactwid" src="{{ asset('public/image/phone.png') }}">
                 <p class="mt-1 mb-1 deu-contactadress1">Phone No.</p>
             </div>
-            <div class="col-md-9 col-sm-9">
+            <div class="col-md-9 col-sm-9" aos="fade-left">
                 <p class="my-5 ps-3 deu-contacttxt">080 4224 2929</p>
             </div>
         </div>
@@ -54,19 +54,19 @@
 
 <div class="container-fluid px-5 mt-5">
         <div class="row deu-conpads align-items-center">
-            <div class="col text-center deu-conborder">
+            <div class="col text-center deu-conborder" aos="fade-right">
                 <img class="img-fluid deucontactwid" src="{{ asset('public/image/email.png') }}">
                 <p class="mt-1 mb-1 deu-contactadress1">Email</p>
             </div>
-            <div class="col text-center deu-conborder">
+            <div class="col text-center deu-conborder" aos="fade-left">
                 <p class="mb-2 deu-contactsales">Sales and product related support</p>
                 <p class="deu-contactasia">sales@kanlifemedical.asia</p>
             </div>
-            <div class="col text-center deu-conborder">
+            <div class="col text-center deu-conborder" aos="fade-left" aos-delay="200">
                 <p class="mb-2 deu-contactsales">Accounts related support</p>
                 <p class="deu-contactasia">india@kanlifemedical.asia</p>
             </div>
-            <div class="col text-center">
+            <div class="col text-center" aos="fade-left" aos-delay="400">
                 <p class="mb-2 deu-contactsales">Marketing related support</p>
                 <p class="deu-contactasia">marketing@kanlifemedical.asia</p>
             </div>
@@ -75,11 +75,11 @@
 </div>
 
 <div class="container">
-    <h3 class="text-center mt-5 mb-5 deu-bloghead">Partner/Dealer With Us</h3>
+    <h3 class="text-center mt-5 mb-5 deu-bloghead" aos="zoom-in">Partner/Dealer With Us</h3>
     <div class="row deu-conborderss">
         <div class="col-md-12">
             <div class="container">
-                <form class="form-horizontal">
+                <form class="form-horizontal" aos="fade-right">
                     <div class="form-group row justify-content-center px-3">
                         <div class="col-9 px-0">
                             <label class="deu-contactadress1">Name</label>
@@ -141,13 +141,13 @@
 </div>
 
 <div class="container">
-    <h3 class="text-center mt-5 mb-5 deu-bloghead">Our Branch in India</h3>
+    <h3 class="text-center mt-5 mb-5 deu-bloghead" aos="zoom-in">Our Branch in India</h3>
 </div>
 <div class="container deu-branchgray">
     <div class="row">
         <div class="col-lg-4 mb-4 mb-lg-0">
-            <div class="card deu-teamcards">
-                <div class="card-body">
+            <div class="card deu-teamcards" aos="fade-up">
+                <div class="card-body" >
                     <p class="deu-conlocation">BANGALORE</p>
                     <p class="mt-4 deu-coN">
                         <img class="img-fluid deu-contactwid" src="{{ asset('public/image/location.png') }}">  36/3, 1st Cross,
@@ -165,7 +165,7 @@
             </div>
         </div>
         <div class="col-lg-4 mb-4 mb-lg-0">
-            <div class="card deu-teamcards">
+            <div class="card deu-teamcards" aos="fade-up" aos-delay="300">
                 <div class="card-body">
                     <p class="deu-conlocation">MUMBAI</p>
                     <p class="mt-4 deu-coN">
@@ -184,7 +184,7 @@
             </div>
         </div>
         <div class="col-lg-4">
-            <div class="card deu-teamcards">
+            <div class="card deu-teamcards" aos="fade-up" aos-delay="500">
                 <div class="card-body">
                     <p class="deu-conlocation">KOLKATA</p>
                     <p class="mt-4 deu-coN">

@@ -22,14 +22,14 @@
 
 <div class="blog-section">
     <div class="container-fluid px-5">
-        <div class="row blog-pads align-items-center">
+        <div class="row blog-pads align-items-center" aos="zoom-in">
             <div class="text-center title2 py-3">
                 <h1>
                 {{ $blogPost->post_title }}
                 </h1>
             </div>
             <div class="carousel mb-5">
-            <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+            <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel " aos="fade-up" >
   <div class="carousel-indicators d-sm-none d-none  d-md-flex">
     <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1">
         <img src="{{ url('/') }}/public/storage/post/{{ $blogPost->post_image }}" alt="">
@@ -42,7 +42,7 @@
     @endforeach
     @endif
   </div>
-  <div class="carousel-inner">
+  <div class="carousel-inner" aos="fade-left">
     <div class="carousel-item active" data-bs-interval="10000">
       <img src="{{ url('/') }}/public/storage/post/{{ $blogPost->post_image }}" class="d-block w-100" alt="...">
      
@@ -66,7 +66,7 @@
   </button>
 </div>
             </div>    
-            <div class="sociala mt-5 pt-md-5 mb-5 text-center">
+            <div class="sociala mt-5 pt-md-5 mb-5 text-center" aos="fade-down">
       @if($blogPost->facebook)  
       <a href="{{$blogPost->facebook}}"><i class="fa fa-facebook social" aria-hidden="true"></i></a>
       @endif
@@ -82,7 +82,7 @@
     
             </div>
             <div class="para" style="font-size: 18px; text-align: justify; color:#656565">
-                <p class="mb-5"> {!! html_entity_decode($blogPost->post_desc) !!} </p>
+                <p class="mb-5" aos="fade-left"> {!! html_entity_decode($blogPost->post_desc) !!} </p>
                 
             </div> 
         </div>

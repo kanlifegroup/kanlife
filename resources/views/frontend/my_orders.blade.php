@@ -67,7 +67,7 @@
     <tbody>
     @php $no = 0; @endphp
       @forelse($purchases as $product)    
-      <tr class="deu-td">
+      <tr class="deu-td" aos="fade-up">
         <td>{{$no + $from_item}}</td>
         <td>#{{$product->purchase_token}}</td>
         <td>{{date('d-m-Y', strtotime($product->order_date))}}</td>

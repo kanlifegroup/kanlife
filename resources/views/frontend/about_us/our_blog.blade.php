@@ -29,7 +29,7 @@
 <div class="container mt-5 mb-3">
     <div class="row">
         <div class="col-5 m-auto ">
-        <h3 class="text-end bloghead">Categories</h3>
+        <h3 class="text-end bloghead" >Categories</h3>
         </div>
         {{--
         <div class="col-7 text-start m-auto position-relative">   
@@ -69,10 +69,10 @@
             <div class="card mb-3">
                 <div class="row g-0">
                     <div class="col-md-4 px-4 py-4">
-                     <img src="{{ url('/') }}/public/storage/post/{{ $post->post_image }}" class="img-fluid rounded-start" alt="...">
+                     <img aos="fade-up" src="{{ url('/') }}/public/storage/post/{{ $post->post_image }}" class="img-fluid rounded-start" alt="...">
                     </div>
                     <div class="col-md-8 px-2">
-                      <div class="card-body">
+                      <div class="card-body" aos="fade-left">
                         <h4 class="title1">{{ $post->post_title }}</h4>
                         <p class="ctext"><small class="text-primary">{{ date('M Y', strtotime($post->post_date)) }}</small></p>
                         <p class="ctext py-4" style="text-align: justify;">{{ $post->post_short_desc }} ...</p>

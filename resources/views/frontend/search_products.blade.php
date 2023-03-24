@@ -31,17 +31,17 @@
 <div class="container-fluid">
 	<div class="row">
     <div class="col-md-4">
-      <div class="deu-borderblue">
+      <div class="deu-borderblue" aos="fade-right">
         <p style="color:#3188CA;"><img class="deu-fealine" src="{{asset('public/image/line.svg')}}"> &nbsp;&nbsp;&nbsp;
          <span class="deu-filter">Product Categories</span>
         </p>
-        <div class="chiller_cb">
+        <div class="chiller_cb" aos="fade-right" aos-delay="300">
           <input id="myCheckbox" type="checkbox" checked>
           <label for="myCheckbox">RAD System</label>
           <span></span>
         </div>
 	    </div>
-      <div class="deu-borderblue mt-5">
+      <div class="deu-borderblue mt-5" aos="fade-right" aos-delay="300">
           <p style="color:#3188CA;" class="d-flex align-items-center"><img class="deu-fealine" src="{{asset('public/image/line.svg')}}"> &nbsp;&nbsp;&nbsp;
               <span class="deu-filter">Filter by Price</span>
           </p>
@@ -76,7 +76,7 @@
       <div class="row row-cols-md-2 row-cols-lg-3 g-3 g-lg-4">
         @foreach($products as $product)
         <div class="">
-          <div class="home-doctors  text-center doc-item">
+          <div class="home-doctors  text-center doc-item" aos="fade-left" aos-delay="400"   >
             <a href="{{url('/product').'/'.$product->product_slug}}">
             <div class="common-doctor animated fadeInUp clearfix ae-animation-fadeInUp deu-features position-relative">
               @if($product->product_condition == 'new')
@@ -85,9 +85,9 @@
               @endif
               <div class="deu-xrayfigure">
                 @if($product->product_image != "")
-                <img src="{{ url('/') }}/public/storage/product/{{ $product->product_image }}" class="deu-widauto img-fluid doc-img animate attachment-gallery-post-single wp-post-image" alt=""> 
+                <img aos="zoom-in" aos-delay="300" src="{{ url('/') }}/public/storage/product/{{ $product->product_image }}" class="deu-widauto img-fluid doc-img animate attachment-gallery-post-single wp-post-image" alt=""> 
                 @else
-                <img src="{{ url('/') }}/public/img/no-image.jpg" class="deu-widauto img-fluid doc-img animate attachment-gallery-post-single wp-post-image" alt=""> 
+                <img aos="zoom-in" aos-delay="300" src="{{ url('/') }}/public/img/no-image.jpg" class="deu-widauto img-fluid doc-img animate attachment-gallery-post-single wp-post-image" alt=""> 
                 @endif
               </div>
               <div class="deu-xraypad">

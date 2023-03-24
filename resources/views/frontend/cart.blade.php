@@ -58,13 +58,13 @@
           $subtotal += $total;
         @endphp
 					<div class="row m-1 pt-2 m-md-4 me-0">
-						<div class="col-md-4">
+						<div class="col-md-4" aos="fade-right">
               @if($cart->product_image != "")
                 <img class="img-fluid deu-cardimgs" src="{{ url('/') }}/public/storage/product/{{ $cart->product_image }}">
               @else
                 <img class="img-fluid deu-cardimgs" src="{{ url('/') }}/public/img/no-image.jpg">
               @endif
-              <div class="product-count mt-3 mb-3">
+              <div class="product-count mt-3 mb-3"  aos="fade-left">
                 <form action="#" class="d-flex justify-content-center align-items-center">
                   <div class="qtyminus" data-id="{{base64_encode($cart->ord_id)}}">-</div>
                   <input type="text" readonly id="{{base64_decode($cart->ord_id)}}" name="quantity" value="{{$cart->quantity}}" class="qty qty-{{base64_encode($cart->ord_id)}}">
@@ -72,7 +72,7 @@
                 </form>
               </div>
             </div>
-						<div class="col-6 col-md-5">
+						<div class="col-6 col-md-5"  aos="fade-left">
 							<h4 class="deu-cardsname mt-5">{{$cart->product_name}}</h4>
               @if($cart->discount_price != 0)
               <h4 class="deu-cardrs" style="display:inline-block;"><i class="fa fa-inr" aria-hidden="true"></i>{{ $cart->discount_price }}</h4>
@@ -110,7 +110,7 @@
         @endif
 			</div>
 		</div>
-    <div class="col-md-5">
+    <div class="col-md-5"  aos="fade-left">
       @if ($message = Session::get('success'))
         <div class="alert alert-success" role="alert">
           <span class="alert_icon lnr lnr-checkmark-circle"></span>

@@ -36,7 +36,7 @@
             <p class="deu-carthead">Enquired Products</p>
             @if(count($shop['product']) > 0)
             <div class="col-md-12">
-                <div class="row mt-4 g-5 px-5">
+                <div class="row mt-4 g-5 px-5" aos="fade-left">
                   @foreach($shop['product'] as $product) 
                     <div class="col-12 col-md-6 col-lg-3">
                         <div class="home-doctors  text-center doc-item">

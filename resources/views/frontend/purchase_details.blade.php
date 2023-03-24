@@ -41,7 +41,7 @@ $coupon_discount = 0;
 $new_price = 0;
 $shipping = 0;
 @endphp
-<div class="container-fluid mt-5 mb-5">
+<div class="container-fluid mt-5 mb-5" aos="fade-right">
   <div class="row">
     <div class="col-md-7">
       <div class="panel panel-info">
@@ -68,7 +68,7 @@ $shipping = 0;
 					<hr>
           @endif
 					<div class="row m-4">
-						<div class="col-md-3">
+						<div class="col-md-3" aos="fade-left">
               @if($product->product_image != '')
               <img class="img-fluid deu-orderheight" src="{{ url('/') }}/public/storage/product/{{ $product->product_image }}">
               @else
@@ -91,7 +91,7 @@ $shipping = 0;
 				</div>
 			</div>
 		</div>
-    <div class="col-md-5">
+    <div class="col-md-5" aos="fade-right">
       <p class="deu-carthead">Delivered Address</p>
       <div class="deu-deliver">
       <p class="deu-homes">HOME</p>
@@ -144,7 +144,7 @@ $shipping = 0;
 	</div>
 </div>
 
-<div class="container-fluid mb-5 mb-5">
+<div class="container-fluid mb-5 mb-5" aos="fade-left">
         <div class="col-md-12 deu-probar p-2">
             <div class="container me-0 pe-0">
                 <div class="">

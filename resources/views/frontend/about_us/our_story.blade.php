@@ -31,10 +31,10 @@
     <div class="container-fluid px-5 mt-4">
         <div class="row deu-padds align-items-center">
             <div class="col-md-6 col-sm-6 mb-5">
-                <p class="story-group"><span style="color: #3787C9;">Kanlife Group</span> - Enabling efficient
+                <p class="story-group" aos="fade-right"><span style="color: #3787C9;">Kanlife Group</span> - Enabling efficient
                     product distribution</p>
             </div>
-            <div class="col-md-6 col-sm-6 mb-5">
+            <div class="col-md-6 col-sm-6 mb-5" aos="fade-left">
                 <p class="story-txt">Over the years kanlife has become the partner of choice for medical equipment
                     manufacturers looking to introduce,
                     establish and grow heir business and channel partner networking India and South East Asia.</p>
@@ -47,14 +47,14 @@
     <div class="row deu-misionpads">
         <div class="container p-0 px-md-5">
             <div class="row py-3">
-                <p class="vision-head">Mission</p>
+                <p class="vision-head" aos="zoom-in">Mission</p>
             </div>
             <div class="row mb-5 align-items-center">
                 <div class="col-md-6 col-sm-6 pe-5">
-                <img class="img-fluid" src="{{ asset('public/image/mission.png') }}">
+                <img class="img-fluid" aos="fade-right" src="{{ asset('public/image/mission.png') }}">
                 </div>
                 <div class="col-md-6 col-sm-6 ps-5">
-                    <p class="vision-txt">Over the years kanlife has become the partner of choice for medical
+                    <p class="vision-txt" aos="fade-left">Over the years kanlife has become the partner of choice for medical
                         equipment manufacturers looking to introduce,
                         establish and grow heir business and channel partner networking India and South East Asia.
                     </p>
@@ -69,15 +69,15 @@
         <div class="container p-0 px-md-5 mt-5">
             <div class="row mb-5 align-items-center">
                 <div class="col-md-6 col-sm-6 pe-5">
-                    <p class="vision-head pb-5">Vision</p>
-                    <p class="vision-txt">Kanlife Group was conceptualized and founded in 2009 in Singapore as
+                    <p class="vision-head pb-5" aos="zoom-in">Vision</p>
+                    <p class="vision-txt" aos="fade-right">Kanlife Group was conceptualized and founded in 2009 in Singapore as
                         Kanlife Asia Pte. Ltd. with a vision to provide a
                         go-to- market platform to medical technology and healthcare companies from across the globe
                         that are looking to establish a presence or strengthen their distribution foothold in Asia.
                     </p>
                 </div>
                 <div class="col-md-6 col-sm-6 ps-5">
-                <img class="img-fluid" src="{{ asset('public/image/vision.png') }}">
+                <img class="img-fluid" aos="fade-left" src="{{ asset('public/image/vision.png') }}">
                 </div>
             </div>
         </div>
@@ -87,15 +87,15 @@
 <div class="container-fluid mt-5">
     <div class="row pt-5">
         <div class="col-md-12 position-relative">
-            <p class="deu-journey">Our Journey</p>
+            <p class="deu-journey" aos="zoom-in">Our Journey</p>
         </div>
         <div>
         <div class="container mt-5 mb-5">
 	<div class="row py-5">
 		<div class="col-md-12 offset-md-0">
             <div class="d-flex">
-                <img style="width:150px; margin-left:-40px; height: fit-content;" src="{{ asset('public/img/logo1.png') }}" alt="">
-                <div class="toptext">
+                <img aos="fade-up" style="width:150px; margin-left:-40px; height: fit-content;" src="{{ asset('public/img/logo1.png') }}" alt="">
+                <div aos="fade-left"class="toptext">
                 <h4>OUR JOURNEY</h4>
                 <h1>HOW IT ALL BEGAN</h1>
                 <h5>The Foundation of Kanlife</h5>
@@ -112,9 +112,9 @@
                     <div class="collapse multi-collapse show" id="multiCollapseExample1">
                     <div class="row">
                     <div class="col-md-5 text-end">
-                        <img  src="{{ asset('public/img/stock_ui.png') }}" alt="">
+                        <img aos="fade-up" src="{{ asset('public/img/stock_ui.png') }}" alt="">
                     </div>
-                    <div class="col-md-6 m-auto offset-md-0">
+                    <div class="col-md-6 m-auto offset-md-0" aos="fade-left">
                         <ul>
                             <li>  Established Kanlife Asia Pte Ltd. Singapore. Medical / Healthcare Import & Export</li>
                         </ul>    
@@ -123,18 +123,18 @@
 					  </div>
                 </li>
 				<li>
-					<a data-bs-toggle="collapse" class="design1"  href="#multiCollapseExample2" role="button" aria-expanded="false" aria-controls="multiCollapseExample2">2008</a>
+					<a data-bs-toggle="collapse"  class="design1"  href="#multiCollapseExample2" role="button" aria-expanded="false" aria-controls="multiCollapseExample2">2008</a>
                     <div class="collapse multi-collapse show" id="multiCollapseExample2">
                     <div class="row">
                    
-                    <div class="col-md-5 m-auto offset-md-2 order-2 order-md-1">
+                    <div class="col-md-5 m-auto offset-md-2 order-2 order-md-1" aos="fade-up">
                     <ul>
                         <li>  Established Direct Sales Team In Malaysia And Indonesia.
                   </li>
                     </ul>  
                     </div>
                     <div class="col-md-5 text-end  order-1 order-md-2">
-                        <img src="{{ asset('public/img/maskg.png') }}" alt="">
+                        <img  aos="fade-left" src="{{ asset('public/img/maskg.png') }}" alt="">
                     </div>
                    
                         </div>
@@ -145,9 +145,9 @@
                     <div class="collapse multi-collapse show" id="multiCollapseExample3">
                     <div class="row">
                     <div class="col-md-5 text-end">
-                        <img src="{{ asset('public/img/stock_ui.png') }}" alt="">
+                        <img aos="fade-up" src="{{ asset('public/img/stock_ui.png') }}" alt="">
                     </div>
-                    <div class="col-md-6 m-auto offset-md-0">
+                    <div class="col-md-6 m-auto offset-md-0" aos="fade-left">
                     <ul>
                         <li> Increased Channel Partner Base Toa Total Of 120 Across 9 Countries.
                   </li>
@@ -161,14 +161,14 @@
                     <div class="collapse multi-collapse show" id="multiCollapseExample4">
                     <div class="row">
                    
-                    <div class="col-md-6 m-auto offset-md-2 order-2 order-md-1">
+                    <div class="col-md-6 m-auto offset-md-2 order-2 order-md-1" aos="fade-up">
                     <ul>
                         <li> Established Kanlife India Pvt Ltd. Bangalore-India Import And Distribution.
                   </li>
                     </ul>
                     </div>
                     <div class="col-md-5 text-end order-1 order-md-2">
-                        <img src="{{ asset('public/img/maskg.png') }}" alt="">
+                        <img aos="fade-left" src="{{ asset('public/img/maskg.png') }}" alt="">
                     </div>
                         </div>
 					  </div>	
@@ -178,9 +178,9 @@
                     <div class="collapse multi-collapse show" id="multiCollapseExample5">
                     <div class="row">
                     <div class="col-md-5 text-end">
-                        <img src="{{ asset('public/img/stock_ui.png') }}" alt="">
+                        <img aos="fade-up" src="{{ asset('public/img/stock_ui.png') }}" alt="">
                     </div>
-                    <div class="col-md-6 m-auto offset-md-0">
+                    <div class="col-md-6 m-auto offset-md-0" aos="fade-left">
                     <ul>
                         <li> Gastroenterology / Mepatology Products Equipment Pan-India
                   </li>
@@ -197,7 +197,7 @@
                     <div class="collapse multi-collapse show" id="multiCollapseExample6">
                     <div class="row">
                    
-                    <div class="col-md-6 m-auto offset-md-0 order-2 order-md-1">
+                    <div class="col-md-6 m-auto offset-md-0 order-2 order-md-1" aos="fade-up">
                     <ul >
                         <li> Dental Xray Products Distribution Pan-India
                   </li>
@@ -206,7 +206,7 @@
                     </ul>
                     </div>
                     <div class="col-md-5 text-end order-1 order-md-2">
-                        <img src="{{ asset('public/img/maskg.png') }}" alt="">
+                        <img  aos="fade-left" src="{{ asset('public/img/maskg.png') }}" alt="">
                     </div>
                         </div>
 					  </div>	
@@ -216,9 +216,9 @@
                     <div class="collapse multi-collapse show" id="multiCollapseExample7">
                     <div class="row">
                     <div class="col-md-5 text-end">
-                        <img src="{{ asset('public/img/stock_ui.png') }}" alt="">
+                        <img aos="fade-up" src="{{ asset('public/img/stock_ui.png') }}" alt="">
                     </div>
-                    <div class="col-md-6 m-auto offset-md-0">
+                    <div class="col-md-6 m-auto offset-md-0" aos="fade-left">
                     <ul >
                         <li> Kanlife Kolkata And Mumbai Branches </li>
                     </ul>
@@ -240,36 +240,36 @@
 @include('frontend.sections.ceo_desk')
 
 <div class="container-fluid swipe-bgs">  
-  <p class="deu-life">Life @</p> 
-  <p class="deu-life1">Kanlife Group</p> 
+  <p class="deu-life" aos="fade-right">Life @</p> 
+  <p class="deu-life1" aos="fade-left">Kanlife Group</p> 
   <div class="swiper-container deu-lifeposi">
     <div class="swiper-wrapper">
-      <div class="swiper-slide">
+      <div class="swiper-slide" aos="fade-left">
         <img class="img-fluid" src="{{ asset('public/image/life.png') }}">
         <p class="text-left swipe-txts">Be part of global Events</p>
         <p class="text-left swipe-txts1">Get exposure to global trend event with us</p>
       </div>
-      <div class="swiper-slide">
+      <div class="swiper-slide" aos="fade-right">
         <img class="img-fluid" src="{{ asset('public/image/life.png') }}">
         <p class="text-left swipe-txts">Be part of global Events</p>
         <p class="text-left swipe-txts1">Get exposure to global trend event with us</p>
       </div>
-      <div class="swiper-slide">
+      <div class="swiper-slide" aos="fade-left">
         <img class="img-fluid" src="{{ asset('public/image/life.png') }}">
         <p class="text-left swipe-txts">Be part of global Events</p>
         <p class="text-left swipe-txts1">Get exposure to global trend event with us</p>
       </div>
-      <div class="swiper-slide">
+      <div class="swiper-slide" aos="fade-right">
         <img class="img-fluid" src="{{ asset('public/image/life.png') }}">
         <p class="text-left swipe-txts">Be part of global Events</p>
         <p class="text-left swipe-txts1">Get exposure to global trend event with us</p>
       </div>
-      <div class="swiper-slide">
+      <div class="swiper-slide" aos="fade-left">
         <img class="img-fluid" src="{{ asset('public/image/life.png') }}">
         <p class="text-left swipe-txts">Be part of global Events</p>
         <p class="text-left swipe-txts1">Get exposure to global trend event with us</p>
       </div>
-      <div class="swiper-slide">
+      <div class="swiper-slide" aos="fade-right">
         <img class="img-fluid" src="{{ asset('public/image/life.png') }}">
         <p class="text-left swipe-txts">Be part of global Events</p>
         <p class="text-left swipe-txts1">Get exposure to global trend event with us</p>
@@ -297,6 +297,29 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/js/swiper.min.js"></script>
 <script>
+    $(document).ready(function () {
+      var silder = $("#owl-carousel");
+      silder.owlCarousel({
+        autoplay: true,
+        autoplayTimeout: 2000,
+        autoplayHoverPause: false,
+        items: 1,
+        stagePadding: 20,
+        center: true,
+        nav: false,
+        margin: 30,
+        dots: true,
+        loop: true,
+        responsive: {
+          0: { items: 1 },
+          480: { items: 2 },
+          575: { items: 2 },
+          768: { items: 3 },
+          991: { items: 4 },
+          1200: { items: 5 }
+        }
+      });
+    });
 $(document).ready(function() {
 // Swiper: Slider
     new Swiper('.swiper-container', {

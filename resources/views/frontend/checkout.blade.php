@@ -55,7 +55,7 @@
   <div class="row">
     <div class="col-md-12">
       <p class="deu-carthead">Billing Details</p>
-      <div class="col-md-12 deu-personalline">
+      <div class="col-md-12 deu-personalline" aos="fade-left">
         <div class="col-12">
           <p class="deu-personalhead mt-3">Personal Information</p>
         </div>
@@ -133,7 +133,7 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-md-7">
+    <div class="col-md-7" aos="fade-right">
       <p class="deu-carthead">Payment Method</p>
       <div class="table-responsive deu-method">
         <table class="table">
@@ -186,7 +186,7 @@
       <p class="deu-personal">Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our privacy policy.</p>
       <button type="submit" onclick="return enable_button();" class="round-btns place_order">Place Order</a>
     </div>
-    <div class="col-md-5">
+    <div class="col-md-5" aos="fade-left">
       <p class="deu-carthead">Cart Details</p>
       <table class="table table-borderless">
         <tr class="deu-cartsbg">

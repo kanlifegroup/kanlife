@@ -49,17 +49,17 @@
   </div>
   <div class="row g-5">
     <div class="col-md-4">
-      <div id="slider" class="owl-carousel product-slider">
-        <div class="item">
+      <div id="slider" class="owl-carousel product-slider" >
+        <div class="item" aos="fade-right">
           <img class="img-fluid deu-detailheight" src="{{ url('/') }}/public/storage/product/{{ $shop->product_image }}" />
         </div>
         @foreach($shop->productimages as $images)
-          <div class="item">
+          <div class="item" aos="fade-right">
             <img class="img-fluid deu-detailheight" src="{{ url('/') }}/public/storage/product/{{ $images->product_image }}" />
           </div>
         @endforeach
       </div>
-      <div id="thumb" class="owl-carousel product-thumb">
+      <div id="thumb" class="owl-carousel product-thumb" aos="fade-left">
         <div class="item">
           <img class="img-fluid deu-detailslider" src="{{ url('/') }}/public/storage/product/{{ $shop->product_image }}" />
         </div>
@@ -73,8 +73,8 @@
     <div class="col">
       <div class="product-dtl pt-2">
           <div class="product-info mb-3">
-              <div class="product-name">{{$shop->product_name}}</div>
-              <div class="product-price-discount">
+              <div class="product-name" aos="fade-left">{{$shop->product_name}}</div>
+              <div class="product-price-discount" aos="fade-left">
                 @if($shop->product_price != 0)
                   @if($shop->product_offer_price != 0)
                   <span><i class="fa fa-inr" aria-hidden="true"></i> {{$shop->product_offer_price}}</span>
@@ -85,52 +85,52 @@
                 @endif
               </div>
           </div>
-          <p class="d-flex align-items-center" style="color:#3188CA;"><img class="deu-fealine" src="{{asset('public/image/line.svg')}}"> &nbsp;&nbsp;&nbsp;
+          <p class="d-flex align-items-center" aos="fade-left" style="color:#3188CA;"><img class="deu-fealine" src="{{asset('public/image/line.svg')}}"> &nbsp;&nbsp;&nbsp;
               <span class="deu-filter">Features</span>
           </p>
-          <ul class="deu-proul">
-              <li class="deu-margbtm row g-0"><i class="fa pt-2 col-auto fa-circle deu-profa" aria-hidden="true"></i>
+          <ul class="deu-proul" >
+              <li class="deu-margbtm row g-0" aos="fade-left"><i class="fa pt-2 col-auto fa-circle deu-profa" aria-hidden="true"></i>
                   <span class="col">200 kHz, 4 kW,
                   100mA Mobile HF X-Ray
                   </span>
               </li>
-              <li class="deu-margbtm row g-0"><i class="fa pt-2 col-auto fa-circle deu-profa" aria-hidden="true"></i>
+              <li class="deu-margbtm row g-0" aos="fade-left"><i class="fa pt-2 col-auto fa-circle deu-profa" aria-hidden="true"></i>
                   <span class="col">Draws clean
                   power from mains
                   </span>
               </li>
-              <li class="deu-margbtm row g-0"><i class="fa pt-2 col-auto fa-circle deu-profa" aria-hidden="true"></i>
+              <li class="deu-margbtm row g-0" aos="fade-left"><i class="fa pt-2 col-auto fa-circle deu-profa" aria-hidden="true"></i>
                   <span class="col">Negligible
                   leakage radiation
                   </span>
               </li>
-              <li class="deu-margbtm row g-0"><i class="fa pt-2 col-auto fa-circle deu-profa" aria-hidden="true"></i>
+              <li class="deu-margbtm row g-0" aos="fade-left"><i class="fa pt-2 col-auto fa-circle deu-profa" aria-hidden="true"></i>
                   <span class="col">Easy to move
                   (85 kg) 
                   </span>
               </li>
-              <li class="deu-margbtm row g-0"><i class="fa pt-2 col-auto fa-circle deu-profa" aria-hidden="true"></i>
+              <li class="deu-margbtm row g-0" aos="fade-left"><i class="fa pt-2 col-auto fa-circle deu-profa" aria-hidden="true"></i>
                   <span class="col">90° collimator
                   rotation
                   </span>
               </li>
-              <li class="deu-margbtm row g-0"><i class="fa pt-2 col-auto fa-circle deu-profa" aria-hidden="true"></i>
+              <li class="deu-margbtm row g-0" aos="fade-left"><i class="fa pt-2 col-auto fa-circle deu-profa" aria-hidden="true"></i>
                   <span class="col">Tube-head
                   rotation
                   </span>
               </li>
-              <li class="deu-margbtm row g-0"><i class="fa pt-2 col-auto fa-circle deu-profa" aria-hidden="true"></i>
+              <li class="deu-margbtm row g-0" aos="fade-left"><i class="fa pt-2 col-auto fa-circle deu-profa" aria-hidden="true"></i>
                   <span class="col">Light field
                   intensity min 160 Lux @ 1m
                   </span>
               </li>
-              <li class="deu-margbtm row g-0"><i class="fa pt-2 col-auto fa-circle deu-profa" aria-hidden="true"></i>
+              <li class="deu-margbtm row g-0" aos="fade-left"><i class="fa pt-2 col-auto fa-circle deu-profa" aria-hidden="true"></i>
                   <span class="col">Suitable for
                   NICU, ICU, Trauma & Ortho
                   </span>
               </li>
           </ul>
-          <div class="product-count mt-3 mb-3">
+          <div class="product-count mt-3 mb-3" aos="fade-left">
             <form action="#" class="d-flex align-items-center">
               @if(isset($cart['qty']) && $cart['qty'] > 0)
                 <div class="product-count mt-3 mb-3 d-flex">
@@ -169,21 +169,21 @@
     </div>
     <div class="col-auto">
       <div class="deu-proright mt-4">
-        <p class="" style="color:#3188CA;"> <img class="deu-fealine" src="{{asset('public/image/line.svg')}}">
+        <p class="" style="color:#3188CA;" aos="fade-left"> <img class="deu-fealine" src="{{asset('public/image/line.svg')}}">
           &nbsp;&nbsp;&nbsp;
-          <span class="deu-filter">Product Links</span>
+          <span class="deu-filter" >Product Links</span>
         </p>
         <ul class="deu-proul">
-          <li><i class="fa fa-circle deu-profa" aria-hidden="true"></i> X-Ray System</li>
-          <li><i class="fa fa-circle deu-profa" aria-hidden="true"></i> Surgical C-Arm</li>
-          <li><i class="fa fa-circle deu-profa" aria-hidden="true"></i> Ventilators</li>
-          <li><i class="fa fa-circle deu-profa" aria-hidden="true"></i> Patient Monitoring Systems</li>
-          <li><i class="fa fa-circle deu-profa" aria-hidden="true"></i> Defibrillator</li>
-          <li><i class="fa fa-circle deu-profa" aria-hidden="true"></i> ECG</li>
-          <li><i class="fa fa-circle deu-profa" aria-hidden="true"></i> Syringe and infusion Pump</li>
-          <li><i class="fa fa-circle deu-profa" aria-hidden="true"></i> Electrosurgical Units</li>
-          <li><i class="fa fa-circle deu-profa" aria-hidden="true"></i> Dental Products</li>
-          <li><i class="fa fa-circle deu-profa" aria-hidden="true"></i> Anesthesia Delivery Systems</li>
+          <li aos="fade-left"><i class="fa fa-circle deu-profa" aria-hidden="true"></i> X-Ray System</li>
+          <li aos="fade-left"><i class="fa fa-circle deu-profa" aria-hidden="true"></i> Surgical C-Arm</li>
+          <li aos="fade-left"><i class="fa fa-circle deu-profa" aria-hidden="true"></i> Ventilators</li>
+          <li aos="fade-left"><i class="fa fa-circle deu-profa" aria-hidden="true"></i> Patient Monitoring Systems</li>
+          <li aos="fade-left"><i class="fa fa-circle deu-profa" aria-hidden="true"></i> Defibrillator</li>
+          <li aos="fade-left"><i class="fa fa-circle deu-profa" aria-hidden="true"></i> ECG</li>
+          <li aos="fade-left"><i class="fa fa-circle deu-profa" aria-hidden="true"></i> Syringe and infusion Pump</li>
+          <li aos="fade-left"><i class="fa fa-circle deu-profa" aria-hidden="true"></i> Electrosurgical Units</li>
+          <li aos="fade-left"><i class="fa fa-circle deu-profa" aria-hidden="true"></i> Dental Products</li>
+          <li aos="fade-left"><i class="fa fa-circle deu-profa" aria-hidden="true"></i> Anesthesia Delivery Systems</li>
         </ul>
       </div>
     </div>

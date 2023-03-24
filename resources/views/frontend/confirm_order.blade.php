@@ -29,7 +29,7 @@
   <div class="row">
     <div class="col-4 d-none d-md-block">
     </div>
-    <div class="col-12 col-md-4" style="text-align:center;">
+    <div class="col-12 col-md-4" style="text-align:center;" aos="zoom-in">
       <p class="deu-carthead">Order Total</p>
       <table class="table table-borderless">
         <tr class="deu-cartsbgs1">
@@ -40,7 +40,7 @@
     </div>
   </div>
       <div class="row">
-        <div class="col-md-12 mt-1 mb-1 pt-1 pb-1" align="center">
+        <div class="col-md-12 mt-1 mb-1 pt-1 pb-1" align="center" aos="fade-left">
           <div class="mt-4 mb-4">
             <div class="d-flex justify-content-center">
               @if($payment_method=="cash-on-delivery")

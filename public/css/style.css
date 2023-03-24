@@ -38,7 +38,7 @@ html {
   }
 
   .product-name {
-    font-size: 2.4rem !important;
+    font-size: 2.2rem !important;
     color: #000000;
     text-align: left;
     line-height: 35px !important;
@@ -620,7 +620,7 @@ body {
 }
 
 .dsd {
-  font-size: 1.875rem;
+  font-size: 1.7rem;
   color: #9D9D9D;
 }
 
@@ -851,7 +851,7 @@ body {
   }
 
   .banerw {
-    height: 40vh;
+    height: 45vh;
   }
 
   .deu-slidehead {
@@ -1284,7 +1284,7 @@ body {
 .deu-meethead {
   color: #FFFFFF;
   font-family: 'Josefin Sans', sans-serif;
-  font-size: 4.75rem;
+  font-size: 4rem;
   font-weight: 600;
   padding: 20px;
 }
@@ -1429,8 +1429,8 @@ body {
 .story-txt {
   color: #9D9D9D;
   font-family: 'Nunito', sans-serif;
-  font-size: 2.23rem;
-  font-weight: 700;
+  font-size: 2rem;
+  font-weight: 500;
 }
 
 .story-group {
@@ -1444,7 +1444,7 @@ body {
 .vision-txt {
   color: #9D9D9D;
   font-family: 'Nunito', sans-serif;
-  font-size: 2.25rem;
+  font-size: 2rem;
   font-weight: 600;
 }
 
@@ -1839,7 +1839,7 @@ body {
   padding: 0px 3px;
   list-style-type: none;
   font-family: 'Nunito', sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: 600;
   color: #707070;
 }
@@ -1854,7 +1854,7 @@ body {
 }
 
 .deu-margbtm {
-  font-size: 1.625rem;
+  font-size: 1.4rem;
   margin-bottom: 10px;
 }
 .deu-marg{
@@ -1880,14 +1880,14 @@ body {
 .deu-cardremove {
   color: #3787C9;
   font-family: 'Nunito', sans-serif;
-  font-size: 2rem;
+  font-size: 1.2rem;
   font-weight: 600;
 }
 
 .deu-cardsname {
   color: #000000;
   font-family: 'Nunito', sans-serif;
-  font-size: 2.25rem;
+  font-size: 2rem;
   font-weight: 700;
 }
 
@@ -1900,7 +1900,7 @@ body {
 
 .deu-carthead {
   color: #000000;
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: 700;
   font-family: 'Josefin Sans', sans-serif;
 }

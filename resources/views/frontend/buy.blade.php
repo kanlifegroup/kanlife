@@ -5,6 +5,7 @@
 @endsection
 
 @section('style')
+
   <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/7.3.1/swiper-bundle.min.css">
@@ -32,6 +33,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&family=Montserrat:wght@500&family=Nunito:wght@500;600;700;900&family=Roboto:wght@500&display=swap"
         rel="stylesheet">
+        
 @endsection
 
 @section('content')
@@ -50,17 +52,17 @@
         <img src="{{ url('/') }}/public/storage/slideshow/{{ $slide->slide_image }}" class="d-block w-100 banerw"  alt="...">
         <div class="carousel-caption deu-slidepad text-left">
           <div class="col-12">
-            <h1 class="deu-slidehead text-start pb-4">Kanlife Group </h1>
+            <h1 class="deu-slidehead text-start pb-4" aos="zoom-in">Kanlife Group </h1>
             <div class="d-flex flex-column flex-md-row flex-wrap gap-1 gap-md-5 ms-3">
-              <div class="d-flex">
+              <div class="d-flex" aos="fade-down">
                 <img class="img-fluid deu-healthimg" src="{{ asset('public/image/s1.png') }}">
                 <p class="deu-health">Health</p>
               </div>
-              <div class="d-flex">
+              <div class="d-flex" aos="fade-down"  aos-delay="400">
                 <img class="img-fluid deu-healthimg" src="{{ asset('public/image/s2.png') }}">
                 <p class="deu-health">Medical</p>
               </div>
-              <div class="d-flex">
+              <div class="d-flex" aos="fade-down"  aos-delay="800">
                 <img class="img-fluid deu-healthimg" src="{{ asset('public/image/s3.png') }}">
                 <p class="deu-health">Wellness</p>
               </div>
@@ -80,7 +82,7 @@
             <div class="deu-lifeposi storycat p-5 mt-5">
                 <div class="col-12 swiper-container">
                     <div class="swiper-wrapper position-relative py-4">
-                        <div class="swiper-slide shadow shadow-md">
+                        <div class="swiper-slide shadow shadow-md" aos="fade-right">
                             <div class="img-box">
                                 <img src="{{ asset('public/image/c1.png') }}" class="img-fluid deu-slideimg" alt="">
                             </div>
@@ -88,7 +90,7 @@
                                 <div>Anaesthesia</div>
                             </div>
                         </div>
-                        <div class="swiper-slide shadow shadow-md">
+                        <div class="swiper-slide shadow shadow-md" aos="fade-up" aos-delay="300">
                             <div class="img-box">
                                 <img src="{{ asset('public/image/c1.png') }}" class="img-fluid deu-slideimg" alt="">
                             </div>
@@ -96,7 +98,7 @@
                                 <div>Anaesthesia</div>
                             </div>
                         </div>
-                        <div class="swiper-slide shadow shadow-md">
+                        <div class="swiper-slide shadow shadow-md"aos="fade-down" aos-delay="600">
                             <div class="img-box">
                                 <img src="{{ asset('public/image/c1.png') }}" class="img-fluid deu-slideimg" alt="">
                             </div>
@@ -104,7 +106,7 @@
                                 <div>Anaesthesia</div>
                             </div>
                         </div>
-                        <div class="swiper-slide shadow shadow-md">
+                        <div class="swiper-slide shadow shadow-md" aos="fade-left" aos-delay="900">
                             <div class="img-box">
                                 <img src="{{ asset('public/image/c1.png') }}" class="img-fluid deu-slideimg" alt="">
                             </div>
@@ -112,7 +114,7 @@
                                 <div>Anaesthesia</div>
                             </div>
                         </div>
-                        <div class="swiper-slide shadow shadow-md">
+                        <div class="swiper-slide shadow shadow-md" aos="fade-left" aos-delay="900">
                             <div class="img-box">
                                 <img src="{{ asset('public/image/c1.png') }}" class="img-fluid deu-slideimg" alt="">
                             </div>
@@ -120,7 +122,7 @@
                                 <div>Anaesthesia</div>
                             </div>
                         </div>
-                        <div class="swiper-slide shadow shadow-md">
+                        <div class="swiper-slide shadow shadow-md" aos="fade-left" aos-delay="900">
                             <div class="img-box">
                                 <img src="{{ asset('public/image/c1.png') }}" class="img-fluid deu-slideimg" alt="">
                             </div>
@@ -141,10 +143,10 @@
     </div>
 </div>
 
-<div class="us-section">
+<div class="us-section" >
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-12" >
                 <img class="img-fluid" src="{{ asset('public/image/video.png') }}" style="width: 100%;">
             </div>
         </div>
@@ -158,7 +160,7 @@
             <div class="deu-lifeposi storycat p-5 mt-5">
                 <div class="col-12 swiper-container px-3">
                     <div class="swiper-wrapper position-relative py-4">
-                        <div class="swiper-slide shadow shadow-md">
+                        <div class="swiper-slide shadow shadow-md" aos="fade-right" >
                             <div class="home-doctors  text-center doc-item">
                                 <div class="common-doctor animated fadeInUp clearfix ae-animation-fadeInUp deu-features position-relative">
                                     <div class="position-absolute px-3 py-1 mt-2 end-0 me-2 deu-new">New</div>
@@ -188,7 +190,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="swiper-slide shadow shadow-md">
+                        <div class="swiper-slide shadow shadow-md" aos="fade-up" aos-dlay="200">
                             <div class="home-doctors  text-center doc-item">
                                 <div
                                     class="common-doctor animated fadeInUp clearfix ae-animation-fadeInUp deu-features">
@@ -215,7 +217,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="swiper-slide shadow shadow-md">
+                        <div class="swiper-slide shadow shadow-md"  aos="fade-up" aos-dlay="400">
                             <div class="home-doctors  text-center doc-item">
                                 <div
                                     class="common-doctor animated fadeInUp clearfix ae-animation-fadeInUp deu-features">
@@ -241,7 +243,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="swiper-slide shadow shadow-md">
+                        <div class="swiper-slide shadow shadow-md" aos="fade-left">
                             <div class="home-doctors  text-center doc-item">
                                 <div
                                     class="common-doctor animated fadeInUp clearfix ae-animation-fadeInUp deu-features">
@@ -267,7 +269,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="swiper-slide shadow shadow-md">
+                        <div class="swiper-slide shadow shadow-md" aos="fade-left">
                             <div class="home-doctors  text-center doc-item">
                                 <div
                                     class="common-doctor animated fadeInUp clearfix ae-animation-fadeInUp deu-features">
@@ -293,7 +295,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="swiper-slide shadow shadow-md">
+                        <div class="swiper-slide shadow shadow-md" aos="fade-right">
                             <div class="home-doctors  text-center doc-item">
                                 <div
                                     class="common-doctor animated fadeInUp clearfix ae-animation-fadeInUp deu-features">
@@ -336,9 +338,9 @@
     <div class="container-fluid px-5">
         <h3 class="text-center deu-bloghead my-5">Best Selling Products</h3>
         <div class="row mb-4">
-            <div class="col-lg-4 col-md-4 col-sm-6">
+            <div class="col-lg-4 col-md-4 col-sm-6" aos="fade-right">
                 <div class="deu-sellbg">
-                    <div class="row align-items-center">
+                    <div class="row align-items-center" >
                         <div class="col-lg-5 col-md-5 rideone">
                             <img class="img-fluid deu-sellwiD" src="{{ asset('public/image/p1.png') }}">
                         </div>
@@ -351,7 +353,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-6">
+            <div class="col-lg-4 col-md-4 col-sm-6"  aos="fade-up" aos-dlay="200">
                 <div class="deu-sellbg">
                     <div class="row align-items-center">
                         <div class="col-lg-5 col-md-5 rideone">
@@ -366,7 +368,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-6">
+            <div class="col-lg-4 col-md-4 col-sm-6" aos="fade-down" aos-dlay="400">
                 <div class="deu-sellbg">
                     <div class="row align-items-center">
                         <div class="col-lg-5 col-md-5 rideone">
@@ -383,7 +385,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-4 col-md-4 col-sm-6">
+            <div class="col-lg-4 col-md-4 col-sm-6" aos="fade-up" aos-dlay="600">
                 <div class="deu-sellbg">
                     <div class="row">
                         <div class="col-lg-5 col-md-5 rideone">
@@ -398,7 +400,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-6">
+            <div class="col-lg-4 col-md-4 col-sm-6" aos="fade-down" aos-dlay="200">
                 <div class="deu-sellbg">
                     <div class="row">
                         <div class="col-lg-5 col-md-5 rideone">
@@ -413,7 +415,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-6">
+            <div class="col-lg-4 col-md-4 col-sm-6" aos="fade-left" aos-dlay="800">
                 <div class="deu-sellbg">
                     <div class="row">
                         <div class="col-lg-5 col-md-5 rideone">
@@ -438,16 +440,24 @@
 @endsection
 
 @section('script')
+
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
     integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
     crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
     integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
     crossorigin="anonymous"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.js"></script>
+ 
+
     <script>
+    
+
         $(document).ready(function () {
             var silder = $(".owl-carousel");
             silder.owlCarousel({
@@ -481,7 +491,7 @@
         });
     </script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/js/swiper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.6/js/swiper.js"></script>
     <script>
         $(document).ready(function () {
             // Swiper: Slider
@@ -508,5 +518,6 @@
                 }
             });
         });
+      
     </script>
 @endsection

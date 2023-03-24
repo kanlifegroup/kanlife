@@ -38,7 +38,7 @@
             <div class="col-md-12">
                 <div class="row mt-4 g-5 px-5">
                   @foreach($shop['product'] as $product) 
-                    <div class="col-12 col-md-6 col-lg-3">
+                    <div class="col-12 col-md-6 col-lg-3" aos="fade-left">
                         <div class="home-doctors  text-center doc-item">
                             <div
                                 class="common-doctor animated fadeInUp clearfix ae-animation-fadeInUp deu-features">

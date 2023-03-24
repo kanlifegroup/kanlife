@@ -401,7 +401,7 @@
         stagePadding: 20,
         center: true,
         nav: false,
-        margin: 30,
+        margin: 20,
         dots: true,
         loop: true,
         responsive: {

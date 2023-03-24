@@ -58,7 +58,7 @@
           {{ csrf_field() }}
           <div class="col-md-12 deu-personalline px-4">
               <div class="row col-12 mt-4">
-                  <div class="col-md-6">
+                  <div class="col-md-6" aos="fade-right">
                       <label class="deu-contactadress">Name</label>
                       <input type="text" placeholder="Name" id="name" name="name" value="{{ old('name') ?? $edit['profile']->name }}" required class="form-control deu-checkinput @error('name') is-invalid @enderror">
                       @error('name')
@@ -67,7 +67,7 @@
                         </span>
                       @enderror
                   </div>
-                  <div class="col-md-6 position-relative">
+                  <div class="col-md-6 position-relative" aos="fade-left">
                       <label class="deu-contactadress">Password</label>
                       <input type="password" placeholder="Password" id="password" name="password" class="form-control deu-checkinput @error('password') is-invalid @enderror" onkeypress="return /^([0-9a-zA-Z!@#$%^&*(\).,<>{}[\]<>?_=+\-|;:\'\/\s])*[^\s]\1*$/.test(event.key)">
                       <span class="seepassword1" style="display:none" onclick="hide_password(this)"><i class="fa fa-eye"></i></span>
@@ -80,7 +80,7 @@
                   </div>
               </div>
               <div class="row col-12">
-                  <div class="col-md-6">
+                  <div class="col-md-6" aos="fade-right">
                       <label class="deu-contactadress">Email Id</label>
                       <input type="email" placeholder="Email Id" id="email" name="email" value="{{ old('email') ?? $edit['profile']->email }}" required class="form-control deu-checkinput @error('email') is-invalid @enderror">
             @error('email')
@@ -89,7 +89,7 @@
               </span>
             @enderror
                   </div>
-                  <div class="col-md-6 position-relative">
+                  <div class="col-md-6 position-relative" aos="fade-left">
                       <label class="deu-contactadress">Confirm Password</label>
                       <input type="password" placeholder="Confirm Password" id="password_confirmation" name="password_confirmation" class="form-control deu-checkinput @error('password_confirmation') is-invalid @enderror" onkeypress="return /^([0-9a-zA-Z!@#$%^&*(\).,<>{}[\]<>?_=+\-|;:\'\/\s])*[^\s]\1*$/.test(event.key)">
                       <span class="seepassword1" style="display:none;" onclick="hide_password(this)"><i class="fa fa-eye"></i></span>
@@ -102,7 +102,7 @@
                   </div>
               </div>
               <div class="row col-12">
-                  <div class="col-md-6">
+                  <div class="col-md-6" aos="fade-right">
                       <label class="deu-contactadress">Phone Number</label>
                       <input type="number" placeholder="Phone Number" id="user_phone" name="user_phone" value="{{ old('user_phone') ?? $edit['profile']->user_phone }}" required class="form-control deu-checkinput @error('user_phone') is-invalid @enderror" onkeypress="return /^[0-9\s]*$/.test(event.key)">
             @error('user_phone')
@@ -113,7 +113,7 @@
                   </div>
               </div>
               <input type="hidden" name="edit_id" value="{{ $edit['profile']->user_token }}">
-              <div class="text-center">
+              <div class="text-center" aos="fade-left">
                   <button type="submit" class="deu-editbtn px-5">Edit Profile</button>
               </div>
           </div>
