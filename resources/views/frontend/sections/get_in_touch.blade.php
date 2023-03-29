@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-md-5 col-sm-6">
                 <div class="about-img" aos="fade-right">
-                    <img class="img-fluid mt-2 deu-marg" src="{{ asset('image/touch.png') }}" alt="">
+                    <img class="img-fluid mt-2 deu-marg" src="{{ asset('public/image/touch.png') }}" alt="">
                 </div>
             </div>
             <div class="col-md-7 col-sm-6">

@@ -164,7 +164,7 @@
                 <div class="project m-0">
                   <figure class="portfolio-item">
                     <div class="hovereffect">
-                      <img class="img-responsive" src="{{ asset('image/fathima.jfif') }}" alt="">
+                      <img class="img-responsive" src="{{ asset('public/image/Fathima.jfif') }}" alt="">
                     </div>
                   </figure>
                 </div>
@@ -185,7 +185,7 @@
                 <div class="project m-0">
                   <figure class="portfolio-item">
                     <div class="hovereffect">
-                      <img class="img-responsive" src="{{ asset('image/jamila.jfif') }}" alt="">
+                      <img class="img-responsive" src="{{ asset('public/image/jamila.jfif') }}" alt="">
                     </div>
                   </figure>
                 </div>
@@ -206,7 +206,7 @@
                 <div class="project m-0">
                   <figure class="portfolio-item">
                     <div class="hovereffect">
-                      <img class="img-responsive" src="{{ asset('image/Murtaza Tambawala.png') }}" alt="">
+                      <img class="img-responsive" src="{{ asset('public/image/Murtaza Tambawala.png') }}" alt="">
                     </div>
                   </figure>
                 </div>
@@ -227,7 +227,7 @@
                 <div class="project m-0">
                   <figure class="portfolio-item">
                     <div class="hovereffect">
-                      <img class="img-responsive" src="{{ asset('image/Khuzema Tambawala.png') }}" alt="">
+                      <img class="img-responsive" src="{{ asset('public/image/Khuzema Tambawala.png') }}" alt="">
                     </div>
                   </figure>
                 </div>
