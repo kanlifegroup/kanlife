@@ -139,7 +139,7 @@
         </div>
     </div>
 </div>
-
+@if(array_intersect([$user_location],['india']))
 <div class="container">
     <h3 class="text-center mt-5 mb-5 deu-bloghead" aos="zoom-in">Our Branch in India</h3>
 </div>
@@ -200,12 +200,14 @@
         </div>
     </div>
 </div>
+@endif
 @include('frontend.sections.get_in_touch')
 
 @endsection
 
 @section('script')
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
         integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
         crossorigin="anonymous"></script>

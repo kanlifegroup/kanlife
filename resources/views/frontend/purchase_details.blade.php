@@ -74,17 +74,18 @@ $shipping = 0;
               @else
               <img class="img-fluid deu-orderheight" src="{{ url('/') }}/public/img/no-image.jpg">
               @endif
-              <div class="product-count mt-3 mb-3">
+              <!-- <div class="product-count mt-3 mb-3">
               <form action="#" class="display-flex" style="justify-content:center">
                 <div class="qtyminus">-</div>
                 <input disabled type="text" name="quantity" value="{{ $product->quantity }}" class="qty">
                 <div class="qtyplus">+</div>
-                </form>
-              </div>
+              </form>
+              </div> -->
             </div>
 						<div class="col-md-6">
 							<h4 class="deu-cardsname mt-5">{{ $product->product_name }}</h4>
               <h4 class="deu-cardrs"><i class="fa fa-inr" aria-hidden="true"></i> {{ $product->discount_price !=0 ? $product->discount_price : $product->price }}</h4>
+              <h4 class="deu-cardrs">Quantity: {{ $product->quantity }}</h4>
 						</div>
 					</div>
           @endforeach
