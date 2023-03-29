@@ -307,6 +307,16 @@ class Blog extends Model
 	
   }  
 
+  public static function getLatestPostData($translate, $take=5, $id=0)
+  {
+    if($id == 0)
+    $value=DB::table('post')->select('post.*')->join('blog_category','blog_category.blog_cat_id','post.blog_cat_id')->where('blog_category.drop_status','=','no')->where('blog_category.blog_category_status','=',1)->where('post.post_status','=',1)->where('post.language_code','=',$translate)->orderBy('post.post_id', 'desc')->paginate(5); 
+    else
+    $value=DB::table('post')->select('post.*')->join('blog_category','blog_category.blog_cat_id','post.blog_cat_id')->where('blog_category.drop_status','=','no')->where('blog_category.blog_category_status','=',1)->where('blog_category.blog_cat_id','=',$id)->where('post.post_status','=',1)->where('post.language_code','=',$translate)->orderBy('post.post_id', 'desc')->paginate(5); 
+    return $value;
+	
+  }  
+
   public static function getPostCount($translate)
   {
 

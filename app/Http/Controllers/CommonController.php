@@ -279,7 +279,7 @@ class CommonController extends Controller
     $translate = $this->lang_text();
     $category_id = $request->category_id ?? 0;
     $take = $request->limit ?? 10;
-    $blogPost['latest'] = Blog::getlatestData($translate, $take, $category_id);
+    $blogPost['latest'] = Blog::getLatestPostData($translate, $take, $category_id);
     $blogPost['categories'] = Blog::getblogcategoryData([1]);
     $postCount = Blog::getPostCount($translate);
     $more_post = false;

@@ -101,11 +101,37 @@
     </div>
 </div>
 @endforelse
+
+<div class="container text-center">
+<div class="pagination_rounded mt-3 mb-5">
+    <ul>
+      @if($blogPost['latest']->currentPage()!=1)
+      <li>
+        <a href="{{$blogPost['latest']->path().'?page='.($blogPost['latest']->currentPage()-1).'&category_id='.request('category_id')}}" class="prev"> Previous</a>
+      </li>
+      @endif
+      @if($blogPost['latest']->lastPage() > 1)
+      @for($i=1; $i <= $blogPost['latest']->lastPage(); $i++)
+      <li>
+        <a @if($i == $blogPost['latest']->currentPage()) class="active" style="pointer-events: none;color:blue !important;" @endif href="{{$blogPost['latest']->path().'?page='.$i.'&category_id='.request('category_id')}}">{{$i}}</a>
+      </li>
+      @endfor
+      @endif
+      @if($blogPost['latest']->currentPage()!=$blogPost['latest']->lastPage())
+      <li>
+        <a href="{{$blogPost['latest']->path().'?page='.($blogPost['latest']->currentPage()+1).'&category_id='.request('category_id')}}" class="next"> Next</a>
+      </li>
+      @endif
+    </ul>
+</div>
+</div>
+{{--
 @if($more_post)
   <div class="text-center mt-3 mb-5">
       <a href="{{ route('about.blog').'?limit='.$limit.'category_id='.$category_id.'#'.$post->post_id }}" class="btn text-light btn-primary py-3 btn-lg px-5 rounded-0">View More</a>
   </div>
 @endif
+--}}
 
 @endsection
 
