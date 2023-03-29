@@ -150,16 +150,14 @@
                 <div class="card-body" >
                     <p class="deu-conlocation">BANGALORE</p>
                     <p class="mt-4 deu-coN">
-                        <img class="img-fluid deu-contactwid" src="{{ asset('public/image/location.png') }}">  36/3, 1st Cross,
-                        Pukhraj Layout, 
-                          Adugodi, Bangalore - 560030
+                        <img class="img-fluid deu-contactwid" src="{{ asset('public/image/location.png') }}">  36/3, 1st Cross, Pukhraj Layout, Adugodi, Bangalore - 560030
                     </p>
                     <p class="mt-4 deu-coN">
-                        <img class="img-fluid deu-contactwid" src="{{ asset('public/image/phone.png') }}">  +91 9898675634
+                        <img class="img-fluid deu-contactwid" src="{{ asset('public/image/phone.png') }}"> +91 805 093 1561
                     </p>
                     <p class="mt-4 deu-coN">
                         <img class="img-fluid deu-contactwid" src="{{ asset('public/image/email.png') }}"> 
-                        sales@kanlifemedical.asia
+                        india@kanlifemedical.asia
                     </p>
                 </div>
             </div>
@@ -169,16 +167,15 @@
                 <div class="card-body">
                     <p class="deu-conlocation">MUMBAI</p>
                     <p class="mt-4 deu-coN">
-                        <img class="img-fluid deu-contactwid" src="{{ asset('public/image/location.png') }}">  36/3, 1st Cross,
-                        Pukhraj Layout, 
-                          Adugodi, Bangalore - 560030
+                        <img class="img-fluid deu-contactwid" src="{{ asset('public/image/location.png') }}"> 10th Floor, Ajay Apartment Complex, Hansraj Lane, Mazgaon, Mumbai 400010
+
                     </p>
                     <p class="mt-4 deu-coN">
-                        <img class="img-fluid deu-contactwid" src="{{ asset('public/image/phone.png') }}">  +91 9898675634
+                        <img class="img-fluid deu-contactwid" src="{{ asset('public/image/phone.png') }}">  +91 805 093 1561
                     </p>
                     <p class="mt-4 deu-coN">
                         <img class="img-fluid deu-contactwid" src="{{ asset('public/image/email.png') }}"> 
-                        sales@kanlifemedical.asia
+                        sylvester@kanlifemedical.asia
                     </p>
                 </div>
             </div>
@@ -188,16 +185,15 @@
                 <div class="card-body">
                     <p class="deu-conlocation">KOLKATA</p>
                     <p class="mt-4 deu-coN">
-                        <img class="img-fluid deu-contactwid" src="{{ asset('public/image/location.png') }}">  36/3, 1st Cross,
-                        Pukhraj Layout, 
-                          Adugodi, Bangalore - 560030
+                        <img class="img-fluid deu-contactwid" src="{{ asset('public/image/location.png') }}">  IFS Business Center, 206/1, Rash Behari Ave, opp. Standard Chartered Bank, Hindustan Park, Gariahat, Kolkata 700029
+
                     </p>
                     <p class="mt-4 deu-coN">
-                        <img class="img-fluid deu-contactwid" src="{{ asset('public/image/phone.png') }}">  +91 9898675634
+                        <img class="img-fluid deu-contactwid" src="{{ asset('public/image/phone.png') }}">  +91 805 093 1561
                     </p>
                     <p class="mt-4 deu-coN">
                         <img class="img-fluid deu-contactwid" src="{{ asset('public/image/email.png') }}"> 
-                        sales@kanlifemedical.asia
+                        hirak@kanlifemedical.asia
                     </p>
                 </div>
             </div>

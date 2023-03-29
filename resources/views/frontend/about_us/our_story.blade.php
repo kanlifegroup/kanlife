@@ -43,28 +43,8 @@
     </div>
 </div>
 
-<div class="container-fluid">
-    <div class="row deu-misionpads">
-        <div class="container p-0 px-md-5">
-            <div class="row py-3">
-                <p class="vision-head" aos="zoom-in">Mission</p>
-            </div>
-            <div class="row mb-5 align-items-center">
-                <div class="col-md-6 col-sm-6 pe-5">
-                <img class="img-fluid" aos="fade-right" src="{{ asset('public/image/mission.png') }}">
-                </div>
-                <div class="col-md-6 col-sm-6 ps-5">
-                    <p class="vision-txt" aos="fade-left">Over the years kanlife has become the partner of choice for medical
-                        equipment manufacturers looking to introduce,
-                        establish and grow heir business and channel partner networking India and South East Asia.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
-<div class="container-fluid deu-visionpads">
+<div class="container-fluid ">
     <div class="row">
         <div class="container p-0 px-md-5 mt-5">
             <div class="row mb-5 align-items-center">
@@ -78,6 +58,29 @@
                 </div>
                 <div class="col-md-6 col-sm-6 ps-5">
                 <img class="img-fluid" aos="fade-left" src="{{ asset('public/image/vision.png') }}">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid deu-visionpads">
+    <div class="row">
+        <div class="container p-0 px-md-5">
+           
+            <div class="row mb-5 align-items-center">
+                <div class="col-md-6 col-sm-6 pe-5">
+                <img class="img-fluid" aos="fade-right" src="{{ asset('public/image/mission.png') }}">
+                </div>
+                
+                <div class="col-md-6 col-sm-6 ps-5">
+                <div class="row py-3">
+                <p class="vision-head" aos="zoom-in">Mission</p>
+            </div>
+                    <p class="vision-txt" aos="fade-left">Over the years kanlife has become the partner of choice for medical
+                        equipment manufacturers looking to introduce,
+                        establish and grow heir business and channel partner networking India and South East Asia.
+                    </p>
                 </div>
             </div>
         </div>
