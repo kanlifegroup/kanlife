@@ -28,7 +28,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/7.3.1/swiper-bundle.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/css/swiper.min.css">
-    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&family=Montserrat:wght@500&family=Nunito:wght@500;600;700;900&family=Roboto:wght@500&display=swap"
         rel="stylesheet">
@@ -159,7 +160,7 @@
             <div class="deu-lifeposi storycat p-5 mt-5">
                 <div class="col-12 swiper-container px-3">
                     <div class="swiper-wrapper position-relative py-4">
-                        <div class="swiper-slide shadow shadow-md" >
+                        <div class="swiper-slide shadow shadow-md" aos="fade-right" >
                             <div class="home-doctors  text-center doc-item">
                                 <div class="common-doctor animated fadeInUp clearfix ae-animation-fadeInUp deu-features position-relative">
                                     <div class="position-absolute px-3 py-1 mt-2 end-0 me-2 deu-new">New</div>
@@ -189,7 +190,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="swiper-slide shadow shadow-md" >
+                        <div class="swiper-slide shadow shadow-md" aos="fade-up" aos-dlay="200">
                             <div class="home-doctors  text-center doc-item">
                                 <div
                                     class="common-doctor animated fadeInUp clearfix ae-animation-fadeInUp deu-features">
@@ -216,7 +217,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="swiper-slide shadow shadow-md" >
+                        <div class="swiper-slide shadow shadow-md"  aos="fade-up" aos-dlay="400">
                             <div class="home-doctors  text-center doc-item">
                                 <div
                                     class="common-doctor animated fadeInUp clearfix ae-animation-fadeInUp deu-features">
@@ -242,7 +243,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="swiper-slide shadow shadow-md">
+                        <div class="swiper-slide shadow shadow-md" aos="fade-left">
                             <div class="home-doctors  text-center doc-item">
                                 <div
                                     class="common-doctor animated fadeInUp clearfix ae-animation-fadeInUp deu-features">
@@ -268,7 +269,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="swiper-slide shadow shadow-md">
+                        <div class="swiper-slide shadow shadow-md" aos="fade-left">
                             <div class="home-doctors  text-center doc-item">
                                 <div
                                     class="common-doctor animated fadeInUp clearfix ae-animation-fadeInUp deu-features">
@@ -294,7 +295,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="swiper-slide shadow shadow-md" >
+                        <div class="swiper-slide shadow shadow-md" aos="fade-right">
                             <div class="home-doctors  text-center doc-item">
                                 <div
                                     class="common-doctor animated fadeInUp clearfix ae-animation-fadeInUp deu-features">
@@ -333,105 +334,173 @@
     </div>
 </div>
 
-<div class="container-fluid deu-seelbggray px-5" >
+<div class="container-fluid deu-seelbggray px-5">
     <div class="container-fluid px-5">
         <h3 class="text-center deu-bloghead my-5">Best Selling Products</h3>
         <div class="row mb-4">
-            <div class="col-lg-4 col-md-4 col-sm-6" >
+          @if(isset($topSix[0]))
+            <div class="col-lg-4 col-md-4 col-sm-6" aos="fade-right">
                 <div class="deu-sellbg">
+                  <a href="{{url('/product').'/'.$topSix[0]->product_slug}}">
                     <div class="row align-items-center" >
                         <div class="col-lg-5 col-md-5 rideone">
-                            <img class="img-fluid deu-sellwiD" src="{{ asset('public/image/p1.png') }}">
+                            <img class="img-fluid deu-sellwiD" src="{{ url('/') }}/public/storage/product/{{ $topSix[0]->product_image }}">
                         </div>
                         <div class="col-lg-7 col-md-7 d-flex flex-column justify-content-center">
-                            <h4 class="deu-digitalhead">Digital Stethoscope</h4>
-                            <div class="deu-digitaltxt"><i class="fa fa-inr" aria-hidden="true"></i> 200
-                                <span><s><small><i class="fa fa-inr" aria-hidden="true"></i> 300</small></s></span>
+                            <h4 class="deu-digitalhead">
+                                {{$topSix[0]->product_name}}
+                            </h4>                            
+                            <div class="deu-digitaltxt"><i class="fa fa-inr" aria-hidden="true"></i>
+                            @if($topSix[0]->product_offer_price != 0)
+                            {{$topSix[0]->product_offer_price}}
+                                <span><s><small><i class="fa fa-inr" aria-hidden="true"></i> {{$topSix[0]->product_price}}</small></s></span>
+                            @else
+                            {{$topSix[0]->product_price}}
+                            @endif
                             </div>
                         </div>
                     </div>
+                  </a>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-6"  aos-dlay="200">
+          @endif
+          @if(isset($topSix[1]))
+            <div class="col-lg-4 col-md-4 col-sm-6"  aos="fade-up" aos-dlay="200">
                 <div class="deu-sellbg">
+                  <a href="{{url('/product').'/'.$topSix[1]->product_slug}}">
                     <div class="row align-items-center">
                         <div class="col-lg-5 col-md-5 rideone">
-                          <img class="img-fluid deu-sellwiD" src="{{ asset('public/image/p2.png') }}">
+                          <img class="img-fluid deu-sellwiD" src="{{ url('/') }}/public/storage/product/{{ $topSix[1]->product_image }}">
                         </div>
                         <div class="col-lg-7 col-md-7 d-flex flex-column justify-content-center">
-                            <h4 class="deu-digitalhead">Thermometer Gun</h4>
-                            <div class="deu-digitaltxt"><i class="fa fa-inr" aria-hidden="true"></i> 200
-                                <span><s><small><i class="fa fa-inr" aria-hidden="true"></i> 300</small></s></span>
+                            <h4 class="deu-digitalhead">
+                                {{$topSix[1]->product_name}}
+                            </h4>                            
+                            <div class="deu-digitaltxt"><i class="fa fa-inr" aria-hidden="true"></i>
+                            @if($topSix[1]->product_offer_price != 0)
+                            {{$topSix[1]->product_offer_price}}
+                                <span><s><small><i class="fa fa-inr" aria-hidden="true"></i> {{$topSix[1]->product_price}}</small></s></span>
+                            @else
+                            {{$topSix[1]->product_price}}
+                            @endif
                             </div>
                         </div>
                     </div>
+                  </a>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-6" >
+          @endif
+          @if(isset($topSix[2]))
+            <div class="col-lg-4 col-md-4 col-sm-6" aos="fade-down" aos-dlay="400">
                 <div class="deu-sellbg">
+                  <a href="{{url('/product').'/'.$topSix[2]->product_slug}}">
                     <div class="row align-items-center">
                         <div class="col-lg-5 col-md-5 rideone">
-                            <img class="img-fluid deu-sellwiD" src="{{ asset('public/image/p3.png') }}">
+                          <img class="img-fluid deu-sellwiD" src="{{ url('/') }}/public/storage/product/{{ $topSix[2]->product_image }}">
                         </div>
                         <div class="col-lg-7 col-md-7 d-flex flex-column justify-content-center">
-                            <h4 class="deu-digitalhead">Thermometer Gun</h4>
-                            <div class="deu-digitaltxt"><i class="fa fa-inr" aria-hidden="true"></i> 200
-                                <span><s><small><i class="fa fa-inr" aria-hidden="true"></i> 300</small></s></span>
+                            <h4 class="deu-digitalhead">
+                                {{$topSix[2]->product_name}}
+                            </h4>                            
+                            <div class="deu-digitaltxt"><i class="fa fa-inr" aria-hidden="true"></i>
+                            @if($topSix[2]->product_offer_price != 0)
+                            {{$topSix[2]->product_offer_price}}
+                                <span><s><small><i class="fa fa-inr" aria-hidden="true"></i> {{$topSix[2]->product_price}}</small></s></span>
+                            @else
+                            {{$topSix[2]->product_price}}
+                            @endif
                             </div>
                         </div>
                     </div>
+                  </a>
                 </div>
             </div>
+          @endif
         </div>
         <div class="row">
-            <div class="col-lg-4 col-md-4 col-sm-6"  aos-dlay="600">
+          @if(isset($topSix[3]))
+            <div class="col-lg-4 col-md-4 col-sm-6" aos="fade-up" aos-dlay="600">
                 <div class="deu-sellbg">
+                  <a href="{{url('/product').'/'.$topSix[3]->product_slug}}">
                     <div class="row">
                         <div class="col-lg-5 col-md-5 rideone">
-                            <img class="img-fluid deu-sellwiD" src="{{ asset('public/image/p4.png') }}">
+                          <img class="img-fluid deu-sellwiD" src="{{ url('/') }}/public/storage/product/{{ $topSix[3]->product_image }}">
                         </div>
                         <div class="col-lg-7 col-md-7 d-flex flex-column justify-content-center">
-                            <h4 class="deu-digitalhead">Wheel Chair</h4>
-                            <div class="deu-digitaltxt"><i class="fa fa-inr" aria-hidden="true"></i> 200
-                                <span><s><small><i class="fa fa-inr" aria-hidden="true"></i> 300</small></s></span>
+                            <h4 class="deu-digitalhead">
+                                {{$topSix[3]->product_name}}
+                            </h4>                            
+                            <div class="deu-digitaltxt"><i class="fa fa-inr" aria-hidden="true"></i>
+                            @if($topSix[3]->product_offer_price != 0)
+                            {{$topSix[3]->product_offer_price}}
+                                <span><s><small><i class="fa fa-inr" aria-hidden="true"></i> {{$topSix[3]->product_price}}</small></s></span>
+                            @else
+                            {{$topSix[3]->product_price}}
+                            @endif
                             </div>
                         </div>
                     </div>
+                  </a>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-6"  aos-dlay="200">
+          @endif
+          @if(isset($topSix[4]))
+            <div class="col-lg-4 col-md-4 col-sm-6" aos="fade-down" aos-dlay="200">
                 <div class="deu-sellbg">
+                  <a href="{{url('/product').'/'.$topSix[4]->product_slug}}">
                     <div class="row">
                         <div class="col-lg-5 col-md-5 rideone">
-                            <img class="img-fluid deu-sellwiD" src="{{ asset('public/image/p5.png') }}">
+                          <img class="img-fluid deu-sellwiD" src="{{ url('/') }}/public/storage/product/{{ $topSix[4]->product_image }}">
                         </div>
                         <div class="col-lg-7 col-md-7 d-flex flex-column justify-content-center">
-                            <h4 class="deu-digitalhead">Cardiskan</h4>
-                            <div class="deu-digitaltxt"><i class="fa fa-inr" aria-hidden="true"></i> 200
-                                <span><s><small><i class="fa fa-inr" aria-hidden="true"></i> 300</small></s></span>
+                            <h4 class="deu-digitalhead">
+                                {{$topSix[4]->product_name}}
+                            </h4>                            
+                            <div class="deu-digitaltxt"><i class="fa fa-inr" aria-hidden="true"></i>
+                            @if($topSix[4]->product_offer_price != 0)
+                            {{$topSix[4]->product_offer_price}}
+                                <span><s><small><i class="fa fa-inr" aria-hidden="true"></i> {{$topSix[4]->product_price}}</small></s></span>
+                            @else
+                            {{$topSix[4]->product_price}}
+                            @endif
                             </div>
                         </div>
                     </div>
+                  </a>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-6"  aos-dlay="800">
+          @endif
+          @if(isset($topSix[5]))
+            <div class="col-lg-4 col-md-4 col-sm-6" aos="fade-left" aos-dlay="800">
                 <div class="deu-sellbg">
+                  <a href="{{url('/product').'/'.$topSix[5]->product_slug}}">
                     <div class="row">
                         <div class="col-lg-5 col-md-5 rideone">
-                            <img class="img-fluid deu-sellwiD" src="{{ asset('public/image/p6.png') }}">
+                          <img class="img-fluid deu-sellwiD" src="{{ url('/') }}/public/storage/product/{{ $topSix[5]->product_image }}">
                         </div>
                         <div class="col-lg-7 col-md-7 d-flex flex-column justify-content-center">
-                            <h4 class="deu-digitalhead">Skansiesta</h4>
-                            <div class="deu-digitaltxt"><i class="fa fa-inr" aria-hidden="true"></i> 200
-                                <span><s><small><i class="fa fa-inr" aria-hidden="true"></i> 300</small></s></span>
+                            <h4 class="deu-digitalhead">
+                                {{$topSix[5]->product_name}}
+                            </h4>                            
+                            <div class="deu-digitaltxt"><i class="fa fa-inr" aria-hidden="true"></i>
+                            @if($topSix[5]->product_offer_price != 0)
+                            {{$topSix[5]->product_offer_price}}
+                                <span><s><small><i class="fa fa-inr" aria-hidden="true"></i> {{$topSix[5]->product_price}}</small></s></span>
+                            @else
+                            {{$topSix[5]->product_price}}
+                            @endif
                             </div>
                         </div>
                     </div>
+                  </a>
                 </div>
             </div>
+          @endif
         </div>
         <div class="text-center">
+          <a href="{{ url('search/items')}}">
             <button class="about-more dd mb-3 mt-4">View More</button>
+          </a>
         </div>
     </div>
 </div>
@@ -452,7 +521,11 @@
     crossorigin="anonymous"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.js"></script>
+ 
+
     <script>
+    
+
         $(document).ready(function () {
             var silder = $(".owl-carousel");
             silder.owlCarousel({

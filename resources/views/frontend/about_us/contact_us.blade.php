@@ -146,7 +146,7 @@
 <div class="container deu-branchgray">
     <div class="row">
         <div class="col-lg-4 mb-4 mb-lg-0">
-            <div class="card deu-teamcards" aos="fade-up">
+            <div class="card deu-teamcards1" aos="fade-up">
                 <div class="card-body" >
                     <p class="deu-conlocation">BANGALORE</p>
                     <p class="mt-4 deu-coN">
@@ -163,7 +163,7 @@
             </div>
         </div>
         <div class="col-lg-4 mb-4 mb-lg-0">
-            <div class="card deu-teamcards" aos="fade-up" aos-delay="300">
+            <div class="card deu-teamcards1" aos="fade-up" aos-delay="300">
                 <div class="card-body">
                     <p class="deu-conlocation">MUMBAI</p>
                     <p class="mt-4 deu-coN">
@@ -181,7 +181,7 @@
             </div>
         </div>
         <div class="col-lg-4">
-            <div class="card deu-teamcards" aos="fade-up" aos-delay="500">
+            <div class="card deu-teamcards1" aos="fade-up" aos-delay="500">
                 <div class="card-body">
                     <p class="deu-conlocation">KOLKATA</p>
                     <p class="mt-4 deu-coN">
