@@ -117,8 +117,11 @@
             establish a presence or strengthen their distribution foothold in Asia.</div>
           <div class="mt-3 mb-3 contents">Over the years Kanlife grew from a single shareholder company based out of
             Singapore to a multi-national group with shareholder limited companies at strategic global
-            business locations like India and the UK.</div>
-          <button class="about-more">Know More</button>
+            business locations like India and the UK.
+          </div>
+          <a href="{{ route('about.story') }}">
+            <button class="about-more">Know More</button>
+          </a>
         </div>
       </div>
     </div>
@@ -136,7 +139,9 @@
             equipment manufacturers looking to introduce,
             establish and grow their business and channel partner network in India and South East Asia.
           </div>
-          <button class="about-more">Know More</button>
+          <a href="{{ route('about.story') }}?#our-journey">
+            <button class="about-more">Know More</button>
+          </a>
         </div>
       </div>
       <div class="col-md-5 col-sm-6" aos="fade-up">

@@ -87,7 +87,7 @@
     </div>
 </div>
 
-<div class="container-fluid mt-5">
+<div class="container-fluid mt-5" id="our-journey">
     <div class="row pt-5">
         <div class="col-md-12 position-relative">
             <p class="deu-journey" aos="zoom-in">Our Journey</p>

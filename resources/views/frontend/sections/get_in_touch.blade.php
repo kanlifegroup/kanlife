@@ -12,8 +12,11 @@
                     <div class="dsd">Kanlife Group was conceptualized and founded in 2009 in Singapore as
                         Kanlife Asia Pte. Ltd. with a vision to provide a go-to-market
                         platform to medical technology and healthcare companies from across the globe that are
-                        looking to establish a presence or strengthen their distribution foothold in Asia.</div>
-                    <button class="about-more">Know More</button>
+                        looking to establish a presence or strengthen their distribution foothold in Asia.
+                    </div>
+                    <a href="{{ route('about.contact') }}">
+                      <button class="about-more">Know More</button>
+                    </a>
                 </div>
             </div>
         </div>
