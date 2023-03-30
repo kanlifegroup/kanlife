@@ -338,101 +338,169 @@
     <div class="container-fluid px-5">
         <h3 class="text-center deu-bloghead my-5">Best Selling Products</h3>
         <div class="row mb-4">
+          @if(isset($topSix[0]))
             <div class="col-lg-4 col-md-4 col-sm-6" aos="fade-right">
                 <div class="deu-sellbg">
+                  <a href="{{url('/product').'/'.$topSix[0]->product_slug}}">
                     <div class="row align-items-center" >
                         <div class="col-lg-5 col-md-5 rideone">
-                            <img class="img-fluid deu-sellwiD" src="{{ asset('public/image/p1.png') }}">
+                            <img class="img-fluid deu-sellwiD" src="{{ url('/') }}/public/storage/product/{{ $topSix[0]->product_image }}">
                         </div>
                         <div class="col-lg-7 col-md-7 d-flex flex-column justify-content-center">
-                            <h4 class="deu-digitalhead">Digital Stethoscope</h4>
-                            <div class="deu-digitaltxt"><i class="fa fa-inr" aria-hidden="true"></i> 200
-                                <span><s><small><i class="fa fa-inr" aria-hidden="true"></i> 300</small></s></span>
+                            <h4 class="deu-digitalhead">
+                                {{$topSix[0]->product_name}}
+                            </h4>                            
+                            <div class="deu-digitaltxt"><i class="fa fa-inr" aria-hidden="true"></i>
+                            @if($topSix[0]->product_offer_price != 0)
+                            {{$topSix[0]->product_offer_price}}
+                                <span><s><small><i class="fa fa-inr" aria-hidden="true"></i> {{$topSix[0]->product_price}}</small></s></span>
+                            @else
+                            {{$topSix[0]->product_price}}
+                            @endif
                             </div>
                         </div>
                     </div>
+                  </a>
                 </div>
             </div>
+          @endif
+          @if(isset($topSix[1]))
             <div class="col-lg-4 col-md-4 col-sm-6"  aos="fade-up" aos-dlay="200">
                 <div class="deu-sellbg">
+                  <a href="{{url('/product').'/'.$topSix[1]->product_slug}}">
                     <div class="row align-items-center">
                         <div class="col-lg-5 col-md-5 rideone">
-                          <img class="img-fluid deu-sellwiD" src="{{ asset('public/image/p2.png') }}">
+                          <img class="img-fluid deu-sellwiD" src="{{ url('/') }}/public/storage/product/{{ $topSix[1]->product_image }}">
                         </div>
                         <div class="col-lg-7 col-md-7 d-flex flex-column justify-content-center">
-                            <h4 class="deu-digitalhead">Thermometer Gun</h4>
-                            <div class="deu-digitaltxt"><i class="fa fa-inr" aria-hidden="true"></i> 200
-                                <span><s><small><i class="fa fa-inr" aria-hidden="true"></i> 300</small></s></span>
+                            <h4 class="deu-digitalhead">
+                                {{$topSix[1]->product_name}}
+                            </h4>                            
+                            <div class="deu-digitaltxt"><i class="fa fa-inr" aria-hidden="true"></i>
+                            @if($topSix[1]->product_offer_price != 0)
+                            {{$topSix[1]->product_offer_price}}
+                                <span><s><small><i class="fa fa-inr" aria-hidden="true"></i> {{$topSix[1]->product_price}}</small></s></span>
+                            @else
+                            {{$topSix[1]->product_price}}
+                            @endif
                             </div>
                         </div>
                     </div>
+                  </a>
                 </div>
             </div>
+          @endif
+          @if(isset($topSix[2]))
             <div class="col-lg-4 col-md-4 col-sm-6" aos="fade-down" aos-dlay="400">
                 <div class="deu-sellbg">
+                  <a href="{{url('/product').'/'.$topSix[2]->product_slug}}">
                     <div class="row align-items-center">
                         <div class="col-lg-5 col-md-5 rideone">
-                            <img class="img-fluid deu-sellwiD" src="{{ asset('public/image/p3.png') }}">
+                          <img class="img-fluid deu-sellwiD" src="{{ url('/') }}/public/storage/product/{{ $topSix[2]->product_image }}">
                         </div>
                         <div class="col-lg-7 col-md-7 d-flex flex-column justify-content-center">
-                            <h4 class="deu-digitalhead">Thermometer Gun</h4>
-                            <div class="deu-digitaltxt"><i class="fa fa-inr" aria-hidden="true"></i> 200
-                                <span><s><small><i class="fa fa-inr" aria-hidden="true"></i> 300</small></s></span>
+                            <h4 class="deu-digitalhead">
+                                {{$topSix[2]->product_name}}
+                            </h4>                            
+                            <div class="deu-digitaltxt"><i class="fa fa-inr" aria-hidden="true"></i>
+                            @if($topSix[2]->product_offer_price != 0)
+                            {{$topSix[2]->product_offer_price}}
+                                <span><s><small><i class="fa fa-inr" aria-hidden="true"></i> {{$topSix[2]->product_price}}</small></s></span>
+                            @else
+                            {{$topSix[2]->product_price}}
+                            @endif
                             </div>
                         </div>
                     </div>
+                  </a>
                 </div>
             </div>
+          @endif
         </div>
         <div class="row">
+          @if(isset($topSix[3]))
             <div class="col-lg-4 col-md-4 col-sm-6" aos="fade-up" aos-dlay="600">
                 <div class="deu-sellbg">
+                  <a href="{{url('/product').'/'.$topSix[3]->product_slug}}">
                     <div class="row">
                         <div class="col-lg-5 col-md-5 rideone">
-                            <img class="img-fluid deu-sellwiD" src="{{ asset('public/image/p4.png') }}">
+                          <img class="img-fluid deu-sellwiD" src="{{ url('/') }}/public/storage/product/{{ $topSix[3]->product_image }}">
                         </div>
                         <div class="col-lg-7 col-md-7 d-flex flex-column justify-content-center">
-                            <h4 class="deu-digitalhead">Wheel Chair</h4>
-                            <div class="deu-digitaltxt"><i class="fa fa-inr" aria-hidden="true"></i> 200
-                                <span><s><small><i class="fa fa-inr" aria-hidden="true"></i> 300</small></s></span>
+                            <h4 class="deu-digitalhead">
+                                {{$topSix[3]->product_name}}
+                            </h4>                            
+                            <div class="deu-digitaltxt"><i class="fa fa-inr" aria-hidden="true"></i>
+                            @if($topSix[3]->product_offer_price != 0)
+                            {{$topSix[3]->product_offer_price}}
+                                <span><s><small><i class="fa fa-inr" aria-hidden="true"></i> {{$topSix[3]->product_price}}</small></s></span>
+                            @else
+                            {{$topSix[3]->product_price}}
+                            @endif
                             </div>
                         </div>
                     </div>
+                  </a>
                 </div>
             </div>
+          @endif
+          @if(isset($topSix[4]))
             <div class="col-lg-4 col-md-4 col-sm-6" aos="fade-down" aos-dlay="200">
                 <div class="deu-sellbg">
+                  <a href="{{url('/product').'/'.$topSix[4]->product_slug}}">
                     <div class="row">
                         <div class="col-lg-5 col-md-5 rideone">
-                            <img class="img-fluid deu-sellwiD" src="{{ asset('public/image/p5.png') }}">
+                          <img class="img-fluid deu-sellwiD" src="{{ url('/') }}/public/storage/product/{{ $topSix[4]->product_image }}">
                         </div>
                         <div class="col-lg-7 col-md-7 d-flex flex-column justify-content-center">
-                            <h4 class="deu-digitalhead">Cardiskan</h4>
-                            <div class="deu-digitaltxt"><i class="fa fa-inr" aria-hidden="true"></i> 200
-                                <span><s><small><i class="fa fa-inr" aria-hidden="true"></i> 300</small></s></span>
+                            <h4 class="deu-digitalhead">
+                                {{$topSix[4]->product_name}}
+                            </h4>                            
+                            <div class="deu-digitaltxt"><i class="fa fa-inr" aria-hidden="true"></i>
+                            @if($topSix[4]->product_offer_price != 0)
+                            {{$topSix[4]->product_offer_price}}
+                                <span><s><small><i class="fa fa-inr" aria-hidden="true"></i> {{$topSix[4]->product_price}}</small></s></span>
+                            @else
+                            {{$topSix[4]->product_price}}
+                            @endif
                             </div>
                         </div>
                     </div>
+                  </a>
                 </div>
             </div>
+          @endif
+          @if(isset($topSix[5]))
             <div class="col-lg-4 col-md-4 col-sm-6" aos="fade-left" aos-dlay="800">
                 <div class="deu-sellbg">
+                  <a href="{{url('/product').'/'.$topSix[5]->product_slug}}">
                     <div class="row">
                         <div class="col-lg-5 col-md-5 rideone">
-                            <img class="img-fluid deu-sellwiD" src="{{ asset('public/image/p6.png') }}">
+                          <img class="img-fluid deu-sellwiD" src="{{ url('/') }}/public/storage/product/{{ $topSix[5]->product_image }}">
                         </div>
                         <div class="col-lg-7 col-md-7 d-flex flex-column justify-content-center">
-                            <h4 class="deu-digitalhead">Skansiesta</h4>
-                            <div class="deu-digitaltxt"><i class="fa fa-inr" aria-hidden="true"></i> 200
-                                <span><s><small><i class="fa fa-inr" aria-hidden="true"></i> 300</small></s></span>
+                            <h4 class="deu-digitalhead">
+                                {{$topSix[5]->product_name}}
+                            </h4>                            
+                            <div class="deu-digitaltxt"><i class="fa fa-inr" aria-hidden="true"></i>
+                            @if($topSix[5]->product_offer_price != 0)
+                            {{$topSix[5]->product_offer_price}}
+                                <span><s><small><i class="fa fa-inr" aria-hidden="true"></i> {{$topSix[5]->product_price}}</small></s></span>
+                            @else
+                            {{$topSix[5]->product_price}}
+                            @endif
                             </div>
                         </div>
                     </div>
+                  </a>
                 </div>
             </div>
+          @endif
         </div>
         <div class="text-center">
+          <a href="{{ url('search/items')}}">
             <button class="about-more dd mb-3 mt-4">View More</button>
+          </a>
         </div>
     </div>
 </div>

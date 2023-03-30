@@ -303,7 +303,8 @@ class CommonController extends Controller
   {
     $translate = $this->lang_text();    
     $slideshow['view'] = Slideshow::viewSlideshow($translate);
-    $data = array('is_categories'=>true,'slideshow' => $slideshow,);
+    $topSix = Product::topSix();
+    $data = array('is_categories'=>true,'slideshow' => $slideshow,'topSix'=>$topSix);
     return view('frontend.buy')->with($data);
   }
 

@@ -733,6 +733,25 @@ class Product extends Model
     $value=DB::table('product_orders')->join('users','users.id','product_orders.user_id')->join('product','product.product_token','product_orders.product_token')->where('product_orders.product_user_id','=',$user_id)->where('product.product_page_parent','=',0)->orderBy('product_orders.ord_id', 'desc')->get(); 
     return $value;
   }
+
+  public static function topSix()
+  {
+    $value=DB::table('product_orders')->join('product','product.product_id','product_orders.product_id')
+    ->where('product.product_page_parent','=',0)
+    ->selectRaw('product.*, sum(ifnull(product_orders.quantity,0)) total')
+    ->groupBy('product_orders.product_id')
+    ->orderBy('total','desc')
+    ->take(6)
+    ->get();
+    if(count($value) > 5)
+    return $value;
+    else{
+      $take = 6 - count($value);
+      $products = DB::table('product')->inRandomOrder()->take($take)->get();
+      $value = $value->merge($products);
+    return $value;
+    }
+  }
   
   
   public static function myOrders($token,$user_id)

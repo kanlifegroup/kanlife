@@ -25,7 +25,7 @@
 </div>
 
 <div class="container">
-  <h3 class="text-center mt-5 mb-5 deu-bloghead">Search Results</h3>
+  <h3 class="text-center mt-5 mb-5 deu-bloghead">Products</h3>
 </div>
 
 <div class="container-fluid">
