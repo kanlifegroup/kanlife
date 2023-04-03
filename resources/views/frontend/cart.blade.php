@@ -169,7 +169,7 @@
       <div class="product-count mt-3 mb-3">
           <form action="{{ route('coupon') }}" class="row g-0" id="coupon_form" method="post" >
           {{ csrf_field() }}
-          <input type="text" class="border border-3 px-2 bg-white col-6" style="border-color: #9D9D9D; font-size: 1.625rem;" placeholder="Coupon Code"  id="coupon" name="coupon" >
+          <input type="text" class="border border-3 px-2 bg-white col-6" style="border-color: #9D9D9D; font-size: 1.4rem;" placeholder="Coupon Code"  id="coupon" name="coupon" >
           <div class="col-auto"></div>
           <div class="col d-flex justify-content-end">
             <button type="submit" class="josefin-font btn btn-primary rounded-0 text-center col-10 py-2">Apply Coupon</a>

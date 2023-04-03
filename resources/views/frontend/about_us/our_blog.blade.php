@@ -28,7 +28,7 @@
 </div>
 <div class="container mt-5 mb-3">
     <div class="row">
-        <div class="col-5 m-auto ">
+        <div class="col-4 col-md-5 m-auto ">
         <h3 class="text-end bloghead" >Categories</h3>
         </div>
         {{--

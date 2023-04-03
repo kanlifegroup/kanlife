@@ -56,7 +56,7 @@
                         that are looking to establish a presence or strengthen their distribution foothold in Asia.
                     </p>
                 </div>
-                <div class="col-md-6 col-sm-6 ps-5">
+                <div class="col-md-6 col-sm-6 px-5">
                 <img class="img-fluid" aos="fade-left" src="{{ asset('public/image/vision.png') }}">
                 </div>
             </div>
@@ -87,7 +87,7 @@
     </div>
 </div>
 
-<div class="container-fluid mt-5" id="our-journey">
+<div class="container-fluid mt-5">
     <div class="row pt-5">
         <div class="col-md-12 position-relative">
             <p class="deu-journey" aos="zoom-in">Our Journey</p>
@@ -97,7 +97,7 @@
 	<div class="row py-5">
 		<div class="col-md-12 offset-md-0">
             <div class="d-flex">
-                <img aos="fade-up" style="width:150px; margin-left:-40px; height: fit-content;" src="{{ asset('public/img/logo1.png') }}" alt="">
+                <img aos="fade-up" class="logoimg1" src="{{ asset('public/img/logo1.png') }}" alt="">
                 <div aos="fade-left"class="toptext">
                 <h4>OUR JOURNEY</h4>
                 <h1>HOW IT ALL BEGAN</h1>

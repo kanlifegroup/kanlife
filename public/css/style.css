@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 
 html {
+  overflow-x: hidden;
   font-size: 0.5rem;
 }
 
@@ -17,7 +18,7 @@ html {
     border-radius: 10px;
     position: absolute !important;
     right: 23px !important;
-    bottom: 45px !important;
+    bottom: 40px !important;
     /* display: none; */
   }
 }
@@ -54,7 +55,7 @@ html {
     border-radius: 10px;
     position: absolute !important;
     right: 40px !important;
-    bottom: 64px !important;
+    bottom: 45px !important;
     /* display: none; */
   }
 
@@ -833,7 +834,15 @@ body {
     padding: 5px 14px
   }
 }
-
+@media only screen and (width:768px) {
+  .deu-cartxts{
+    right: -14px !important;
+    bottom: 20px !important;
+  }
+  .deu-cart {
+    margin-bottom: -10px !important;
+  }
+}
 @media only screen and (max-width:767px) {
   .owl-controls .owl-buttons .owl-prev {
     left: 0;
@@ -849,6 +858,9 @@ body {
   .owl-controls .owl-buttons .owl-next {
     right: 0;
     bottom: 260px
+  }
+  .logoimg1{
+    margin-left: 0 !important;
   }
 
   .banerw {
@@ -872,6 +884,15 @@ body {
 
   .drop1 {
     width: initial !important;
+  }
+  .top-navsocial {
+    background-color: #fff;
+    color: #3787C9;
+   font-size: 12px;
+    border-radius: 14px;
+  }
+  .social-bg{
+    margin-top: 10px;
   }
 
 }
@@ -1365,7 +1386,7 @@ width: auto;
   color: #9D9D9D;
   font-family: 'Nunito', sans-serif;
   font-weight: 700;
-  font-size: 1.75rem;
+  font-size: 1.3rem;
 }
 
 .deu-contactadress1 {
@@ -1457,6 +1478,7 @@ width: auto;
   color: #9D9D9D;
   font-family: 'Nunito', sans-serif;
   font-size: 2rem;
+  padding-left: 15px;
   font-weight: 600;
 }
 
@@ -1464,6 +1486,7 @@ width: auto;
   color: #9D9D9D;
   font-size: 5rem;
   font-weight: 800;
+  padding-left: 12px;
   margin-bottom: 30px;
   font-family: 'Josefin Sans', sans-serif;
 }
@@ -1923,7 +1946,7 @@ width: auto;
   background-color: #F2F9FF;
   font-weight: 700;
   color: #656565;
-  font-size: 1.625rem;
+  font-size: 1.4rem;
 }
 
 .deu-cartsbgs {
@@ -1940,14 +1963,14 @@ width: auto;
 .deu-tr {
   color: #656565;
   font-family: 'Nunito', sans-serif;
-  font-size: 1.625rem;
+  font-size: 1.5rem;
   font-weight: 600;
 }
 
 .deu-td {
   color: #000000;
   font-family: 'Nunito', sans-serif;
-  font-size: 1.625rem;
+  font-size: 1.3rem;
   font-weight: 700;
 }
 
@@ -2017,7 +2040,7 @@ width: auto;
 
 .deu-personalline input,
 .deu-personalline textarea {
-  font-size: 1.625rem;
+  font-size: 1.5rem;
   padding: 2rem;
 }
 
@@ -3038,7 +3061,7 @@ a:link {
 
 .deu-editbtn {
   color: #fff;
-  font-size: 2rem;
+  font-size: 1.5rem;
   background-color: #3188CA;
   border: 1px solid #3188CA;
   padding: 10px 44px;
@@ -3132,10 +3155,30 @@ a:link {
     height: 450px;
     width: 100%;
   }
-
+  .sel2{
+    background: #F5F6F4;
+    padding: 12px 22px;
+    border: 0;
+    font-size: 14px;
+    color: #656565;
+    font-weight: 700;
+    border-radius: 0;
+    width: 171px !important
+  
+  }
+  .caret2{
+    position: absolute;
+    top: 20px;
+    left: 150px !important;
+  }
+  .deu-journey{
+    font-size: 40px;
+    margin-left: 45px;
+  }
   .deu-slidepad {
     top: 7%;
   }
+  .logoimg1{width:150px; margin-left:-12px !important; height: fit-content}
 
   .deu-sellwiD {
     height: auto;
@@ -3401,6 +3444,8 @@ width: 40px;
   /* Vertical centering (cross axis): */
   align-items: center;
 }
+
+.logoimg1{width:150px; margin-left:-40px; height: fit-content}
 
 .deu-search-bar{
   background-color: #3188CA;

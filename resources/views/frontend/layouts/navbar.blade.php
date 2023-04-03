@@ -135,7 +135,7 @@ $module=explode("/", url()->current());
 
 <nav class="navbar navbar-expand-md py-0">
   <div class="container-fluid py-1">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="/">
       <img src="{{ asset('public/image/logo.png') }}" width="" class="logo img-fluid" />
     </a>
     <div class="col-md-3">
@@ -143,7 +143,7 @@ $module=explode("/", url()->current());
       {{ csrf_field() }}
           <div class="input-group flex-fill">
             <input type="text" class="form-control" id="search_text" name="search_text" placeholder="{{ Helper::translation(2039,$translate,'') }}">
-            <div style="margin-left: -1px; z-index: 10000;">
+            <div style="margin-left: -1px; z-index: 100;">
               <button class="btn btn-secondary button-color deu-search-bar" type="submit">
                 <i class="fa fa-search"></i>
               </button>

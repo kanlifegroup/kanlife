@@ -35,7 +35,15 @@
             <p class="mt-1 mb-1 deu-contactadress1">Address</p>
         </div>
         <div class="col-md-9 col-sm-9" aos="fade-left">
+          @if(array_intersect([$user_location],['india']))
             <p class="my-5 ps-3 deu-contacttxt">36/3, 1st Cross, Pukhraj Layout, Adugodi, Bangalore - 560030</p>
+          @endif
+          @if(array_intersect([$user_location],['singapore']))
+            <p class="my-5 ps-3 deu-contacttxt">141 Middle Rd Singapore 188976</p>
+          @endif
+          @if(array_intersect([$user_location],['london']))
+            <p class="my-5 ps-3 deu-contacttxt">27 Old Gloucester Street, London, England, WC1N 3AX</p>
+          @endif
         </div>
     </div>
 </div>
@@ -64,7 +72,15 @@
             </div>
             <div class="col text-center deu-conborder" aos="fade-left" aos-delay="200">
                 <p class="mb-2 deu-contactsales">Accounts related support</p>
+              @if(array_intersect([$user_location],['india']))
                 <p class="deu-contactasia">india@kanlifemedical.asia</p>
+              @endif
+              @if(array_intersect([$user_location],['singapore']))
+                <p class="deu-contactasia">singapore@kanlifemedical.asia</p>
+              @endif
+              @if(array_intersect([$user_location],['london']))
+                <p class="deu-contactasia">sales@tamboos.co.uk</p>
+              @endif
             </div>
             <div class="col text-center" aos="fade-left" aos-delay="400">
                 <p class="mb-2 deu-contactsales">Marketing related support</p>
