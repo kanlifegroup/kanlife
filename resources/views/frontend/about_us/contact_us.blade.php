@@ -36,7 +36,7 @@
         </div>
         <div class="col-md-9 col-sm-9" aos="fade-left">
           @if(array_intersect([$user_location],['india']))
-            <p class="my-5 ps-3 deu-contacttxt">36/3, 1st Cross, Pukhraj Layout, Adugodi, Bangalore - 560030</p>
+            <p class="my-5 ps-3 deu-contacttxt">36/3, 1st Cross, Pukhraj Layout, Adugodi, Bangalore, Karnataka - 560030</p>
           @endif
           @if(array_intersect([$user_location],['singapore']))
             <p class="my-5 ps-3 deu-contacttxt">141 Middle Rd Singapore 188976</p>
