@@ -138,7 +138,7 @@ $module=explode("/", url()->current());
     <a class="navbar-brand" href="/">
       <img src="{{ asset('public/image/logo.png') }}" width="" class="logo img-fluid" />
     </a>
-    <div class="col-md-3">
+    <div class="col-md-2">
       <form action="{{ route('search.products') }}" class="search_form" id="search_form" method="post">
       {{ csrf_field() }}
           <div class="input-group flex-fill">

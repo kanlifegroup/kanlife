@@ -5,6 +5,26 @@
 @endsection
 
 @section('style')
+<style>
+@media screen and (min-width:769px ) and (max-width:860px ) {
+  .deu-cartxts{
+    right: -22px !important;
+    top: -30px !important;
+  }
+  .deu-cart{
+    margin-bottom: -2px !important;
+  }
+}
+@media only screen and (width:768px) {
+  .deu-cartxts{
+    right: -21px !important;
+    top: -15px !important;
+  }
+  .deu-cart {
+    margin-bottom: -10px !important;
+  }
+}
+</style>
 
   <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -145,8 +165,13 @@
 <div class="us-section" >
     <div class="container">
         <div class="row">
-            <div class="col-md-12" >
-                <img class="img-fluid" src="{{ asset('public/image/video.png') }}" style="width: 100%;">
+            <div class="col-md-12 text-center" >
+              <video class="img-fluid" poster="{{ asset('public/image/video.png') }}" controls>
+                <source src="{{ asset('public/image/VeinFinder.mp4') }}" type="video/mp4">
+                <source src="movie.ogg" type="video/ogg">
+                Your browser does not support the video.
+              </video>
+                <!-- <img class="img-fluid" src="{{ asset('public/image/video.png') }}" style="width: 100%;"> -->
             </div>
         </div>
     </div>

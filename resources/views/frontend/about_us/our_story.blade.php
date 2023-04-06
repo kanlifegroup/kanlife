@@ -50,11 +50,9 @@
             <div class="row mb-5 align-items-center">
                 <div class="col-md-6 col-sm-6 pe-5">
                     <p class="vision-head pb-5" aos="zoom-in">Vision</p>
-                    <p class="vision-txt" aos="fade-right">Kanlife Group was conceptualized and founded in 2009 in Singapore as
-                        Kanlife Asia Pte. Ltd. with a vision to provide a
-                        go-to- market platform to medical technology and healthcare companies from across the globe
-                        that are looking to establish a presence or strengthen their distribution foothold in Asia.
-                    </p>
+                    <p class="vision-txt" aos="fade-right">
+                    Kanlife has set out to be Indian-Subcontinent and UK’s most efficient platform that provides technologically advanced go-to-market solutions for the distribution and marketing of new and established medical products and services.
+                        </p>
                 </div>
                 <div class="col-md-6 col-sm-6 px-5">
                 <img class="img-fluid" aos="fade-left" src="{{ asset('public/image/vision.png') }}">
@@ -77,10 +75,18 @@
                 <div class="row py-3">
                 <p class="vision-head" aos="zoom-in">Mission</p>
             </div>
-                    <p class="vision-txt" aos="fade-left">Over the years kanlife has become the partner of choice for medical
-                        equipment manufacturers looking to introduce,
-                        establish and grow heir business and channel partner networking India and South East Asia.
-                    </p>
+                    
+                        <ul>
+                            <li class="vision-txt" aos="fade-left">
+                                Continuously build and add to our robust network of Channel Partners and Customers across Indian-Subcontinent and UK.
+                            </li>
+                            <li class="vision-txt" aos="fade-left">	Provide our customers and partners with an extensive and expert team of clinical, technical, and marketing resources.</li>
+                            <li class="vision-txt" aos="fade-left">Continuously add to our basket of product offerings across areas-of-care.</li>
+                            <li class="vision-txt" aos="fade-left">To be a 100% customer centric and feedback conscious company.</li>
+                            <li class="vision-txt" aos="fade-left">To set the highest standards of ethical and fair business practices.</li>
+                            <li class="vision-txt" aos="fade-left">To give back to society.</li>
+                        </ul>
+                  
                 </div>
             </div>
         </div>

@@ -3,8 +3,24 @@
 @section('title')
   Home
 @endsection
-
 @section('style')
+<style>
+  @media screen and (min-width: 768px) and (max-width: 860px){
+.deu-cartxts {
+  right: 0px !important;
+    top: -10px !important;
+}
+}@media only screen and (width:768px) {
+  .deu-cartxts{
+    right: 4px !important;
+    top: -9px !important;
+  }
+  .deu-cart {
+    margin-bottom: -5px !important;
+  }
+}
+</style>
+
 <link rel="stylesheet" href="https://cdn.rawgit.com/michalsnik/aos/1.0.1/dist/aos.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/7.3.1/swiper-bundle.min.css">
@@ -145,8 +161,13 @@
         </div>
       </div>
       <div class="col-md-5 col-sm-6" aos="fade-up">
-        <div class="about-img">
-          <img class="img-fluid" src="{{ asset('public/image/video.png') }}" alt="">
+        <div class="about-img">          
+          <video class="img-fluid" poster="{{ asset('public/image/video.png') }}" controls>
+            <source src="{{ asset('public/image/VeinFinder.mp4') }}" type="video/mp4">
+            <source src="movie.ogg" type="video/ogg">
+            Your browser does not support the video.
+          </video>
+          <!-- <img class="img-fluid" src="{{ asset('public/image/video.png') }}" alt=""> -->
         </div>
       </div>
     </div>
