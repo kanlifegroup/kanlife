@@ -48,8 +48,8 @@
     <div class="row">
         <div class="container p-0 px-md-5 mt-5">
             <div class="row mb-5 align-items-center">
-                <div class="col-md-6 col-sm-6 pe-5">
-                    <p class="vision-head pb-5" aos="zoom-in">Vision</p>
+                <div class="col-md-6 col-sm-6 ps-5 order-sm-first order-last">
+                    <p class="vision-head " aos="zoom-in">Vision</p>
                     <p class="vision-txt" aos="fade-right">
                     Kanlife has set out to be Indian-Subcontinent and UK’s most efficient platform that provides technologically advanced go-to-market solutions for the distribution and marketing of new and established medical products and services.
                         </p>
