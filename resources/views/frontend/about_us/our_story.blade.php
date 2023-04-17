@@ -254,34 +254,44 @@
   <div class="swiper-container deu-lifeposi">
     <div class="swiper-wrapper">
       <div class="swiper-slide" aos="fade-left">
-        <img class="img-fluid" src="{{ asset('public/image/life.png') }}">
-        <p class="text-left swipe-txts">Be part of global Events</p>
-        <p class="text-left swipe-txts1">Get exposure to global trend event with us</p>
+        <img class="img-fluid" style="height:276px !important;" src="{{ asset('public/image/st_1.png') }}">
+        <p class="text-left swipe-txts">Echosens Annual Meet</p>
+        <p class="text-left swipe-txts1">Team India is all set to close 2022 as Fibroscan’s best. </p>
       </div>
       <div class="swiper-slide" aos="fade-right">
-        <img class="img-fluid" src="{{ asset('public/image/life.png') }}">
-        <p class="text-left swipe-txts">Be part of global Events</p>
-        <p class="text-left swipe-txts1">Get exposure to global trend event with us</p>
+        <img class="img-fluid" style="height:276px !important;" src="{{ asset('public/image/st_2.png') }}">
+        <p class="text-left swipe-txts">CEO Choice Award 2022</p>
+        <p class="text-left swipe-txts1">We are excited to share that Kanlife has won the esteemed CEO's Choice Award 2022</p>
       </div>
       <div class="swiper-slide" aos="fade-left">
-        <img class="img-fluid" src="{{ asset('public/image/life.png') }}">
-        <p class="text-left swipe-txts">Be part of global Events</p>
-        <p class="text-left swipe-txts1">Get exposure to global trend event with us</p>
+        <img class="img-fluid" style="height:276px !important;" src="{{ asset('public/image/st_3.png') }}">
+        <p class="text-left swipe-txts">Kanlife  at the Symposium</p>
+        <p class="text-left swipe-txts1">Building a Brighter Future for Liver Health in India</p>
       </div>
       <div class="swiper-slide" aos="fade-right">
-        <img class="img-fluid" src="{{ asset('public/image/life.png') }}">
-        <p class="text-left swipe-txts">Be part of global Events</p>
-        <p class="text-left swipe-txts1">Get exposure to global trend event with us</p>
+        <img class="img-fluid" style="height:276px !important;" src="{{ asset('public/image/st_4.png') }}">
+        <p class="text-left swipe-txts">Demo at Wellness Hospital</p>
+        <p class="text-left swipe-txts1">The patient monitor demonstrated by Kanlife uses advanced sensor technology</p>
       </div>
       <div class="swiper-slide" aos="fade-left">
-        <img class="img-fluid" src="{{ asset('public/image/life.png') }}">
-        <p class="text-left swipe-txts">Be part of global Events</p>
-        <p class="text-left swipe-txts1">Get exposure to global trend event with us</p>
+        <img class="img-fluid" style="height:276px !important;" src="{{ asset('public/image/st_5.png') }}">
+        <p class="text-left swipe-txts">Kanlife at Maa Panchadevi</p>
+        <p class="text-left swipe-txts1">For the installation of FibroScan® Mini 430, non-invasive solution</p>
       </div>
       <div class="swiper-slide" aos="fade-right">
-        <img class="img-fluid" src="{{ asset('public/image/life.png') }}">
-        <p class="text-left swipe-txts">Be part of global Events</p>
-        <p class="text-left swipe-txts1">Get exposure to global trend event with us</p>
+        <img class="img-fluid" style="height:276px !important;" src="{{ asset('public/image/st_6.png') }}">
+        <p class="text-left swipe-txts">MD Birthday Celebration</p>
+        <p class="text-left swipe-txts1"></p>
+      </div>
+      <div class="swiper-slide" aos="fade-right">
+        <img class="img-fluid" style="height:276px !important;" src="{{ asset('public/image/st_7.png') }}">
+        <p class="text-left swipe-txts">Kanlife Employee of the year</p>
+        <p class="text-left swipe-txts1">Kanlife India's Employee of the Year award best performance 2022-23</p>
+      </div>
+      <div class="swiper-slide" aos="fade-right">
+        <img class="img-fluid" style="height:276px !important;" src="{{ asset('public/image/st_8.png') }}">
+        <p class="text-left swipe-txts">Warehouse Opening Celebration</p>
+        <p class="text-left swipe-txts1">Celebration of the Warehouse opening ceremony in the head office</p>
       </div>
     </div>
     <div class="swiper-button-prev"></div>
