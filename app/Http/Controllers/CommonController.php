@@ -304,7 +304,19 @@ class CommonController extends Controller
     $translate = $this->lang_text();    
     $slideshow['view'] = Slideshow::viewSlideshow($translate);
     $topSix = Product::topSix();
-    $data = array('is_categories'=>true,'slideshow' => $slideshow,'topSix'=>$topSix);
+    $session_id = Session::getId();
+    $featured = Product::with('ProductImages')->where('product_price','!=',0)->where('product_featured','=',1)->where('product_status','=',1)->where('product_drop_status','=','no')->where('language_code','=',$translate)->orderBy('product_id','desc')->get();
+    foreach($featured as $f_product){
+      $get=DB::table('product_orders')->where('checked_out','=', 0)->where('product_token','=', $f_product->product_token)->where('session_id','=', $session_id)->where('order_status','=', 'pending')->first();
+      if($get){
+        $f_product->qty = $get->quantity;
+        $f_product->ord_id = $get->ord_id;
+      }
+      else{
+        $f_product->qty = 0;
+      }
+    }
+    $data = array('is_categories'=>true,'slideshow' => $slideshow,'topSix'=>$topSix, 'featured'=>$featured);
     return view('frontend.buy')->with($data);
   }
 

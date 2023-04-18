@@ -99,62 +99,28 @@
         <div class="col-md-12 mx-auto">
             <h3 class="text-center deu-bloghead mb-4 mt-5">Top Categories</h3>
             <div class="deu-lifeposi storycat p-5 mt-5">
-                <div class="col-12 swiper-container">
+                <div class="col-12 swiper-container swiper-container-1">
                     <div class="swiper-wrapper position-relative py-4">
+                      @foreach($categories['display'] as $category)
                         <div class="swiper-slide shadow shadow-md" aos="fade-right">
                             <div class="img-box">
-                                <img src="{{ asset('public/image/c1.png') }}" class="img-fluid deu-slideimg" alt="">
+                              <a href="{{url('category/'.$category->category_slug)}}">
+                                <img src="{{ asset('public/storage/category').'/'.$category->category_image }}" style="height:183.854px; width:275px;" class="img-fluid deu-slideimg" alt="">
+                              </a>
                             </div>
                             <div class="deu-thumbss">
-                                <div>Anaesthesia</div>
+                              <a href="{{url('category/'.$category->category_slug)}}">
+                                <div>{{ $category->category_name }}</div>
+                              </a>
                             </div>
                         </div>
-                        <div class="swiper-slide shadow shadow-md" aos="fade-up" aos-delay="300">
-                            <div class="img-box">
-                                <img src="{{ asset('public/image/c1.png') }}" class="img-fluid deu-slideimg" alt="">
-                            </div>
-                            <div class="deu-thumbss">
-                                <div>Anaesthesia</div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide shadow shadow-md"aos="fade-down" aos-delay="600">
-                            <div class="img-box">
-                                <img src="{{ asset('public/image/c1.png') }}" class="img-fluid deu-slideimg" alt="">
-                            </div>
-                            <div class="deu-thumbss">
-                                <div>Anaesthesia</div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide shadow shadow-md" aos="fade-left" aos-delay="900">
-                            <div class="img-box">
-                                <img src="{{ asset('public/image/c1.png') }}" class="img-fluid deu-slideimg" alt="">
-                            </div>
-                            <div class="deu-thumbss">
-                                <div>Anaesthesia</div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide shadow shadow-md" aos="fade-left" aos-delay="900">
-                            <div class="img-box">
-                                <img src="{{ asset('public/image/c1.png') }}" class="img-fluid deu-slideimg" alt="">
-                            </div>
-                            <div class="deu-thumbss">
-                                <div>Anaesthesia</div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide shadow shadow-md" aos="fade-left" aos-delay="900">
-                            <div class="img-box">
-                                <img src="{{ asset('public/image/c1.png') }}" class="img-fluid deu-slideimg" alt="">
-                            </div>
-                            <div class="deu-thumbss">
-                                <div>Anaesthesia</div>
-                            </div>
-                        </div>
+                      @endforeach
                     </div>
                 </div>
-                <div class="swiper-button-prev">
+                <div class="swiper-button-prev swiper-button-prev-1">
                     <img src="{{ asset('public/image/carousal-left.svg') }}" alt="" class="d-block" style="max-width: 130%;">
                 </div>
-                <div class="swiper-button-next">
+                <div class="swiper-button-next swiper-button-next-1">
                     <img src="{{ asset('public/image/carousal-right.svg') }}" alt="" class="d-block" style="max-width: 130%;">
                 </div>
             </div>
@@ -182,175 +148,76 @@
         <div class="col-md-12 mx-auto">
             <h3 class="text-center deu-bloghead mb-4 mt-5">Featured Products</h3>
             <div class="deu-lifeposi storycat p-5 mt-5">
-                <div class="col-12 swiper-container px-3">
+                <div class="col-12 swiper-container swiper-container-2 px-3">
                     <div class="swiper-wrapper position-relative py-4">
+                      @foreach($featured as $product)
                         <div class="swiper-slide shadow shadow-md" >
                             <div class="home-doctors  text-center doc-item">
                                 <div class="common-doctor animated fadeInUp clearfix ae-animation-fadeInUp deu-features position-relative">
-                                    <div class="position-absolute px-3 py-1 mt-2 end-0 me-2 deu-new">New</div>
+                                  @if($product->product_condition == 'new')
+                                    <div class="position-absolute px-3 py-1 mt-2 start-0 ms-2 deu-new">New</div>
+                                  @endif
+                                  @php
+                                  $discount = 0;
+                                   if($product->product_offer_price != 0){
+                                    $discount = (1 - ($product->product_offer_price / $product->product_price)) * 100;
+                                   }
+                                  @endphp
+                                  @if($discount != 0)
+                                    <p class="deu-blue">-{{round($discount)}}%</p>
+                                  @endif
                                     <ul class="list-inline social-lists animate">
-                                        <li><a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-shopping-cart"
-                                                    aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+                                        <li><a href="{{url('/product').'/'.$product->product_slug}}"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
+                                        <li>
+                                          @if($product->qty == 0)
+                                          <a href="{{url('/add_to_cart').'/'.$product->product_slug}}"><i class="fa fa-shopping-cart"aria-hidden="true"></i></a>
+                                          @else
+                                          <a href="{{url('/product').'/'.$product->product_slug}}">
+                                            <i class="fa fa-shopping-cart"aria-hidden="true" style="position:relative;">
+                                              <span style="position:absolute;right:-7px;top:-9px;font-size:12px;">{{$product->qty}}</span>
+                                            </i>                                            
+                                          </a>
+                                          @endif
+                                        </li>
+                                        <li>
+                                          @if(Auth::guest())
+                                          <a href="javascript:void(0);" onclick="openModel('myModal')"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+                                          @else
+                                          <a href="{{ url('/wishlist') }}/{{ Auth::user()->id }}/{{ $product->product_token }}"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+                                          @endif
                                         </li>
                                     </ul>
                                     <figure>
-                                        <img src="{{ asset('public/image/f1.png') }}"
+                                        <img src="{{ url('/') }}/public/storage/product/{{ $product->product_image }}"
                                             class="img-fluid doc-img animate attachment-gallery-post-single wp-post-image"
                                             alt="">
                                     </figure>
                                     <div class="text-content">
-                                        <h5 class="deu-pro">Cardiskan</h5>
-                                        <h5 class="deu-protxt"><i class="fa fa-inr" aria-hidden="true"></i> 200
+                                        <h5 class="deu-pro">{{$product->product_name}}</h5>
+                                        <h5 class="deu-protxt"><i class="fa fa-inr" aria-hidden="true"></i>
+                                          @if($product->product_offer_price != 0)
+                                            {{$product->product_offer_price}}
                                             <small>
                                                 <s>
                                                     <i class="fa fa-inr" aria-hidden="true"></i>
-                                                    300
+                                                    {{$product->product_price}}
                                                 </s>
                                             </small>
+                                          @else
+                                            {{$product->product_price}}
+                                          @endif
                                         </h5>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="swiper-slide shadow shadow-md" >
-                            <div class="home-doctors  text-center doc-item">
-                                <div
-                                    class="common-doctor animated fadeInUp clearfix ae-animation-fadeInUp deu-features">
-                                    <p class="deu-blue">-10%</p>
-                                    <ul class="list-inline social-lists animate">
-                                        <li><a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-shopping-cart"
-                                                    aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-                                        </li>
-                                    </ul>
-                                    <figure>
-                                        <img src="{{ asset('public/image/f2.png') }}"
-                                            class="img-fluid doc-img animate attachment-gallery-post-single wp-post-image"
-                                            alt="">
-                                    </figure>
-                                    <div class="text-content">
-                                        <h5 class="deu-pro">Skansiesta</h5>
-                                        <h5 class="deu-protxt"><i class="fa fa-inr" aria-hidden="true"></i> 200
-                                            <small><s><i class="fa fa-inr" aria-hidden="true"></i>
-                                                    300</s></small>
-                                        </h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide shadow shadow-md" >
-                            <div class="home-doctors  text-center doc-item">
-                                <div
-                                    class="common-doctor animated fadeInUp clearfix ae-animation-fadeInUp deu-features">
-                                    <ul class="list-inline social-lists animate">
-                                        <li><a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-shopping-cart"
-                                                    aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-                                        </li>
-                                    </ul>
-                                    <figure>
-                                        <img src="{{ asset('public/image/f3.png') }}"
-                                            class="img-fluid doc-img animate attachment-gallery-post-single wp-post-image"
-                                            alt="">
-                                    </figure>
-                                    <div class="text-content">
-                                        <h5 class="deu-pro">Dental</h5>
-                                        <h5 class="deu-protxt"><i class="fa fa-inr" aria-hidden="true"></i> 200
-                                            <small><s><i class="fa fa-inr" aria-hidden="true"></i>
-                                                    300</s></small>
-                                        </h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide shadow shadow-md">
-                            <div class="home-doctors  text-center doc-item">
-                                <div
-                                    class="common-doctor animated fadeInUp clearfix ae-animation-fadeInUp deu-features">
-                                    <ul class="list-inline social-lists animate">
-                                        <li><a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-shopping-cart"
-                                                    aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-                                        </li>
-                                    </ul>
-                                    <figure>
-                                        <img src="{{ asset('public/image/f4.png') }}"
-                                            class="img-fluid doc-img animate attachment-gallery-post-single wp-post-image"
-                                            alt="">
-                                    </figure>
-                                    <div class="text-content">
-                                        <h5 class="deu-pro">Diathermy</h5>
-                                        <h5 class="deu-protxt"><i class="fa fa-inr" aria-hidden="true"></i> 200
-                                            <small><s><i class="fa fa-inr" aria-hidden="true"></i>
-                                                    300</s></small>
-                                        </h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide shadow shadow-md">
-                            <div class="home-doctors  text-center doc-item">
-                                <div
-                                    class="common-doctor animated fadeInUp clearfix ae-animation-fadeInUp deu-features">
-                                    <ul class="list-inline social-lists animate">
-                                        <li><a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-shopping-cart"
-                                                    aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-                                        </li>
-                                    </ul>
-                                    <figure>
-                                        <img src="{{ asset('public/image/f4.png') }}"
-                                            class="img-fluid doc-img animate attachment-gallery-post-single wp-post-image"
-                                            alt="">
-                                    </figure>
-                                    <div class="text-content">
-                                        <h5 class="deu-pro">Diathermy</h5>
-                                        <h5 class="deu-protxt"><i class="fa fa-inr" aria-hidden="true"></i> 200
-                                            <small><s><i class="fa fa-inr" aria-hidden="true"></i>
-                                                    300</s></small>
-                                        </h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide shadow shadow-md" >
-                            <div class="home-doctors  text-center doc-item">
-                                <div
-                                    class="common-doctor animated fadeInUp clearfix ae-animation-fadeInUp deu-features">
-                                    <ul class="list-inline social-lists animate">
-                                        <li><a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-shopping-cart"
-                                                    aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-                                        </li>
-                                    </ul>
-                                    <figure>
-                                        <img src="{{ asset('public/image/f4.png') }}"
-                                            class="img-fluid doc-img animate attachment-gallery-post-single wp-post-image"
-                                            alt="">
-                                    </figure>
-                                    <div class="text-content">
-                                        <h5 class="deu-pro">Diathermy</h5>
-                                        <h5 class="deu-protxt"><i class="fa fa-inr" aria-hidden="true"></i> 200
-                                            <small><s><i class="fa fa-inr" aria-hidden="true"></i>
-                                                    300</s></small>
-                                        </h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                      @endforeach
                     </div>
                 </div>
-                <div class="swiper-button-prev">
+                <div class="swiper-button-prev swiper-button-prev-2">
                     <img src="{{ asset('public/image/carousal-left.svg') }}" alt="" class="d-block" style="max-width: 130%;">
                 </div>
-                <div class="swiper-button-next">
+                <div class="swiper-button-next swiper-button-next-2">
                     <img src="{{ asset('public/image/carousal-right.svg') }}" alt="" class="d-block" style="max-width: 130%;">
                 </div>
             </div>
@@ -583,14 +450,38 @@
         });
     </script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.6/js/swiper.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.6/js/swiper.js"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/js/swiper.min.js"></script>
     <script>
         $(document).ready(function () {
             // Swiper: Slider
-            new Swiper('.swiper-container', {
-                loop: true,
-                nextButton: '.swiper-button-next',
-                prevButton: '.swiper-button-prev',
+            new Swiper('.swiper-container-1', {
+                loop: false,
+                nextButton: '.swiper-button-next-1',
+                prevButton: '.swiper-button-prev-1',
+                slidesPerView: 4,
+                paginationClickable: true,
+                spaceBetween: 40,
+                breakpoints: {
+                    1920: {
+                        slidesPerView: 4,
+                        spaceBetween: 30
+                    },
+                    1028: {
+                        slidesPerView: 2,
+                        spaceBetween: 30
+                    },
+                    480: {
+                        slidesPerView: 1,
+                        spaceBetween: 0
+                    }
+                }
+            });
+
+            new Swiper('.swiper-container-2', {
+                loop: false,
+                nextButton: '.swiper-button-next-2',
+                prevButton: '.swiper-button-prev-2',
                 slidesPerView: 4,
                 paginationClickable: true,
                 spaceBetween: 40,

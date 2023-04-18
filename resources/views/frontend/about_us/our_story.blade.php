@@ -342,7 +342,7 @@
 $(document).ready(function() {
 // Swiper: Slider
     new Swiper('.swiper-container', {
-        loop: true,
+        loop: false,
         nextButton: '.swiper-button-next',
         prevButton: '.swiper-button-prev',
         slidesPerView: 3,
