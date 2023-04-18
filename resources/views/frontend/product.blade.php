@@ -107,7 +107,8 @@
           <p class="d-flex align-items-center" aos="fade-left" style="color:#3188CA;"><img class="deu-fealine" src="{{asset('public/image/line.svg')}}"> &nbsp;&nbsp;&nbsp;
               <span class="deu-filter">Features</span>
           </p>
-          <ul class="deu-proul" >
+          {!! html_entity_decode($shop->product_desc) !!}
+          <!-- <ul class="deu-proul" >
               <li class="deu-margbtm row g-0" aos="fade-left"><i class="fa pt-2 col-auto fa-circle deu-profa" aria-hidden="true"></i>
                   <span class="col">200 kHz, 4 kW,
                   100mA Mobile HF X-Ray
@@ -148,7 +149,7 @@
                   NICU, ICU, Trauma & Ortho
                   </span>
               </li>
-          </ul>
+          </ul> -->
           <div class="product-count mt-3 mb-3" aos="fade-left">
             <form action="#" class="d-flex align-items-center">
               @if(isset($cart['qty']) && $cart['qty'] > 0)
@@ -193,16 +194,14 @@
           <span class="deu-filter" >Product Links</span>
         </p>
         <ul class="deu-proul">
-          <li aos="fade-left"><i class="fa fa-circle deu-profa" aria-hidden="true"></i> X-Ray System</li>
-          <li aos="fade-left"><i class="fa fa-circle deu-profa" aria-hidden="true"></i> Surgical C-Arm</li>
-          <li aos="fade-left"><i class="fa fa-circle deu-profa" aria-hidden="true"></i> Ventilators</li>
-          <li aos="fade-left"><i class="fa fa-circle deu-profa" aria-hidden="true"></i> Patient Monitoring Systems</li>
-          <li aos="fade-left"><i class="fa fa-circle deu-profa" aria-hidden="true"></i> Defibrillator</li>
-          <li aos="fade-left"><i class="fa fa-circle deu-profa" aria-hidden="true"></i> ECG</li>
-          <li aos="fade-left"><i class="fa fa-circle deu-profa" aria-hidden="true"></i> Syringe and infusion Pump</li>
-          <li aos="fade-left"><i class="fa fa-circle deu-profa" aria-hidden="true"></i> Electrosurgical Units</li>
-          <li aos="fade-left"><i class="fa fa-circle deu-profa" aria-hidden="true"></i> Dental Products</li>
-          <li aos="fade-left"><i class="fa fa-circle deu-profa" aria-hidden="true"></i> Anesthesia Delivery Systems</li>
+          @foreach($links as $link)
+            <li aos="fade-left">
+              <a href="{{url('/product').'/'.$link->product_slug}}">
+                <i class="fa fa-circle deu-profa" aria-hidden="true"></i> 
+                {{$link->product_name}}
+              </a>
+            </li>
+          @endforeach
         </ul>
       </div>
     </div>

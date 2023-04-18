@@ -555,7 +555,10 @@ class CommonController extends Controller
 	  }
     $session_id = Session::getId();
     $cart = Product::checkInCart($session_id,$shop->product_token);
-	   $data = array('setting' => $setting,'is_categories'=>true,'cart' => $cart, 'shop' => $shop, 'attributer' => $attributer, 'typer' => $typer, 'seller' => $seller, 'product_tag' => $product_tag, 'another' => $another, 'getreview' => $getreview, 'count_rating' => $count_rating, 'getreviewdata' => $getreviewdata);
+    $categories = explode(',',$shop->product_category);
+    $category_id = isset($categories[0]) ? $categories[0] : 'cat-';
+    $links = Product::where('product_status','=',1)->where('product_drop_status','=','no')->where('language_code','=',$translate)->whereRaw('FIND_IN_SET(?,product_category)', [$category_id])->inRandomOrder()->whereNotIn('product_id',[$shop->product_id])->limit(10)->get();
+	   $data = array('setting' => $setting,'is_categories'=>true,'cart' => $cart, 'shop' => $shop, 'attributer' => $attributer, 'typer' => $typer, 'seller' => $seller, 'product_tag' => $product_tag, 'another' => $another, 'getreview' => $getreview, 'count_rating' => $count_rating, 'getreviewdata' => $getreviewdata, 'links'=>$links);
 	  //  return view('product')->with($data);
 	   return view('frontend.product')->with($data);
 	}
