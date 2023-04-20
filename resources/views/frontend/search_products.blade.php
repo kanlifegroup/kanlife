@@ -31,14 +31,21 @@
 <div class="container-fluid">
 	<div class="row">
     <div class="col-md-4">
+    <form action="{{ route('search.products') }}" class="search_form" id="search_form" method="post">
+      {{ csrf_field() }}
       <div class="deu-borderblue" aos="fade-right">
         <p style="color:#3188CA;"><img class="deu-fealine" src="{{asset('public/image/line.svg')}}"> &nbsp;&nbsp;&nbsp;
          <span class="deu-filter">Product Categories</span>
         </p>
-        <div class="chiller_cb" aos="fade-right" aos-delay="300">
-          <input id="myCheckbox" type="checkbox" checked>
-          <label for="myCheckbox">RAD System</label>
-          <span></span>
+        @foreach($categories['display'] as $category)
+          <div class="chiller_cb" aos="fade-right" aos-delay="300">
+            <input id="myCheckbox-{{ $category->cat_id }}" name="categories[]" value="{{ $category->cat_id }}" type="checkbox" @if(in_array($category->cat_id, $p_categories)) checked="checked" @endif>
+            <label for="myCheckbox-{{ $category->cat_id }}">{{ $category->category_name }}</label>
+            <span></span>
+          </div>
+        @endforeach
+        <div class="d-flex justify-content-center mt-2">
+          <button type="submit" class="px-3 py-2 btn btn-primary">Apply</button>
         </div>
 	    </div>
       <div class="deu-borderblue mt-5" aos="fade-right" aos-delay="300">
@@ -46,12 +53,16 @@
               <span class="deu-filter">Filter by Price</span>
           </p>
           <div class="deu-lowprice">
-              <select class="form-select w-100 bg-transparent border-0" style="outline: none;">
-                  <option class="top-select">Price : Low to high</option>
-                  <option class="top-select">Price : High to low</option>
+              <select class="form-select w-100 bg-transparent border-0" name="price_order" style="outline: none;">
+                  <option value="lth" class="top-select">Price : Low to high</option>
+                  <option value="htl" class="top-select">Price : High to low</option>
               </select>
           </div>
+          <div class="d-flex justify-content-center mt-3">
+            <button type="submit" class="px-3 py-2 btn btn-primary">Apply</button>
+          </div>
       </div>
+    </form>
 	  </div>
     @php 
      $from_item = $products->total() == 0 ? 0 : ($products->currentpage()-1)*$products->perpage()+1;
@@ -66,12 +77,12 @@
           <p class="deu-Show m-0">Showing {{$from_item}}-{{$to_item}} of {{$products->total()}} results</p>
           @endif
         </div>
-        <div class="col-4 d-flex justify-content-end d-sort">
+        <!-- <div class="col-4 d-flex justify-content-end d-sort">
           <select class="form-select deu-default rounded-0 px-2 px-lg-4 py-2">
             <option class="top-select">Default Sorting</option>
             <option class="top-select">lorem</option>
           </select>
-        </div>
+        </div> -->
       </div>
       <div class="row row-cols-md-2 row-cols-lg-3 g-3 g-lg-4">
         @foreach($products as $product)

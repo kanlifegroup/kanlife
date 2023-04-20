@@ -322,13 +322,38 @@ class CommonController extends Controller
 
   public function search_products(Request $request)
   {
-    $translate = $this->lang_text();
-    if(!empty($request->input('search_text')))
-    $search_txt = $request->input('search_text');
-    else
-    $search_txt = "";
-    $products = Product::with('ProductImages')->where('product_name', 'LIKE', '%'.$search_txt.'%')->where('product_status','=',1)->where('product_drop_status','=','no')->where('language_code','=',$translate)->orderBy('product_id','desc')->paginate(12);
-    $data = array('products'=>$products);
+    // dd($request->all());
+    $translate = $this->lang_text();    
+    $categories = [];
+    if($request->has('search_text')){
+      if(!empty($request->input('search_text')))
+      $search_txt = $request->input('search_text');
+      else
+      $search_txt = "";
+      $products = Product::with('ProductImages')->where('product_name', 'LIKE', '%'.$search_txt.'%')->where('product_status','=',1)->where('product_drop_status','=','no')->where('language_code','=',$translate)->orderBy('product_id','desc')->paginate(12);
+    }
+    if($request->has('categories') || $request->has('price_order')){
+      $query = Product::with('ProductImages')->where('product_status','=',1)->where('product_drop_status','=','no')->where('language_code','=','en');
+      if(count($request->input('categories')) > 0 ){
+        $categories = $request->input('categories');
+        $query->where(function($q) use ($categories) {
+          $q->whereRaw('FIND_IN_SET(?,product_category)', ['cat-'.$categories[0]]);
+          foreach($categories as $key => $cat_id){
+            if($key !=0)
+            $q->orWhereRaw('FIND_IN_SET(?,product_category)', ['cat-'.$cat_id]);
+          }
+          return $q;
+        });
+      }
+      if($request->has('price_order') && $request->input('price_order') == 'lth')
+        $query->orderBy('product_price','asc')->orderBy('product_offer_price','asc');
+      if($request->has('price_order') && $request->input('price_order') == 'htl')
+        $query->orderBy('product_price','desc')->orderBy('product_offer_price','desc');
+      $products = $query->paginate(12);
+    }
+    if(!isset($products))
+    $products = Product::with('ProductImages')->where('product_status','=',1)->where('product_drop_status','=','no')->where('language_code','=',$translate)->orderBy('product_id','desc')->paginate(12);
+    $data = array('products'=>$products, 'p_categories' => $categories);
     return view('frontend.search_products')->with($data);
   }
 
