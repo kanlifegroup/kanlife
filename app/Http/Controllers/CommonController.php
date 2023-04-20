@@ -322,9 +322,12 @@ class CommonController extends Controller
 
   public function search_products(Request $request)
   {
-    // dd($request->all());
-    $translate = $this->lang_text();    
-    $categories = [];
+    $translate = $this->lang_text();
+    if(gettype($request->categories) == 'string')
+    $categories = unserialize($request->categories);
+    else
+    $categories = $request->categories ?? [];
+    $price_order = $request->price_order ?? '';
     if($request->has('search_text')){
       if(!empty($request->input('search_text')))
       $search_txt = $request->input('search_text');
@@ -334,8 +337,7 @@ class CommonController extends Controller
     }
     if($request->has('categories') || $request->has('price_order')){
       $query = Product::with('ProductImages')->where('product_status','=',1)->where('product_drop_status','=','no')->where('language_code','=','en');
-      if(count($request->input('categories')) > 0 ){
-        $categories = $request->input('categories');
+      if(count($categories) > 0 ){
         $query->where(function($q) use ($categories) {
           $q->whereRaw('FIND_IN_SET(?,product_category)', ['cat-'.$categories[0]]);
           foreach($categories as $key => $cat_id){
@@ -353,7 +355,7 @@ class CommonController extends Controller
     }
     if(!isset($products))
     $products = Product::with('ProductImages')->where('product_status','=',1)->where('product_drop_status','=','no')->where('language_code','=',$translate)->orderBy('product_id','desc')->paginate(12);
-    $data = array('products'=>$products, 'p_categories' => $categories);
+    $data = array('products'=>$products, 'p_categories' => $categories, 'price_order'=> $price_order);
     return view('frontend.search_products')->with($data);
   }
 

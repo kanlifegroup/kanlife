@@ -50,12 +50,12 @@
 	    </div>
       <div class="deu-borderblue mt-5" aos="fade-right" aos-delay="300">
           <p style="color:#3188CA;" class="d-flex align-items-center"><img class="deu-fealine" src="{{asset('public/image/line.svg')}}"> &nbsp;&nbsp;&nbsp;
-              <span class="deu-filter">Filter by Price</span>
+              <span class="deu-filter">Filter By Price</span>
           </p>
           <div class="deu-lowprice">
               <select class="form-select w-100 bg-transparent border-0" name="price_order" style="outline: none;">
-                  <option value="lth" class="top-select">Price : Low to high</option>
-                  <option value="htl" class="top-select">Price : High to low</option>
+                  <option @if($price_order == 'lth') selected @endif value="lth" class="top-select">Price : Low to high</option>
+                  <option @if($price_order == 'htl') selected @endif value="htl" class="top-select">Price : High to low</option>
               </select>
           </div>
           <div class="d-flex justify-content-center mt-3">
@@ -128,17 +128,17 @@
     <ul>
       @if($products->currentPage()!=1)
       <li>
-        <a href="{{$products->path().'?page='.($products->currentPage()-1)}}" class="prev"> Previous</a>
+        <a href="{{$products->path().'?page='.($products->currentPage()-1).'&categories='.serialize($p_categories).'&price_order='.$price_order}}" class="prev"> Previous</a>
       </li>
       @endif
       @for($i=1; $i <= $products->lastPage(); $i++)
       <li>
-        <a @if($i == $products->currentPage()) class="active" @endif href="{{$products->path().'?page='.$i}}">{{$i}}</a>
+        <a @if($i == $products->currentPage()) class="active" @endif href="{{$products->path().'?page='.$i.'&categories='.serialize($p_categories).'&price_order='.$price_order}}">{{$i}}</a>
       </li>
       @endfor
       @if($products->currentPage()!=$products->lastPage())
       <li>
-        <a href="{{$products->path().'?page='.($products->currentPage()+1)}}" class="next"> Next</a>
+        <a href="{{$products->path().'?page='.($products->currentPage()+1).'&categories='.serialize($p_categories).'&price_order='.$price_order}}" class="next"> Next</a>
       </li>
       @endif
     </ul>

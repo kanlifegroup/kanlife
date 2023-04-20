@@ -69,7 +69,7 @@
         </div>
         <div class="deu-borderblue mt-5" aos="fade-right" aos-delay="300">
             <p style="color:#3188CA;" class="d-flex align-items-center"><img class="deu-fealine" src="{{asset('public/image/line.svg')}}"> &nbsp;&nbsp;&nbsp;
-                <span class="deu-filter">Filter by Price</span>
+                <span class="deu-filter">Filter By Price</span>
             </p>
             <div class="deu-lowprice">
                 <select class="form-select w-100 bg-transparent border-0" name="price_order" style="outline: none;">
