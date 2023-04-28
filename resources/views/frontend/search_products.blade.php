@@ -50,7 +50,7 @@
           </div>
         @endforeach
         <div class="d-flex justify-content-center mt-2">
-          <button type="submit" class="px-3 py-2 btn btn-primary">Apply</button>
+          <button type="submit" class="px-3 py-2 btn btn-primary" style="background-color:#3188CA; border-color:#3188CA;">Apply</button>
         </div>
 	    </div>
       <div class="deu-borderblue mt-5" aos="fade-right" aos-delay="300">
@@ -64,7 +64,7 @@
               </select>
           </div>
           <div class="d-flex justify-content-center mt-3">
-            <button type="submit" class="px-3 py-2 btn btn-primary">Apply</button>
+            <button type="submit" class="px-3 py-2 btn btn-primary" style="background-color:#3188CA; border-color:#3188CA;">Apply</button>
           </div>
       </div>
     </form>

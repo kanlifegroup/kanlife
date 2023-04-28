@@ -3,8 +3,6 @@
 @section('title')
   Cart
 @endsection
-
-@section('style')
 <style>
 @media screen and (min-width:769px ) and (max-width:860px ) {
   .deu-cartxts{
@@ -25,6 +23,8 @@
   }
 }
 </style>
+
+@section('style')
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/7.3.1/swiper-bundle.min.css">
@@ -117,9 +117,9 @@
             <div class="row h-100 pe-4">
                 <div class="col-md-12 d-flex justify-content-end align-items-center">
                   @guest
-                    <a href="javascript:void(0);" onclick="openModel('myModal')" class="deu-prceebtn text-white px-5 py-3">Proceed to checkout</a>
+                    <a href="javascript:void(0);" onclick="openModel('myModal')" class="deu-prceebtn text-white px-5 py-3" style="border-radius: 5px;font-size: 1.4rem;">Proceed to checkout</a>
                   @else
-                    <a href="{{ url('/checkout') }}" class="deu-prceebtn text-white px-5 py-3">Proceed to checkout</a>
+                    <a href="{{ url('/checkout') }}" class="deu-prceebtn text-white px-5 py-3" style="border-radius: 5px;font-size: 1.4rem;">Proceed to checkout</a>
                   @endif
                 </div>
             </div>
@@ -189,10 +189,10 @@
       <div class="product-count mt-3 mb-3">
           <form action="{{ route('coupon') }}" class="row g-0" id="coupon_form" method="post" >
           {{ csrf_field() }}
-          <input type="text" class="border border-3 px-2 bg-white col-6" style="border-color: #9D9D9D; font-size: 1.4rem;" placeholder="Coupon Code"  id="coupon" name="coupon" >
+          <input type="text" class="border border-3 px-2 bg-white col-6" style="border-color: #9D9D9D; border-radius: 5px; font-size: 1.4rem;" placeholder="Coupon Code"  id="coupon" name="coupon" >
           <div class="col-auto"></div>
           <div class="col d-flex justify-content-end">
-            <button type="submit" class="josefin-font btn btn-primary rounded-0 text-center col-10 py-2">Apply Coupon</a>
+            <button type="submit" class="josefin-font btn text-white text-center col-10 py-2" style="background-color:#3188CA;border-radius: 5px;font-size: 1.4rem;">Apply Coupon</a>
           </div>
       </form>
       @if($coupon_code != "")

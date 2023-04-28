@@ -229,6 +229,13 @@ body {
   line-height: 6.25rem;
 }
 
+@media(max-width: 575.5px) {
+  .deu-loginhead {
+    font-size: 3.4rem;
+    line-height: 3.25rem;
+  }
+}
+
 .deu-logintxt {
   letter-spacing: 0px;
   color: #9D9D9D;
@@ -1012,6 +1019,12 @@ body {
     font-family: 'Nunito', sans-serif;
     font-weight: 700;
     font-size: 2.25rem;
+    /* text-align: center; */
+  }
+}
+
+@media(max-width: 575.5px) {
+  .deu-contacttxt {
     text-align: center;
   }
 }
@@ -1409,6 +1422,12 @@ width: auto;
   border-right: 2px solid #d6d7d9;
 }
 
+@media screen and (max-width: 575px){
+  .deu-conborder {
+    border-right: none;
+  }
+}
+
 .deu-conpads {
   background-color: #F5F6F8;
   margin-bottom: 25px;
@@ -1489,8 +1508,8 @@ width: auto;
 }
 
 .vision-head {
-  color: #9D9D9D;
-  font-size: 5rem;
+  color: #3188CA;
+  font-size: 3.5rem;
   font-weight: 800;
   padding-left: 12px;
   margin-bottom: 30px;
@@ -2206,7 +2225,7 @@ width: auto;
 }
 
 .product-price-discount {
-  font-size: 3.75rem;
+  font-size: 3.0rem;
   font-weight: 900;
   padding: 10px 0;
   clear: both;
@@ -2217,7 +2236,7 @@ width: auto;
 .product-price-discount span.line-through {
   text-decoration: line-through;
   margin-left: 10px;
-  font-size: 2.75rem;
+  font-size: 2.0rem;
   font-weight: 400;
   vertical-align: middle;
   color: #3188CA;

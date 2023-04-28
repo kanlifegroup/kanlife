@@ -114,7 +114,7 @@
               </div>
               <input type="hidden" name="edit_id" value="{{ $edit['profile']->user_token }}">
               <div class="text-center" aos="fade-left">
-                  <button type="submit" class="deu-editbtn px-5">Edit Profile</button>
+                  <button type="submit" class="deu-editbtn px-5" style="border-radius: 5px;font-size: 1.4rem;">Edit Profile</button>
               </div>
           </div>
           </form>

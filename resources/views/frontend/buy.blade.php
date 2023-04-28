@@ -238,7 +238,7 @@
                             <img class="img-fluid deu-sellwiD" src="{{ url('/') }}/public/storage/product/{{ $topSix[0]->product_image }}">
                         </div>
                         <div class="col-lg-7 col-md-7 d-flex flex-column justify-content-center">
-                            <h4 class="deu-digitalhead">
+                            <h4 class="deu-digitalhead deu-digitalhead-name">
                                 {{$topSix[0]->product_name}}
                             </h4>                            
                             <div class="deu-digitaltxt"><i class="fa fa-inr" aria-hidden="true"></i>
@@ -264,7 +264,7 @@
                           <img class="img-fluid deu-sellwiD" src="{{ url('/') }}/public/storage/product/{{ $topSix[1]->product_image }}">
                         </div>
                         <div class="col-lg-7 col-md-7 d-flex flex-column justify-content-center">
-                            <h4 class="deu-digitalhead">
+                            <h4 class="deu-digitalhead deu-digitalhead-name">
                                 {{$topSix[1]->product_name}}
                             </h4>                            
                             <div class="deu-digitaltxt"><i class="fa fa-inr" aria-hidden="true"></i>
@@ -290,7 +290,7 @@
                           <img class="img-fluid deu-sellwiD" src="{{ url('/') }}/public/storage/product/{{ $topSix[2]->product_image }}">
                         </div>
                         <div class="col-lg-7 col-md-7 d-flex flex-column justify-content-center">
-                            <h4 class="deu-digitalhead">
+                            <h4 class="deu-digitalhead deu-digitalhead-name">
                                 {{$topSix[2]->product_name}}
                             </h4>                            
                             <div class="deu-digitaltxt"><i class="fa fa-inr" aria-hidden="true"></i>
@@ -318,7 +318,7 @@
                           <img class="img-fluid deu-sellwiD" src="{{ url('/') }}/public/storage/product/{{ $topSix[3]->product_image }}">
                         </div>
                         <div class="col-lg-7 col-md-7 d-flex flex-column justify-content-center">
-                            <h4 class="deu-digitalhead">
+                            <h4 class="deu-digitalhead deu-digitalhead-name">
                                 {{$topSix[3]->product_name}}
                             </h4>                            
                             <div class="deu-digitaltxt"><i class="fa fa-inr" aria-hidden="true"></i>
@@ -344,7 +344,7 @@
                           <img class="img-fluid deu-sellwiD" src="{{ url('/') }}/public/storage/product/{{ $topSix[4]->product_image }}">
                         </div>
                         <div class="col-lg-7 col-md-7 d-flex flex-column justify-content-center">
-                            <h4 class="deu-digitalhead">
+                            <h4 class="deu-digitalhead deu-digitalhead-name">
                                 {{$topSix[4]->product_name}}
                             </h4>                            
                             <div class="deu-digitaltxt"><i class="fa fa-inr" aria-hidden="true"></i>
@@ -370,7 +370,7 @@
                           <img class="img-fluid deu-sellwiD" src="{{ url('/') }}/public/storage/product/{{ $topSix[5]->product_image }}">
                         </div>
                         <div class="col-lg-7 col-md-7 d-flex flex-column justify-content-center">
-                            <h4 class="deu-digitalhead">
+                            <h4 class="deu-digitalhead deu-digitalhead-name">
                                 {{$topSix[5]->product_name}}
                             </h4>                            
                             <div class="deu-digitaltxt"><i class="fa fa-inr" aria-hidden="true"></i>

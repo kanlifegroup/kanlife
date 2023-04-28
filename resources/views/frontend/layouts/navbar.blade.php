@@ -161,16 +161,16 @@ $module=explode("/", url()->current());
           <a class="dropdown-toggle prn deu-barcat nav-link" type="button" id="dropdownMenu1" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fa fa-bars" aria-hidden="true"></i>  Categories
           </a>
-          <ul class="dropdown-menu multi-level drop1" role="menu" aria-labelledby="dropdownMenu">
+          @php $count_categories = count($categories['display']); @endphp
+          <ul class="dropdown-menu multi-level drop1" role="menu" aria-labelledby="dropdownMenu" style=" @if($count_categories > 10 && $count_categories < 21) width:300px; @elseif($count_categories > 20) width:450px; @endif"> 
             {{--
              @foreach($categories['display'] as $category)
             <li class="dropdown-item"><a class="deu-droptxt" href="{{url('category/'.$category->category_slug)}}">{{ $category->category_name }}</a></li>
             @endforeach
             --}}
             <div class="container">
-              @php $count_categories = count($categories['display']); @endphp
             <div class="row">
-                <div class="col-6 col-md-4">
+                <div class="col-6 @if($count_categories < 11) col-md-12 @elseif($count_categories > 10 && $count_categories < 21) col-md-6 @else col-md-4 @endif ">
                   @foreach($categories['display'] as $key => $category)
                     @if($key < 10)
                     <li class="dropdown-item"><a class="deu-droptxt" href="{{url('category/'.$category->category_slug)}}">{{ $category->category_name }}</a></li>
@@ -178,7 +178,7 @@ $module=explode("/", url()->current());
                   @endforeach
                 </div>
                 @if($count_categories > 10)
-                <div class="col-6 col-md-4 bg-light">
+                <div class="col-6 @if($count_categories < 21) col-md-6 @else col-md-4 @endif bg-light">
                   @foreach($categories['display'] as $key => $category)
                     @if($key >= 10 && $key < 20)
                     <li class="dropdown-item"><a class="deu-droptxt" href="{{url('category/'.$category->category_slug)}}">{{ $category->category_name }}</a></li>

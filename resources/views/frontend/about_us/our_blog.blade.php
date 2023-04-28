@@ -76,7 +76,7 @@
                         <h4 class="title1">{{ $post->post_title }}</h4>
                         <p class="ctext"><small class="text-primary">{{ date('M Y', strtotime($post->post_date)) }}</small></p>
                         <p class="ctext py-4" style="text-align: justify;">{{ $post->post_short_desc }} ...</p>
-                        <a href="{{ route('about.detail.blog', $post->post_id) }}" class="btn text-light btn-primary btn-lg px-5 rounded-0">Read More</a>
+                        <a href="{{ route('about.detail.blog', $post->post_id) }}" class="btn text-light btn-lg px-5" style="background-color:#3188CA; border-radius: 5px;font-size: 1.4rem;">Read More</a>
                      </div>
                     </div>
                 </div>
