@@ -15,7 +15,7 @@
                         looking to establish a presence or strengthen their distribution foothold in Asia.
                     </div>
                     <a href="{{ route('about.contact') }}">
-                      <button class="about-more">Know More</button>
+                      <button class="about-more" style="font-size: 1.4rem;">Know More</button>
                     </a>
                 </div>
             </div>

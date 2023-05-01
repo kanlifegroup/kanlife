@@ -184,7 +184,7 @@
       <input type="hidden" name="product_id" value="{{ $product_numbers }}">
       <input type="hidden" name="product_names" value="{{ $product_names }}">
       <p class="deu-personal">Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our privacy policy.</p>
-      <button type="submit" onclick="return enable_button();" class="round-btns place_order">Place Order</a>
+      <button type="submit" onclick="return enable_button();" class="round-btns place_order" style="border-radius: 5px;font-size: 1.4rem;">Place Order</a>
     </div>
     <div class="col-md-5" aos="fade-left">
       <p class="deu-carthead">Cart Details</p>

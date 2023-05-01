@@ -119,7 +119,7 @@
                   @guest
                     <a href="javascript:void(0);" onclick="openModel('myModal')" class="deu-prceebtn text-white px-5 py-3" style="border-radius: 5px;font-size: 1.4rem;">Proceed to checkout</a>
                   @else
-                    <a href="{{ url('/checkout') }}" class="deu-prceebtn text-white px-5 py-3" style="border-radius: 5px;font-size: 1.4rem;">Proceed to checkout</a>
+                    <a href="{{ url('/checkout') }}" class="deu-prceebtn text-white px-5 py-3" style="border-radius: 5px;font-size: 1.4rem;font-family: 'Nunito', sans-serif;">Proceed to checkout</a>
                   @endif
                 </div>
             </div>
