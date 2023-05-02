@@ -39,7 +39,7 @@
             <div class="col-9 px-0">
               <input type="text" name="email"  value="{{ old('email') }}" placeholder="Email*" class="@error('error') is-invalid @enderror form-control border-info placeicon deu-logininput">
               @error('error')
-                <span class="invalid-feedback" role="alert">
+                <span class="invalid-feedback error-font" role="alert">
                 <strong>{{ $message }}</strong>
                 </span>
               @enderror
@@ -93,7 +93,7 @@
             <div class="col-9 px-0">
               <input type="text" name="name" value="{{ old('name') }}" placeholder="Enter your name*" class="@error('name') is-invalid @enderror form-control border-info placeicon deu-logininput" autocomplete="name" autofocus>
               @error('name')
-                <span class="invalid-feedback" role="alert">
+                <span class="invalid-feedback error-font" role="alert">
                 <strong>{{ $message }}</strong>
                 </span>
               @enderror
@@ -103,7 +103,7 @@
             <div class="col-9 px-0">
               <input type="email" name="email" value="{{ old('email') }}" placeholder="Enter Email Address*" class="@error('email') is-invalid @enderror form-control border-info placeicon deu-logininput" >
               @error('email')
-                <span class="invalid-feedback" role="alert">
+                <span class="invalid-feedback error-font" role="alert">
                 <strong>{{ $message }}</strong>
                 </span>
               @enderror
@@ -113,7 +113,7 @@
             <div class="col-9 px-0">
               <input type="number" name="user_phone" value="{{ old('user_phone') }}" placeholder="+91 | Contact Number*" class="@error('user_phone') is-invalid @enderror form-control border-info placeicon deu-logininput" onkeypress="return /^[0-9\s]*$/.test(event.key)">
               @error('user_phone')
-                <span class="invalid-feedback" role="alert">
+                <span class="invalid-feedback error-font" role="alert">
                 <strong>{{ $message }}</strong>
                 </span>
               @enderror
@@ -124,7 +124,7 @@
             <div class="col-9 px-0">
               <textarea name="user_address" class="@error('user_address') is-invalid @enderror form-control border-info placeicon deu-logininput" placeholder="Enter Address*" rows="3" id="comment" >{{ old('user_address') }}</textarea>
               @error('user_address')
-                <span class="invalid-feedback" role="alert">
+                <span class="invalid-feedback error-font" role="alert">
                 <strong>{{ $message }}</strong>
                 </span>
               @enderror
@@ -134,7 +134,7 @@
             <div class="col-9 px-0">
               <input type="number" name="user_pincode" value="{{ old('user_pincode') }}" placeholder="Enter Pincode*" class=" @error('user_pincode') is-invalid @enderror form-control border-info placeicon deu-logininput" onkeypress="return /^[0-9\s]*$/.test(event.key)">
               @error('user_pincode')
-                <span class="invalid-feedback" role="alert">
+                <span class="invalid-feedback error-font" role="alert">
                 <strong>{{ $message }}</strong>
                 </span>
               @enderror
@@ -144,12 +144,12 @@
           <div class="form-group row justify-content-center px-3">
             <div class="col-9 px-0 position-relative">
               <input style="margin-bottom: 0;" type="password" name="password" placeholder="Enter Password*" class="@error('password') is-invalid @enderror form-control border-info placeicon deu-logininput" onkeypress="return /^([0-9a-zA-Z!@#$%^&*(\).,<>{}[\]<>?_=+\-|;:\'\/\s])*[^\s]\1*$/.test(event.key)">
-              <p style="margin: 9px 0 10px 5px;font-size: 12px;line-height: 12px;">Please enter atleast 8 characters, a number, a special character, an upper case and a lower case alphabate.</p>
+              <p style="margin: 9px 0 10px 5px;font-size: 12px;line-height: 12px;" class="error-font">Please enter atleast 8 characters, a number, a special character, an upper case and a lower case alphabate.</p>
               
               <span class="seepassword" style="display:none;" onclick="hide_password(this)"><i class="fa fa-eye"></i></span>
               <span class="seepassword" onclick="see_password(this)"><i class="fa fa-eye-slash"></i></span>
               @error('password')
-                <span class="invalid-feedback" role="alert">
+                <span class="invalid-feedback error-font" role="alert">
                 <strong>{{ $message }}</strong>
                 </span>
               @enderror
@@ -161,7 +161,7 @@
               <span class="seepassword" style="display:none;" onclick="hide_password(this)"><i class="fa fa-eye"></i></span>
               <span class="seepassword" onclick="see_password(this)"><i class="fa fa-eye-slash"></i></span>
               @error('password_confirmation')
-                <span class="invalid-feedback" role="alert">
+                <span class="invalid-feedback error-font" role="alert">
                 <strong>{{ $message }}</strong>
                 </span>
               @enderror

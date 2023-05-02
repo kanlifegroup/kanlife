@@ -3496,4 +3496,7 @@ width: 40px;
   .deu-digitalhead-name{
     margin-top: 10px;
   }
+  .error-font{
+    font-size: 0.6em !important;
+  }
 }
