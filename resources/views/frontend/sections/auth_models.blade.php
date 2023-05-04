@@ -144,7 +144,7 @@
           <div class="form-group row justify-content-center px-3">
             <div class="col-9 px-0 position-relative">
               <input style="margin-bottom: 0;" type="password" name="password" placeholder="Enter Password*" class="@error('password') is-invalid @enderror form-control border-info placeicon deu-logininput" onkeypress="return /^([0-9a-zA-Z!@#$%^&*(\).,<>{}[\]<>?_=+\-|;:\'\/\s])*[^\s]\1*$/.test(event.key)">
-              <p style="margin: 9px 0 10px 5px;font-size: 12px;line-height: 12px;" class="error-font">Please enter atleast 8 characters, a number, a special character, an upper case and a lower case alphabate.</p>
+              <p style="margin: 9px 0 10px 5px;font-size: 12px;line-height: 12px;" class="psword-font">Please enter atleast 8 characters, a number, a special character, an upper case and a lower case alphabate.</p>
               
               <span class="seepassword" style="display:none;" onclick="hide_password(this)"><i class="fa fa-eye"></i></span>
               <span class="seepassword" onclick="see_password(this)"><i class="fa fa-eye-slash"></i></span>
