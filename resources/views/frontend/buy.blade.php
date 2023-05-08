@@ -57,42 +57,7 @@
 
 @section('content')
 
-
-<div class="banner slider">
-  <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
-    <div class="carousel-indicators">
-      @foreach($slideshow['view'] as $key => $slide)
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{$key}}" class="@if($key == 0) active @endif" aria-current="true" aria-label="Slide {{$key+1}}"></button>
-      @endforeach
-    </div>
-    <div class="carousel-inner">
-      @foreach($slideshow['view'] as $key => $slide)
-      <div class="carousel-item @if($key == 0) active @endif">
-        <img src="{{ url('/') }}/public/storage/slideshow/{{ $slide->slide_image }}" class="d-block w-100 banerw"  alt="...">
-        <div class="carousel-caption deu-slidepad text-left">
-          <div class="col-12">
-            <h1 class="deu-slidehead text-start pb-4" aos="zoom-in">Kanlife Group </h1>
-            <div class="d-flex flex-column flex-md-row flex-wrap gap-1 gap-md-5 ms-3">
-              <div class="d-flex" aos="fade-down">
-                <img class="img-fluid deu-healthimg" src="{{ asset('public/image/s1.png') }}">
-                <p class="deu-health">Health</p>
-              </div>
-              <div class="d-flex" aos="fade-down"  aos-delay="400">
-                <img class="img-fluid deu-healthimg" src="{{ asset('public/image/s2.png') }}">
-                <p class="deu-health">Medical</p>
-              </div>
-              <div class="d-flex" aos="fade-down"  aos-delay="800">
-                <img class="img-fluid deu-healthimg" src="{{ asset('public/image/s3.png') }}">
-                <p class="deu-health">Wellness</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      @endforeach
-    </div>
-  </div>
-</div>
+@include('frontend.sections.slider')
 
 <div class="container-fluid">
     <div class="row">
@@ -227,7 +192,7 @@
 
 <div class="container-fluid deu-seelbggray px-5" >
     <div class="container-fluid px-5">
-        <h3 class="text-center deu-bloghead my-5">Best Selling Products</h3>
+        <h3 class="text-center deu-bloghead mb-5 mt-4">Best Selling Products</h3>
         <div class="row mb-4">
           @if(isset($topSix[0]))
             <div class="col-lg-4 col-md-4 col-sm-6" >

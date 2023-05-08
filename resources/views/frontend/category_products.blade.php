@@ -60,8 +60,8 @@
           <p style="color:#3188CA;"><img class="deu-fealine" src="{{asset('public/image/line.svg')}}"> &nbsp;&nbsp;&nbsp;
           <span class="deu-filter">Product Categories</span>
           </p>
-          @foreach($categories['display'] as $category)
-            <div class="chiller_cb" aos="fade-right" aos-delay="300">
+          @foreach($categories['display'] as $key => $category)
+            <div class="chiller_cb @if($key > 1) d-none d-sm-block @endif" aos="fade-right" aos-delay="300">
               <input id="myCheckbox-{{ $category->cat_id }}" name="categories[]" value="{{ $category->cat_id }}" type="checkbox" @if($category->category_name == $category_name) checked="checked" @endif>
               <label for="myCheckbox-{{ $category->cat_id }}">{{ $category->category_name }}</label>
               <span></span>

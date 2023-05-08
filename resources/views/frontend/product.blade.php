@@ -89,7 +89,7 @@
         @endforeach
       </div>
     </div>
-    <div class="col">
+    <div class="col-md col-12">
       <div class="product-dtl pt-2">
           <div class="product-info mb-3">
               <div class="product-name" aos="fade-left">{{$shop->product_name}}</div>

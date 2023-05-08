@@ -22,6 +22,13 @@
     margin-bottom: -10px !important;
   }
 }
+.deu-search-bar{
+  padding: 6px !important;
+}
+@media screen and (max-width: 426px) {
+.deu-search-bar {
+    margin-top: 0px !important;
+}
 </style>
 
 @section('style')

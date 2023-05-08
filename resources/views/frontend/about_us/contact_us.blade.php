@@ -66,11 +66,11 @@
                 <img class="img-fluid deucontactwid" src="{{ asset('public/image/email.png') }}">
                 <p class="mt-1 mb-1 deu-contactadress1">Email</p>
             </div>
-            <div class="col-12 col-sm-3 text-center deu-conborder" aos="fade-left">
+            <div class="col-12 col-sm-3 text-center deu-conborder deu-conborder-margin" aos="fade-left">
                 <p class="mb-2 deu-contactsales">Sales and product related support</p>
                 <p class="deu-contactasia">sales@kanlifemedical.asia</p>
             </div>
-            <div class="col-12 col-sm-3 text-center deu-conborder" aos="fade-left" aos-delay="200">
+            <div class="col-12 col-sm-3 text-center deu-conborder deu-conborder-margin" aos="fade-left" aos-delay="200">
                 <p class="mb-2 deu-contactsales">Accounts related support</p>
               @if(array_intersect([$user_location],['india']))
                 <p class="deu-contactasia">india@kanlifemedical.asia</p>
@@ -82,7 +82,7 @@
                 <p class="deu-contactasia">sales@tamboos.co.uk</p>
               @endif
             </div>
-            <div class="col-12 col-sm-3 text-center" aos="fade-left" aos-delay="400">
+            <div class="col-12 col-sm-3 text-center deu-conborder-margin" aos="fade-left" aos-delay="400">
                 <p class="mb-2 deu-contactsales">Marketing related support</p>
                 <p class="deu-contactasia">marketing@kanlifemedical.asia</p>
             </div>

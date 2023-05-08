@@ -22,13 +22,13 @@
 
 <div class="blog-section">
     <div class="container-fluid px-5">
-        <div class="row blog-pads align-items-center" aos="zoom-in">
+        <div class="row blog-pads blog-detail align-items-center" aos="zoom-in">
             <div class="text-center title2 py-3">
                 <h1>
                 {{ $blogPost->post_title }}
                 </h1>
             </div>
-            <div class="carousel mb-5">
+            <div class="carousel carousel-blog mb-md-5">
             <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel " aos="fade-up" >
   <div class="carousel-indicators d-sm-none d-none  d-md-flex">
     <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1">
@@ -66,7 +66,7 @@
   </button>
 </div>
             </div>    
-            <div class="sociala mt-5 pt-md-5 mb-5 text-center" aos="fade-down">
+            <div class="sociala mt-md-5 pt-md-5 mb-md-5 text-center" aos="fade-down">
       @if($blogPost->facebook)  
       <a href="{{$blogPost->facebook}}"><i class="fa fa-facebook social" aria-hidden="true"></i></a>
       @endif

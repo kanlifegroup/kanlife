@@ -9,7 +9,7 @@
             </div>
             <div class="col-md-7 col-sm-6">
                 <div class="about-title clearfix" aos="fade-left">
-                    <div class="dsd">Kanlife Group was conceptualized and founded in 2009 in Singapore as
+                    <div class="dsd get-in-touch-p">Kanlife Group was conceptualized and founded in 2009 in Singapore as
                         Kanlife Asia Pte. Ltd. with a vision to provide a go-to-market
                         platform to medical technology and healthcare companies from across the globe that are
                         looking to establish a presence or strengthen their distribution foothold in Asia.

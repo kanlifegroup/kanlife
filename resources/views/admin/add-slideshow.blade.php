@@ -122,7 +122,7 @@
                                                 </select>
                                             </div>
                                             <div class="form-group">
-                                                <label for="site_logo" class="control-label mb-1">{{ Helper::translation(2099,$translate,'') }} ({{ Helper::translation(3003,$translate,'') }} 1920 x 400) <span class="require">*</span></label>
+                                                <label for="site_logo" class="control-label mb-1">{{ Helper::translation(2099,$translate,'') }} ({{ Helper::translation(3003,$translate,'') }} 1920 x 900) <span class="require">*</span></label>
                                                 
                                             <input type="file" id="slide_image" name="slide_image" class="form-control-file"  data-bvalidator="required,extension[jpg:png:jpeg]" data-bvalidator-msg="Please select file of type .jpg, .png or .jpeg"></div>
                                             <div class="form-group">

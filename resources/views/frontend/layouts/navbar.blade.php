@@ -27,8 +27,8 @@
 </div>
 --}}
 <div class="container-fluid top-nav text-white py-1">
-  <div class="row g-0 align-items-left flex-column gap-3 justify-content-left flex-md-row">
-    <div class="col d-flex gap-2 justify-content-left justify-content-md-start px-3 m-auto">
+  <div class="row g-0 align-items-left gap-3 justify-content-left flex-md-row">
+    <div class="col d-flex gap-2 justify-content-left justify-content-md-start px-sm-3 px-0 m-auto">
       <div class="social-bg d-flex justify-content-center align-items-center">
         <!-- <img src="image/facebook.svg" alt="" class="img-fluid"> -->
         <a href="https://lnkd.in/gCW9EFfv">
@@ -59,7 +59,7 @@
         </a>
       </div>
     </div>
-    <div class="col-auto d-flex align-items-center gap-2 px-3">
+    <div class="col-auto d-flex align-items-center gap-0 gap-sm-2 px-0 px-sm-3">
       <img class="top-navemail" src="{{ asset('public/image/email.svg') }}" />
       <a href="mailto:contact@kanlifemedical.asia">
         <span class="kan-email">contact@kanlifemedical.asia<span>
@@ -139,10 +139,10 @@ $module=explode("/", url()->current());
       <img src="{{ asset('public/image/logo.png') }}" width="" class="logo img-fluid" />
     </a>
     <div class="col-md-2">
-      <form action="{{ route('search.products') }}" class="search_form" id="search_form" method="post">
+      <form action="{{ route('search.products') }}" class="search_form mb-0" id="search_form" method="post">
       {{ csrf_field() }}
           <div class="input-group flex-fill">
-            <input type="text" class="form-control" id="search_text" name="search_text" placeholder="{{ Helper::translation(2039,$translate,'') }}">
+            <input type="text" class="form-control search-text" id="search_text" name="search_text" placeholder="{{ Helper::translation(2039,$translate,'') }}">
             <div style="margin-left: -1px; z-index: 100;">
               <button class="btn btn-secondary button-color deu-search-bar" type="submit">
                 <i class="fa fa-search"></i>
@@ -150,16 +150,31 @@ $module=explode("/", url()->current());
             </div>
         </div>
       </form>
-    </div> 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+    </div>
+    <div class="d-flex justify-content-center align-items-center">
+      @if(array_intersect([$user_location],['india','london']))
+        <a class="nav-link d-md-none d-block me-2 position-relative" href="{{url('/cart')}}"><img style="width: 20px; margin-bottom: 2px;" src="{{ url('/cart') == url()->current() ? asset('public/image/cart_active.svg') : asset('public/image/cart.svg')}}">
+          @if($cart_count > 0)
+            <span class="deu-cartxts position-absolute" style="right:-9px;top:-10px">{{ $cart_count }}</span>
+          @endif
+        </a>
+      @endif
+      @if(Auth::guest())   
+        <a class=" d-md-none d-block me-4" href="javascript:void(0)" onclick="openModel('myModal')">
+          <i class="fa fa-sign-in" style="font-size:20px;margin-top:4px;"></i>
+        </a>
+      @endif
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
     <div class="collapse navbar-collapse px-2" id="navbarSupportedContent" style="flex-grow: 0;">   
       <div class="navbar-nav gap-lg-3 gap-md-3 gap-xxl-3 ms-auto align-items-md-center">
         @if(isset($is_categories) && $is_categories)
         <div class="dropdown">
           <a class="dropdown-toggle prn deu-barcat nav-link" type="button" id="dropdownMenu1" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fa fa-bars" aria-hidden="true"></i>  Categories
+          <i class="fa fa-bars" aria-hidden="true"></i>  <span class="me-md-4 "> Categories </span>
+          <img src="{{ asset('public/image/cat-dd-icon.svg') }}" alt="" width="10" class="ms-3 position-absolute cat-dd-icon" style="right:9px;">
           </a>
           @php $count_categories = count($categories['display']); @endphp
           <ul class="dropdown-menu multi-level drop1" role="menu" aria-labelledby="dropdownMenu" style=" @if($count_categories > 10 && $count_categories < 21) width:300px; @elseif($count_categories > 20) width:450px; @endif"> 
@@ -221,7 +236,7 @@ $module=explode("/", url()->current());
           </ul>
         </div>
         @if(Auth::guest())        
-          <button class="deu-login btn nav-link text-white px-2 px-lg-3" onclick="openModel('myModal')">Login</button>
+          <button class="d-md-block d-none deu-login btn nav-link text-white px-2 px-lg-3" onclick="openModel('myModal')">Login</button>
         @else
           <div class="dropdown">
             <button class="btn nav-link border-0 dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -240,7 +255,7 @@ $module=explode("/", url()->current());
           </div>
         @endif
         @if(array_intersect([$user_location],['india','london']))
-          <a class="nav-link" href="{{url('/cart')}}"><img class="deu-cart" src="{{ url('/cart') == url()->current() ? asset('public/image/cart_active.svg') : asset('public/image/cart.svg')}}">
+          <a class="nav-link d-md-block d-none" href="{{url('/cart')}}"><img class="deu-cart" src="{{ url('/cart') == url()->current() ? asset('public/image/cart_active.svg') : asset('public/image/cart.svg')}}">
             @if($cart_count > 0)
               <span class="deu-cartxts">{{ $cart_count }}</span>
             @endif
