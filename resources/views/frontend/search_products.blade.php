@@ -79,7 +79,7 @@
       <div class="row g-0 my-3 mb-5">
         <div class="col d-flex align-items-center">
           @if($from_item <= $products->total())
-          <p class="deu-Show m-0">Showing {{$from_item}}-{{$to_item}} of {{$products->total()}} results</p>
+          <p class="deu-Show mt-4 mb-0 m-md-0">Showing {{$from_item}}-{{$to_item}} of {{$products->total()}} results</p>
           @endif
         </div>
         <!-- <div class="col-4 d-flex justify-content-end d-sort">
@@ -94,7 +94,7 @@
         <div class="">
           <div class="home-doctors  text-center doc-item" aos="fade-left" aos-delay="400"   >
             <a href="{{url('/product').'/'.$product->product_slug}}">
-            <div class="common-doctor animated fadeInUp clearfix ae-animation-fadeInUp deu-features position-relative">
+            <div class="d-sm-block d-none common-doctor animated fadeInUp clearfix ae-animation-fadeInUp deu-features position-relative">
               @if($product->product_condition == 'new')
               <div class="position-absolute px-3 py-1 mt-2 end-0 me-2 deu-new">New</div>
                 <!-- <span class="deu-new" style="position:absolute;z-index:100;width:100%;left:0;">New</span> -->
@@ -112,11 +112,41 @@
                   <h5 class="deu-protxt"><i class="fa fa-inr" aria-hidden="true"></i> 
                   @if($product->product_offer_price != 0)
                     {{$product->product_offer_price}}
-                    <small><s><i class="fa fa-inr" aria-hidden="true"></i> {{$product->product_price}}</s></small>
+                    <small><s>₹ {{$product->product_price}}</s></small>
                   @else
                     {{$product->product_price}}
                   @endif
+                @else
+                  <div style="height:32px;"></div>
                 @endif
+                </h5>
+                <button style="width:fit-content;color:white;font-size: 1rem !important;font-family: 'Nunito', sans-serif;margin: 4px 0 0 0;border-radius: 5px;padding: 5px 10px;background-color: #3188CA;border: 1px solid #3188CA;">See More</button>
+                </h5>
+              </div>
+            </div>
+            <div class="d-sm-none d-flex row animated fadeInUp clearfix ae-animation-fadeInUp deu-features position-relative" style="background-color: #fff;min-height: fit-content;">
+              <div class="col-5">
+                @if($product->product_image != "")
+                <img src="{{ url('/') }}/public/storage/product/{{ $product->product_image }}" class="deu-widauto img-fluid doc-img attachment-gallery-post-single wp-post-image" style="margin-top: 0px;height:120px;" alt=""> 
+                @else
+                <img src="{{ url('/') }}/public/img/no-image.jpg" class="deu-widauto img-fluid doc-img attachment-gallery-post-single wp-post-image" style="margin-top: 0px;height:120px;" alt=""> 
+                @endif
+              </div>
+              <div class="col-7 d-flex align-items-start p-5 flex-column">
+                <h5 class="deu-pro">{{$product->product_name}}</h5>
+                @if($product->product_price != 0)
+                  <h5 class="deu-protxt"><i class="fa fa-inr" aria-hidden="true"></i> 
+                  @if($product->product_offer_price != 0)
+                    {{$product->product_offer_price}}
+                    <small style="font-size:7px;"><s>₹ {{$product->product_price}}</s></small>
+                  @else
+                    {{$product->product_price}}
+                  @endif
+                @else
+                  <div style="height:32px;"></div>
+                @endif
+                </h5>
+                <button style="width:fit-content;color:white;font-size: 1rem !important;font-family: 'Nunito', sans-serif;margin: 4px 0 0 0;border-radius: 5px;padding: 5px 10px;background-color: #3188CA;border: 1px solid #3188CA;">See More</button>
                 </h5>
               </div>
             </div>

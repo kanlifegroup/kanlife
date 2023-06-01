@@ -1,5 +1,5 @@
 <div class="footer-wrap">
   <div class="container">
-    <div class="copyright">All Rights Reserved @ Company 2022</div>
+    <div class="copyright">Copyright © {{date('Y')}} All Rights Reserved.</br> KanLife Group</div>
   </div>
 </div>

@@ -227,6 +227,7 @@ $module=explode("/", url()->current());
           <button class="btn nav-link border-0 dropdown-toggle" type="button" id="about_us_menu"
             data-bs-toggle="dropdown" aria-expanded="false">
             About Us
+            <img src="{{ asset('public/image/cat-dd-icon.svg') }}" alt="" width="5" height="5" class="ms-1 d-inline-block d-md-none">
           </button>
           <ul class="dropdown-menu" aria-labelledby="about_us_menu">
             <li><a class="dropdown-item" href="{{ route('about.story') }}">Our Story</a></li>

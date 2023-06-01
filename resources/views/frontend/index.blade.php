@@ -7,8 +7,8 @@
 <style>
   @media screen and (min-width: 768px) and (max-width: 860px){
 .deu-cartxts {
-  right: 0px !important;
-    top: -10px !important;
+  right: 13px !important;
+    top: -13px !important;
 }
 }@media only screen and (width:768px) {
   .deu-cartxts{

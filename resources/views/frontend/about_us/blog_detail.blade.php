@@ -43,19 +43,20 @@
     @endif
   </div>
   <div class="carousel-inner" aos="fade-left">
-    <div class="carousel-item active" data-bs-interval="10000">
+    <div class="carousel-item active ratio ratio-21x9" data-bs-interval="10000">
       <img src="{{ url('/') }}/public/storage/post/{{ $blogPost->post_image }}" class="d-block w-100" alt="...">
      
     </div>
     @if(!empty($postImages))
     @foreach($postImages as $key => $postImage)
-    <div class="carousel-item" data-bs-interval="2000">
+    <div class="carousel-item ratio ratio-21x9" data-bs-interval="2000">
       <img src="{{ url('/') }}/public/storage/post/{{ $postImage->image }}" class="d-block w-100" alt="...">
      
     </div>
     @endforeach
     @endif
   </div>
+  @if(count($postImages) > 0)
   <button class="carousel-control-prev m-auto" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
   <img class="arr-l" src="{{ asset('public/image/arr-l.svg') }}" alt=""> 
     <span class="visually-hidden">Previous</span>
@@ -64,25 +65,26 @@
   <img class="arr-r" src="{{ asset('public/image/arr-l.svg') }}" alt=""> 
     <span class="visually-hidden">Next</span>
   </button>
+  @endif
 </div>
             </div>    
-            <div class="sociala mt-md-5 pt-md-5 mb-md-5 text-center" aos="fade-down">
+            <div class="sociala mb-3 text-center" aos="fade-down">
       @if($blogPost->facebook)  
-      <a href="{{$blogPost->facebook}}"><i class="fa fa-facebook social" aria-hidden="true"></i></a>
+      <a href="{{$blogPost->facebook}}" target="_blank"><i class="fa fa-facebook social" aria-hidden="true"></i></a>
       @endif
       @if($blogPost->instagram)  
-      <a href="{{$blogPost->instagram}}"><i class="fa fa-instagram social" aria-hidden="true"></i></a>
+      <a href="{{$blogPost->instagram}}" target="_blank"><i class="fa fa-instagram social" aria-hidden="true"></i></a>
       @endif
       @if($blogPost->twitter) 
-      <a href="{{$blogPost->twitter}}"><i class="fa fa-twitter social" aria-hidden="true"></i></a>
+      <a href="{{$blogPost->twitter}}" target="_blank"><i class="fa fa-twitter social" aria-hidden="true"></i></a>
       @endif
       @if($blogPost->linkedin) 
-      <a href="{{$blogPost->linkedin}}"><i class="fa fa-linkedin social" aria-hidden="true"></i></a>
+      <a href="{{$blogPost->linkedin}}" target="_blank"><i class="fa fa-linkedin social" aria-hidden="true"></i></a>
       @endif
     
             </div>
-            <div class="para" style="font-size: 18px; text-align: justify; color:#656565">
-                <p class="mb-5" aos="fade-left"> {!! html_entity_decode($blogPost->post_desc) !!} </p>
+            <div class="para blog-para" style="font-size: 18px; text-align: justify; color:#656565">
+                <p class="mb-3" aos="fade-left"> {!! html_entity_decode($blogPost->post_desc) !!} </p>
                 
             </div> 
         </div>

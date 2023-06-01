@@ -56,7 +56,7 @@
       z-index:1000;
     }
     .ui-widget{
-      font-size: 16px;
+      font-size: 1rem;
       height: auto;
       max-height: 200px;
       overflow-x: hidden;

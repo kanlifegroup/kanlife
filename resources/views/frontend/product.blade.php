@@ -97,7 +97,7 @@
                 @if($shop->product_price != 0)
                   @if($shop->product_offer_price != 0)
                   <span><i class="fa fa-inr" aria-hidden="true"></i> {{$shop->product_offer_price}}</span>
-                  <span class="line-through"><i class="fa fa-inr" aria-hidden="true"></i> {{$shop->product_price}}</span>
+                  <span class="line-through">₹ {{$shop->product_price}}</span>
                   @else
                   <span><i class="fa fa-inr" aria-hidden="true"></i> {{$shop->product_price}}</span>
                   @endif
@@ -151,7 +151,7 @@
               </li>
           </ul> -->
           <div class="product-count mt-3 mb-3" aos="fade-left">
-            <form action="#" class="d-flex align-items-center">
+            <form action="#" class="d-flex align-items-center  flex-lg-row">
               @if(isset($cart['qty']) && $cart['qty'] > 0)
                 <div class="product-count mt-3 mb-3 d-flex">
                   <div class="qtyminus" data-id="{{base64_encode($cart['ord_id'])}}">-</div>
@@ -187,7 +187,7 @@
           </p>
       </div>
     </div>
-    <div class="col-auto">
+    <div class="col-12 col-md-auto">
       <div class="deu-proright mt-4">
         <p class="" style="color:#3188CA;" aos="fade-left"> <img class="deu-fealine" src="{{asset('public/image/line.svg')}}">
           &nbsp;&nbsp;&nbsp;

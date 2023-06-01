@@ -62,7 +62,7 @@
                                     <h5 class="deu-protxt"><i class="fa fa-inr" aria-hidden="true"></i> 
                                     @if($product->product_offer_price != 0)
                                     {{$product->product_offer_price}}
-                                      <small><s><i class="fa fa-inr" aria-hidden="true"></i> {{$product->product_price}}</s></small>
+                                      <small><s>₹ {{$product->product_price}}</s></small>
                                       @else
                                     {{$product->product_price}}
                                     @endif

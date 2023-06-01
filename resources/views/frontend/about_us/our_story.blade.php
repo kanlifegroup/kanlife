@@ -100,7 +100,7 @@
         </div>
         <div>
         <div class="container mt-5 mb-5">
-	<div class="row py-5">
+	<div class="row py-5 ms-3">
 		<div class="col-md-12 offset-md-0">
             <div class="d-flex">
                 <img aos="fade-up" class="logoimg1" src="{{ asset('public/img/logo1.png') }}" alt="">

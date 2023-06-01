@@ -34,7 +34,7 @@
         {{--
         <div class="col-7 text-start m-auto position-relative">   
             <select id="category_select" class="form-select sel2" aria-label="Default select example">
-            <option class="" selected value="{{ route('about.blog') }}">Select category</option>
+            <option class="" selected value="{{ route('about.blog') }}">All Category</option>
             @foreach($blogPost['categories'] as $category)
             <option @if($category_id == $category->blog_cat_id) selected @endif value="{{ route('about.blog').'?category_id='.$category->blog_cat_id }}">{{$category->blog_category_name}}</option>
             @endforeach
@@ -49,11 +49,11 @@
             @endphp
             <button class="sel2 nav-link border-0 dropdown-toggle" style="text-align:left" type="button" id="about_us_menu"
               data-bs-toggle="dropdown" aria-expanded="false">
-              @if($selected_cat) {{mb_strimwidth($selected_cat->blog_category_name, 0, 23, "...")}} @else Select category @endif
+              @if($selected_cat) {{mb_strimwidth($selected_cat->blog_category_name, 0, 23, "...")}} @else All category @endif
               <img src="{{ asset('public/image/arr_icon.svg') }}" alt="" width="12" class="caret2" style="cursor:pointer;">
             </button>
             <ul class="dropdown-menu scrollable-menu" style="min-width: 200px;" aria-labelledby="about_us_menu">
-            <li class="dropdown-item"><a href="{{ route('about.blog') }}">Select category</a></li>
+            <li class="dropdown-item"><a href="{{ route('about.blog') }}">All category</a></li>
             @foreach($blogPost['categories'] as $category)
               <li class="dropdown-item"><a href="{{ route('about.blog').'?category_id='.$category->blog_cat_id }}">{{$category->blog_category_name}}</a></li>
               @endforeach
@@ -74,8 +74,9 @@
                     <div class="col-md-8 px-2">
                       <div class="card-body" aos="fade-left">
                         <h4 class="title1">{{ $post->post_title }}</h4>
-                        <p class="ctext"><small class="text-primary">{{ date('M Y', strtotime($post->post_date)) }}</small></p>
-                        <p class="ctext py-4" style="text-align: justify;">{{ $post->post_short_desc }} ...</p>
+                        <p class="ctext"><small class="text-primary">{{ date('d M Y', strtotime($post->post_date)) }}</small></p>
+                        <p class="ctext py-4 d-sm-block d-none" style="text-align: justify;">{{ $post->post_short_desc }} ...</p>
+                        <p class="ctext py-4 d-sm-none d-block" style="text-align: justify;">{{ mb_substr($post->post_short_desc, 0, 110).'...' }}</p>
                         <a href="{{ route('about.detail.blog', $post->post_id) }}" class="btn text-light btn-lg px-5" style="background-color:#3188CA; border-radius: 5px;font-size: 1.4rem;">Read More</a>
                      </div>
                     </div>

@@ -6,8 +6,8 @@
 <style>
 @media screen and (min-width:769px ) and (max-width:860px ) {
   .deu-cartxts{
-    right: -22px !important;
-    top: -30px !important;
+    right: 13px !important;
+    top: -9px !important;
   }
   .deu-cart{
     margin-bottom: -2px !important;
@@ -86,11 +86,13 @@
         @endphp
 					<div class="row m-1 pt-2 m-md-4 me-0">
 						<div class="col-md-4" aos="fade-right">
+              <div class="d-flex justify-content-center align-items-center">
               @if($cart->product_image != "")
                 <img class="img-fluid deu-cardimgs" src="{{ url('/') }}/public/storage/product/{{ $cart->product_image }}">
               @else
                 <img class="img-fluid deu-cardimgs" src="{{ url('/') }}/public/img/no-image.jpg">
               @endif
+              </div>
               <div class="product-count mt-3 mb-3"  aos="fade-left">
                 <form action="#" class="d-flex justify-content-center align-items-center">
                   <div class="qtyminus" data-id="{{base64_encode($cart->ord_id)}}">-</div>
@@ -109,7 +111,7 @@
               @endif
               <!-- style="display:inline-block;" -->
 						</div>
-						<div class="col">
+						<div class="col mt-5 mt-md-0 me-3 me-md-0">
 							<div class="text-end">
 								<!-- <h6 data-id="{{base64_encode($cart->ord_id)}}" class="mt-5 cursor-pointer deu-cardremove remove">REMOVE</h6> -->
                 <a href="{{ url('/cart') }}/{{base64_encode($cart->ord_id)}}" onClick="return confirm('Are you sure you want to remove?');" class="mt-5 cursor-pointer deu-cardremove">REMOVE</a>
@@ -156,7 +158,7 @@
           </button> -->
         </div>
       @endif
-      <p class="deu-carthead">Cart Details</p>
+      <p class="deu-carthead mt-3 mt-sm-0">Cart Details</p>
       <table class="table table-borderless">
         <tr class="deu-cartsbg">
           <td>Price ({{$cart_count}} items)</td>

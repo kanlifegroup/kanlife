@@ -2,7 +2,7 @@
 
 <section class="deu-ourblg pt-5">
   <div class="container-fluid">
-    <h3 class="text-center mt-5 mb-5 deu-bloghead">Our Blogs</h3>
+    <h3 class="text-center mt-0 mt-md-5 mb-5 deu-bloghead">Our Blogs</h3>
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
       <div class="carousel-inner" aos="fade-left">
         <div class="carousel-item active">
@@ -12,11 +12,13 @@
               <div class="owl-item" >
                 <div class="post-slide10">
                   @if($post->post_media_type =='image')
+                  <div class="">
                   @if($post->post_image!='')
-                  <img class="pic-1" src="{{ url('/') }}/public/storage/post/{{ $post->post_image }}" alt="{{ $post->post_title }}">
+                  <img class="pic-1 h-100" src="{{ url('/') }}/public/storage/post/{{ $post->post_image }}" alt="{{ $post->post_title }}">
                   @else
-                  <img class="pic-1" src="{{ url('/') }}/public/img/no-image.png" alt="{{ $post->post_title }}">
+                  <img class="pic-1 h-100" src="{{ url('/') }}/public/img/no-image.png" alt="{{ $post->post_title }}">
                   @endif
+                  </div>
                   @else
                   @php 
                   $link = $post->post_video;
@@ -25,7 +27,7 @@
                   @endphp
                   <img class="pic-1" src="https://img.youtube.com/vi/{{ $video_id }}/mqdefault.jpg" alt="{{ $post->post_title }}">
                   @endif
-                  <p class="deu-dec">{{ date('M Y', strtotime($post->post_date)) }}</p>
+                  <p class="deu-dec text-sm">{{ date('d M Y', strtotime($post->post_date)) }}</p>
                   <h3 class="post-title">
                     <a href="{{ route('about.detail.blog', $post->post_id) }}">{{ $post->post_title }}</a>
                   </h3>

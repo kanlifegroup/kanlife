@@ -8,8 +8,8 @@
 <style>
 @media screen and (min-width:769px ) and (max-width:860px ) {
   .deu-cartxts{
-    right: -22px !important;
-    top: -30px !important;
+    right: 13px !important;
+    top: -9px !important;
   }
   .deu-cart{
     margin-bottom: -2px !important;
@@ -133,6 +133,7 @@
                                   @endif
                                     <ul class="list-inline social-lists animate">
                                         <li><a href="{{url('/product').'/'.$product->product_slug}}"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
+                                        @if($product->product_price > 0)
                                         <li>
                                           @if($product->qty == 0)
                                           <a href="{{url('/add_to_cart').'/'.$product->product_slug}}"><i class="fa fa-shopping-cart"aria-hidden="true"></i></a>
@@ -144,6 +145,7 @@
                                           </a>
                                           @endif
                                         </li>
+                                        @endif
                                         <li>
                                           @if(Auth::guest())
                                           <a href="javascript:void(0);" onclick="openModel('myModal')"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
@@ -159,12 +161,13 @@
                                     </figure>
                                     <div class="text-content">
                                         <h5 class="deu-pro">{{$product->product_name}}</h5>
+                                        @if($product->product_price > 0)
                                         <h5 class="deu-protxt"><i class="fa fa-inr" aria-hidden="true"></i>
                                           @if($product->product_offer_price != 0)
                                             {{$product->product_offer_price}}
                                             <small>
                                                 <s>
-                                                    <i class="fa fa-inr" aria-hidden="true"></i>
+                                                    ₹
                                                     {{$product->product_price}}
                                                 </s>
                                             </small>
@@ -172,6 +175,7 @@
                                             {{$product->product_price}}
                                           @endif
                                         </h5>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
@@ -190,12 +194,12 @@
     </div>
 </div>
 
-<div class="container-fluid deu-seelbggray px-5" >
+<div class="container-fluid deu-seelbggray px-sm-5" >
     <div class="container-fluid px-5">
         <h3 class="text-center deu-bloghead mb-5 mt-4">Best Selling Products</h3>
         <div class="row mb-4">
           @if(isset($topSix[0]))
-            <div class="col-lg-4 col-md-4 col-sm-6" >
+            <div class="col-md-4 col-6 mb-3" >
                 <div class="deu-sellbg">
                   <a href="{{url('/product').'/'.$topSix[0]->product_slug}}">
                     <div class="row align-items-center" >
@@ -203,17 +207,20 @@
                             <img class="img-fluid deu-sellwiD" src="{{ url('/') }}/public/storage/product/{{ $topSix[0]->product_image }}">
                         </div>
                         <div class="col-lg-7 col-md-7 d-flex flex-column justify-content-center">
-                            <h4 class="deu-digitalhead deu-digitalhead-name">
+                            <h4 class="deu-digitalhead deu-digitalhead-name mt-2 text-truncate">
                                 {{$topSix[0]->product_name}}
                             </h4>                            
+                            @if($topSix[0]->product_price > 0)
                             <div class="deu-digitaltxt"><i class="fa fa-inr" aria-hidden="true"></i>
                             @if($topSix[0]->product_offer_price != 0)
                             {{$topSix[0]->product_offer_price}}
-                                <span><s><small><i class="fa fa-inr" aria-hidden="true"></i> {{$topSix[0]->product_price}}</small></s></span>
+                                <span><s><small style="font-weight: 400;">₹ {{$topSix[0]->product_price}}</small></s></span>
                             @else
                             {{$topSix[0]->product_price}}
                             @endif
                             </div>
+                            @endif
+                            <button style="width:fit-content;color:white;font-size: 1rem !important;font-family: 'Nunito', sans-serif;margin: 4px 0 0 0;border-radius: 5px;padding: 5px 10px;background-color: #3188CA;border: 1px solid #3188CA;">See More</button>
                         </div>
                     </div>
                   </a>
@@ -221,7 +228,7 @@
             </div>
           @endif
           @if(isset($topSix[1]))
-            <div class="col-lg-4 col-md-4 col-sm-6"  aos-dlay="200">
+            <div class="col-lg-4 col-md-4 col-6 mb-3"  aos-dlay="200">
                 <div class="deu-sellbg">
                   <a href="{{url('/product').'/'.$topSix[1]->product_slug}}">
                     <div class="row align-items-center">
@@ -229,17 +236,20 @@
                           <img class="img-fluid deu-sellwiD" src="{{ url('/') }}/public/storage/product/{{ $topSix[1]->product_image }}">
                         </div>
                         <div class="col-lg-7 col-md-7 d-flex flex-column justify-content-center">
-                            <h4 class="deu-digitalhead deu-digitalhead-name">
+                            <h4 class="deu-digitalhead deu-digitalhead-name mt-2 text-truncate">
                                 {{$topSix[1]->product_name}}
                             </h4>                            
+                            @if($topSix[1]->product_price > 0)
                             <div class="deu-digitaltxt"><i class="fa fa-inr" aria-hidden="true"></i>
                             @if($topSix[1]->product_offer_price != 0)
                             {{$topSix[1]->product_offer_price}}
-                                <span><s><small><i class="fa fa-inr" aria-hidden="true"></i> {{$topSix[1]->product_price}}</small></s></span>
+                              <span><s><small style="font-weight: 400;">₹ {{$topSix[1]->product_price}}</small></s></span>
                             @else
                             {{$topSix[1]->product_price}}
                             @endif
                             </div>
+                            @endif
+                            <button style="width:fit-content;color:white;font-size: 1rem !important;font-family: 'Nunito', sans-serif;margin: 4px 0 0 0;border-radius: 5px;padding: 5px 10px;background-color: #3188CA;border: 1px solid #3188CA;">See More</button>
                         </div>
                     </div>
                   </a>
@@ -247,7 +257,7 @@
             </div>
           @endif
           @if(isset($topSix[2]))
-            <div class="col-lg-4 col-md-4 col-sm-6" >
+            <div class="col-lg-4 col-md-4 col-6 mb-3" >
                 <div class="deu-sellbg">
                   <a href="{{url('/product').'/'.$topSix[2]->product_slug}}">
                     <div class="row align-items-center">
@@ -255,27 +265,30 @@
                           <img class="img-fluid deu-sellwiD" src="{{ url('/') }}/public/storage/product/{{ $topSix[2]->product_image }}">
                         </div>
                         <div class="col-lg-7 col-md-7 d-flex flex-column justify-content-center">
-                            <h4 class="deu-digitalhead deu-digitalhead-name">
+                            <h4 class="deu-digitalhead deu-digitalhead-name mt-2 text-truncate">
                                 {{$topSix[2]->product_name}}
                             </h4>                            
+                            @if($topSix[2]->product_price > 0)
                             <div class="deu-digitaltxt"><i class="fa fa-inr" aria-hidden="true"></i>
                             @if($topSix[2]->product_offer_price != 0)
                             {{$topSix[2]->product_offer_price}}
-                                <span><s><small><i class="fa fa-inr" aria-hidden="true"></i> {{$topSix[2]->product_price}}</small></s></span>
+                              <span><s><small style="font-weight: 400;">₹ {{$topSix[2]->product_price}}</small></s></span>
                             @else
                             {{$topSix[2]->product_price}}
                             @endif
                             </div>
+                            @endif
+                            <button style="width:fit-content;color:white;font-size: 1rem !important;font-family: 'Nunito', sans-serif;margin: 4px 0 0 0;border-radius: 5px;padding: 5px 10px;background-color: #3188CA;border: 1px solid #3188CA;">See More</button>
                         </div>
                     </div>
                   </a>
                 </div>
             </div>
           @endif
-        </div>
-        <div class="row">
+        <!-- </div>
+        <div class="row"> -->
           @if(isset($topSix[3]))
-            <div class="col-lg-4 col-md-4 col-sm-6"  aos-dlay="600">
+            <div class="col-lg-4 col-md-4 col-6 mb-md-0 mb-0"  aos-dlay="600">
                 <div class="deu-sellbg">
                   <a href="{{url('/product').'/'.$topSix[3]->product_slug}}">
                     <div class="row">
@@ -283,17 +296,20 @@
                           <img class="img-fluid deu-sellwiD" src="{{ url('/') }}/public/storage/product/{{ $topSix[3]->product_image }}">
                         </div>
                         <div class="col-lg-7 col-md-7 d-flex flex-column justify-content-center">
-                            <h4 class="deu-digitalhead deu-digitalhead-name">
+                            <h4 class="deu-digitalhead deu-digitalhead-name mt-2 text-truncate">
                                 {{$topSix[3]->product_name}}
                             </h4>                            
+                            @if($topSix[3]->product_price > 0)
                             <div class="deu-digitaltxt"><i class="fa fa-inr" aria-hidden="true"></i>
                             @if($topSix[3]->product_offer_price != 0)
                             {{$topSix[3]->product_offer_price}}
-                                <span><s><small><i class="fa fa-inr" aria-hidden="true"></i> {{$topSix[3]->product_price}}</small></s></span>
+                              <span><s><small style="font-weight: 400;">₹ {{$topSix[3]->product_price}}</small></s></span>
                             @else
                             {{$topSix[3]->product_price}}
                             @endif
                             </div>
+                            @endif
+                            <button style="width:fit-content;color:white;font-size: 1rem !important;font-family: 'Nunito', sans-serif;margin: 4px 0 0 0;border-radius: 5px;padding: 5px 10px;background-color: #3188CA;border: 1px solid #3188CA;">See More</button>
                         </div>
                     </div>
                   </a>
@@ -301,7 +317,7 @@
             </div>
           @endif
           @if(isset($topSix[4]))
-            <div class="col-lg-4 col-md-4 col-sm-6"  aos-dlay="200">
+            <div class="col-lg-4 col-md-4 col-6 mb-md-0 mb-0"  aos-dlay="200">
                 <div class="deu-sellbg">
                   <a href="{{url('/product').'/'.$topSix[4]->product_slug}}">
                     <div class="row">
@@ -309,17 +325,20 @@
                           <img class="img-fluid deu-sellwiD" src="{{ url('/') }}/public/storage/product/{{ $topSix[4]->product_image }}">
                         </div>
                         <div class="col-lg-7 col-md-7 d-flex flex-column justify-content-center">
-                            <h4 class="deu-digitalhead deu-digitalhead-name">
+                            <h4 class="deu-digitalhead deu-digitalhead-name mt-2 text-truncate">
                                 {{$topSix[4]->product_name}}
                             </h4>                            
+                            @if($topSix[4]->product_price > 0)
                             <div class="deu-digitaltxt"><i class="fa fa-inr" aria-hidden="true"></i>
                             @if($topSix[4]->product_offer_price != 0)
                             {{$topSix[4]->product_offer_price}}
-                                <span><s><small><i class="fa fa-inr" aria-hidden="true"></i> {{$topSix[4]->product_price}}</small></s></span>
+                              <span><s><small style="font-weight: 400;">₹ {{$topSix[4]->product_price}}</small></s></span>
                             @else
                             {{$topSix[4]->product_price}}
                             @endif
                             </div>
+                            @endif
+                            <button style="width:fit-content;color:white;font-size: 1rem !important;font-family: 'Nunito', sans-serif;margin: 4px 0 0 0;border-radius: 5px;padding: 5px 10px;background-color: #3188CA;border: 1px solid #3188CA;">See More</button>
                         </div>
                     </div>
                   </a>
@@ -327,7 +346,7 @@
             </div>
           @endif
           @if(isset($topSix[5]))
-            <div class="col-lg-4 col-md-4 col-sm-6"  aos-dlay="800">
+            <div class="col-lg-4 col-md-4 col-6 mb-md-0 mb-0"  aos-dlay="800">
                 <div class="deu-sellbg">
                   <a href="{{url('/product').'/'.$topSix[5]->product_slug}}">
                     <div class="row">
@@ -335,17 +354,20 @@
                           <img class="img-fluid deu-sellwiD" src="{{ url('/') }}/public/storage/product/{{ $topSix[5]->product_image }}">
                         </div>
                         <div class="col-lg-7 col-md-7 d-flex flex-column justify-content-center">
-                            <h4 class="deu-digitalhead deu-digitalhead-name">
+                            <h4 class="deu-digitalhead deu-digitalhead-name mt-2 text-truncate">
                                 {{$topSix[5]->product_name}}
-                            </h4>                            
+                            </h4>
+                            @if($topSix[5]->product_price > 0)
                             <div class="deu-digitaltxt"><i class="fa fa-inr" aria-hidden="true"></i>
                             @if($topSix[5]->product_offer_price != 0)
                             {{$topSix[5]->product_offer_price}}
-                                <span><s><small><i class="fa fa-inr" aria-hidden="true"></i> {{$topSix[5]->product_price}}</small></s></span>
+                              <span><s><small style="font-weight: 400;">₹ {{$topSix[5]->product_price}}</small></s></span>
                             @else
                             {{$topSix[5]->product_price}}
                             @endif
                             </div>
+                            @endif
+                            <button style="width:fit-content;color:white;font-size: 1rem !important;font-family: 'Nunito', sans-serif;margin: 4px 0 0 0;border-radius: 5px;padding: 5px 10px;background-color: #3188CA;border: 1px solid #3188CA;">See More</button>
                         </div>
                     </div>
                   </a>
@@ -365,7 +387,7 @@
 
 @section('script')
 
-
+<!-- height: 120px; -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 
 
