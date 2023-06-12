@@ -705,7 +705,7 @@ body {
 }
 
 .us-section {
-  padding: 2% 0;
+  padding: 30px;
   background: #F5F6F8;
   text-align: left;
 }
@@ -721,6 +721,11 @@ body {
   font-family: 'Josefin Sans', sans-serif;
   font-weight: 500;
   font-size: 25px;
+}
+
+.carousel-inner {
+  padding: 3px !important;
+  margin-top: 12PX !important;
 }
 
 /******************  News Slider Demo-10 *******************/
@@ -903,9 +908,11 @@ body {
   .logoimg1{
     margin-left: 0 !important;
   }
-
+  .deu-carthead{
+    text-align: center !important;
+  }
   .banerw {
-    height: 45vh;
+    height:38vh;
   }
 
   .deu-slidehead {
@@ -986,6 +993,10 @@ body {
   .owl-carousel .owl-stage-outer {
     /* overflow-y: auto !important; */
     padding: 0;
+  }
+
+  .newcustom button{
+    width: 100% !important;
   }
 }
 
@@ -1079,8 +1090,12 @@ body {
     -webkit-transform: translate(-50%);
     transform: translate(-50%);
   }
-
 }
+
+.wishicons {
+  position: absolute !important;
+  bottom: 0 !important;
+ }
 
 .deu-slideheight {
   height: 600px;
@@ -2366,9 +2381,17 @@ width: auto;
     width: 28px !important; /* 35 */
     height: 32px !important;
   }
+  .deu-meethead {
+    text-align: center !important;
+  }
 }
 
 @media screen and (max-width: 426px){
+  .inforide,
+.inforide1,
+.inforide2{
+  margin: 30px;
+}
   .product-count .qty {
     width: 48px !important;
     height: 32px !important;
@@ -2380,6 +2403,9 @@ width: auto;
   .product-count .qtyplus {
     width: 35px !important;
     height: 32px !important;
+  }
+  .deu-meethead {
+    text-align: center !important;
   }
 }
 
@@ -2597,9 +2623,7 @@ a:link {
   padding: 30px;
 }
 
-.deu-deskbg {
-  padding: 30px;
-}
+
 
 .deu-deliver {
   border: 2px solid #9D9D9D;
@@ -3275,6 +3299,10 @@ a:link {
 }
 
 @media screen and (max-width: 480px) and (min-width: 320px) {
+ 
+  .panel h3{
+    text-align: center;
+  }
   .deu-slideheight {
     height: 450px;
     width: 100%;

@@ -12,7 +12,7 @@
         <div class="carousel-caption deu-slidepad text-left w-100">
           <div class="col-12">
             <h1 class="deu-slidehead text-start pb-4" aos="zoom-in">Kanlife Group </h1>
-            <div class="d-flex flex-row flex-wrap gap-3 gap-md-5 ms-3">
+            <div class="d-flex flex-row flex-wrap gap-3 gap-md-5 ms-3 wishicons">
               <div class="d-flex" aos="fade-down">
                 <img class="img-fluid deu-healthimg" src="{{ asset('public/image/s1.png') }}">
                 <p class="deu-health">Health</p>

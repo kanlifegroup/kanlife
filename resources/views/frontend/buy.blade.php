@@ -61,7 +61,7 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-12 mx-auto">
+        <div class="col-md-12 col-sm-12 col-xs-12 mx-auto">
             <h3 class="text-center deu-bloghead mb-4 mt-5">Top Categories</h3>
             <div class="deu-lifeposi storycat p-5 mt-5">
                 <div class="col-12 swiper-container swiper-container-1">
@@ -197,9 +197,9 @@
 <div class="container-fluid deu-seelbggray px-sm-5" >
     <div class="container-fluid px-5">
         <h3 class="text-center deu-bloghead mb-5 mt-4">Best Selling Products</h3>
-        <div class="row mb-4">
+        <div class="row mb-4 newcustom">
           @if(isset($topSix[0]))
-            <div class="col-md-4 col-6 mb-3" >
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 mb-3" >
                 <div class="deu-sellbg">
                   <a href="{{url('/product').'/'.$topSix[0]->product_slug}}">
                     <div class="row align-items-center" >
@@ -220,7 +220,7 @@
                             @endif
                             </div>
                             @endif
-                            <button style="width:fit-content;color:white;font-size: 1rem !important;font-family: 'Nunito', sans-serif;margin: 4px 0 0 0;border-radius: 5px;padding: 5px 10px;background-color: #3188CA;border: 1px solid #3188CA;">See More</button>
+                          <button style="width:fit-content;color:white;font-size: 1rem !important;font-family: 'Nunito', sans-serif;margin: 4px 0 0 0;border-radius: 5px;padding: 5px 10px;background-color: #3188CA;border: 1px solid #3188CA;">See More</button>
                         </div>
                     </div>
                   </a>
@@ -228,7 +228,7 @@
             </div>
           @endif
           @if(isset($topSix[1]))
-            <div class="col-lg-4 col-md-4 col-6 mb-3"  aos-dlay="200">
+            <div class="col-lg-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 mb-3"  aos-dlay="200">
                 <div class="deu-sellbg">
                   <a href="{{url('/product').'/'.$topSix[1]->product_slug}}">
                     <div class="row align-items-center">
@@ -257,7 +257,7 @@
             </div>
           @endif
           @if(isset($topSix[2]))
-            <div class="col-lg-4 col-md-4 col-6 mb-3" >
+            <div class="col-lg-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 mb-3" >
                 <div class="deu-sellbg">
                   <a href="{{url('/product').'/'.$topSix[2]->product_slug}}">
                     <div class="row align-items-center">
@@ -288,7 +288,7 @@
         <!-- </div>
         <div class="row"> -->
           @if(isset($topSix[3]))
-            <div class="col-lg-4 col-md-4 col-6 mb-md-0 mb-0"  aos-dlay="600">
+            <div class="col-lg-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 mb-md-0 mb-0"  aos-dlay="600">
                 <div class="deu-sellbg">
                   <a href="{{url('/product').'/'.$topSix[3]->product_slug}}">
                     <div class="row">
@@ -317,7 +317,7 @@
             </div>
           @endif
           @if(isset($topSix[4]))
-            <div class="col-lg-4 col-md-4 col-6 mb-md-0 mb-0"  aos-dlay="200">
+            <div class="col-lg-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 mb-md-0 mb-0"  aos-dlay="200">
                 <div class="deu-sellbg">
                   <a href="{{url('/product').'/'.$topSix[4]->product_slug}}">
                     <div class="row">
@@ -346,7 +346,7 @@
             </div>
           @endif
           @if(isset($topSix[5]))
-            <div class="col-lg-4 col-md-4 col-6 mb-md-0 mb-0"  aos-dlay="800">
+            <div class="col-lg-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 mb-md-0 mb-0"  aos-dlay="800">
                 <div class="deu-sellbg">
                   <a href="{{url('/product').'/'.$topSix[5]->product_slug}}">
                     <div class="row">
