@@ -38,7 +38,7 @@
   <div class="row g-0 gap-3">
     <div class="col-12 col-md" aos="fade-right" >
       <div class="inforide h-100">
-        <div class="row g-0 justify-content-between">
+        <div class="row h-100 g-0 justify-content-between">
           <div class="order-2 order-md-1 col-md-7 fontsty d-flex flex-column justify-content-between ">
             <h4 class="deu-buytxt">Buy Medical Equipment.</h4>
             <a href="{{ url('/buy') }}">
@@ -53,7 +53,7 @@
     </div>
     <div class="col-12 col-md" aos="fade-down" aos-delay="400">
       <div class="inforide1 h-100">
-        <div class="row g-0 justify-content-between">
+        <div class="row h-100 g-0 justify-content-between">
           <div class="order-2 order-md-1 col-md-7 fontsty d-flex flex-column justify-content-between">
             <h4 class="deu-buytxt">Rent Medical Equipment.</h4>
             <button class="deu-buybtn">Rent Now</button>
@@ -68,7 +68,7 @@
       <div class="inforide2 h-100">
         <div class="row h-100 g-0 justify-content-between">
           <div class="order-2 order-md-1 col-md-7 fontsty d-flex flex-column justify-content-between">
-            <h4 class="deu-buytxt">Consult A Dr.</h4>
+            <h4 class="deu-buytxt">Consult A Dr .</h4>
             <button class="deu-buybtn">Consult Now</button>
           </div>
           <div class="order-1 order-md-2 col-md-5 rideone d-flex justify-content-md-end justify-content-center mb-4 mb-md-0 align-items-center">
@@ -254,7 +254,7 @@
           <div class="col-12 col-md-auto" aos="fade-right">
             <div class="deu-dealers">Dealers Network</div>
             <div class="deu-dealershead">150+</div>
-            <div class="deu-dealerstxt">Dealres</div>
+            <div class="deu-dealerstxt">Dealers</div>
           </div>
           <div class="col-12 col-md-auto" aos="fade-down" aos-delay="300">
             <div class="deu-dealers">Reach-India</div>
