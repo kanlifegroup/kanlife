@@ -1014,9 +1014,9 @@ body {
 }
 
 .owl-carousel .owl-item img.pic-1 {
-  object-fit: cover;
+  /* object-fit: cover; */
   border-radius: 6px;
-  height: 220px;
+  height: 220px !important;
 }
 
 .owl-carousel .owl-item .card {
@@ -3151,7 +3151,7 @@ a:link {
 
 .home-doctors .common-doctor {
   background-color: #fff;
-  min-height: 550px;
+  min-height: 550px !important;
 }
 
 .home-doctors .common-doctor figure {
