@@ -1537,6 +1537,11 @@ body {
     max-height: 400px !important;
   }
 
+  .deu-ourblg {
+    height: 575px !important;
+  }
+
+
 }
 
 .post-slide10 {
@@ -2006,7 +2011,7 @@ body {
 }
 
 .deu-detailheight {
-  height: 450px;
+  /* height: 450px; */
   width: 100%;
   background-color: #F5F6F8;
   /* object-fit: contain !important; */
@@ -3146,7 +3151,7 @@ a:link {
 
 .home-doctors .common-doctor {
   background-color: #fff;
-  min-height: 450px;
+  min-height: 550px;
 }
 
 .home-doctors .common-doctor figure {
@@ -3459,7 +3464,7 @@ a:link {
   }
 
   .post-slide10 {
-    margin: 0 7px;
+    margin: -20px 7px;
     text-align: center;
   }
 }
@@ -3762,10 +3767,7 @@ ul.timeline>li {
     width: 100%;
   }
 
-  .deu-ourblg {
-    height: 618px;
-    /* 561px; */
-  }
+
 
   #owl-blog {
     max-width: 414px !important;

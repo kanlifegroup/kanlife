@@ -2,7 +2,7 @@
 
 <section class="deu-ourblg pt-5">
   <div class="container-fluid">
-    <h3 class="text-center mt-0 mt-md-5 mb-5 deu-bloghead">Our Blogs</h3>
+    <h3 class="text-center mt-5 mt-md-5 deu-bloghead">Our Blogs</h3>
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
       <div class="carousel-inner" aos="fade-left">
         <div class="carousel-item active">
