@@ -1,4 +1,10 @@
 @extends('frontend.layouts.app')
+@section('meta')
+@if($shop->product_allow_seo == 1)
+<meta name="description" content="{{ $shop->product_seo_desc }}">
+<meta name="keywords" content="{{ $shop->product_seo_keyword }}">
+@endif
+@endsection
 @section('title')
   {{$shop->product_name}}
 @endsection

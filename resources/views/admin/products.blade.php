@@ -70,6 +70,7 @@
                                             <th>{{ Helper::translation(1928,$translate,'') }}</th>
                                             {{--<th>{{ Helper::translation(3567,$translate,'') }}</th>--}}
                                             <th>{{ Helper::translation(1934,$translate,'') }}</th>
+                                            <th>{{ ('Offer Price') }}</th>
                                             {{--<th>{{ Helper::translation(1946,$translate,'') }}</th>--}}
                                             <th>{{ Helper::translation(2100,$translate,'') }}</th>
                                             <th>{{ Helper::translation(1915,$translate,'') }}</th>
@@ -88,6 +89,7 @@
                                             <td>{{ $product->product_name }} </td>
                                             {{--<td>{{ $product->name }} </td>--}}
                                             <td>{{ $allsettings->site_currency_symbol }} {{ $product->product_price }} </td>
+                                            <td>{{ $allsettings->site_currency_symbol }} {{ $product->product_offer_price }} </td>
                                             {{--<td>{{ $product->product_type }} </td>--}}
                                             <td>@if($product->flash_deals == 1) <span class="badge badge-success">{{ Helper::translation(1942,$translate,'') }}</span> @else <span class="badge badge-danger">{{ Helper::translation(1943,$translate,'') }}</span> @endif</td>
                                             <td>@if($product->product_status == 1) <span class="badge badge-success">{{ Helper::translation(1916,$translate,'') }}</span> @else <span class="badge badge-danger">{{ Helper::translation(1917,$translate,'') }}</span> @endif</td>
