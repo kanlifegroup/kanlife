@@ -121,10 +121,10 @@ class Blog extends Model
   }
   
   
-  public static function postsinglar($post_slug){
+  public static function postsinglar($post_id){
     $value = DB::table('post')
       ->where('post_page_parent','=', 0)
-	  ->where('post_slug','=', $post_slug)
+	  ->where('post_id','=', $post_id)
       ->first();
 	return $value;
   }
