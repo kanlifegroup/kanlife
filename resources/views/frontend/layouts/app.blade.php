@@ -41,9 +41,6 @@
       -ms-overflow-style: none;  /* IE and Edge */
       scrollbar-width: none;  /* Firefox */
     }
-    #about_us_menu::after{
-      content: none;
-    }
     .close_model{
       border: none;
       font-weight: 900;

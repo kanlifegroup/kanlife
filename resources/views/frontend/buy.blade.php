@@ -120,7 +120,7 @@
                             <div class="home-doctors  text-center doc-item">
                                 <div class="common-doctor animated fadeInUp clearfix ae-animation-fadeInUp deu-features position-relative">
                                   @if($product->product_condition == 'new')
-                                    <div class="position-absolute px-3 py-1 mt-2 start-0 ms-2 deu-new">New</div>
+                                    <div class="position-absolute px-3 py-1 mt-2 start-0 ms-2 deu-new" style="z-index:100">New</div>
                                   @endif
                                   @php
                                   $discount = 0;
@@ -129,9 +129,9 @@
                                    }
                                   @endphp
                                   @if($discount != 0)
-                                    <p class="deu-blue">-{{round($discount)}}%</p>
+                                    <p class="deu-blue" style="z-index:100">-{{round($discount)}}%</p>
                                   @endif
-                                    <ul class="list-inline social-lists animate">
+                                    <ul class="list-inline social-lists animate d-flex justify-content-center">
                                         <li><a href="{{url('/product').'/'.$product->product_slug}}"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
                                         @if($product->product_price > 0)
                                         <li>
@@ -203,8 +203,11 @@
                 <div class="deu-sellbg">
                   <a href="{{url('/product').'/'.$topSix[0]->product_slug}}">
                     <div class="row align-items-center" >
-                        <div class="col-lg-5 col-md-5 rideone">
+                        <div class="col-lg-5 col-md-5 d-sm-block d-none rideone">
                             <img class="img-fluid deu-sellwiD" src="{{ url('/') }}/public/storage/product/{{ $topSix[0]->product_image }}">
+                        </div>
+                        <div class="col-lg-5 col-md-5 d-sm-none d-block rideone ratio ratio-4x3">
+                            <img class="img-fluid " src="{{ url('/') }}/public/storage/product/{{ $topSix[0]->product_image }}">
                         </div>
                         <div class="col-lg-7 col-md-7 d-flex flex-column justify-content-center">
                             <h4 class="deu-digitalhead deu-digitalhead-name mt-2 text-truncate">
@@ -232,8 +235,11 @@
                 <div class="deu-sellbg">
                   <a href="{{url('/product').'/'.$topSix[1]->product_slug}}">
                     <div class="row align-items-center">
-                        <div class="col-lg-5 col-md-5 rideone">
+                        <div class="col-lg-5 col-md-5 d-sm-block d-none rideone ">
                           <img class="img-fluid deu-sellwiD" src="{{ url('/') }}/public/storage/product/{{ $topSix[1]->product_image }}">
+                        </div>
+                        <div class="col-lg-5 col-md-5 d-sm-none d-block rideone ratio ratio-4x3">
+                            <img class="img-fluid " src="{{ url('/') }}/public/storage/product/{{ $topSix[1]->product_image }}">
                         </div>
                         <div class="col-lg-7 col-md-7 d-flex flex-column justify-content-center">
                             <h4 class="deu-digitalhead deu-digitalhead-name mt-2 text-truncate">
@@ -261,8 +267,11 @@
                 <div class="deu-sellbg">
                   <a href="{{url('/product').'/'.$topSix[2]->product_slug}}">
                     <div class="row align-items-center">
-                        <div class="col-lg-5 col-md-5 rideone">
+                        <div class="col-lg-5 col-md-5 d-sm-block d-none rideone ">
                           <img class="img-fluid deu-sellwiD" src="{{ url('/') }}/public/storage/product/{{ $topSix[2]->product_image }}">
+                        </div>
+                        <div class="col-lg-5 col-md-5 d-sm-none d-block rideone ratio ratio-4x3">
+                            <img class="img-fluid " src="{{ url('/') }}/public/storage/product/{{ $topSix[2]->product_image }}">
                         </div>
                         <div class="col-lg-7 col-md-7 d-flex flex-column justify-content-center">
                             <h4 class="deu-digitalhead deu-digitalhead-name mt-2 text-truncate">
@@ -292,8 +301,11 @@
                 <div class="deu-sellbg">
                   <a href="{{url('/product').'/'.$topSix[3]->product_slug}}">
                     <div class="row">
-                        <div class="col-lg-5 col-md-5 rideone">
+                        <div class="col-lg-5 col-md-5 d-sm-block d-none rideone ">
                           <img class="img-fluid deu-sellwiD" src="{{ url('/') }}/public/storage/product/{{ $topSix[3]->product_image }}">
+                        </div>
+                        <div class="col-lg-5 col-md-5 d-sm-none d-block rideone ratio ratio-4x3">
+                            <img class="img-fluid " src="{{ url('/') }}/public/storage/product/{{ $topSix[3]->product_image }}">
                         </div>
                         <div class="col-lg-7 col-md-7 d-flex flex-column justify-content-center">
                             <h4 class="deu-digitalhead deu-digitalhead-name mt-2 text-truncate">
@@ -321,8 +333,11 @@
                 <div class="deu-sellbg">
                   <a href="{{url('/product').'/'.$topSix[4]->product_slug}}">
                     <div class="row">
-                        <div class="col-lg-5 col-md-5 rideone">
+                        <div class="col-lg-5 col-md-5 d-sm-block d-none rideone ">
                           <img class="img-fluid deu-sellwiD" src="{{ url('/') }}/public/storage/product/{{ $topSix[4]->product_image }}">
+                        </div>
+                        <div class="col-lg-5 col-md-5 d-sm-none d-block rideone ratio ratio-4x3">
+                            <img class="img-fluid " src="{{ url('/') }}/public/storage/product/{{ $topSix[4]->product_image }}">
                         </div>
                         <div class="col-lg-7 col-md-7 d-flex flex-column justify-content-center">
                             <h4 class="deu-digitalhead deu-digitalhead-name mt-2 text-truncate">
@@ -350,8 +365,11 @@
                 <div class="deu-sellbg">
                   <a href="{{url('/product').'/'.$topSix[5]->product_slug}}">
                     <div class="row">
-                        <div class="col-lg-5 col-md-5 rideone">
+                        <div class="col-lg-5 col-md-5 d-sm-block d-none rideone ">
                           <img class="img-fluid deu-sellwiD" src="{{ url('/') }}/public/storage/product/{{ $topSix[5]->product_image }}">
+                        </div>
+                        <div class="col-lg-5 col-md-5 d-sm-none d-block rideone ratio ratio-4x3">
+                            <img class="img-fluid " src="{{ url('/') }}/public/storage/product/{{ $topSix[5]->product_image }}">
                         </div>
                         <div class="col-lg-7 col-md-7 d-flex flex-column justify-content-center">
                             <h4 class="deu-digitalhead deu-digitalhead-name mt-2 text-truncate">

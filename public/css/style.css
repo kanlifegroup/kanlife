@@ -3151,7 +3151,27 @@ a:link {
 
 .home-doctors .common-doctor {
   background-color: #fff;
-  min-height: 550px !important;
+}
+
+@media screen and (min-width: 1023px) {
+  .home-doctors .common-doctor {
+    min-height: 430px ;
+  }
+}
+@media screen and (min-width: 769px) and (max-width: 1022px){
+  .home-doctors .common-doctor {
+    min-height: 354px ;
+  }
+}
+@media screen and (min-width: 430px) and (max-width: 768px){
+  .home-doctors .common-doctor {
+    min-height: 310px ;
+  }
+}
+@media screen and (min-width: 300px) and (max-width: 429px){
+  .home-doctors .common-doctor {
+    min-height: 310px ;
+  }
 }
 
 .home-doctors .common-doctor figure {
@@ -3230,7 +3250,7 @@ a:link {
   color: #333;
   padding: 10px;
   float: left;
-  margin: 0px -79px 0 79px;
+  /* margin: 0px -79px 0 79px; */
   border: 1px solid #E5E3E3;
 }
 

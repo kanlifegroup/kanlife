@@ -43,12 +43,15 @@
          <span class="deu-filter">Product Categories</span>
         </p>
         @foreach($categories['display'] as $key => $category)
-          <div class="chiller_cb @if($key > 1) d-none d-sm-block @endif" aos="fade-right" aos-delay="300">
+          <div class="chiller_cb @if($key > 1) d-none d-sm-flex @endif" aos="fade-right" aos-delay="300">
             <input id="myCheckbox-{{ $category->cat_id }}" name="categories[]" value="{{ $category->cat_id }}" type="checkbox" @if(in_array($category->cat_id, $p_categories)) checked="checked" @endif>
             <label for="myCheckbox-{{ $category->cat_id }}">{{ $category->category_name }}</label>
             <span></span>
           </div>
-        @endforeach
+        @endforeach        
+        @if(count($categories['display']) > 2)
+          <div class="d-block d-sm-none" id="view_more" style="font-size: 1.25rem;color:#3188CA;" onclick="show_all()">view more +{{count($categories['display'])-2}}</div>
+        @endif
         <div class="d-flex justify-content-center mt-2">
           <button type="submit" class="px-3 py-2 btn btn-primary" style="background-color:#3188CA; border-color:#3188CA;">Apply</button>
         </div>
@@ -254,5 +257,9 @@
                 $(".logS1").hide();
             });
         });
+      function show_all(){
+        $('.chiller_cb').removeClass('d-none');
+        $('#view_more').addClass('d-none');
+      }
     </script>
 @endsection
