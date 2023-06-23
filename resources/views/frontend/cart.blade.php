@@ -51,9 +51,105 @@
 		<h1 class="deu-meethead">My Cart</h1>
 	</div>
 </div>
-
+@php 
+  $subtotal = 0;
+  $coupon_code = ""; 
+  $coupon_discount = 0; 
+  $new_price = 0;
+  $shipping = 0;
+  $gst = 0;
+@endphp
+@foreach($cart['product'] as $cart_1)
+  @php
+    if($cart_1->discount_price != 0)
+    {
+      $price = $cart_1->discount_price;
+      $new_price += $cart_1->quantity * $cart_1->discount_price;
+    }
+    else
+    {
+      $price = $cart_1->price;
+      $new_price += $cart_1->quantity * $cart_1->price;
+    }
+    $coupon_code = $cart_1->coupon_code;
+    $gst += ($cart_1->quantity * $price) * $cart_1->product_gst / 100;
+    $shipping += $cart_1->product_local_shipping_fee;
+    $total = $cart_1->quantity * $cart_1->price;
+    $subtotal += $total;
+  @endphp
+@endforeach
 <div class="container-fluid mt-5 mb-5">
-	<div class="row">
+	<div class="row">    
+    <div class="col-md-5 d-sm-none d-block"  aos="fade-left">
+      @if ($message = Session::get('success'))
+        <div class="alert alert-success" role="alert">
+          <span class="alert_icon lnr lnr-checkmark-circle"></span>
+          {{ $message }}
+          <!-- <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span class="fa fa-close" aria-hidden="true"></span>
+          </button> -->
+        </div>
+      @endif
+      @if ($message = Session::get('error'))
+        <div class="alert alert-danger" role="alert">
+          <span class="alert_icon lnr lnr-warning"></span>
+          {{ $message }}
+          <!-- <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span class="fa fa-close" aria-hidden="true"></span>
+          </button> -->
+        </div>
+      @endif
+      <p class="deu-carthead mt-3 mt-sm-0">Cart Details</p>
+      <table class="table table-borderless">
+        <tr class="deu-cartsbg">
+          <td>Price ({{$cart_count}} items)</td>
+          <td class="text-right" align="right"><i class="fa fa-inr" aria-hidden="true"></i><span class="subtotal"> @if($cart_count > 0){{number_format((float)$subtotal, 2, '.', '');}} @else 00.00 @endif</span></td>
+        </tr>
+        <tr class="deu-cartsbgs">
+          <td>Shipping and handling</td>
+          <td class="text-right" align="right"><i class="fa fa-inr" aria-hidden="true"></i><span class="shipping_charge"> {{number_format((float)$shipping, 2, '.', '');}}</span></td>
+        </tr>      
+        @if($gst > 0)
+        <tr class="deu-cartsbgs" style="background-color:#fff2fc">
+          <td>GST</td>
+          <td class="text-right" align="right"><i class="fa fa-inr" aria-hidden="true"></i><span class="gst"> {{number_format((float)$gst, 2, '.', '');}}</span></td>
+        </tr>
+        @endif
+        @if($coupon_code != "")
+          @php 
+          $coupon_discount = $subtotal - $new_price;
+          $final = $new_price + $shipping + $gst; 
+          @endphp
+        <tr class="deu-cartsbgs" style="background-color:#f2fffb">
+          <td>Coupon discount ({{ $coupon_code }})</td>
+          <td class="text-right" align="right">- <i class="fa fa-inr" aria-hidden="true"></i><span class="coupon_discount"> {{number_format((float)$coupon_discount, 2, '.', '');}}</span></td>
+        </tr>
+        @else
+        @php $final = $subtotal + $shipping + $gst; @endphp
+        @endif  
+        <tr class="deu-cartsbg">
+          <td></td>
+          <td class="text-right" align="right"><i class="fa fa-inr" aria-hidden="true"></i><span class="final"> {{number_format((float)$final, 2, '.', '');}}</span></td>
+        </tr>
+        <tr class="deu-cartsbgs text-dark">
+          <td>Total Amount</td>
+          <td class="text-right" align="right"><i class="fa fa-inr" aria-hidden="true"></i><span class="final"> @if($cart_count > 0){{number_format((float)$final, 2, '.', '');}} @else 00.00 @endif</span></td>
+        </tr>
+      </table>
+      <div class="product-count mt-3 mb-3">
+          <form action="{{ route('coupon') }}" class="row g-0" id="coupon_form" method="post" >
+          {{ csrf_field() }}
+          <input type="text" class="border border-3 px-2 bg-white col-6" style="border-color: #9D9D9D; border-radius: 5px; font-size: 1.4rem;" placeholder="Coupon Code"  id="coupon" name="coupon" >
+          <div class="col-auto"></div>
+          <div class="col d-flex justify-content-end">
+            <button type="submit" class="josefin-font btn text-white text-center col-10 py-2" style="background-color:#3188CA;border-radius: 5px;font-size: 1.4rem;">Apply Coupon</a>
+          </div>
+      </form>
+      @if($coupon_code != "")
+        <a href="{{ URL::to('/cart/') }}/remove/{{ $coupon_code }}" onClick="return confirm('{{ Helper::translation(1992,$translate,'') }}');">{{ Helper::translation(2848,$translate,'') }} Coupon <strong>{{ $coupon_code }}</strong></a>
+      @endif
+      </div>
+		</div>
 		<div class="col-md-7">
 			<div class="panel panel-info">
         @php 
@@ -139,7 +235,7 @@
         @endif
 			</div>
 		</div>
-    <div class="col-md-5"  aos="fade-left">
+    <div class="col-md-5 d-none d-sm-block"  aos="fade-left">
       @if ($message = Session::get('success'))
         <div class="alert alert-success" role="alert">
           <span class="alert_icon lnr lnr-checkmark-circle"></span>
