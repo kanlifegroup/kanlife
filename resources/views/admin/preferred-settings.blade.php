@@ -107,7 +107,7 @@
                                 </div>
                             </div>
                            </div>
-                           <div class="col-md-12 no-padding">
+                           <div class="col-md-12 no-padding col-lg-12">
                              <div class="card-footer">
                                  <button type="submit" name="submit" class="btn btn-primary btn-sm"><i class="fa fa-dot-circle-o"></i> {{ Helper::translation(1919,$translate,'') }}</button>
                                  <button type="reset" class="btn btn-danger btn-sm"><i class="fa fa-ban"></i> {{ Helper::translation(2979,$translate,'') }} </button>

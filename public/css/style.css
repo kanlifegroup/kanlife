@@ -1812,6 +1812,10 @@ body {
   font-family: 'Josefin Sans', sans-serif;
   font-size: 1.625rem;
   font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
 }
 
 .deu-protxt {
