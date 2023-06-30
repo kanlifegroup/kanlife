@@ -176,10 +176,10 @@
                                                 <input id="product_offer_price" name="product_gst" type="number" class="form-control">
                                             </div>
                                             <div class="form-group">
-                                                <label for="customer_earnings" class="control-label mb-1">{{ Helper::translation(1936,$translate,'') }} <span class="require">*</span></label>
+                                                <label for="customer_earnings" class="control-label mb-1">{{ Helper::translation(1936,$translate,'') }} ({{ Helper::translation(3003,$translate,'') }}: 600 x 450 or ratio: 4 x 3)<span class="require">*</span></label>
                                                 <input type="file" id="product_image" name="product_image" class="form-control-file" data-bvalidator="required,extension[jpg:png:jpeg]" data-bvalidator-msg="{{ Helper::translation(1937,$translate,'') }}"></div> 
                                              <div class="form-group">
-                                                <label for="customer_earnings" class="control-label mb-1">{{ Helper::translation(1938,$translate,'') }}</label>
+                                                <label for="customer_earnings" class="control-label mb-1">{{ Helper::translation(1938,$translate,'') }} ({{ Helper::translation(3003,$translate,'') }}: 600 x 450 or ratio: 4 x 3)</label>
                                                 <input type="file" id="product_gallery[]" name="product_gallery[]" class="form-control-file" data-bvalidator="extension[jpg:png:jpeg]" data-bvalidator-msg="{{ Helper::translation(1937,$translate,'') }}" multiple>
                                              </div>
                                              {{--
