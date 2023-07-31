@@ -331,6 +331,9 @@ class CommonController extends Controller
     else
     $categories = $request->categories ?? [];
     $price_order = $request->price_order ?? '';
+    $brand_order = $request->brand_order ?? '';
+    $condition_order = $request->condition_order ?? '';
+    $all_brands = Product::homebrandData();
     if($request->has('search_text')){
       if(!empty($request->input('search_text')))
       $search_txt = $request->input('search_text');
@@ -338,7 +341,7 @@ class CommonController extends Controller
       $search_txt = "";
       $products = Product::with('ProductImages')->where('product_name', 'LIKE', '%'.$search_txt.'%')->where('product_status','=',1)->where('product_drop_status','=','no')->where('language_code','=',$translate)->orderBy('product_id','desc')->paginate(12);
     }
-    if($request->has('categories') || $request->has('price_order')){
+    if($request->has('categories') || $request->has('price_order') || $request->has('brand_order') || $request->has('condition_order')){
       $query = Product::with('ProductImages')->where('product_status','=',1)->where('product_drop_status','=','no')->where('language_code','=','en');
       if(count($categories) > 0 ){
         $query->where(function($q) use ($categories) {
@@ -354,11 +357,17 @@ class CommonController extends Controller
         $query->orderBy('product_price','asc')->orderBy('product_offer_price','asc');
       if($request->has('price_order') && $request->input('price_order') == 'htl')
         $query->orderBy('product_price','desc')->orderBy('product_offer_price','desc');
+      if($request->has('condition_order') && $request->input('condition_order') == 'new')
+        $query->where('product_condition','=','new');
+      if($request->has('condition_order') && $request->input('condition_order') == 'used')
+        $query->where('product_condition','=','used');
+      if($request->has('brand_order') && $request->input('brand_order') != '')
+        $query->where('product_brand','=',$request->input('brand_order'));
       $products = $query->paginate(12);
     }
     if(!isset($products))
     $products = Product::with('ProductImages')->where('product_status','=',1)->where('product_drop_status','=','no')->where('language_code','=',$translate)->orderBy('product_id','desc')->paginate(12);
-    $data = array('products'=>$products, 'p_categories' => $categories, 'price_order'=> $price_order);
+    $data = array('products'=>$products, 'p_categories' => $categories, 'price_order'=> $price_order, 'brand_order'=> $brand_order, 'condition_order'=> $condition_order, 'all_brands'=>$all_brands);
     return view('frontend.search_products')->with($data);
   }
 
@@ -367,8 +376,9 @@ class CommonController extends Controller
     $translate = $this->lang_text();
     $cat_id = Category::singleCat($slug);
     $category_id = 'cat-'.$cat_id->cat_id;
+    $all_brands = Product::homebrandData();
     $products = Product::with('ProductImages')->where('product_status','=',1)->where('product_drop_status','=','no')->where('language_code','=',$translate)->whereRaw('FIND_IN_SET(?,product_category)', [$category_id])->orderBy('product_id','desc')->paginate(12);
-    $data = array('is_categories'=>true,'category_name'=> $cat_id->category_name, 'products'=>$products);
+    $data = array('is_categories'=>true,'category_name'=> $cat_id->category_name, 'products'=>$products, 'all_brands'=>$all_brands);
     // dd($products->links());
     return view('frontend.category_products')->with($data);
   }

@@ -88,6 +88,37 @@
               <button type="submit" class="px-3 py-2 btn btn-primary" style="background-color:#3188CA; border-color:#3188CA;">Apply</button>
             </div>
         </div>
+        <div class="deu-borderblue mt-5" aos="fade-right" aos-delay="300">
+            <p style="color:#3188CA;" class="d-flex align-items-center"><img class="deu-fealine" src="{{asset('public/image/line.svg')}}"> &nbsp;&nbsp;&nbsp;
+                <span class="deu-filter">Filter By Brand</span>
+            </p>
+            <div class="deu-lowprice">
+                <select class="form-select w-100 bg-transparent border-0" name="brand_order" style="outline: none;">
+                    <option selected value="" class="top-select">Select Brand</option>
+                    @foreach($all_brands as $brand)
+                    <option value="{{$brand->brand_id}}" class="top-select">{{$brand->brand_name}}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="d-flex justify-content-center mt-3">
+              <button type="submit" class="px-3 py-2 btn btn-primary" style="background-color:#3188CA; border-color:#3188CA;">Apply</button>
+            </div>
+        </div>
+        <div class="deu-borderblue mt-5" aos="fade-right" aos-delay="300">
+            <p style="color:#3188CA;" class="d-flex align-items-center"><img class="deu-fealine" src="{{asset('public/image/line.svg')}}"> &nbsp;&nbsp;&nbsp;
+                <span class="deu-filter">Filter By Condition</span>
+            </p>
+            <div class="deu-lowprice">
+                <select class="form-select w-100 bg-transparent border-0" name="condition_order" style="outline: none;">
+                    <option selected value="" class="top-select">Select Product Condition</option>
+                    <option value="new" class="top-select">New</option>
+                    <option value="used" class="top-select">Used</option>
+                </select>
+            </div>
+            <div class="d-flex justify-content-center mt-3">
+              <button type="submit" class="px-3 py-2 btn btn-primary" style="background-color:#3188CA; border-color:#3188CA;">Apply</button>
+            </div>
+        </div>
       </form>
 	  </div>
     @php 

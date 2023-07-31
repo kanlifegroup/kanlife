@@ -70,6 +70,37 @@
             <button type="submit" class="px-3 py-2 btn btn-primary" style="background-color:#3188CA; border-color:#3188CA;">Apply</button>
           </div>
       </div>
+      <div class="deu-borderblue mt-5" aos="fade-right" aos-delay="300">
+          <p style="color:#3188CA;" class="d-flex align-items-center"><img class="deu-fealine" src="{{asset('public/image/line.svg')}}"> &nbsp;&nbsp;&nbsp;
+              <span class="deu-filter">Filter By Brand</span>
+          </p>
+          <div class="deu-lowprice">
+              <select class="form-select w-100 bg-transparent border-0" name="brand_order" style="outline: none;">
+                  <option @if($brand_order == '') selected @endif value="" class="top-select">Select Brand</option>
+                  @foreach($all_brands as $brand)
+                  <option @if($brand_order == $brand->brand_id) selected @endif value="{{$brand->brand_id}}" class="top-select">{{$brand->brand_name}}</option>
+                  @endforeach
+              </select>
+          </div>
+          <div class="d-flex justify-content-center mt-3">
+            <button type="submit" class="px-3 py-2 btn btn-primary" style="background-color:#3188CA; border-color:#3188CA;">Apply</button>
+          </div>
+      </div>
+      <div class="deu-borderblue mt-5" aos="fade-right" aos-delay="300">
+          <p style="color:#3188CA;" class="d-flex align-items-center"><img class="deu-fealine" src="{{asset('public/image/line.svg')}}"> &nbsp;&nbsp;&nbsp;
+              <span class="deu-filter">Filter By Condition</span>
+          </p>
+          <div class="deu-lowprice">
+              <select class="form-select w-100 bg-transparent border-0" name="condition_order" style="outline: none;">
+                  <option @if($condition_order == '') selected @endif value="" class="top-select">Select Product Condition</option>
+                  <option @if($condition_order == 'new') selected @endif value="new" class="top-select">New</option>
+                  <option @if($condition_order == 'used') selected @endif value="used" class="top-select">Used</option>
+              </select>
+          </div>
+          <div class="d-flex justify-content-center mt-3">
+            <button type="submit" class="px-3 py-2 btn btn-primary" style="background-color:#3188CA; border-color:#3188CA;">Apply</button>
+          </div>
+      </div>
     </form>
 	  </div>
     @php 
@@ -99,7 +130,7 @@
             <a href="{{url('/product').'/'.$product->product_slug}}">
             <div class="d-sm-block d-none common-doctor animated fadeInUp clearfix ae-animation-fadeInUp deu-features position-relative">
               @if($product->product_condition == 'new')
-              <div class="position-absolute px-3 py-1 mt-2 end-0 me-2 deu-new" style="z-index:100">New</div>
+              <div class="position-absolute px-3 py-1 mt-2 end-0 me-2 deu-new"  style="z-index:100">New</div>
                 <!-- <span class="deu-new" style="position:absolute;z-index:100;width:100%;left:0;">New</span> -->
               @endif
               <div class="deu-xrayfigure">
@@ -166,17 +197,17 @@
     <ul>
       @if($products->currentPage()!=1)
       <li>
-        <a href="{{$products->path().'?page='.($products->currentPage()-1).'&categories='.serialize($p_categories).'&price_order='.$price_order}}" class="prev"> Previous</a>
+        <a href="{{$products->path().'?page='.($products->currentPage()-1).'&categories='.serialize($p_categories).'&price_order='.$price_order.'&brand_order='.$brand_order.'&condition_order='.$condition_order}}" class="prev"> Previous</a>
       </li>
       @endif
       @for($i=1; $i <= $products->lastPage(); $i++)
       <li>
-        <a @if($i == $products->currentPage()) class="active" style="color: #3188CA !important;" @endif href="{{$products->path().'?page='.$i.'&categories='.serialize($p_categories).'&price_order='.$price_order}}">{{$i}}</a>
+        <a @if($i == $products->currentPage()) class="active" style="color: #3188CA !important;" @endif href="{{$products->path().'?page='.$i.'&categories='.serialize($p_categories).'&price_order='.$price_order.'&brand_order='.$brand_order.'&condition_order='.$condition_order}}">{{$i}}</a>
       </li>
       @endfor
       @if($products->currentPage()!=$products->lastPage())
       <li>
-        <a href="{{$products->path().'?page='.($products->currentPage()+1).'&categories='.serialize($p_categories).'&price_order='.$price_order}}" class="next"> Next</a>
+        <a href="{{$products->path().'?page='.($products->currentPage()+1).'&categories='.serialize($p_categories).'&price_order='.$price_order.'&brand_order='.$brand_order.'&condition_order='.$condition_order}}" class="next"> Next</a>
       </li>
       @endif
     </ul>
