@@ -129,6 +129,14 @@ class Blog extends Model
 	return $value;
   }
 
+  public static function post_by_slug($post_slug){
+    $value = DB::table('post')
+      ->where('post_page_parent','=', 0)
+	  ->where('post_slug','=', $post_slug)
+      ->first();
+	return $value;
+  }
+
   public static function postImages($post_id){
     $value = DB::table('post_images')
 	  ->where('post_id','=', $post_id)

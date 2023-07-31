@@ -5,7 +5,7 @@
     <div class="modal-content">
       <div class="modal-header pt-xxl-5">
         <h4 class="modal-title"></h4>
-        <button type="button" class="close close_model" onclick="closeModels()" data-dismiss="modal">&times;</button>
+        <button type="button" class="close close_model btn btn-dark" onclick="closeModels()" data-dismiss="modal">Close</button>
       </div>
       <div class="modal-body py-5">
         <p class="deu-loginhead">Login</p>

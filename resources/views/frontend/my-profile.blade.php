@@ -1,7 +1,7 @@
 @extends('frontend.layouts.app')
 
 @section('title')
-  Order confirmation
+  My Account
 @endsection
 
 @section('style')
@@ -111,6 +111,35 @@
               </span>
             @enderror
                   </div>
+                  <div class="col-md-6"  aos="fade-right">
+                    <label class="deu-contactadress">Address</label>
+                    <input type="text" placeholder="Address" id="user_address" name="user_address" value="{{ old('user_address') ?? $edit['profile']->user_address }}" class="form-control deu-checkinput">
+                  </div>
+              </div>
+              <div class="row col-12">
+                <div class="col-md-6"  aos="fade-right">
+                  <label class="deu-contactadress">Country</label>
+                  <select class="form-control deu-checkinput" style="height:60px;" name="user_country">
+                  <option value="" disabled selected>Select Country</option>
+                  @foreach($allcountry as $country)
+                  <option value="{{ $country->country_id }}" @if($edit['profile']->user_country && $edit['profile']->user_country == $country->country_id) selected @endif>{{ $country->country_name }}</option>
+                  @endforeach
+                  </select>
+                </div>
+                <div class="col-md-6"  aos="fade-right">
+                  <label class="deu-contactadress">State</label>
+                  <input type="text" placeholder="State" id="user_state" name="user_state" value="{{ old('user_state') ?? $edit['profile']->user_state }}" class="form-control deu-checkinput">
+                </div>
+              </div>
+              <div class="row col-12">
+                <div class="col-md-6"  aos="fade-right">
+                  <label class="deu-contactadress">City</label>
+                  <input type="text" placeholder="City" id="user_city" name="user_city" value="{{ old('user_city') ?? $edit['profile']->user_city }}" class="form-control deu-checkinput">
+                </div>
+                <div class="col-md-6"  aos="fade-right">
+                  <label class="deu-contactadress">ZIP Code</label>
+                  <input type="text" maxlength="6" placeholder="ZIP Code" id="user_pincode" name="user_pincode" value="{{ old('user_pincode') ?? $edit['profile']->user_pincode }}" class="form-control deu-checkinput" onkeypress="return /^[0-9]*$/.test(event.key)">
+                </div>
               </div>
               <input type="hidden" name="edit_id" value="{{ $edit['profile']->user_token }}">
               <div class="text-center" aos="fade-left">

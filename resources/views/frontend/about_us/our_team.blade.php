@@ -34,8 +34,14 @@
         <div class="col-12 col-lg">
             <div class="card deu-teamcards" aos="fade-right">
                 <div class="card-body text-center pt-5">
-                    <img aos="zoom-in" src="{{ asset('public/image/Fathima.jfif') }}" class="img-fluid" width="300" height="250">
-                    <h5 class="card-title mt-3 m-3 mb-1 deu-teamname">Fatima Khuzem</h5>
+                    <a href="{{ url('about-us/fatima-khuzem') }}">
+                      <div class="hovereffect_team">
+                        <img aos="zoom-in" src="{{ asset('public/image/Fathima.jfif') }}" class="img-fluid" width="300" height="250">
+                      </div>
+                    </a>
+                    <a href="{{ url('about-us/fatima-khuzem') }}">
+                      <h5 class="card-title mt-3 m-3 mb-1 deu-teamname">Fatima Khuzem</h5>
+                    </a>
                     <p class="mb-3 mt-3 font-weight-bold deu-teamtxt1">Director [UK & EU]</p>
                     <!-- <div class="px-4">
                         <button class="deu-aboutbtn1 px-4 w-100 py-2 mb-3">Know More</button>
@@ -54,8 +60,14 @@
         <div class="col-12 col-lg">
             <div class="card deu-teamcards" aos="fade-right">
                 <div class="card-body text-center pt-5">
-                    <img aos="zoom-in" src="{{ asset('public/image/jamila.jfif') }}" class="img-fluid" width="300" height="250">
+                  <a href="{{ url('about-us/jamila-zaveri') }}">
+                    <div class="hovereffect_team">
+                      <img aos="zoom-in" src="{{ asset('public/image/jamila.jfif') }}" class="img-fluid" width="300" height="250">
+                    </div>
+                  </a>
+                  <a href="{{ url('about-us/jamila-zaveri') }}">
                     <h5 class="card-title mt-3 m-3 mb-1 deu-teamname">Jamila Zaveri</h5>
+                  </a>
                     <p class="mb-3 mt-3 font-weight-bold deu-teamtxt1">Director / Clinical Advisor</p>
                     <!-- <div class="px-4">
                         <button class="deu-aboutbtn1 px-4 w-100 py-2 mb-3">Know More</button>
@@ -74,8 +86,14 @@
         <div class="col-12 col-lg">
             <div class="card deu-teamcards" aos="fade-right">
                 <div class="card-body text-center pt-5">
+                  <a href="{{ url('about-us/murtuza-tambawala') }}">
+                    <div class="hovereffect_team">
                     <img aos="zoom-in" src="{{ asset('public/image/Murtaza Tambawala.png') }}" class="img-fluid" width="300" height="250">
+                    </div>
+                  </a>
+                  <a href="{{ url('about-us/murtuza-tambawala') }}">
                     <h5 class="card-title mt-3 m-3 mb-1 deu-teamname">Murtuza Tambawala</h5>
+                  </a>
                     <p class="mb-3 mt-3 font-weight-bold deu-teamtxt1">Founder  / CEO</p>
                     <!-- <div class="px-4">
                         <button class="deu-aboutbtn1 px-4 w-100 py-2 mb-3">Know More</button>
@@ -94,8 +112,14 @@
         <div class="col-12 col-lg">
             <div class="card deu-teamcards" aos="fade-right">
                 <div class="card-body text-center pt-5">
+                  <a href="{{ url('about-us/mr-khuzem-tambawala') }}">
+                    <div class="hovereffect_team">
                     <img aos="zoom-in" src="{{ asset('public/image/Khuzema Tambawala.png') }}" class="img-fluid" width="300" height="250">
+                    </div>
+                  </a>
+                  <a href="{{ url('about-us/mr-khuzem-tambawala') }}">
                     <h5 class="card-title mt-3 m-3 mb-1 deu-teamname">Mr. Khuzem Tambawala</h5>
+                  </a>
                     <p class="mb-3 mt-3 font-weight-bold deu-teamtxt1">Director and Mentor</p>
                     <!-- <div class="px-4">
                         <button class="deu-aboutbtn1 px-4 w-100 py-2 mb-3">Know More</button>

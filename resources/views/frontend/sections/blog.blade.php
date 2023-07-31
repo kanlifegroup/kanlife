@@ -29,12 +29,12 @@
                   @endif
                   <p class="deu-dec text-sm">{{ date('d M Y', strtotime($post->post_date)) }}</p>
                   <h3 class="post-title">
-                    <a href="{{ route('about.detail.blog', $post->post_id) }}">{{ $post->post_title }}</a>
+                    <a href="{{ route('about.detail.blog', $post->post_slug) }}">{{ $post->post_title }}</a>
                   </h3>
                   <p class="post-description">
                   {{ mb_substr($post->post_short_desc, 0, 110).'...' }}
                   </p>
-                  <a href="{{ route('about.detail.blog', $post->post_id) }}" title="{{ $post->post_title }}">
+                  <a href="{{ route('about.detail.blog', $post->post_slug) }}" title="{{ $post->post_title }}">
                     <button class="read-more">read more</button>
                   </a>
                 </div>
@@ -66,12 +66,12 @@
                   @endif
                   <p class="deu-dec">{{ date('M Y', strtotime($post->post_date)) }}</p>
                   <h3 class="post-title">
-                    <a href="{{ route('about.detail.blog', $post->post_id) }}">{{ $post->post_title }}</a>
+                    <a href="{{ route('about.detail.blog', $post->post_slug) }}">{{ $post->post_title }}</a>
                   </h3>
                   <p class="post-description">
                   {{ mb_substr($post->post_short_desc, 0, 110).'...' }}
                   </p>
-                  <a href="{{ route('about.detail.blog', $post->post_id) }}" title="{{ $post->post_title }}">
+                  <a href="{{ route('about.detail.blog', $post->post_slug) }}" title="{{ $post->post_title }}">
                     <button class="read-more">read more</button>
                   </a>
                 </div>
@@ -104,12 +104,12 @@
                   @endif
                   <p class="deu-dec">{{ date('M Y', strtotime($post->post_date)) }}</p>
                   <h3 class="post-title">
-                    <a href="{{ route('about.detail.blog', $post->post_id) }}">{{ $post->post_title }}</a>
+                    <a href="{{ route('about.detail.blog', $post->post_slug) }}">{{ $post->post_title }}</a>
                   </h3>
                   <p class="post-description">
                   {{ mb_substr($post->post_short_desc, 0, 110).'...' }}
                   </p>
-                  <a href="{{ route('about.detail.blog', $post->post_id) }}" title="{{ $post->post_title }}">
+                  <a href="{{ route('about.detail.blog', $post->post_slug) }}" title="{{ $post->post_title }}">
                     <button class="read-more">read more</button>
                   </a>
                 </div>

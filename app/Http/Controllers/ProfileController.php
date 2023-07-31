@@ -101,7 +101,7 @@ class ProfileController extends Controller
 		} 
 		else
 		{
-    $data = $request->only('email', 'name', 'user_phone');
+    $data = $request->only('email', 'name', 'user_phone', 'user_address', 'user_state', 'user_city', 'user_country', 'user_pincode');
     $data['updated_at'] = date('Y-m-d H:i:s');
     if(!empty($request->input('password')))
     $data['password'] = bcrypt($request->input('password'));

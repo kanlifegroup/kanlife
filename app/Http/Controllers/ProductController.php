@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use ZigKart\Http\Controllers\Controller;
 use Session;
+use ZigKart\User;
 use ZigKart\Models\Product;
 use ZigKart\Models\Members;
 use ZigKart\Models\Settings;
@@ -490,7 +491,7 @@ class ProductController extends Controller
 	
 	public function update_checkout(Request $request)
 	{
-    $instamojo_mode = 'test';// 'api' & 'test'
+    $instamojo_mode = 'api';// 'api' & 'test'
 	   $translate = $this->lang_text();
 	   $allsettings = Settings::allSettings();
 	   $additional = Settings::editAdditional();
@@ -733,7 +734,7 @@ class ProductController extends Controller
 
   public function order_checkout(Request $request){
     try{
-      $instamojo_mode = 'test';// 'api' & 'test'
+      $instamojo_mode = 'api';// 'api' & 'test'
       /* Debit Card:
       Card Number: 4242 4242 4242 4242
       Expiry: 01/25
@@ -834,6 +835,21 @@ class ProductController extends Controller
         $vat_price = 0;
       }
       /* vat price */
+      // update address
+      $address_data = array();
+      $user = User::find($user_id);
+      if(!$user->user_country)
+      $user->user_country = $bill_country;
+      if(!$user->user_address)
+      $user->user_address = $bill_address;
+      if(!$user->user_city)
+      $user->user_city = $bill_city;
+      if(!$user->user_state)
+      $user->user_state = $bill_state;
+      if(!$user->user_pincode)
+      $user->user_pincode = $bill_postcode;
+      $user->save();
+      // end update address
       $cart_new['product'] = Product::viewNewOrder($user_id,$session_id,$translate);
       foreach($cart_new['product'] as $cart){
         $ship_rate += $cart->product_local_shipping_fee;
@@ -866,7 +882,8 @@ class ProductController extends Controller
         $pay = array('purpose'=>$product_names,'name'=>$bill_firstname.' '.$bill_lastname, 'amount'=>$total_price, 'email'=>$bill_email, 'phone'=>$bill_phone);
         $token = $this->instamojoAccessToken($instamojo_mode)['access_token']??'';
         if($token != ''){
-          $redirect_url = $this->instamojoPayment($token,$pay, $instamojo_mode);
+          $redirect_url = $this->instamojoPayment($token,$pay, $instamojo_mode);          
+          // dd($redirect_url);
           if (array_key_exists("longurl",$redirect_url['response'])){
             $save_data['payment_token']=$redirect_url['response']['id'];
             Product::saveOnlineCheckoutDetails($save_data);
@@ -973,7 +990,6 @@ class ProductController extends Controller
       'client_id' => 'test_z7Za1vywMM8oyrcjrFQzmFF130bNdnxb57R',
       'client_secret' => 'test_Z5svFY3tfTRcDSCrWnaQ4GJCgrfmh5SyzubsY5rYcjFf7JtyDKrcMXUqkqGe6XXSF9uoefprzniDd5bOYlnquR3KH5x4kZJE537fsgu3nrhJtJTxPaV1AqsTZJP',
     ]);
-    // dd($res->json());
     return $res->json();
   }
 

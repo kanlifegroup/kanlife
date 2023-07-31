@@ -108,11 +108,13 @@
     </div>
 </div>
 
-<div class="container-fluid mb-5">
+<div class="container-fluid">
     <div class="row">
         <div class="col-md-12 mx-auto">
+          <div class="d-flex justify-content-center align-items-center">
             <h3 class="text-center deu-bloghead mb-4 mt-5">Featured Products</h3>
-            <div class="deu-lifeposi storycat p-5 mt-5">
+          </div>
+            <div class="deu-lifeposi storycat p-5 pb-0 mt-4 mt-lg-0">
                 <div class="col-12 swiper-container swiper-container-2 px-3">
                     <div class="swiper-wrapper position-relative py-4">
                       @foreach($featured as $product)

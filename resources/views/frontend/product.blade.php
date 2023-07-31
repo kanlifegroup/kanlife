@@ -160,9 +160,9 @@
             <form action="#" class="d-flex align-items-center  flex-lg-row">
               @if(isset($cart['qty']) && $cart['qty'] > 0)
                 <div class="product-count mt-3 mb-3 d-flex">
-                  <div class="qtyminus" data-id="{{base64_encode($cart['ord_id'])}}">-</div>
-                  <input type="text" readonly id="{{base64_decode($cart['ord_id'])}}" name="quantity" value="{{$cart['qty']}}" class="qty qty-{{base64_encode($cart['ord_id'])}}">
-                  <div class="qtyplus" data-id="{{base64_encode($cart['ord_id'])}}">+</div>
+                  <div class="qtyminus" data-id="{{str_replace('=','_', base64_encode($cart['ord_id']))}}">-</div>
+                  <input type="text" readonly id="{{str_replace('=','_', base64_encode($cart['ord_id']))}}" name="quantity" value="{{$cart['qty']}}" class="qty qty-{{str_replace('=','_', base64_encode($cart['ord_id']))}}">
+                  <div class="qtyplus" data-id="{{str_replace('=','_', base64_encode($cart['ord_id']))}}">+</div>
                 </div>
                 {{-- <a href="javascript:void(0)" data-id="{{base64_encode($cart['ord_id'])}}" class="round-black-btn remove">Remove from cart</a> 
                 <a href="{{ url('/cart') }}/{{base64_encode($cart['ord_id'])}}" onClick="return confirm('Are you sure you want to remove?');" class="round-black-btn px-3 px-lg-5">Remove from cart</a>--}}

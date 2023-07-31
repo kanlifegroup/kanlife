@@ -456,6 +456,11 @@ Route::group(['middleware' => ['XSS','web', 'HtmlMinifier']], function () {
   Route::get('dealer/login', 'Auth\LoginController@showLoginForm');
   Route::get('dealer/register', 'Auth\RegisterController@showRegistrationForm');
 
+  Route::get('about-us/fatima-khuzem', function() { return view('frontend.about_us.fatima');});
+  Route::get('about-us/jamila-zaveri', function() { return view('frontend.about_us.jamila');});
+  Route::get('about-us/murtuza-tambawala', function() { return view('frontend.about_us.murtuza');});
+  Route::get('about-us/mr-khuzem-tambawala', function() { return view('frontend.about_us.khuzem');});
+
   Route::get('/logout', 'Admin\CommonController@logout');
 
   Route::group(['middleware' => ['is_logged_in']], function () {

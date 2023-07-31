@@ -593,7 +593,7 @@ class Product extends Model
    }
    public static function updateOnlineCheckoutDetails($token, $save_data)
    {   
-     DB::table('online_checkout_details')->where('payment_token', $token)->insert($save_data);
+     DB::table('online_checkout_details')->where('payment_token', $token)->update($save_data);
      return DB::table('online_checkout_details')->where('payment_token', $token)->first();
    }
    
@@ -741,13 +741,15 @@ class Product extends Model
     ->selectRaw('product.*, sum(ifnull(product_orders.quantity,0)) total')
     ->groupBy('product_orders.product_id')
     ->orderBy('total','desc')
+    ->where('language_code','=','en')
+    ->where('product_drop_status','=','no')
     ->take(6)
     ->get();
     if(count($value) > 5)
     return $value;
     else{
       $take = 6 - count($value);
-      $products = DB::table('product')->inRandomOrder()->take($take)->get();
+      $products = DB::table('product')->where('product_drop_status','=','no')->where('language_code','=','en')->inRandomOrder()->take($take)->get();
       $value = $value->merge($products);
     return $value;
     }

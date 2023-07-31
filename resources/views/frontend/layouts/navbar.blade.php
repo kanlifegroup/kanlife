@@ -136,7 +136,7 @@ $module=explode("/", url()->current());
 <nav class="navbar navbar-expand-md py-0">
   <div class="container-fluid py-1">
     <a class="navbar-brand" href="/">
-      <img src="{{ asset('public/image/logo.png') }}" width="" class="logo img-fluid" />
+      <img src="{{ asset('public/image/logo.png') }}" width="" class="logo img-fluid" alt="Kanlifegroup"/>
     </a>
     <div class="col-md-2">
       <form action="{{ route('search.products') }}" class="search_form mb-0" id="search_form" method="post">
@@ -216,13 +216,16 @@ $module=explode("/", url()->current());
         </div>
         @endif
         <a class="nav-link {{ url('/') == url()->current() ? 'active' : '' }}" aria-current="page" href="{{ url('/') }}">Home</a>
-        @if(array_intersect([$user_location],['india','london']))
+        @if(array_intersect([$user_location],['india']))
           <a class="nav-link {{ url('/buy') == url()->current() ? 'active' : '' }}" href="{{ url('/buy') }}">Buy</a>
         @endif
-        @if(array_intersect([$user_location],['india']))
-          <a class="nav-link" href="#">Rent</a>
+        @if(array_intersect([$user_location],['london']))
+          <a class="nav-link" href="https://www.tamboos.co.uk" target="_blank">Buy</a>
         @endif
-        <a class="nav-link text-nowrap {{ array_intersect($module, ['consultant']) ? 'active' : '' }}" href="#">Consult A Dr.</a>
+        @if(array_intersect([$user_location],['india']))
+          <a class="nav-link" href="https://www.asopo.in" target="_blank">Rent</a>
+        @endif
+        <a class="nav-link text-nowrap" href="https://drjamilaonline.clinic.icareheal.com/best-clinical-cardiologist-and-general-physician-in-bangalore-location-bangalore" target="_blank">Consult A Dr.</a>
         <div class="dropdown">
           <button class="btn nav-link border-0 dropdown-toggle" type="button" id="about_us_menu"
             data-bs-toggle="dropdown" aria-expanded="false">

@@ -17,6 +17,10 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&family=Montserrat:wght@500&family=Nunito:wght@500;600;700;900&family=Roboto:wght@500&display=swap"
         rel="stylesheet">
+
+        <style>
+          .caret_none .dropdown-toggle:after { content: none }
+        </style>
 @endsection
 
 @section('content')
@@ -43,7 +47,7 @@
         </div>
         --}}
         <div class="col-7 text-start m-auto position-relative">   
-          <div class="dropdown">
+          <div class="dropdown caret_none">
             @php 
             $selected_cat = $blogPost['categories']->where('blog_cat_id', $category_id)->first();
             @endphp
@@ -77,7 +81,7 @@
                         <p class="ctext"><small class="text-primary">{{ date('d M Y', strtotime($post->post_date)) }}</small></p>
                         <p class="ctext py-4 d-sm-block d-none" style="text-align: justify;">{{ $post->post_short_desc }} ...</p>
                         <p class="ctext py-4 d-sm-none d-block" style="text-align: justify;">{{ mb_substr($post->post_short_desc, 0, 110).'...' }}</p>
-                        <a href="{{ route('about.detail.blog', $post->post_id) }}" class="btn text-light btn-lg px-5" style="background-color:#3188CA; border-radius: 5px;font-size: 1.4rem;">Read More</a>
+                        <a href="{{ route('about.detail.blog', $post->post_slug) }}" class="btn text-light btn-lg px-5" style="background-color:#3188CA; border-radius: 5px;font-size: 1.4rem;">Read More</a>
                      </div>
                     </div>
                 </div>

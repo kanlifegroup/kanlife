@@ -89,9 +89,9 @@
         <div class="row col-12">
           <div class="col-md-6">
             <select class="form-control deu-checkinput" name="bill_country" required>
-            <option value="" disabled>Select Country</option>
+            <option value="" disabled selected>Select Country</option>
             @foreach($allcountry as $country)
-            <option value="{{ $country->country_id }}" @if($checkout_data != 0) @if($country->country_id == $checkout_details->bill_country) selected @endif @endif>{{ $country->country_name }}</option>
+            <option value="{{ $country->country_id }}" @if(Auth::user()->user_country && Auth::user()->user_country == $country->country_id) selected @endif>{{ $country->country_name }}</option>
             @endforeach
             </select>
           </div>
@@ -101,7 +101,7 @@
         </div>
         <div class="row col-12">
           <div class="col-md-6">
-              <input type="text" maxlength="200" minlength="10" placeholder="House number and street name*" id="bill_address" name="bill_address" required value="@if($checkout_data != 0){{ $checkout_details->bill_address }}@endif" class="form-control deu-checkinput">
+              <input type="text" maxlength="200" minlength="10" placeholder="House number and street name*" id="bill_address" name="bill_address" required value="{{Auth::user()->user_address??''}}" class="form-control deu-checkinput">
           </div>
           <div class="col-md-6">
             <input type="text" placeholder="Apartment, suite, unit etc  (Optional)" id="bill_address_2" name="bill_address_2" value="@if($checkout_data != 0){{ $checkout_details->bill_address_2 }}@endif" class="form-control deu-checkinput">
@@ -112,13 +112,13 @@
         </div>
         <div class="row col-12">
           <div class="col-md-4">
-            <input type="text" placeholder="City*" id="bill_city" name="bill_city" required value="@if($checkout_data != 0){{ $checkout_details->bill_city }}@endif" class="form-control deu-checkinput">
+            <input type="text" placeholder="City*" id="bill_city" name="bill_city" required value="{{Auth::user()->user_city??''}}" class="form-control deu-checkinput">
           </div>
           <div class="col-md-4">
-            <input type="text" placeholder="State*" id="bill_state" name="bill_state" required value="@if($checkout_data != 0){{ $checkout_details->bill_state }}@endif" class="form-control deu-checkinput">
+            <input type="text" placeholder="State*" id="bill_state" name="bill_state" required value="{{Auth::user()->user_state??''}}" class="form-control deu-checkinput">
           </div>
           <div class="col-md-4">
-            <input type="text" placeholder="Zip*" id="bill_postcode" maxlength="6" minlength="6" name="bill_postcode" required value="@if($checkout_data != 0){{ $checkout_details->bill_postcode }}@endif" class="form-control deu-checkinput" onkeypress="return /^[0-9]*$/.test(event.key)">
+            <input type="text" placeholder="Zip*" id="bill_postcode" maxlength="6" minlength="6" name="bill_postcode" required value="{{Auth::user()->user_pincode??''}}" class="form-control deu-checkinput" onkeypress="return /^[0-9]*$/.test(event.key)">
           </div>
         </div>
         <div class="col-12">

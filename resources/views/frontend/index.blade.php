@@ -56,7 +56,9 @@
         <div class="row h-100 g-0 justify-content-between">
           <div class="order-2 order-md-1 col-md-7 fontsty d-flex flex-column justify-content-between">
             <h4 class="deu-buytxt">Rent Medical Equipment.</h4>
-            <button class="deu-buybtn">Rent Now</button>
+            <a href="https://www.asopo.in" target="_blank">
+              <button class="deu-buybtn">Rent Now</button>
+            </a>
           </div>
           <div class="order-1 order-md-2 col-md-5 rideone d-flex justify-content-md-end justify-content-center mb-4 mb-md-0 align-items-center">
             <img class="img-fluid deu-buyheight" src="{{ asset('public/image/buy2.png') }}">
@@ -69,7 +71,9 @@
         <div class="row h-100 g-0 justify-content-between">
           <div class="order-2 order-md-1 col-md-7 fontsty d-flex flex-column justify-content-between">
             <h4 class="deu-buytxt">Consult A Dr .</h4>
-            <button class="deu-buybtn">Consult Now</button>
+            <a href="https://drjamilaonline.clinic.icareheal.com/best-clinical-cardiologist-and-general-physician-in-bangalore-location-bangalore" target="_blank">
+              <button class="deu-buybtn">Consult Now</button>
+            </a>
           </div>
           <div class="order-1 order-md-2 col-md-5 rideone d-flex justify-content-md-end justify-content-center mb-4 mb-md-0 align-items-center">
             <img class="img-fluid deu-buyheight" src="{{ asset('public/image/buy3.png') }}">
@@ -152,88 +156,96 @@
           <ul class="row portfolio lightbox list-unstyled mb-0 shuffle boxed-portfolio" id="grid">
             <!-- project -->
             <li class="col-md-6 col-lg-3 project shuffle-item filtered" aos="fade-right">
-              <div class="card mb-0">
-                <div class="project m-0">
-                  <figure class="portfolio-item">
-                    <div class="hovereffect">
-                      <img class="img-responsive" src="{{ asset('public/image/Fathima.jfif') }}" alt="">
-                    </div>
-                  </figure>
+              <a href="{{ url('about-us/fatima-khuzem') }}">
+                <div class="card mb-0">
+                  <div class="project m-0">
+                    <figure class="portfolio-item">
+                      <div class="hovereffect">
+                        <img class="img-responsive" src="{{ asset('public/image/Fathima.jfif') }}" alt="">
+                      </div>
+                    </figure>
+                  </div>
+                  <div class="card-body text-center">
+                    <a href="{{ url('about-us/fatima-khuzem') }}" class="card-title title-link mt-5">Fatima Khuzem</a>
+                    <p class="card-txt mt-2">Director [UK & EU]</p>
+                    <p class="card-text mt-3 mb-4">
+                    <a target="_blank" href="https://www.facebook.com/fatima.khuzem"> <i class="fa fa-facebook-official larger deu-teamfa" aria-hidden="true"></i></a>
+                      <!-- <a target="_blank" href="#"><i class="fa fa-twitter deu-teamfa" aria-hidden="true"></i></a> -->
+                      <a target="_blank" href="https://www.instagram.com/fatimakhuzem/"> <i class="fa fa-instagram deu-teamfa" aria-hidden="true"></i></a>
+                      <a  target="_blank" href="https://www.linkedin.com/in/fatima-khuzem/"> <i class="fa fa-linkedin-square deu-teamfa" aria-hidden="true"></i></a>
+                    </p>
+                  </div>
                 </div>
-                <div class="card-body text-center">
-                   <a href="#" class="card-title title-link mt-5">Fatima Khuzem</a>
-                  <p class="card-txt mt-2">Director [UK & EU]</p>
-                  <p class="card-text mt-3 mb-4">
-                   <a target="_blank" href="https://www.facebook.com/fatima.khuzem"> <i class="fa fa-facebook-official larger deu-teamfa" aria-hidden="true"></i></a>
-                    <!-- <a target="_blank" href="#"><i class="fa fa-twitter deu-teamfa" aria-hidden="true"></i></a> -->
-                    <a target="_blank" href="https://www.instagram.com/fatimakhuzem/"> <i class="fa fa-instagram deu-teamfa" aria-hidden="true"></i></a>
-                    <a  target="_blank" href="https://www.linkedin.com/in/fatima-khuzem/"> <i class="fa fa-linkedin-square deu-teamfa" aria-hidden="true"></i></a>
-                  </p>
-                </div>
-              </div>
+              </a>
             </li>
             <li class="col-md-6 col-lg-3 project shuffle-item filtered" aos="fade-down">
-              <div class="card mb-0">
-                <div class="project m-0">
-                  <figure class="portfolio-item">
-                    <div class="hovereffect">
-                      <img class="img-responsive" src="{{ asset('public/image/jamila.jfif') }}" alt="">
-                    </div>
-                  </figure>
+              <a href="{{ url('about-us/jamila-zaveri') }}">
+                <div class="card mb-0">
+                  <div class="project m-0">
+                    <figure class="portfolio-item">
+                      <div class="hovereffect">
+                        <img class="img-responsive" src="{{ asset('public/image/jamila.jfif') }}" alt="">
+                      </div>
+                    </figure>
+                  </div>
+                  <div class="card-body text-center">
+                    <a href="{{ url('about-us/jamila-zaveri') }}" class="card-title title-link mt-5">Jamila Zaveri</a>
+                    <p class="card-txt mt-2">Director / Clinical Advisor</p>
+                    <p class="card-text mt-3 mb-4">
+                    <a target="_blank" href="https://www.facebook.com/jamila.zaveri"> <i class="fa fa-facebook-official larger deu-teamfa" aria-hidden="true"></i></a>
+                      <!-- <a target="_blank" href=""><i class="fa fa-twitter deu-teamfa" aria-hidden="true"></i></a> -->
+                      <a target="_blank" href="https://www.instagram.com/jamilamktz/"> <i class="fa fa-instagram deu-teamfa" aria-hidden="true"></i></a>
+                      <a  target="_blank" href="https://www.linkedin.com/in/dr-jamila-tambawala/"> <i class="fa fa-linkedin-square deu-teamfa" aria-hidden="true"></i></a>
+                    </p>
+                  </div>
                 </div>
-                <div class="card-body text-center">
-                  <a href="#" class="card-title title-link mt-5">Jamila Zaveri</a>
-                  <p class="card-txt mt-2">Director / Clinical Advisor</p>
-                  <p class="card-text mt-3 mb-4">
-                   <a target="_blank" href="https://www.facebook.com/jamila.zaveri"> <i class="fa fa-facebook-official larger deu-teamfa" aria-hidden="true"></i></a>
-                    <!-- <a target="_blank" href=""><i class="fa fa-twitter deu-teamfa" aria-hidden="true"></i></a> -->
-                    <a target="_blank" href="https://www.instagram.com/jamilamktz/"> <i class="fa fa-instagram deu-teamfa" aria-hidden="true"></i></a>
-                    <a  target="_blank" href="https://www.linkedin.com/in/dr-jamila-tambawala/"> <i class="fa fa-linkedin-square deu-teamfa" aria-hidden="true"></i></a>
-                  </p>
-                </div>
-              </div>
+              </a>
             </li>
             <li class="col-md-6 col-lg-3 project shuffle-item filtered" aos="fade-left">
-              <div class="card mb-0">
-                <div class="project m-0">
-                  <figure class="portfolio-item">
-                    <div class="hovereffect">
-                      <img class="img-responsive" src="{{ asset('public/image/Murtaza Tambawala.png') }}" alt="">
-                    </div>
-                  </figure>
+              <a href="{{ url('about-us/murtuza-tambawala') }}">
+                <div class="card mb-0">
+                  <div class="project m-0">
+                    <figure class="portfolio-item">
+                      <div class="hovereffect">
+                        <img class="img-responsive" src="{{ asset('public/image/Murtaza Tambawala.png') }}" alt="">
+                      </div>
+                    </figure>
+                  </div>
+                  <div class="card-body text-center">
+                    <a href="{{ url('about-us/murtuza-tambawala') }}" class="card-title title-link mt-5">Murtuza Tambawala</a>
+                    <p class="card-txt mt-2">Founder  / CEO </p>
+                    <p class="card-text mt-3 mb-4">
+                    <a target="_blank" href="https://www.facebook.com/murtuza.tambawala.75"> <i class="fa fa-facebook-official larger deu-teamfa" aria-hidden="true"></i></a>
+                      <!-- <a target="_blank" href=""><i class="fa fa-twitter deu-teamfa" aria-hidden="true"></i></a> -->
+                      <a target="_blank" href="https://www.instagram.com/murtuzakt16/"> <i class="fa fa-instagram deu-teamfa" aria-hidden="true"></i></a>
+                      <a  target="_blank" href="https://www.linkedin.com/in/murtuza-tambawala-7736844/"> <i class="fa fa-linkedin-square deu-teamfa" aria-hidden="true"></i></a>
+                    </p>
+                  </div>
                 </div>
-                <div class="card-body text-center">
-                  <a href="#" class="card-title title-link mt-5">Murtuza Tambawala</a>
-                  <p class="card-txt mt-2">Founder  / CEO </p>
-                  <p class="card-text mt-3 mb-4">
-                   <a target="_blank" href="https://www.facebook.com/murtuza.tambawala.75"> <i class="fa fa-facebook-official larger deu-teamfa" aria-hidden="true"></i></a>
-                    <!-- <a target="_blank" href=""><i class="fa fa-twitter deu-teamfa" aria-hidden="true"></i></a> -->
-                    <a target="_blank" href="https://www.instagram.com/murtuzakt16/"> <i class="fa fa-instagram deu-teamfa" aria-hidden="true"></i></a>
-                    <a  target="_blank" href="https://www.linkedin.com/in/murtuza-tambawala-7736844/"> <i class="fa fa-linkedin-square deu-teamfa" aria-hidden="true"></i></a>
-                  </p>
-                </div>
-              </div>
+              </a>
             </li>
             <li class="col-md-6 col-lg-3 project shuffle-item filtered" aos="fade-left">
-              <div class="card mb-0">
-                <div class="project m-0">
-                  <figure class="portfolio-item">
-                    <div class="hovereffect">
-                      <img class="img-responsive" src="{{ asset('public/image/Khuzema Tambawala.png') }}" alt="">
-                    </div>
-                  </figure>
+              <a href="{{ url('about-us/mr-khuzem-tambawala') }}">
+                <div class="card mb-0">
+                  <div class="project m-0">
+                    <figure class="portfolio-item">
+                      <div class="hovereffect">
+                        <img class="img-responsive" src="{{ asset('public/image/Khuzema Tambawala.png') }}" alt="">
+                      </div>
+                    </figure>
+                  </div>
+                  <div class="card-body text-center">
+                    <a href="{{ url('about-us/mr-khuzem-tambawala') }}" class="card-title title-link mt-5">Mr. Khuzem Tambawala</a>
+                    <p class="card-txt mt-2">Director and Mentor</p>
+                    <p class="card-text mt-3 mb-4">
+                    <a target="_blank" href="https://www.facebook.com/profile.php?id=100010167575477"> <i class="fa fa-facebook-official larger deu-teamfa" aria-hidden="true"></i></a>
+                      <!-- <a target="_blank" href=""><i class="fa fa-twitter deu-teamfa" aria-hidden="true"></i></a> -->
+                      <a target="_blank" href="https://www.instagram.com/khuzemtambawala/"> <i class="fa fa-instagram deu-teamfa" aria-hidden="true"></i></a>
+                      <a  target="_blank" href="https://www.linkedin.com/in/khuzem-tambawala-21552a79/"> <i class="fa fa-linkedin-square deu-teamfa" aria-hidden="true"></i></a>
+                    </p>
+                  </div>
                 </div>
-                <div class="card-body text-center">
-                  <a href="#" class="card-title title-link mt-5">Mr. Khuzem Tambawala</a>
-                  <p class="card-txt mt-2">Director and Mentor</p>
-                  <p class="card-text mt-3 mb-4">
-                   <a target="_blank" href="https://www.facebook.com/profile.php?id=100010167575477"> <i class="fa fa-facebook-official larger deu-teamfa" aria-hidden="true"></i></a>
-                    <!-- <a target="_blank" href=""><i class="fa fa-twitter deu-teamfa" aria-hidden="true"></i></a> -->
-                    <a target="_blank" href="https://www.instagram.com/khuzemtambawala/"> <i class="fa fa-instagram deu-teamfa" aria-hidden="true"></i></a>
-                    <a  target="_blank" href="https://www.linkedin.com/in/khuzem-tambawala-21552a79/"> <i class="fa fa-linkedin-square deu-teamfa" aria-hidden="true"></i></a>
-                  </p>
-                </div>
-              </div>
+              </a>
             </li>
           </ul>
         </div>

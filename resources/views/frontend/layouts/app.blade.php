@@ -7,7 +7,8 @@
     <meta name="app-url" content="{{ env('APP_URL') }}">
     @yield('meta')
     {{--  Icons  --}}
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('public/image/logo.png') }}">
+    <!-- <link rel="shortcut icon" type="image/x-icon" href="{{ asset('public/img/fav.png') }}"> -->
+    <link rel="icon" type="image/png" href="{{ asset('public/img/fav.png') }}?v=2">
 
     <title>@yield('title')</title>
 
@@ -42,13 +43,13 @@
       scrollbar-width: none;  /* Firefox */
     }
     .close_model{
-      border: none;
+      /* border: none;
       font-weight: 900;
       background: none;
-      font-size: 36px;
+      font-size: 36px; */
       position: absolute;
-      top: -7px;
-      right: 4px;
+      top: 10px;
+      right: 14px;
       cursor: pointer;
       z-index:1000;
     }

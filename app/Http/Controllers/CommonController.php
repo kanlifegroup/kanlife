@@ -182,7 +182,7 @@ class CommonController extends Controller
   public function update_cart(Request $request)
 	{
     $translate = $this->lang_text();
-	  $ord_id = base64_decode($request->data['id']);
+	  $ord_id = base64_decode(str_replace('_','=', $request->data['id']));
     $session_id = Session::getId();
     if($request->has('data.qty'))
     $test = DB::table('product_orders')->where('ord_id', $ord_id)->update(['quantity'=>$request->data['qty']]);
@@ -291,10 +291,12 @@ class CommonController extends Controller
     return view('frontend.about_us.our_blog')->with($data);
   }
 
-  public function blogDetail($id){
+  public function blogDetail($slug){
     $translate = $this->lang_text();
-    $blogPost = Blog::postsinglar($id);
-    $postImages = Blog::postImages($id);
+    // $blogPost = Blog::postsinglar($id);
+    $blogPost = Blog::post_by_slug($slug);
+    // $postImages = Blog::postImages($id);
+    $postImages = Blog::postImages($blogPost->post_id);
     $data = array('blogPost' => $blogPost, 'postImages'=>$postImages);
     return view('frontend.about_us.blog_detail')->with($data);
   }
@@ -305,7 +307,8 @@ class CommonController extends Controller
     $slideshow['view'] = Slideshow::viewSlideshow($translate);
     $topSix = Product::topSix();
     $session_id = Session::getId();
-    $featured = Product::with('ProductImages')->where('product_price','!=',0)->where('product_featured','=',1)->where('product_status','=',1)->where('product_drop_status','=','no')->where('language_code','=',$translate)->orderBy('product_id','desc')->get();
+    $featured = Product::with('ProductImages')->where('product_featured','=',1)->where('product_status','=',1)->where('product_drop_status','=','no')->where('language_code','=',$translate)->orderBy('product_id','desc')->get();
+    // dd($topSix);
     foreach($featured as $f_product){
       $get=DB::table('product_orders')->where('checked_out','=', 0)->where('product_token','=', $f_product->product_token)->where('session_id','=', $session_id)->where('order_status','=', 'pending')->first();
       if($get){

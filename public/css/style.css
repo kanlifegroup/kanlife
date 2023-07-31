@@ -201,6 +201,34 @@ body {
   border-top-right-radius: calc(.3rem - 1px);
 }
 
+.foot-head{
+  font-weight: 700;
+  font-size: 2rem;
+}
+.foot-content{
+  font-size: 1.5rem;
+}
+.sleek-border-top{
+  border-top: 1px solid rgba(91, 88, 88, 0.779);
+}
+.sleek-border div, .sleek-border p{
+  border-bottom: 1px solid rgba(91, 88, 88, 0.779);
+}
+@media screen and (max-width:765px) {
+  .sleek-border-top{
+    border-top: none;
+  }
+}
+@media screen and (max-width:769px) {
+  .foot-head{
+    font-weight: 700;
+    font-size: 3rem;
+  }
+  .foot-content{
+    font-size: 2rem;
+  }
+}
+
 .logo {
   /* margin-bottom: 10px !important; */
   width: 160px;
@@ -3159,7 +3187,7 @@ a:link {
 
 @media screen and (min-width: 1023px) {
   .home-doctors .common-doctor {
-    min-height: 430px ;
+    min-height: 327px ;
   }
 }
 @media screen and (min-width: 769px) and (max-width: 1022px){
