@@ -42,7 +42,6 @@
 @endsection
 
 @section('content')
-
 <div class="container-fluid bgteam-overlay">
 	<div class="text-left">
 		<h1 class="deu-meethead">Product Details</h1>
@@ -110,6 +109,14 @@
                 @endif
               </div>
           </div>
+          @if($shop->product_brand)
+          <p class="d-flex align-items-center" aos="fade-left" style="color:#3188CA;"><img class="deu-fealine" src="{{asset('public/image/line.svg')}}"> &nbsp;&nbsp;&nbsp;
+              <span class="deu-filter">{{$shop->product_brand??''}}</span>
+          </p>
+          @endif
+          <p class="d-flex align-items-center" aos="fade-left" style="color:#3188CA;"><img class="deu-fealine" src="{{asset('public/image/line.svg')}}"> &nbsp;&nbsp;&nbsp;
+              <span class="deu-filter">{{ucfirst($shop->product_condition)}}</span>
+          </p>
           <p class="d-flex align-items-center" aos="fade-left" style="color:#3188CA;"><img class="deu-fealine" src="{{asset('public/image/line.svg')}}"> &nbsp;&nbsp;&nbsp;
               <span class="deu-filter">Features</span>
           </p>
