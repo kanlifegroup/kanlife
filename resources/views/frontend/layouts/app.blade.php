@@ -11,6 +11,18 @@
     <link rel="icon" type="image/png" href="{{ asset('public/img/fav.png') }}?v=2">
 
     <title>@yield('title')</title>
+
+
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2SW6V4RTV1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-2SW6V4RTV1');
+</script>
+
     <meta name="google-site-verification" content="B8YQulNOq6mHj_C2l--g5SWW4mY9HihREmBANB_mAl0" />
 
 
