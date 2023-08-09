@@ -13,6 +13,7 @@
     <title>@yield('title')</title>
 
     <meta name="google-site-verification" content="B8YQulNOq6mHj_C2l--g5SWW4mY9HihREmBANB_mAl0" />
+    
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     @yield('style')
