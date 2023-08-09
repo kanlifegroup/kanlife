@@ -214,6 +214,9 @@ body {
 .sleek-border div, .sleek-border p{
   border-bottom: 1px solid rgba(91, 88, 88, 0.779);
 }
+.gettouch{
+  
+}
 @media screen and (max-width:765px) {
   .sleek-border-top{
     border-top: none;
@@ -431,6 +434,26 @@ body {
   height: 275px;
 }
 
+.hovereffect_team {
+  width: 100%;
+  height: 100%;
+  float: left;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  z-index: 2;
+}
+
+.hovereffect_team img {
+  width: 100%;
+  position: relative;
+  -webkit-transition: all .3s linear;
+  transition: all .3s linear;
+  border: 10px solid #fff;
+  /* border-radius: 5px; */
+  height: 275px;
+}
+
 .no-image-border .hovereffect img {
   border: none;
   border-radius: 5px;
@@ -442,10 +465,10 @@ body {
   border-radius: 0;
 }
 
-.hovereffect:hover img {
-  -webkit-transform: rotate(-7deg) scale(1.33);
-  -ms-transform: rotate(-7deg) scale(1.33);
-  transform: rotate(-7deg) scale(1.33);
+.hovereffect:hover img, .hovereffect_team:hover img{
+  -webkit-transform: scale(1.33);
+  -ms-transform: scale(1.33);
+  transform: scale(1.33);
 }
 
 .hovereffect-title .project-title-wrapper {
@@ -1902,7 +1925,7 @@ body {
   background: #F5F6F4;
   border: 0px solid #333;
   font-size: 16px;
-  padding: 20px;
+  padding: 6px;
   width: 100%;
 }
 
@@ -1922,7 +1945,7 @@ body {
 
 .deu-borderblue {
   border: 2px solid #3188CA;
-  padding: 10%;
+  padding: 5%;
 }
 
 .deu-orderheight {
@@ -3687,11 +3710,11 @@ ul.timeline>li {
 }
 
 .social {
-  background: #3188CA;
+  background: #fff;
   padding: 10px;
   border-radius: 50%;
   width: 37px;
-  color: #FFFFFF;
+  color: #3787C9;
   margin-right: 10px;
 }
 

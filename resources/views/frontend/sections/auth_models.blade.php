@@ -81,7 +81,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h4 class="modal-title"></h4>
-        <button type="button" class="close close_model" onclick="closeModels()" data-dismiss="modal">&times;</button>
+        <button type="button" class="close close_model btn btn-dark" onclick="closeModels()" data-dismiss="modal">Close</button>
       </div>
       <div class="modal-body">
         <p class="deu-loginhead">Register <br> Your Account</p>
@@ -193,7 +193,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h4 class="modal-title"></h4>
-        <button type="button" class="close close_model" onclick="closeModels()" data-dismiss="modal">&times;</button>
+        <button type="button" class="close close_model btn btn-dark" onclick="closeModels()" data-dismiss="modal">Close</button>
       </div>
       <div class="modal-body">
         <p class="deu-loginhead mt-4">Forgot Password</p>

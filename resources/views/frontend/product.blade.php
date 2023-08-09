@@ -109,13 +109,13 @@
                 @endif
               </div>
           </div>
-          @if($shop->product_brand)
+          @if($shop->brand_name && $shop->brand_name!='')
           <p class="d-flex align-items-center" aos="fade-left" style="color:#3188CA;"><img class="deu-fealine" src="{{asset('public/image/line.svg')}}"> &nbsp;&nbsp;&nbsp;
-              <span class="deu-filter">{{$shop->product_brand??''}}</span>
+              <span class="deu-filter">Brand : {{$shop->brand_name}}</span>
           </p>
           @endif
           <p class="d-flex align-items-center" aos="fade-left" style="color:#3188CA;"><img class="deu-fealine" src="{{asset('public/image/line.svg')}}"> &nbsp;&nbsp;&nbsp;
-              <span class="deu-filter">{{ucfirst($shop->product_condition)}}</span>
+              <span class="deu-filter">Condition : {{ucfirst($shop->product_condition)}}</span>
           </p>
           <p class="d-flex align-items-center" aos="fade-left" style="color:#3188CA;"><img class="deu-fealine" src="{{asset('public/image/line.svg')}}"> &nbsp;&nbsp;&nbsp;
               <span class="deu-filter">Features</span>
