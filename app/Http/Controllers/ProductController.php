@@ -222,7 +222,8 @@ class ProductController extends Controller
 	   $payment_status = $purchase->payment_status;
 	   $buyer_name = $purchase->bill_firstname.' '.$purchase->bill_lastname;
 	   $buyer_address = $purchase->bill_address;
-	   $buyer_city = $purchase->ship_city;
+	   $buyer_city = $purchase->bill_city;
+	   $buyer_state = $purchase->bill_state;
 	   $buyer_zip = $purchase->bill_postcode;
 	   if($purchase->bill_country != '')
 	  {
@@ -237,7 +238,7 @@ class ProductController extends Controller
 	   $buyer_email = $purchase->bill_email;
 	   $product['view'] = Product::myOrders($token,$user_id);
 		  
-		  $data = ['purchase_token' => $purchase_token, 'payment_token' => $payment_token, 'shipping_price' => $shipping_price, 'processing_fee' => $processing_fee, 'payment_type' => $payment_type, 'payment_date' => $payment_date, 'subtotal' => $subtotal, 'total' => $total, 'payment_status' => $payment_status, 'buyer_name' => $buyer_name, 'buyer_address' => $buyer_address, 'buyer_city' => $buyer_city, 'buyer_zip' => $buyer_zip, 'buyer_country' => $buyer_country, 'buyer_email' => $buyer_email, 'product' => $product, 'purchase' => $purchase];
+		  $data = ['purchase_token' => $purchase_token, 'payment_token' => $payment_token, 'shipping_price' => $shipping_price, 'processing_fee' => $processing_fee, 'payment_type' => $payment_type, 'payment_date' => $payment_date, 'subtotal' => $subtotal, 'total' => $total, 'payment_status' => $payment_status, 'buyer_name' => $buyer_name, 'buyer_address' => $buyer_address, 'buyer_city' => $buyer_city,'buyer_state'=>$buyer_state, 'buyer_zip' => $buyer_zip, 'buyer_country' => $buyer_country, 'buyer_email' => $buyer_email, 'product' => $product, 'purchase' => $purchase];
         // return view('pdf_view', $data);
         $pdf = PDF::loadView('pdf_view', $data);  
         // return $pdf->stream($pdf_filename);

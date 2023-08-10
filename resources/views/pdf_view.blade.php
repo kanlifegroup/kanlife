@@ -42,8 +42,8 @@
       <address>      
       {{ $buyer_name }}<br />
       {{ $buyer_address }}<br />
-      {{ $buyer_city }}, {{ $buyer_zip }}<br />
-      {{ $buyer_country }}<br/>
+      {{ $buyer_city }}, {{ $buyer_state }}<br />
+      {{ $buyer_country }} - {{ $buyer_zip }}<br/>
 	    {{ $buyer_email }}
       </address>
     </div>
@@ -56,8 +56,9 @@
       <th scope="col">{{ Helper::translation(2076,$translate,'') }}</th>
       <th scope="col">{{ Helper::translation(1984,$translate,'') }}</th>
       {{--<th scope="col">{{ Helper::translation(2079,$translate,'') }}</th>--}}
-      <th scope="col">{{ Helper::translation(2112,$translate,'') }}</th>
+      {{--<th scope="col">{{ Helper::translation(2112,$translate,'') }}</th>--}}
       <th scope="col">{{ Helper::translation(2078,$translate,'') }}</th>
+      <th scope="col">Subtotal</th>
       <th scope="col">GST</th>
      </tr>
   </thead>
@@ -72,7 +73,7 @@
     $shipping = 0;
     @endphp
     @foreach($product['view'] as $product)
-    @php
+    @php 
       if($product->discount_price != 0)
       {
         $price = $product->discount_price;
@@ -93,16 +94,17 @@
       <th scope="row">{{ $no }}</th>
       <td>{{ $product->ord_id }}
       </td>
-      <td>
+      {{--<td>
       <a href="{{ url('/product') }}/{{ $product->product_slug }}">
       <br/>
       @if($product->product_image != '')
       <img src="{{ url('/') }}/public/storage/product/{{ $product->product_image }}"  class="img-thumb" alt="{{ $product->product_name }}"/>@else <img src="{{ url('/') }}/public/img/no-image.jpg"  class="img-thumb" alt="{{ $product->product_name }}"/>  
       @endif
       </a></td>
-     {{-- <td>{{ $product->product_attribute_values }}</td> --}}
-      <td><a href="{{ url('/user') }}/{{ $product->username }}">{{ $product->name }}</a></td>
+      <td>{{ $product->product_attribute_values }}</td> --}}
+      <td><a href="{{ url('/product') }}/{{ $product->product_slug }}">{{ $product->product_name }}</a></td>
       <td>{{ $product->quantity }} X <span style="font-family: DejaVu Sans; sans-serif;">{{ $allsettings->site_currency_symbol }}</span> {{ $product->price }}</td>
+      <td>{{$price * $product->quantity}}</td>
       @php $gst_price = $price * $product->quantity * $product->product_gst / 100; @endphp
       @if($product->product_gst > 0)
       <td><span style="font-family: DejaVu Sans; sans-serif;">{{ $allsettings->site_currency_symbol }}</span>{{ $gst_price }} ({{$product->product_gst}}%)</td>

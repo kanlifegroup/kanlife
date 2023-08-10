@@ -183,11 +183,13 @@
 					<div class="row m-1 pt-2 m-md-4 me-0">
 						<div class="col-md-4" aos="fade-right">
               <div class="d-flex justify-content-center align-items-center">
+              <a href="{{ url('/product') }}/{{ $cart->product_slug }}">
               @if($cart->product_image != "")
                 <img class="img-fluid deu-cardimgs" src="{{ url('/') }}/public/storage/product/{{ $cart->product_image }}">
               @else
                 <img class="img-fluid deu-cardimgs" src="{{ url('/') }}/public/img/no-image.jpg">
               @endif
+              </a>
               </div>
               <div class="product-count mt-3 mb-3"  aos="fade-left">
                 <form action="#" class="d-flex justify-content-center align-items-center">
@@ -198,7 +200,7 @@
               </div>
             </div>
 						<div class="col-6 col-md-5"  aos="fade-left">
-							<h4 class="deu-cardsname mt-5">{{$cart->product_name}}</h4>
+							<h4 class="deu-cardsname mt-5"><a href="{{ url('/product') }}/{{ $cart->product_slug }}">{{$cart->product_name}}</a></h4>
               @if($cart->discount_price != 0)
               <h4 class="deu-cardrs" style="display:inline-block;"><i class="fa fa-inr" aria-hidden="true"></i>{{ $cart->discount_price }}</h4>
               <span style="text-decoration: line-through;"><i class="fa fa-inr" aria-hidden="true"></i> {{$cart->price}}</span>
