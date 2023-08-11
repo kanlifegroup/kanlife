@@ -57,6 +57,7 @@
                                             <th>{{ Helper::translation(1964,$translate,'') }}</th>
                                             <th>{{ Helper::translation(2018,$translate,'') }}</th>
                                             <th>{{ Helper::translation(2014,$translate,'') }}</th>
+                                            <th>Contact No.</th>
                                             <th>{{ Helper::translation(3108,$translate,'') }}</th>
                                             <th>{{ Helper::translation(3213,$translate,'') }}</th>
                                             {{--<th>{{ Helper::translation(2973,$translate,'') }}</th>--}}
@@ -70,6 +71,7 @@
                                             <td>{{ $no }}</td>
                                             <td>{{ $user->name }}</td>
                                             <td>{{ $user->email }}</td>
+                                            <td>{{ $user->user_phone }}</td>
                                             <td>@if($user->user_photo != '') <img height="50" src="{{ url('/') }}/public/storage/users/{{ $user->user_photo }}" alt="{{ $user->name }}" class="userphoto"/>@else <img height="50" src="{{ url('/') }}/public/img/no-user.png" alt="{{ $user->name }}" class="userphoto"/>  @endif</td>
                                             <td>@if($user->verified == 1) <span class="badge badge-success">{{ Helper::translation(2922,$translate,'') }}</span> @else <span class="badge badge-danger">{{ Helper::translation(2925,$translate,'') }}</span> @endif</td>
                                             {{--<td>{{ $allsettings->site_currency_symbol }} {{ $user->earnings }}</td>--}}

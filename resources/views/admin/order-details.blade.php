@@ -118,7 +118,7 @@
                                             {{ csrf_field() }}
                                             <select class="form-control" id="order_track" name="order_track[]" required>
                                             <option value="{{ $track_placed }}" @if($order->order_tracking == $track_placed) selected @endif>{{ $track_placed }}</option>
-                                            <option value="{{ $track_packed }}" @if($order->order_tracking == $track_packed) selected @endif>{{ $track_packed }}</option>
+                                            <option value="{{ $track_packed }}" @if($order->order_tracking == $track_packed) selected @endif>Confirmed</option>
                                             <option value="{{ $track_shipped }}" @if($order->order_tracking == $track_shipped) selected @endif>{{ $track_shipped }}</option>
                                             <option value="{{ $track_delivered }}" @if($order->order_tracking == $track_delivered) selected @endif>{{ $track_delivered }}</option>
                                             </select>

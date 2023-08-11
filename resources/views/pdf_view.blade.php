@@ -31,11 +31,14 @@
   </div>
   <hr>
   <div class="row align-items-center mt-3">
-  <div class="col-sm-6 text-center text-sm-left"> <strong>Pay To:</strong>
+  <div class="col-sm-6 text-center text-sm-left"> <strong>Paid To:</strong>
       <address>
-      {{ $allsettings->office_address }}<br />
-      {{ $allsettings->office_email }}<br />
-      {{ $allsettings->office_phone }}
+      Kanlife India Pvt. Ltd.<br />
+      No. 36/3, 2nd floor, 1st cross Pukhraj Layout,<br />
+      Adugodi, Bangalore - 560030<br />
+      GST No. : 29AAICK0887C1ZD<br />
+      kanlifegroup@gmail.com<br />
+      Phone : 080 4224 2929 or +91 805 093 1561
       </address>
     </div>
     <div class="col-sm-6 text-right" style="float:right;"> <strong>Invoiced To:</strong>
@@ -58,8 +61,8 @@
       {{--<th scope="col">{{ Helper::translation(2079,$translate,'') }}</th>--}}
       {{--<th scope="col">{{ Helper::translation(2112,$translate,'') }}</th>--}}
       <th scope="col">{{ Helper::translation(2078,$translate,'') }}</th>
-      <th scope="col">Subtotal</th>
       <th scope="col">GST</th>
+      <th scope="col">Subtotal</th>
      </tr>
   </thead>
   <tbody class="text-center">
@@ -104,13 +107,13 @@
       <td>{{ $product->product_attribute_values }}</td> --}}
       <td><a href="{{ url('/product') }}/{{ $product->product_slug }}">{{ $product->product_name }}</a></td>
       <td>{{ $product->quantity }} X <span style="font-family: DejaVu Sans; sans-serif;">{{ $allsettings->site_currency_symbol }}</span> {{ $product->price }}</td>
-      <td>{{$price * $product->quantity}}</td>
       @php $gst_price = $price * $product->quantity * $product->product_gst / 100; @endphp
       @if($product->product_gst > 0)
       <td><span style="font-family: DejaVu Sans; sans-serif;">{{ $allsettings->site_currency_symbol }}</span>{{ $gst_price }} ({{$product->product_gst}}%)</td>
       @else
       <td>0.00</td>
       @endif
+      <td>{{$price * $product->quantity}}</td>
     </tr>
     @php $no++; @endphp
     @endforeach 

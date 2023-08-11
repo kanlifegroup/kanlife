@@ -241,8 +241,8 @@ class ProductController extends Controller
 		  $data = ['purchase_token' => $purchase_token, 'payment_token' => $payment_token, 'shipping_price' => $shipping_price, 'processing_fee' => $processing_fee, 'payment_type' => $payment_type, 'payment_date' => $payment_date, 'subtotal' => $subtotal, 'total' => $total, 'payment_status' => $payment_status, 'buyer_name' => $buyer_name, 'buyer_address' => $buyer_address, 'buyer_city' => $buyer_city,'buyer_state'=>$buyer_state, 'buyer_zip' => $buyer_zip, 'buyer_country' => $buyer_country, 'buyer_email' => $buyer_email, 'product' => $product, 'purchase' => $purchase];
         // return view('pdf_view', $data);
         $pdf = PDF::loadView('pdf_view', $data);  
-        // return $pdf->stream($pdf_filename);
-        return $pdf->download($pdf_filename);
+        return $pdf->stream($pdf_filename);
+        // return $pdf->download($pdf_filename);
 	    
 		
 	}
