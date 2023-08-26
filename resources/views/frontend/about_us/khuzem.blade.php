@@ -125,10 +125,12 @@ Mr. Khuzem Tambawala
     <div class="container-fluid px-5">
         <div class="row">
           <div class="">
-            <h3 style="font-weight: 700">Professional Bio</h3>
+            <h3 style="font-weight: 700">Professional Bio</h3> <br>
             <p class="mb-0" >
               <h4>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores laudantium minima sint veritatis obcaecati illum error architecto inventore quam. Ad dolorem earum incidunt temporibus pariatur fugiat voluptatibus officiis saepe eum at hic accusamus voluptates, porro sapiente omnis dolores quasi quae reiciendis quibusdam iure autem molestiae quia sint beatae. Ipsam temporibus amet, sit assumenda necessitatibus soluta omnis velit cupiditate dicta atque quos laboriosam! Perspiciatis, exercitationem molestias nostrum aliquid veniam quod omnis, quisquam vitae animi magnam repellendus tempore ab doloremque voluptatum nisi recusandae ipsa laboriosam. Odit cupiditate provident sit similique, nihil natus quibusdam voluptates? Eveniet corrupti explicabo, asperiores distinctio incidunt aliquid adipisci!
+              With 20 years of experience in the field of non ferrous metals. Can provide solutions to metal related applications of users.Also skilled in the fabrication and processing of these metals both in house and site works. <br><br>
+Thereafter 24 years of working experience in Solar Energy field across India. During the period manufactured and installed custom designed systems across all regions. <br><br>
+Currently provide Consultancy Services in the Design Manufacture Installation After Sales Service of Solar Thermal/ Rooftop Power Systems including trouble shooting for existing systems.
               </h4>
             </p>
           </div>

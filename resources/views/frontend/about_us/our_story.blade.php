@@ -210,8 +210,8 @@
                     <ul >
                         <li> Dental Xray Products Distribution Pan-India
                   </li>
-                  <li>Established Kanlife London Ltd Import Distribution Pan-Eu L Hygiene And Wellness Products</li>
-                  <li>Started Mfq Of Tamboos Range Of Women And Child Products</li>
+                  <li>CRITICAL CARE PRODUCTS DISTRIBUTION PAN-INDIA</li>
+                  <li>KANLIFE VEIN VISUALIZATION SYSTEM</li>
                     </ul>
                     </div>
                     <div class="col-md-5 text-end order-1 order-md-2">

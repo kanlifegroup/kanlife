@@ -125,10 +125,18 @@ Fatima Khuzem
     <div class="container-fluid px-5">
         <div class="row">
           <div class="">
-            <h3 style="font-weight: 700">Professional Bio</h3>
+            <h3 style="font-weight: 700">Professional Bio</h3><br>
             <p class="mb-0" >
               <h4>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores laudantium minima sint veritatis obcaecati illum error architecto inventore quam. Ad dolorem earum incidunt temporibus pariatur fugiat voluptatibus officiis saepe eum at hic accusamus voluptates, porro sapiente omnis dolores quasi quae reiciendis quibusdam iure autem molestiae quia sint beatae. Ipsam temporibus amet, sit assumenda necessitatibus soluta omnis velit cupiditate dicta atque quos laboriosam! Perspiciatis, exercitationem molestias nostrum aliquid veniam quod omnis, quisquam vitae animi magnam repellendus tempore ab doloremque voluptatum nisi recusandae ipsa laboriosam. Odit cupiditate provident sit similique, nihil natus quibusdam voluptates? Eveniet corrupti explicabo, asperiores distinctio incidunt aliquid adipisci!
+              Fatima manages Tamboo’s in the UK and Europe. She is responsible for carefully curating and designing all of Tamboo's eco-friendly wellness and personal care products. <br><br>
+
+ 
+
+A London based product and experience designer, Fatima has spent 10+ years researching, collaborating, and designing for and with people from global brands and communities alike. <br><br>
+
+ 
+
+Fatima's work has helped her develop a passion for holistic experiences and wellness. As a mother and a professional she deeply understands the growing importance of designing responsibly for the future, making sustainable choices an easy and accessible experience for professionals and families.
               </h4>
             </p>
           </div>

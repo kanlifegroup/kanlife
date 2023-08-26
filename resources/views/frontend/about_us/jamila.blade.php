@@ -125,10 +125,12 @@ Jamila Zaveri
     <div class="container-fluid px-5">
         <div class="row">
           <div class="">
-            <h3 style="font-weight: 700">Professional Bio</h3>
+            <h3 style="font-weight: 700">Professional Bio</h3> <br>
             <p class="mb-0" >
               <h4>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores laudantium minima sint veritatis obcaecati illum error architecto inventore quam. Ad dolorem earum incidunt temporibus pariatur fugiat voluptatibus officiis saepe eum at hic accusamus voluptates, porro sapiente omnis dolores quasi quae reiciendis quibusdam iure autem molestiae quia sint beatae. Ipsam temporibus amet, sit assumenda necessitatibus soluta omnis velit cupiditate dicta atque quos laboriosam! Perspiciatis, exercitationem molestias nostrum aliquid veniam quod omnis, quisquam vitae animi magnam repellendus tempore ab doloremque voluptatum nisi recusandae ipsa laboriosam. Odit cupiditate provident sit similique, nihil natus quibusdam voluptates? Eveniet corrupti explicabo, asperiores distinctio incidunt aliquid adipisci!
+              Dr. Jamila Tambawala is an extremely conscientious and committed healthcare professional. With more than 10 years of demonstrable hospital experience and accredited medical degrees including MBBS, PGDCC, CCEBDM, CCMTD, Dr. Jamila in Bangalore has extensive experience in the areas of Cardiology, Diabetes, Medical Diagnosis, Testing Patients, and managing day-to-day Hospital Operations. <br><br>
+              She has specialized knowledge in the areas of clinical assessment of patients with Diabetes, Cardiology cases, and Thyroid disorders management. In addition to conducting non-invasive cardiac tests such as ECHO, TMT, and HOLTER, she is also proficient in managing COVID patients and complications in the ICU. <br><br>
+               Dr. Jamila's multifaceted skills cover a wide range of Preoperative and Postoperative patient management, Patient counseling, also Recognising and Countering diseases and the treatments.
               </h4>
             </p>
           </div>
