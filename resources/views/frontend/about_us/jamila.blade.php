@@ -128,9 +128,13 @@ Jamila Zaveri
             <h3 style="font-weight: 700">Professional Bio</h3> <br>
             <p class="mb-0" >
               <h4>
-              Dr. Jamila Tambawala is an extremely conscientious and committed healthcare professional. With more than 10 years of demonstrable hospital experience and accredited medical degrees including MBBS, PGDCC, CCEBDM, CCMTD, Dr. Jamila in Bangalore has extensive experience in the areas of Cardiology, Diabetes, Medical Diagnosis, Testing Patients, and managing day-to-day Hospital Operations. <br><br>
-              She has specialized knowledge in the areas of clinical assessment of patients with Diabetes, Cardiology cases, and Thyroid disorders management. In addition to conducting non-invasive cardiac tests such as ECHO, TMT, and HOLTER, she is also proficient in managing COVID patients and complications in the ICU. <br><br>
-               Dr. Jamila's multifaceted skills cover a wide range of Preoperative and Postoperative patient management, Patient counseling, also Recognising and Countering diseases and the treatments.
+              Dr. Jamila Tambawala has more than 15 years of demonstrable hospital experience and accredited medical degrees including MBBS, PGDCC, CCEBDM, CCMTD, with extensive experience in the areas of Cardiology, Diabetes, Medical Diagnosis, Testing Patients, and managing day-to-day Hospital Operations.<br><br>
+
+She has specialized knowledge in the areas of clinical assessment of patients with Diabetes, Cardiology cases, and Thyroid disorders management. In addition to conducting non-invasive cardiac tests such as ECHO, TMT, and HOLTER, she is also proficient in managing patients and complications in the ICU.<br><br>
+
+Dr. Jamila's multifaceted skills cover a wide range of Preoperative and Postoperative patient management, Patient counselling, also Recognising and Countering diseases and the treatments.<br><br>
+As Director and clinical advisor at Kanlife Group she guides and advices the company on clinical matters and decisions relevant to our product portfolio. 
+
               </h4>
             </p>
           </div>

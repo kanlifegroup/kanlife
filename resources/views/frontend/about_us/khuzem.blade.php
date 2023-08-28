@@ -128,9 +128,10 @@ Mr. Khuzem Tambawala
             <h3 style="font-weight: 700">Professional Bio</h3> <br>
             <p class="mb-0" >
               <h4>
-              With 20 years of experience in the field of non ferrous metals. Can provide solutions to metal related applications of users.Also skilled in the fabrication and processing of these metals both in house and site works. <br><br>
-Thereafter 24 years of working experience in Solar Energy field across India. During the period manufactured and installed custom designed systems across all regions. <br><br>
-Currently provide Consultancy Services in the Design Manufacture Installation After Sales Service of Solar Thermal/ Rooftop Power Systems including trouble shooting for existing systems.
+              An accomplished IIT-Mumbai graduate with over 40 years of experience in establishing and growing businesses across diverse industries like Energy, commodities and healthcare. <br><br>
+As mentor to Kanlife Group Khuzema drives new partnerships, investments and operational excellence across geographies.<br><br>
+He embodies and directs the culture, code of conduct and larger vision of the organization.
+
               </h4>
             </p>
           </div>

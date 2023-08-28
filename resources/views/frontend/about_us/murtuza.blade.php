@@ -128,19 +128,14 @@ Murtuza Tambawala
             <h3 style="font-weight: 700">Professional Bio</h3> <br>
             <p class="mb-0" >
               <h4>
-              A post-graduate from the University of Colorado, USA, Murtuza has over 15 years of business experience managing large organizations and start-ups.  <br><br>
+              A post-graduate from the University of Colorado USA with specialization in medical technologies, Murtuza has over 15 years of experience managing large organizations and start-ups.<br><br>
 
- 
+Serial entrepreneur Murtuza is a passionate healthcare professional and medical research scholar with certifications from MIT and WP Carey-USA. Early in his career he joined one of the world’s top 10 medical technology companies in the USA and worked with medical manufacturers across 30 countries.<br><br>
 
-Serial entrepreneur Murtuza is a passionate healthcare professional and medical research scholar with certifications from MIT and WP Carey-USA. Early in his career he joined one of the world’s top 10 medical technology companies in the USA and worked with medical manufacturers across 30 countries.  <br><br>
+His passion to create sustainable healthcare businesses across geographies motivated him to join a listed company as part of their healthcare group and within 4 years raised it to a business with best-in-class products and over 20 million USD in revenues.<br><br>
 
- 
+This success and passion for sustainable medical and healthcare have been the driving force for Murtuza to establish Kanlife, Singapore in 2009 followed by Kanlife India and Kanlife London.
 
-His passion to create sustainable healthcare businesses across geographies motivated him to join a listed company as part of their healthcare group and within 4 years raised it to a business with best-in-class products and over 20 million USD in revenues. <br><br>
-
- 
-
-This success and passion for sustainable medical and healthcare have been the driving force for Murtuza to establish Kanlife, Singapore in 2009 followed by Kanlife India and Kanlife London. <br><br>
               </h4>
             </p>
           </div>

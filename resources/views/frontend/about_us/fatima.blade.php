@@ -128,15 +128,12 @@ Fatima Khuzem
             <h3 style="font-weight: 700">Professional Bio</h3><br>
             <p class="mb-0" >
               <h4>
-              Fatima manages Tamboo’s in the UK and Europe. She is responsible for carefully curating and designing all of Tamboo's eco-friendly wellness and personal care products. <br><br>
+              Fatima manages Kanlife in the UK and Europe. She is responsible for carefully curating and designing all of Kanlife's eco-friendly wellness and personal care products. <br><br>
 
- 
-
-A London based product and experience designer, Fatima has spent 10+ years researching, collaborating, and designing for and with people from global brands and communities alike. <br><br>
-
- 
+A London based product and experience designer, Fatima has spent 10+ years researching, collaborating, and designing for and with people from global brands and communities alike.<br><br>
 
 Fatima's work has helped her develop a passion for holistic experiences and wellness. As a mother and a professional she deeply understands the growing importance of designing responsibly for the future, making sustainable choices an easy and accessible experience for professionals and families.
+
               </h4>
             </p>
           </div>
