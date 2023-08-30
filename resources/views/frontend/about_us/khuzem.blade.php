@@ -117,20 +117,23 @@ Mr. Khuzem Tambawala
               </div>
             </div>
           </div>
-      </div>
-  </div>
-  <div class="us-section">
-      <div class="container-fluid px-5">
-          <div class="row">
-            <div class="">
-              <h3 style="font-weight: 700">Professional Bio</h3>
-              <p class="mb-0" >
-                <h4>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores laudantium minima sint veritatis obcaecati illum error architecto inventore quam. Ad dolorem earum incidunt temporibus pariatur fugiat voluptatibus officiis saepe eum at hic accusamus voluptates, porro sapiente omnis dolores quasi quae reiciendis quibusdam iure autem molestiae quia sint beatae. Ipsam temporibus amet, sit assumenda necessitatibus soluta omnis velit cupiditate dicta atque quos laboriosam! Perspiciatis, exercitationem molestias nostrum aliquid veniam quod omnis, quisquam vitae animi magnam repellendus tempore ab doloremque voluptatum nisi recusandae ipsa laboriosam. Odit cupiditate provident sit similique, nihil natus quibusdam voluptates? Eveniet corrupti explicabo, asperiores distinctio incidunt aliquid adipisci!
-                </h4>
-              </p>
-            </div>
-            </div>
+        </div>
+    </div>
+</div>
+<div class="us-section">
+    <div class="container-fluid px-5">
+        <div class="row">
+          <div class="">
+            <h3 style="font-weight: 700">Professional Bio</h3> <br>
+            <p class="mb-0" >
+              <h4>
+              An accomplished IIT-Mumbai graduate with over 40 years of experience in establishing and growing businesses across diverse industries like Energy, commodities and healthcare. <br><br>
+As mentor to Kanlife Group Khuzema drives new partnerships, investments and operational excellence across geographies.<br><br>
+He embodies and directs the culture, code of conduct and larger vision of the organization.
+
+              </h4>
+            </p>
+          </div>
           </div>
       </div>
   </div>
