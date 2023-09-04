@@ -1655,7 +1655,9 @@ class CommonController extends Controller
 	
 	/* contact */
 	
-	
+	public function sitemap(){
+    return response()->view('frontend.sitemap')->header('Content-Type', 'text/xml');
+  }
 	
 	
 }

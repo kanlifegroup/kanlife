@@ -23,7 +23,7 @@
 
 @section('content')
 
-<div class="container-fluid bgteam-overlay">
+<div class="container-fluid bgteam-overlay" style="background:url({{asset('public/kanlife/our_products.png')}});">
 	<div class="text-left">
 		<h1 class="deu-meethead">Our Products</h1>
 	</div>

@@ -8,6 +8,7 @@
 <!--<![endif]-->
 <head>
 @include('admin.stylesheet')
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 </head>
 <body>
 @include('admin.navigation')
@@ -138,7 +139,7 @@
                                             @endif
                                             <div class="form-group">
                                                 <label for="site_title" class="control-label mb-1"> {{ Helper::translation(1932,$translate,'') }} <span class="require">*</span></label>
-                                                <select name="product_category[]" class="form-control" data-bvalidator="required" multiple>
+                                                <select name="product_category[]" class="form-control categories" data-bvalidator="required" multiple>
                                                 @foreach($categories['display'] as $menu)
                                                 @php 
                                                 if($menu->language_code == 'en')
@@ -399,5 +400,12 @@
     @endif
     <!-- Right Panel -->
    @include('admin.javascript')
+   <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+   <script>
+    $(document).ready(function() {
+      $('.categories').select2({theme: "classic"});
+    });
+   </script>
 </body>
 </html>

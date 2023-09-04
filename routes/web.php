@@ -657,6 +657,9 @@ Route::group(['middleware' => ['XSS','web', 'HtmlMinifier']], function () {
   Route::post('/my-wallet', ['as' => 'my-wallet','uses'=>'ProfileController@withdrawal_request']);
   /* wallet */
 
+    // sitemap
+    Route::get('/sitemap.xml', 'CommonController@sitemap');
+    // sitemap
 
   /* forgot */
 

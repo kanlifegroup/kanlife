@@ -42,7 +42,7 @@
 @endsection
 
 @section('content')
-<div class="container-fluid bgteam-overlay">
+<div class="container-fluid bgteam-overlay" style="background:url({{asset('public/kanlife/product_details.png')}});background-size: cover;background-position: center center;background-repeat: no-repeat;">
 	<div class="text-left">
 		<h1 class="deu-meethead">Product Details</h1>
 	</div>
