@@ -421,6 +421,7 @@ class MembersController extends Controller
 		 $username = $request->input('username');
          $email = $request->input('email');
 		 $user_type = $request->input('user_type');
+     $user_phone = $request->input('user_phone');
 		 $password = bcrypt($request->input('password'));
 		 if(!empty($request->input('earnings')))
 		 {
@@ -452,7 +453,7 @@ class MembersController extends Controller
 		 $rules = array(
 				'username' => ['required', 'regex:/^[\w-]*$/', 'max:255', Rule::unique('users') -> where(function($sql){ $sql->where('drop_status','=','no');})],
 				'email' => ['required', 'email', 'max:255', Rule::unique('users') -> where(function($sql){ $sql->where('drop_status','=','no');})],
-				
+				'user_phone' => ['required','digits:10']
 	     );
 		 
 		 $messsages = array(
@@ -484,7 +485,7 @@ class MembersController extends Controller
 		  $verified = 1;
 		  $token = $this->generateRandomString();
 		 
-		$data = array('name' => $name, 'username' => $username, 'email' => $email, 'user_type' => $user_type, 'password' => $password, 'earnings' => $earnings, 'user_photo' => $user_image, 'verified' => $verified, 'created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s'), 'user_token' => $token);
+		$data = array('name' => $name, 'username' => $username, 'email' => $email, 'user_phone'=>$user_phone, 'user_type' => $user_type, 'password' => $password, 'earnings' => $earnings, 'user_photo' => $user_image, 'verified' => $verified, 'created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s'), 'user_token' => $token);
  
             
             Members::insertData($data);
@@ -526,7 +527,7 @@ class MembersController extends Controller
 	   $username = $request->input('username');
          $email = $request->input('email');
 		 $user_type = $request->input('user_type');
-		 
+		 $user_phone = $request->input('user_phone');
 		 if(!empty($request->input('password')))
 		 {
 		 $password = bcrypt($request->input('password'));
@@ -569,7 +570,7 @@ class MembersController extends Controller
 		 $rules = array(
 				'username' => ['required', 'regex:/^[\w-]*$/', 'max:255', Rule::unique('users') ->ignore($token, 'user_token') -> where(function($sql){ $sql->where('drop_status','=','no');})],
 				'email' => ['required', 'email', 'max:255', Rule::unique('users') ->ignore($token, 'user_token') -> where(function($sql){ $sql->where('drop_status','=','no');})],
-				
+				'user_phone' => ['required','digits:10']
 	     );
 		 
 		 $messsages = array(
@@ -604,7 +605,7 @@ class MembersController extends Controller
 		  
 		 
 		 
-		$data = array('name' => $name, 'username' => $username, 'email' => $email, 'user_type' => $user_type, 'password' => $pass, 'earnings' => $earnings, 'user_photo' => $user_image, 'updated_at' => date('Y-m-d H:i:s'));
+		$data = array('name' => $name, 'username' => $username, 'email' => $email,'user_phone'=>$user_phone, 'user_type' => $user_type, 'password' => $pass, 'earnings' => $earnings, 'user_photo' => $user_image, 'updated_at' => date('Y-m-d H:i:s'));
  
             
             

@@ -58,6 +58,7 @@
                                             <th>{{ Helper::translation(2077,$translate,'') }}</th>
                                             <th>{{ Helper::translation(2076,$translate,'') }}</th>
                                             <th>{{ Helper::translation(1928,$translate,'') }}</th>
+                                            <th>SKU</th>
                                             <th>Quantity</th>
                                             @if($allsettings->type_of_marketplace == 'multi-vendor')
                                             <th>{{ Helper::translation(2112,$translate,'') }}</th>
@@ -103,6 +104,7 @@
                                             <td>{{ $order->purchase_token }} </td>
                                             <td>{{ $order->ord_id }} </td>
                                             <td>{{ $order->product_name }} </td>
+                                            <td>{{ $order->product_sku }} </td>
                                             <td>{{ $order->quantity }} </td>
                                             @if($allsettings->type_of_marketplace == 'multi-vendor')
                                             <td><a href="{{ URL::to('/user') }}/{{ $order->username }}" target="_blank" class="blue-color">{{ $order->username }}</a></td>
@@ -116,7 +118,7 @@
                                             {{ csrf_field() }}
                                             <select class="form-control" id="order_track" name="order_track[]" required>
                                             <option value="{{ $track_placed }}" @if($order->order_tracking == $track_placed) selected @endif>{{ $track_placed }}</option>
-                                            <option value="{{ $track_packed }}" @if($order->order_tracking == $track_packed) selected @endif>{{ $track_packed }}</option>
+                                            <option value="{{ $track_packed }}" @if($order->order_tracking == $track_packed) selected @endif>Confirmed</option>
                                             <option value="{{ $track_shipped }}" @if($order->order_tracking == $track_shipped) selected @endif>{{ $track_shipped }}</option>
                                             <option value="{{ $track_delivered }}" @if($order->order_tracking == $track_delivered) selected @endif>{{ $track_delivered }}</option>
                                             </select>

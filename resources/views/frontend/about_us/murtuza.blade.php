@@ -102,20 +102,19 @@ Murtuza Tambawala
 @endsection
 
 @section('content')
-
-
-<div class="us-section" style="background-color: #EFFFFD">
-    <div class="container-fluid px-5">
-        <div class="row" style="background-color: #EFFFFD">
-          <div class="col-md-3 col-lg-2 team">
-            <p class="mb-0" >
-              <img class="rounded-circle" src="{{ asset('public/image/Murtaza Tambawala.png') }}" alt="Fatima Khuzem">
-            </p>
-          </div>
-          <div class="col-md-9 name-container">
-            <div class="team_name">
-              <h1 style="font-weight: 900; color:#00979E">Murtuza Tambawala</h1>
-              <h5>Founder / CEO</h5>
+  <div class="us-section" style="background-color: #EFFFFD">
+      <div class="container-fluid px-5">
+          <div class="row" style="background-color: #EFFFFD">
+            <div class="col-md-3 col-lg-2 team">
+              <p class="mb-0" >
+                <img class="rounded-circle" src="{{ asset('public/image/Murtaza Tambawala.png') }}" alt="Fatima Khuzem">
+              </p>
+            </div>
+            <div class="col-md-9 name-container">
+              <div class="team_name">
+                <h1 style="font-weight: 900; color:#00979E">Murtuza Tambawala</h1>
+                <h5>Founder / CEO</h5>
+              </div>
             </div>
           </div>
         </div>
@@ -140,9 +139,15 @@ This success and passion for sustainable medical and healthcare have been the dr
             </p>
           </div>
           </div>
-        </div>
-    </div>
-</div>
-
-
+      </div>
+  </div>
+@endsection
+@section('script')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+        integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+        crossorigin="anonymous"></script>
 @endsection

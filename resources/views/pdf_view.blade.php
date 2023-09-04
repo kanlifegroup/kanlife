@@ -31,19 +31,22 @@
   </div>
   <hr>
   <div class="row align-items-center mt-3">
-  <div class="col-sm-6 text-center text-sm-left"> <strong>Pay To:</strong>
+  <div class="col-sm-6 text-center text-sm-left"> <strong>Paid To:</strong>
       <address>
-      {{ $allsettings->office_address }}<br />
-      {{ $allsettings->office_email }}<br />
-      {{ $allsettings->office_phone }}
+      Kanlife India Pvt. Ltd.<br />
+      No. 36/3, 2nd floor, 1st cross Pukhraj Layout,<br />
+      Adugodi, Bangalore - 560030<br />
+      GST No. : 29AAICK0887C1ZD<br />
+      kanlifegroup@gmail.com<br />
+      Phone : 080 4224 2929 or +91 805 093 1561
       </address>
     </div>
     <div class="col-sm-6 text-right" style="float:right;"> <strong>Invoiced To:</strong>
       <address>      
       {{ $buyer_name }}<br />
       {{ $buyer_address }}<br />
-      {{ $buyer_city }}, {{ $buyer_zip }}<br />
-      {{ $buyer_country }}<br/>
+      {{ $buyer_city }}, {{ $buyer_state }}<br />
+      {{ $buyer_country }} - {{ $buyer_zip }}<br/>
 	    {{ $buyer_email }}
       </address>
     </div>
@@ -56,9 +59,10 @@
       <th scope="col">{{ Helper::translation(2076,$translate,'') }}</th>
       <th scope="col">{{ Helper::translation(1984,$translate,'') }}</th>
       {{--<th scope="col">{{ Helper::translation(2079,$translate,'') }}</th>--}}
-      <th scope="col">{{ Helper::translation(2112,$translate,'') }}</th>
+      {{--<th scope="col">{{ Helper::translation(2112,$translate,'') }}</th>--}}
       <th scope="col">{{ Helper::translation(2078,$translate,'') }}</th>
       <th scope="col">GST</th>
+      <th scope="col">Subtotal</th>
      </tr>
   </thead>
   <tbody class="text-center">
@@ -72,7 +76,7 @@
     $shipping = 0;
     @endphp
     @foreach($product['view'] as $product)
-    @php
+    @php 
       if($product->discount_price != 0)
       {
         $price = $product->discount_price;
@@ -93,15 +97,15 @@
       <th scope="row">{{ $no }}</th>
       <td>{{ $product->ord_id }}
       </td>
-      <td>
+      {{--<td>
       <a href="{{ url('/product') }}/{{ $product->product_slug }}">
       <br/>
       @if($product->product_image != '')
       <img src="{{ url('/') }}/public/storage/product/{{ $product->product_image }}"  class="img-thumb" alt="{{ $product->product_name }}"/>@else <img src="{{ url('/') }}/public/img/no-image.jpg"  class="img-thumb" alt="{{ $product->product_name }}"/>  
       @endif
       </a></td>
-     {{-- <td>{{ $product->product_attribute_values }}</td> --}}
-      <td><a href="{{ url('/user') }}/{{ $product->username }}">{{ $product->name }}</a></td>
+      <td>{{ $product->product_attribute_values }}</td> --}}
+      <td><a href="{{ url('/product') }}/{{ $product->product_slug }}">{{ $product->product_name }}</a></td>
       <td>{{ $product->quantity }} X <span style="font-family: DejaVu Sans; sans-serif;">{{ $allsettings->site_currency_symbol }}</span> {{ $product->price }}</td>
       @php $gst_price = $price * $product->quantity * $product->product_gst / 100; @endphp
       @if($product->product_gst > 0)
@@ -109,6 +113,7 @@
       @else
       <td>0.00</td>
       @endif
+      <td>{{$price * $product->quantity}}</td>
     </tr>
     @php $no++; @endphp
     @endforeach 

@@ -149,6 +149,8 @@
             <div class="d-sm-block d-none common-doctor animated fadeInUp clearfix ae-animation-fadeInUp deu-features position-relative">
               @if($product->product_condition == 'new')
               <div class="position-absolute px-3 py-1 mt-2 end-0 me-2 deu-new"  style="z-index:100">New</div>
+              @else
+              <div class="position-absolute px-3 py-1 mt-2 end-0 me-2 deu-new"  style="z-index:100">Used</div>
                 <!-- <span class="deu-new" style="position:absolute;z-index:100;width:100%;left:0;">New</span> -->
               @endif
               <div class="deu-xrayfigure">

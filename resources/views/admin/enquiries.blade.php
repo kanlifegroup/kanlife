@@ -56,6 +56,7 @@
                                             <th>Email</th>
                                             <th>Phone</th>
                                             <th>Product</th>
+                                            <th>SKU</th>
                                             <th>Replied</th>
                                         </tr>
                                     </thead>
@@ -68,6 +69,7 @@
                                             <td>{{ $enquiry->email }} </td>
                                             <td>{{ $enquiry->user_phone }} </td>
                                             <td>{{ $enquiry->product_name }} </td>
+                                            <td>{{ $enquiry->product_sku }} </td>
                                             <td>@if($enquiry->status == 0) <a href="{{ url('/admin/replied-to-enquiry') }}/{{ base64_encode($enquiry->id) }}" class="blue-color" onClick="return confirm('Are you sure to mark as replied?');">Click if Replied!</a> @else <span class="badge badge-success">Yes</span> @endif </td>
                                         </tr>
                                         @php $no++; @endphp
