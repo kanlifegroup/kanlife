@@ -42,23 +42,23 @@
 <div class="owl-carousel owl-theme" id="owl-carousel">
   
   <div class="item  ">
-     <img src="{{ asset('public/image/our1.png') }}" class="img-responsive" alt="client-logo">
+     <img src="{{ asset('public/kanlife/our1.png') }}" class="img-responsive" alt="client-logo">
                     </div>
   
   <div class="item ">
-     <img src="{{ asset('public/image/our2.png') }}" class="img-responsive" alt="client-logo">
+     <img src="{{ asset('public/kanlife/our2.png') }}" class="img-responsive" alt="client-logo">
                     </div>
   
    <div class="item ">
-    <img src="{{ asset('public/image/our3.png') }}" class="img-responsive" alt="client-logo">
+    <img src="{{ asset('public/kanlife/our3.png') }}" class="img-responsive" alt="client-logo">
                     </div>
   
    <div class="item">
-      <img src="{{ asset('public/image/our4.png') }}" class="img-responsive" alt="client-logo">
+      <img src="{{ asset('public/kanlife/our4.png') }}" class="img-responsive" alt="client-logo">
                     </div>
   
    <div class="item">
-      <img src="{{ asset('public/image/our5.png') }}" class="img-responsive" alt="client-logo">
+      <img src="{{ asset('public/kanlife/our5.png') }}" class="img-responsive" alt="client-logo">
                     </div>
                 </div>
             </div>

@@ -1,5 +1,10 @@
 @extends('frontend.layouts.app')
 
+@section('meta')
+<meta name="title" content="Hepatology Equipment | Gastroenterology | Liver cirrhosis">
+<meta name="description" content="The easy-to-use vein finder that helps healthcare professionals improve vein cannulation and venipuncture success rates.">
+@endsection
+
 @section('title')
   Home
 @endsection
@@ -92,6 +97,7 @@
       <div class="col-md-5 col-sm-6 h-100">
         <div class="about-img d-flex align-items-center" aos="fade-right">
           <img class="img-fluid deu-marg" src="{{ asset('public/image/us.png') }}" alt="">
+          <img class="img-fluid deu-marg" src="{{-- asset('public/kanlife/home_about_us.jpg') --}}" alt="">
         </div>
       </div>
       <div class="col-md-7 col-sm-6" aos="fade-left">
@@ -336,23 +342,23 @@
 <div class="owl-carousel owl-theme" id="owl-carousel">
   
   <div class="item  ">
-     <img src="{{ asset('public/image/our1.png') }}" class="img-responsive" alt="client-logo">
+     <img src="{{ asset('public/kanlife/our1.png') }}" class="img-responsive" alt="client-logo">
                     </div>
   
   <div class="item ">
-     <img src="{{ asset('public/image/our2.png') }}" class="img-responsive" alt="client-logo">
+     <img src="{{ asset('public/kanlife/our2.png') }}" class="img-responsive" alt="client-logo">
                     </div>
   
    <div class="item ">
-    <img src="{{ asset('public/image/our3.png') }}" class="img-responsive" alt="client-logo">
+    <img src="{{ asset('public/kanlife/our3.png') }}" class="img-responsive" alt="client-logo">
                     </div>
   
    <div class="item">
-      <img src="{{ asset('public/image/our4.png') }}" class="img-responsive" alt="client-logo">
+      <img src="{{ asset('public/kanlife/our4.png') }}" class="img-responsive" alt="client-logo">
                     </div>
   
    <div class="item">
-      <img src="{{ asset('public/image/our5.png') }}" class="img-responsive" alt="client-logo">
+      <img src="{{ asset('public/kanlife/our5.png') }}" class="img-responsive" alt="client-logo">
                     </div>
                 </div>
             </div>

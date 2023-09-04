@@ -1,5 +1,10 @@
 @extends('frontend.layouts.app')
 
+@section('meta')
+<meta name="title" content="Digital Radiography | Pedodontist  | Orthodontist | Dentist">
+<meta name="description" content="Non-invasive solution for fatty liver. Measure liver fat & scarring using ultrasound waves. Fast & painless. Act now for a healthier liver!">
+@endsection
+
 @section('title')
   Home
 @endsection
@@ -23,7 +28,7 @@
 
 @section('content')
 
-<div class="container-fluid bgteam-overlay">
+<div class="container-fluid bgteam-overlay" style="background:url({{asset('public/kanlife/contact_us.png')}});background-size: cover;background-position: center center;background-repeat: no-repeat;">
     <div class="text-left">
         <h1 class="deu-meethead">Connect With Us</h1>
     </div>

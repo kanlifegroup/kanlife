@@ -25,7 +25,7 @@
 
 @section('content')
 
-<div class="container-fluid bgteam-overlay">
+<div class="container-fluid bgteam-overlay" style="background:url({{asset('public/kanlife/blog_banner.png')}});background-size: cover;background-position: center center;background-repeat: no-repeat;">
     <div class="text-left">
         <h1 class="deu-meethead">Our Blogs</h1>
     </div>

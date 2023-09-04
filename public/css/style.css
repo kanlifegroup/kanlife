@@ -1430,7 +1430,7 @@ body {
   background-size: cover;
   background-position: center center;
   color: #fff;
-  height: 400px;
+  height: 462px;
   padding-top: 120px;
 }
 
@@ -2402,7 +2402,8 @@ body {
 .product-name {
   font-size: 22px;
   font-weight: 500;
-  line-height: 22px;
+  /* line-height: 22px; */
+  line-height: 30px;
   margin-bottom: 4px;
   font-family: 'Nunito', sans-serif;
 }

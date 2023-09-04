@@ -1,5 +1,10 @@
 @extends('frontend.layouts.app')
 
+@section('meta')
+<meta name="title" content="Gastroenterology | Digital Radiography  | Critical Care Devices">
+<meta name="description" content="Explore Skanray patient monitoring systems for efficient anaesthesia care. From basic to advanced monitors. Elevate patient safety today!">
+@endsection
+
 @section('title')
   Home
 @endsection
@@ -19,7 +24,7 @@
 
 @section('content')
 
-<div class="container-fluid bgteam-overlay">
+<div class="container-fluid bgteam-overlay" style="background:url({{asset('public/kanlife/banner_team.png')}});background-size: cover;background-position: center center;background-repeat: no-repeat;">
 	<div class="text-left">
 		<h1 class="deu-meethead">Meet Our Team</h1>
 	</div>

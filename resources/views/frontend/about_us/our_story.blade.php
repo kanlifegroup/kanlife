@@ -1,5 +1,10 @@
 @extends('frontend.layouts.app')
 
+@section('meta')
+<meta name="title" content="Patient monitoring system | Critical care | Best Medical Equipment">
+<meta name="description" content="Experience high-quality dental care with Skanray's advanced digital radiography solutions. Transforming diagnosis with Skanray-Dental X-ray. Book now!">
+@endsection
+
 @section('title')
   Home
 @endsection
@@ -21,7 +26,7 @@
 
 @section('content')
 
-<div class="container-fluid bgteam-overlay">
+<div class="container-fluid bgteam-overlay" style="background:url({{asset('public/kanlife/our_story_bg.png')}});background-size: cover;background-position: center center;background-repeat: no-repeat;">
     <div class="text-left">
         <h1 class="deu-meethead">Our Story</h1>
     </div>
@@ -55,7 +60,7 @@
                         </p>
                 </div>
                 <div class="col-md-6 col-sm-6 px-5">
-                <img class="img-fluid" aos="fade-left" src="{{ asset('public/image/vision.png') }}">
+                <img class="img-fluid" aos="fade-left" src="{{ asset('public/kanlife/vision.jpg') }}">
                 </div>
             </div>
         </div>
@@ -68,7 +73,7 @@
            
             <div class="row mb-5 align-items-center">
                 <div class="col-md-6 col-sm-6 pe-5">
-                <img class="img-fluid" aos="fade-right" src="{{ asset('public/image/mission.png') }}">
+                <img class="img-fluid" aos="fade-right" src="{{ asset('public/kanlife/mission2.jpg') }}">
                 </div>
                 
                 <div class="col-md-6 col-sm-6 ps-5">
@@ -105,30 +110,28 @@
             <div class="d-flex">
                 <img aos="fade-up" class="logoimg1" src="{{ asset('public/img/logo1.png') }}" alt="">
                 <div aos="fade-left"class="toptext">
-                <h4>OUR JOURNEY</h4>
-                <h1>HOW IT ALL BEGAN</h1>
-                <h5>The Foundation of Kanlife</h5>
-                <li>
-                Started As A Small Family Owned Trading Firm - Mumbai- India
-            </li>
-
-                </div>
-                
+                  <h4>OUR JOURNEY</h4>
+                  <h1>HOW IT ALL BEGAN</h1>
+                  <h5>The Foundation of Kanlife</h5>
+                  <li>
+                      Started As A Small Family Owned Trading Firm - Mumbai- India
+                  </li>
+                </div>                
             </div>
 			<ul class="timeline">
 				<li>
 					<a data-bs-toggle="collapse" class="design1" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">2004</a>
                     <div class="collapse multi-collapse show" id="multiCollapseExample1">
                     <div class="row">
-                    <div class="col-md-5 text-end">
-                        <img aos="fade-up" src="{{ asset('public/img/stock_ui.png') }}" alt="">
+                      <div class="col-md-5 text-end">
+                          <img aos="fade-up" src="{{ asset('public/kanlife/asia-1782429_1280.jpg') }}" alt="">
+                      </div>
+                      <div class="col-md-6 m-auto offset-md-0" aos="fade-left">
+                          <ul>
+                              <li>  Established Kanlife Asia Pte Ltd. Singapore. Medical / Healthcare Import & Export</li>
+                          </ul>    
+                      </div>
                     </div>
-                    <div class="col-md-6 m-auto offset-md-0" aos="fade-left">
-                        <ul>
-                            <li>  Established Kanlife Asia Pte Ltd. Singapore. Medical / Healthcare Import & Export</li>
-                        </ul>    
-                    </div>
-                        </div>
 					  </div>
                 </li>
 				<li>
@@ -143,7 +146,7 @@
                     </ul>  
                     </div>
                     <div class="col-md-5 text-end  order-1 order-md-2">
-                        <img  aos="fade-left" src="{{ asset('public/img/maskg.png') }}" alt="">
+                        <img  aos="fade-left" src="{{ asset('public/kanlife/story_sales_team.jpg') }}" alt="">
                     </div>
                    
                         </div>
@@ -154,7 +157,7 @@
                     <div class="collapse multi-collapse show" id="multiCollapseExample3">
                     <div class="row">
                     <div class="col-md-5 text-end">
-                        <img aos="fade-up" src="{{ asset('public/img/stock_ui.png') }}" alt="">
+                        <img aos="fade-up" src="{{ asset('public/kanlife/story_partners.png') }}" alt="">
                     </div>
                     <div class="col-md-6 m-auto offset-md-0" aos="fade-left">
                     <ul>
@@ -177,7 +180,7 @@
                     </ul>
                     </div>
                     <div class="col-md-5 text-end order-1 order-md-2">
-                        <img aos="fade-left" src="{{ asset('public/img/maskg.png') }}" alt="">
+                        <img aos="fade-left" src="{{ asset('public/kanlife/story_distribution.jpg') }}" alt="">
                     </div>
                         </div>
 					  </div>	
@@ -215,7 +218,7 @@
                     </ul>
                     </div>
                     <div class="col-md-5 text-end order-1 order-md-2">
-                        <img  aos="fade-left" src="{{ asset('public/img/maskg.png') }}" alt="">
+                        <img  aos="fade-left" src="{{ asset('public/kanlife/story_dental.png') }}" alt="">
                     </div>
                         </div>
 					  </div>	
@@ -225,7 +228,7 @@
                     <div class="collapse multi-collapse show" id="multiCollapseExample7">
                     <div class="row">
                     <div class="col-md-5 text-end">
-                        <img aos="fade-up" src="{{ asset('public/img/stock_ui.png') }}" alt="">
+                        <img aos="fade-up" src="{{ asset('public/kanlife/story_branches.png') }}" alt="">
                     </div>
                     <div class="col-md-6 m-auto offset-md-0" aos="fade-left">
                     <ul >
