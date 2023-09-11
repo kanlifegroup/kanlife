@@ -113,18 +113,34 @@
                   <h4>OUR JOURNEY</h4>
                   <h1>HOW IT ALL BEGAN</h1>
                   <h5>The Foundation of Kanlife</h5>
-                  <li>
-                      Started As A Small Family Owned Trading Firm - Mumbai- India
-                  </li>
+                  
                 </div>                
             </div>
 			<ul class="timeline">
+            <li>
+					<a data-bs-toggle="collapse"  class="design1"  href="#multiCollapseExample2" role="button" aria-expanded="false" aria-controls="multiCollapseExample2">2008</a>
+                    <div class="collapse multi-collapse show" id="multiCollapseExample2">
+                    <div class="row">
+                   
+                    <div class="col-md-5 m-auto offset-md-2 order-2 order-md-1" aos="fade-up">
+                    <ul>
+                        <li>  Started As A Small Family Owned Trading Firm - Mumbai- India
+                  </li>
+                    </ul>  
+                    </div>
+                    <div class="col-md-5 text-end  order-1 order-md-2">
+                        <img class="rounded-circle" aos="fade-left" src="{{ asset('public/kanlife/mumbai.png') }}" alt="">
+                    </div>
+                   
+                        </div>
+					  </div>
+                   	</li>
 				<li>
 					<a data-bs-toggle="collapse" class="design1" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">2004</a>
                     <div class="collapse multi-collapse show" id="multiCollapseExample1">
                     <div class="row">
                       <div class="col-md-5 text-end">
-                          <img aos="fade-up" src="{{ asset('public/kanlife/asia-1782429_1280.jpg') }}" alt="">
+                          <img class="rounded-circle" aos="fade-up" src="{{ asset('public/kanlife/asia-1782429_1280.png') }}" alt="">
                       </div>
                       <div class="col-md-6 m-auto offset-md-0" aos="fade-left">
                           <ul>
@@ -146,7 +162,7 @@
                     </ul>  
                     </div>
                     <div class="col-md-5 text-end  order-1 order-md-2">
-                        <img  aos="fade-left" src="{{ asset('public/kanlife/story_sales_team.jpg') }}" alt="">
+                        <img class="rounded-circle" aos="fade-left" src="{{ asset('public/kanlife/story_sales_team.png') }}" alt="">
                     </div>
                    
                         </div>
@@ -157,7 +173,7 @@
                     <div class="collapse multi-collapse show" id="multiCollapseExample3">
                     <div class="row">
                     <div class="col-md-5 text-end">
-                        <img aos="fade-up" src="{{ asset('public/kanlife/story_partners.png') }}" alt="">
+                        <img class="rounded-circle" aos="fade-up" src="{{ asset('public/kanlife/story_partners.png') }}" alt="">
                     </div>
                     <div class="col-md-6 m-auto offset-md-0" aos="fade-left">
                     <ul>
@@ -180,7 +196,7 @@
                     </ul>
                     </div>
                     <div class="col-md-5 text-end order-1 order-md-2">
-                        <img aos="fade-left" src="{{ asset('public/kanlife/story_distribution.jpg') }}" alt="">
+                        <img class="rounded-circle" aos="fade-left" src="{{ asset('public/kanlife/story_distribution.png') }}" alt="">
                     </div>
                         </div>
 					  </div>	
@@ -190,7 +206,7 @@
                     <div class="collapse multi-collapse show" id="multiCollapseExample5">
                     <div class="row">
                     <div class="col-md-5 text-end">
-                        <img aos="fade-up" src="{{ asset('public/img/stock_ui.png') }}" alt="">
+                        <img class="rounded-circle" aos="fade-up" src="{{ asset('public/img/stock_ui.png') }}" alt="">
                     </div>
                     <div class="col-md-6 m-auto offset-md-0" aos="fade-left">
                     <ul>
@@ -218,7 +234,7 @@
                     </ul>
                     </div>
                     <div class="col-md-5 text-end order-1 order-md-2">
-                        <img  aos="fade-left" src="{{ asset('public/kanlife/story_dental.png') }}" alt="">
+                        <img class="rounded-circle" aos="fade-left" src="{{ asset('public/kanlife/story_dental.png') }}" alt="">
                     </div>
                         </div>
 					  </div>	
@@ -228,7 +244,7 @@
                     <div class="collapse multi-collapse show" id="multiCollapseExample7">
                     <div class="row">
                     <div class="col-md-5 text-end">
-                        <img aos="fade-up" src="{{ asset('public/kanlife/story_branches.png') }}" alt="">
+                        <img class="rounded-circle" aos="fade-up" src="{{ asset('public/kanlife/story_branches.png') }}" alt="">
                     </div>
                     <div class="col-md-6 m-auto offset-md-0" aos="fade-left">
                     <ul >
