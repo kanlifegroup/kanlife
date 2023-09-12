@@ -114,6 +114,14 @@ Mr. Khuzem Tambawala
               <div class="team_name">
                 <h1 style="font-weight: 900; color:#00979E">Mr. Khuzem Tambawala</h1>
                 <h5>Director and Mentor</h5>
+                <ul class="list-inline">
+                        <li class="list-inline-item"><a target="_blank" href="https://www.facebook.com/profile.php?id=100010167575477"> <i class="fa fa-facebook-official deu-teamsocial d-flex align-items-center justify-content-center larger deu-teamfa" aria-hidden="true"></i></a>       
+                        </li>
+                        <li class="list-inline-item"><a target="_blank" href="https://www.instagram.com/khuzemtambawala/"> <i class="fa fa-instagram deu-teamsocial d-flex align-items-center justify-content-center deu-teamfa" aria-hidden="true"></i></a>
+                        </li>
+                        <li class="list-inline-item"><a  target="_blank" href="https://www.linkedin.com/in/khuzem-tambawala-21552a79/"> <i class="fa fa-linkedin-square deu-teamsocial d-flex align-items-center justify-content-center deu-teamfa" aria-hidden="true"></i></a>
+                        </li>
+                    </ul>
               </div>
             </div>
           </div>

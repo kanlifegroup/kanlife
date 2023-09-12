@@ -114,6 +114,14 @@ Jamila Zaveri
             <div class="team_name">
               <h1 style="font-weight: 900; color:#00979E">Jamila Zaveri</h1>
               <h5>Director / Clinical Advisor</h5>
+              <ul class="list-inline">
+                        <li class="list-inline-item"><a target="_blank" href="https://www.facebook.com/jamila.zaveri"> <i class="fa fa-facebook-official deu-teamsocial d-flex align-items-center justify-content-center larger deu-teamfa" aria-hidden="true"></i></a>       
+                        </li>
+                        <li class="list-inline-item"><a target="_blank" href="https://www.instagram.com/jamilamktz/"> <i class="fa fa-instagram deu-teamsocial d-flex align-items-center justify-content-center deu-teamfa" aria-hidden="true"></i></a>
+                        </li>
+                        <li class="list-inline-item"><a  target="_blank" href="https://www.linkedin.com/in/dr-jamila-tambawala/"> <i class="fa fa-linkedin-square deu-teamsocial d-flex align-items-center justify-content-center deu-teamfa" aria-hidden="true"></i></a>
+                        </li>
+                    </ul>
             </div>
           </div>
         </div>

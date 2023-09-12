@@ -36,53 +36,27 @@
 </div>
 <div class="container-fluid px-5 deu-teamgray">
     <div class="row g-0 gap-3">
-        <div class="col-12 col-lg">
+    <div class="col-12 col-lg">
             <div class="card deu-teamcards" aos="fade-right">
                 <div class="card-body text-center pt-5">
-                    <a href="{{ url('about-us/fatima-khuzem') }}">
-                      <div class="hovereffect_team">
-                        <img aos="zoom-in" src="{{ asset('public/image/Fathima.jfif') }}" class="img-fluid" width="300" height="250">
-                      </div>
-                    </a>
-                    <a href="{{ url('about-us/fatima-khuzem') }}">
-                      <h5 class="card-title mt-3 m-3 mb-1 deu-teamname">Fatima Khuzem</h5>
-                    </a>
-                    <p class="mb-3 mt-3 font-weight-bold deu-teamtxt1">Director [UK & EU]</p>
-                    <!-- <div class="px-4">
-                        <button class="deu-aboutbtn1 px-4 w-100 py-2 mb-3">Know More</button>
-                    </div> -->
-                    <ul class="list-inline">
-                        <li class="list-inline-item"><a target="_blank" href="https://www.facebook.com/fatima.khuzem"> <i class="fa fa-facebook-official deu-teamsocial d-flex align-items-center justify-content-center larger deu-teamfa" aria-hidden="true"></i></a>       
-                        </li>
-                        <li class="list-inline-item"><a target="_blank" href="https://www.instagram.com/fatimakhuzem/"> <i class="fa fa-instagram deu-teamsocial d-flex align-items-center justify-content-center deu-teamfa" aria-hidden="true"></i></a>
-                        </li>
-                        <li class="list-inline-item"><a  target="_blank" href="https://www.linkedin.com/in/fatima-khuzem/"> <i class="fa fa-linkedin-square deu-teamsocial d-flex align-items-center justify-content-center deu-teamfa" aria-hidden="true"></i></a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="col-12 col-lg">
-            <div class="card deu-teamcards" aos="fade-right">
-                <div class="card-body text-center pt-5">
-                  <a href="{{ url('about-us/jamila-zaveri') }}">
+                  <a href="{{ url('about-us/mr-khuzem-tambawala') }}">
                     <div class="hovereffect_team">
-                      <img aos="zoom-in" src="{{ asset('public/image/jamila.jfif') }}" class="img-fluid" width="300" height="250">
+                    <img aos="zoom-in" src="{{ asset('public/image/Khuzema Tambawala.png') }}" class="img-fluid" width="300" height="250">
                     </div>
                   </a>
-                  <a href="{{ url('about-us/jamila-zaveri') }}">
-                    <h5 class="card-title mt-3 m-3 mb-1 deu-teamname">Jamila Zaveri</h5>
+                  <a href="{{ url('about-us/mr-khuzem-tambawala') }}">
+                    <h5 class="card-title mt-3 m-3 mb-1 deu-teamname">Mr. Khuzem Tambawala</h5>
                   </a>
-                    <p class="mb-3 mt-3 font-weight-bold deu-teamtxt1">Director / Clinical Advisor</p>
+                    <p class="mb-3 mt-3 font-weight-bold deu-teamtxt1">Director and Mentor</p>
                     <!-- <div class="px-4">
                         <button class="deu-aboutbtn1 px-4 w-100 py-2 mb-3">Know More</button>
                     </div> -->
                     <ul class="list-inline">
-                        <li class="list-inline-item"><a target="_blank" href="https://www.facebook.com/jamila.zaveri"> <i class="fa fa-facebook-official deu-teamsocial d-flex align-items-center justify-content-center larger deu-teamfa" aria-hidden="true"></i></a>       
+                        <li class="list-inline-item"><a target="_blank" href="https://www.facebook.com/profile.php?id=100010167575477"> <i class="fa fa-facebook-official deu-teamsocial d-flex align-items-center justify-content-center larger deu-teamfa" aria-hidden="true"></i></a>       
                         </li>
-                        <li class="list-inline-item"><a target="_blank" href="https://www.instagram.com/jamilamktz/"> <i class="fa fa-instagram deu-teamsocial d-flex align-items-center justify-content-center deu-teamfa" aria-hidden="true"></i></a>
+                        <li class="list-inline-item"><a target="_blank" href="https://www.instagram.com/khuzemtambawala/"> <i class="fa fa-instagram deu-teamsocial d-flex align-items-center justify-content-center deu-teamfa" aria-hidden="true"></i></a>
                         </li>
-                        <li class="list-inline-item"><a  target="_blank" href="https://www.linkedin.com/in/dr-jamila-tambawala/"> <i class="fa fa-linkedin-square deu-teamsocial d-flex align-items-center justify-content-center deu-teamfa" aria-hidden="true"></i></a>
+                        <li class="list-inline-item"><a  target="_blank" href="https://www.linkedin.com/in/khuzem-tambawala-21552a79/"> <i class="fa fa-linkedin-square deu-teamsocial d-flex align-items-center justify-content-center deu-teamfa" aria-hidden="true"></i></a>
                         </li>
                     </ul>
                 </div>
@@ -114,32 +88,61 @@
                 </div>
             </div>
         </div>
+        
         <div class="col-12 col-lg">
             <div class="card deu-teamcards" aos="fade-right">
                 <div class="card-body text-center pt-5">
-                  <a href="{{ url('about-us/mr-khuzem-tambawala') }}">
+                  <a href="{{ url('about-us/jamila-zaveri') }}">
                     <div class="hovereffect_team">
-                    <img aos="zoom-in" src="{{ asset('public/image/Khuzema Tambawala.png') }}" class="img-fluid" width="300" height="250">
+                      <img aos="zoom-in" src="{{ asset('public/image/jamila.jfif') }}" class="img-fluid" width="300" height="250">
                     </div>
                   </a>
-                  <a href="{{ url('about-us/mr-khuzem-tambawala') }}">
-                    <h5 class="card-title mt-3 m-3 mb-1 deu-teamname">Mr. Khuzem Tambawala</h5>
+                  <a href="{{ url('about-us/jamila-zaveri') }}">
+                    <h5 class="card-title mt-3 m-3 mb-1 deu-teamname">Jamila Zaveri</h5>
                   </a>
-                    <p class="mb-3 mt-3 font-weight-bold deu-teamtxt1">Director and Mentor</p>
+                    <p class="mb-3 mt-3 font-weight-bold deu-teamtxt1">Director / Clinical Advisor</p>
                     <!-- <div class="px-4">
                         <button class="deu-aboutbtn1 px-4 w-100 py-2 mb-3">Know More</button>
                     </div> -->
                     <ul class="list-inline">
-                        <li class="list-inline-item"><a target="_blank" href="https://www.facebook.com/profile.php?id=100010167575477"> <i class="fa fa-facebook-official deu-teamsocial d-flex align-items-center justify-content-center larger deu-teamfa" aria-hidden="true"></i></a>       
+                        <li class="list-inline-item"><a target="_blank" href="https://www.facebook.com/jamila.zaveri"> <i class="fa fa-facebook-official deu-teamsocial d-flex align-items-center justify-content-center larger deu-teamfa" aria-hidden="true"></i></a>       
                         </li>
-                        <li class="list-inline-item"><a target="_blank" href="https://www.instagram.com/khuzemtambawala/"> <i class="fa fa-instagram deu-teamsocial d-flex align-items-center justify-content-center deu-teamfa" aria-hidden="true"></i></a>
+                        <li class="list-inline-item"><a target="_blank" href="https://www.instagram.com/jamilamktz/"> <i class="fa fa-instagram deu-teamsocial d-flex align-items-center justify-content-center deu-teamfa" aria-hidden="true"></i></a>
                         </li>
-                        <li class="list-inline-item"><a  target="_blank" href="https://www.linkedin.com/in/khuzem-tambawala-21552a79/"> <i class="fa fa-linkedin-square deu-teamsocial d-flex align-items-center justify-content-center deu-teamfa" aria-hidden="true"></i></a>
+                        <li class="list-inline-item"><a  target="_blank" href="https://www.linkedin.com/in/dr-jamila-tambawala/"> <i class="fa fa-linkedin-square deu-teamsocial d-flex align-items-center justify-content-center deu-teamfa" aria-hidden="true"></i></a>
                         </li>
                     </ul>
                 </div>
             </div>
         </div>
+        <div class="col-12 col-lg">
+            <div class="card deu-teamcards" aos="fade-right">
+                <div class="card-body text-center pt-5">
+                    <a href="{{ url('about-us/fatima-khuzem') }}">
+                      <div class="hovereffect_team">
+                        <img aos="zoom-in" src="{{ asset('public/image/Fathima.jfif') }}" class="img-fluid" width="300" height="250">
+                      </div>
+                    </a>
+                    <a href="{{ url('about-us/fatima-khuzem') }}">
+                      <h5 class="card-title mt-3 m-3 mb-1 deu-teamname">Fatima Khuzem</h5>
+                    </a>
+                    <p class="mb-3 mt-3 font-weight-bold deu-teamtxt1">Director [UK & EU]</p>
+                    <!-- <div class="px-4">
+                        <button class="deu-aboutbtn1 px-4 w-100 py-2 mb-3">Know More</button>
+                    </div> -->
+                    <ul class="list-inline">
+                        <li class="list-inline-item"><a target="_blank" href="https://www.facebook.com/fatima.khuzem"> <i class="fa fa-facebook-official deu-teamsocial d-flex align-items-center justify-content-center larger deu-teamfa" aria-hidden="true"></i></a>       
+                        </li>
+                        <li class="list-inline-item"><a target="_blank" href="https://www.instagram.com/fatimakhuzem/"> <i class="fa fa-instagram deu-teamsocial d-flex align-items-center justify-content-center deu-teamfa" aria-hidden="true"></i></a>
+                        </li>
+                        <li class="list-inline-item"><a  target="_blank" href="https://www.linkedin.com/in/fatima-khuzem/"> <i class="fa fa-linkedin-square deu-teamsocial d-flex align-items-center justify-content-center deu-teamfa" aria-hidden="true"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        
     </div>
 </div>
 
