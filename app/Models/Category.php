@@ -66,7 +66,7 @@ class Category extends Model
   public static function singleCat($slug)
   {
 
-    $value=DB::table('category')->where('category_slug','=',$slug)->first(); 
+    $value=DB::table('category')->where('category_slug','=',$slug)->where('category_status','=','1')->where('drop_status','=','no')->where('language_code','=','en')->first(); 
     return $value;
 	
   }	
