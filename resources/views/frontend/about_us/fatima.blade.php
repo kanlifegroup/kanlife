@@ -114,7 +114,16 @@ Fatima Khuzem
             <div class="team_name">
               <h1 style="font-weight: 900; color:#00979E">Fatima Khuzem</h1>
               <h5>Director [UK & EU]</h5>
+              <ul class="list-inline">
+                        <li class="list-inline-item"><a target="_blank" href="https://www.facebook.com/fatima.khuzem"> <i class="fa fa-facebook-official deu-teamsocial d-flex align-items-center justify-content-center larger deu-teamfa" aria-hidden="true"></i></a>       
+                        </li>
+                        <li class="list-inline-item"><a target="_blank" href="https://www.instagram.com/fatimakhuzem/"> <i class="fa fa-instagram deu-teamsocial d-flex align-items-center justify-content-center deu-teamfa" aria-hidden="true"></i></a>
+                        </li>
+                        <li class="list-inline-item"><a  target="_blank" href="https://www.linkedin.com/in/fatima-khuzem/"> <i class="fa fa-linkedin-square deu-teamsocial d-flex align-items-center justify-content-center deu-teamfa" aria-hidden="true"></i></a>
+                        </li>
+                    </ul>
             </div>
+            
           </div>
         </div>
     </div>

@@ -1435,7 +1435,7 @@ body {
 }
 
 .deu-meethead {
-  color: #FFFFFF;
+  color: #3188CA;
   font-family: 'Josefin Sans', sans-serif;
   font-size: 4rem;
   font-weight: 600;
@@ -1829,9 +1829,9 @@ body {
 .deu-thumbss {
   color: #000000;
   font-family: 'Josefin Sans', sans-serif;
-  font-size: 1.875rem;
+  font-size: 1.75rem;
   font-weight: 600;
-  padding: 38px;
+  padding: 38px 0;
   text-align: center;
 }
 

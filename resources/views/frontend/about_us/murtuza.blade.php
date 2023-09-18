@@ -114,6 +114,14 @@ Murtuza Tambawala
               <div class="team_name">
                 <h1 style="font-weight: 900; color:#00979E">Murtuza Tambawala</h1>
                 <h5>Founder / CEO</h5>
+                <ul class="list-inline">
+                        <li class="list-inline-item"><a target="_blank" href="https://www.facebook.com/murtuza.tambawala.75"> <i class="fa fa-facebook-official deu-teamsocial d-flex align-items-center justify-content-center larger deu-teamfa" aria-hidden="true"></i></a>       
+                        </li>
+                        <li class="list-inline-item"><a target="_blank" href="https://www.instagram.com/murtuzakt16/"> <i class="fa fa-instagram deu-teamsocial d-flex align-items-center justify-content-center deu-teamfa" aria-hidden="true"></i></a>
+                        </li>
+                        <li class="list-inline-item"><a  target="_blank" href="https://www.linkedin.com/in/murtuza-tambawala-7736844/"> <i class="fa fa-linkedin-square deu-teamsocial d-flex align-items-center justify-content-center deu-teamfa" aria-hidden="true"></i></a>
+                        </li>
+                    </ul>
               </div>
             </div>
           </div>
