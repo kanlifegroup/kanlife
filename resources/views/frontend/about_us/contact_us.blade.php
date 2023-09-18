@@ -28,7 +28,7 @@
 
 @section('content')
 
-<div class="container-fluid bgteam-overlay" style="background:url({{asset('public/kanlife/contact_us.png')}});background-size: cover;background-position: center center;background-repeat: no-repeat;">
+<div class="container-fluid bgteam-overlay" style="background:url({{asset('public/kanlife/contact_us.jpg')}});background-size: cover;background-position: center center;background-repeat: no-repeat;">
     <div class="text-left">
         <h1 class="deu-meethead">Connect With Us</h1>
     </div>

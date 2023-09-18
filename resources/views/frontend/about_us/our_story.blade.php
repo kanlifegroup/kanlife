@@ -73,7 +73,7 @@
            
             <div class="row mb-5 align-items-center">
                 <div class="col-md-6 col-sm-6 pe-5">
-                <img class="img-fluid" aos="fade-right" src="{{ asset('public/kanlife/mission2.jpg') }}">
+                <img class="img-fluid" aos="fade-right" src="{{ asset('public/kanlife/mission.jpg') }}">
                 </div>
                 
                 <div class="col-md-6 col-sm-6 ps-5">

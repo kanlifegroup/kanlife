@@ -96,7 +96,7 @@
     <div class="row mt-3 align-items-center">
       <div class="col-md-5 col-sm-6 h-100">
         <div class="about-img d-flex align-items-center" aos="fade-right">
-          <img class="img-fluid deu-marg" src="{{ asset('public/image/about.png') }}" alt="">
+          <img class="img-fluid deu-marg" src="{{ asset('public/kanlife/home_about_us.jpg') }}" alt="">
         </div>
       </div>
       <div class="col-md-7 col-sm-6" aos="fade-left">
