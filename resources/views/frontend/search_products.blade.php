@@ -23,11 +23,11 @@
 
 @section('content')
 
-<div class="container-fluid bgteam-overlay" style="background:url({{asset('public/kanlife/our_products.png')}});">
+<!-- <div class="container-fluid bgteam-overlay" style="background:url({{asset('public/kanlife/our_products.png')}});">
 	<div class="text-left">
 		<h1 class="deu-meethead">Our Products</h1>
 	</div>
-</div>
+</div> -->
 
 <div class="container">
   <h3 class="text-center mt-5 mb-5 deu-bloghead">Products</h3>

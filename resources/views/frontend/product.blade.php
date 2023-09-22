@@ -42,10 +42,13 @@
 @endsection
 
 @section('content')
-<div class="container-fluid bgteam-overlay" style="background:url({{asset('public/kanlife/product_details.jpg')}});background-size: cover;background-position: center center;background-repeat: no-repeat;">
+<!-- <div class="container-fluid bgteam-overlay" style="background:url({{asset('public/kanlife/product_details.jpg')}});background-size: cover;background-position: center center;background-repeat: no-repeat;">
 	<div class="text-left">
 		<h1 class="deu-meethead">Product Details</h1>
 	</div>
+</div> -->
+<div class="container">
+  <h3 class="text-center mt-5 mb-5 deu-bloghead">Product Details</h3>
 </div>
 
 <div class="container-fluid px-4 mt-5 mb-5">
