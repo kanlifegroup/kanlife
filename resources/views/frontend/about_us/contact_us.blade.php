@@ -27,7 +27,13 @@
 @endsection
 
 @section('content')
-
+@if (session('success'))
+        <div class="col-sm-12">
+        <div class="alert  alert-success alert-dismissible fade show" role="alert">
+            {{ session('success') }}
+        </div>
+    </div>
+@endif
 <div class="container-fluid bgteam-overlay" style="background:url({{asset('public/kanlife/contact_us.png')}});background-size: cover;background-position: center center;background-repeat: no-repeat;">
     <div class="text-left">
         <h1 class="deu-meethead">Connect With Us</h1>
@@ -100,52 +106,62 @@
     <div class="row deu-conborderss">
         <div class="col-md-12">
             <div class="container">
-                <form class="form-horizontal" aos="fade-right">
+                <form class="form-horizontal" aos="fade-right" method="post" action="{{ route('save.contact') }}">
+                  @csrf
                     <div class="form-group row justify-content-center px-3">
                         <div class="col-9 px-0">
                             <label class="deu-contactadress1">Name</label>
-                            <input type="text" placeholder="Enter Name"
+                            <input name="name" required type="text" placeholder="Enter Name" @auth value="{{Auth::user()->name}}" @endauth style="font-size: 20px;padding: 16px !important;"
                                 class="form-control border-info placeicon deu-logininputs">
                         </div>
                     </div>
                     <div class="form-group row justify-content-center px-3">
                         <div class="col-9 px-0">
                             <label class="deu-contactadress1">Phone Number</label>
-                            <input type="text" placeholder="Enter Phone Number"
+                            <input name="phone" onkeypress='return /^[0-9\s]*$/.test(event.key)' maxlength='10' minlength="10" type="text" placeholder="Enter Phone Number" @auth value="{{Auth::user()->user_phone}}" @endauth style="font-size: 20px;padding: 16px !important;"
                                 class="form-control border-info placeicon deu-logininputs">
                         </div>
                     </div>
                     <div class="form-group row justify-content-center px-3">
                         <div class="col-9 px-0">
                             <label class="deu-contactadress1">Email ID</label>
-                            <input type="text" placeholder="Enter Email ID"
+                            <input name="email" required type="email" placeholder="Enter Email ID" @auth value="{{Auth::user()->email}}" @endauth style="font-size: 20px;padding: 16px !important;"
                                 class="form-control border-info placeicon deu-logininputs">
                         </div>
                     </div>
+                    @auth
+                      @php
+                        $address = '';
+                        if(Auth::user()->user_address) $address .= Auth::user()->user_address;
+                        if(Auth::user()->user_city) $address .= ' ,'.Auth::user()->user_city;
+                        if(Auth::user()->user_state) $address .= ' ,'.Auth::user()->user_state;
+                        if(Auth::user()->user_pincode) $address .= ' ,'.Auth::user()->user_pincode;
+                      @endphp
+                    @endauth
                     <div class="form-group row justify-content-center px-3">
                         <div class="col-9 px-0">
                             <label class="deu-contactadress1">Address</label>
-                            <input type="text" placeholder="House number and street name"
+                            <input name="address" type="text" placeholder="House number and street name" @auth value="{{$address}}" @endauth style="font-size: 20px;padding: 16px !important;"
                                 class="form-control border-info placeicon deu-logininputs">
                         </div>
                     </div>
                     <div class="form-group row justify-content-center px-3">
                         <div class="col-9 px-0">
                             <label class="deu-contactadress1">Message</label>
-                            <textarea class="form-control deu-logininputs" rows="3" placeholder="Enter Message"
-                                id="comment"></textarea>
+                            <textarea required name="message" class="form-control deu-logininputs" rows="3" placeholder="Enter Message"
+                            style="font-size: 20px;padding: 16px !important;" id="comment"></textarea>
                         </div>
                     </div>
                     <div class="form-group row justify-content-center px-3">
                         <div class="col-9 px-0">
                             <div class="form-check-inline">
                                 <label class="form-check-label deu-contactadress1">
-                                    <input type="radio" class="form-check-input me-3" name="optradio">Dealer
+                                    <input required name="type" type="radio" value="Dealer" class="form-check-input me-3" >Dealer
                                 </label>
                             </div>
                             <div class="form-check-inline">
                                 <label class="form-check-label deu-contactadress1">
-                                    <input type="radio" class="form-check-input me-3" name="optradio">Partner
+                                    <input required name="type" type="radio" value="Partner" class="form-check-input me-3" >Partner
                                 </label>
                             </div>
                         </div>

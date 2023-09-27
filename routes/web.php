@@ -209,6 +209,11 @@ Route::group(['middleware' => ['is_admin', 'XSS', 'HtmlMinifier']], function () 
 	Route::get('/admin/price-enquiries', 'Admin\ProductController@view_enquiries')->middleware('cacheable:5');
 	Route::get('/admin/replied-to-enquiry/{id}', 'Admin\ProductController@update_enquiry');
 	/* price enquiry */
+
+   /* contact us */
+	Route::get('/admin/contact-us/list', 'Admin\CommonController@list_contact_us')->middleware('cacheable:5');
+	Route::get('/admin/contact-us/detail/{id}', 'Admin\CommonController@view_contact_us');
+	/* contact us */
 	
 	
 	/* attribute type */
@@ -485,6 +490,7 @@ Route::group(['middleware' => ['XSS','web', 'HtmlMinifier']], function () {
   Route::get('/set-my-location/{location}', 'CommonController@setLocation');
   Route::get('/about-us/our-story', 'CommonController@ourStory')->name('about.story');
   Route::get('/about-us/contact-us', 'CommonController@contactUs')->name('about.contact');
+  Route::post('/save/contact-us', 'CommonController@saveContactUs')->name('save.contact');
   Route::get('/about-us/our-team', 'CommonController@ourTeam')->name('about.team');
   Route::get('/about-us/our-blogs', 'CommonController@ourBlog')->name('about.blog');
   Route::get('/about-us/blogs-detail/{id}', 'CommonController@blogDetail')->name('about.detail.blog');

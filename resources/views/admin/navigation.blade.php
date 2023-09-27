@@ -144,12 +144,12 @@
                         <a href="{{ url('/admin/testimonials') }}"> <i class="menu-icon fa fa-image"></i> Testimonials </a>
                     </li>
                     @endif
-                    @if(Auth::user()->user_type == 'deuglo')
                     @if(in_array('contact',$avilable))                                      
                     <li>
-                        <a href="{{ url('/admin/contact') }}"> <i class="menu-icon fa fa-address-book-o"></i>{{ Helper::translation(2012,$translate,'') }} </a>
+                        <a href="{{ url('/admin/contact-us/list') }}"> <i class="menu-icon fa fa-address-book-o"></i>{{ Helper::translation(2012,$translate,'') }} </a>
                     </li>
                     @endif
+                    @if(Auth::user()->user_type == 'deuglo')
                     @if($allsettings->site_newsletter_display == 1)
                     @if(in_array('newsletter',$avilable))
                     <li>

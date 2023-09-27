@@ -10,6 +10,7 @@ use ZigKart\Models\Pages;
 use ZigKart\Models\Settings;
 use ZigKart\Models\Events;
 use ZigKart\Models\Members;
+use ZigKart\Models\ContactUs;
 use Auth;
 use Mail;
 use Purifier;
@@ -38,6 +39,20 @@ class CommonController extends Controller
 		
 	}
 	
+  	/* contact us */
+    public function list_contact_us()
+    {	  
+      $enquiries = ContactUs::latest()->get();
+      $data = array('enquiries' => $enquiries);
+       return view('admin.contactUs')->with($data);
+    }
+    public function view_contact_us($id)
+    {
+      $enquiry = ContactUs::find($id);
+      $data = array('enquiry' => $enquiry);
+       return view('admin.contactUsDetail')->with($data);
+    }
+    /* contact us */
 	
 	public function view_contact()
 	{
