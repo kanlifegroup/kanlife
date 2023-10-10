@@ -13,6 +13,7 @@ use ZigKart\Models\Product;
 use ZigKart\Models\Category;
 use ZigKart\Models\Attribute;
 use ZigKart\Models\Testimonial;
+use ZigKart\Models\ContactUs;
 use Mail;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Input;
@@ -266,6 +267,12 @@ class CommonController extends Controller
 
   public function contactUs(){
     return view('frontend.about_us.contact_us');
+  }
+
+  public function saveContactUs(Request $request){
+    $data = $request->except('_token');
+    ContactUs::insert($data);
+    return redirect()->route('about.contact')->with('success', 'Your message sent successfully.');
   }
 
   public function ourTeam(){

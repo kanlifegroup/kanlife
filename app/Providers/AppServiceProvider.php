@@ -105,7 +105,7 @@ class AppServiceProvider extends ServiceProvider
 		View::share('footerpages', $footerpages);
 		
 		// $permission = array('dashboard' => 'Dashboard', 'settings' => 'Settings', 'block-section' => 'Block Section', 'tax' => 'Tax', 'manage-categories' => 'Manage Categories', 'products' => 'Products', 'blog' => 'Blog', 'ads' => 'Ads', 'pages' => 'Pages', 'slideshow' => 'Slideshow', 'contact' => 'Contact', 'newsletter' => 'Newsletter', 'languages' => 'Languages', 'clear-cache' => 'Clear Cache');
-		$permission = array('dashboard' => 'Dashboard', 'manage-categories' => 'Manage Categories', 'products' => 'Products', 'blog' => 'Blog', 'ads' => 'Ads', 'slideshow' => 'Slideshow', 'contact' => 'Contact', 'testimonials'=>'Testimonial');
+		$permission = array('dashboard' => 'Dashboard', 'manage-categories' => 'Manage Categories', 'products' => 'Products', 'blog' => 'Blog', 'slideshow' => 'Slideshow', 'contact' => 'Contact', 'testimonials'=>'Testimonial');
 		View::share('permission', $permission);
 		
 		
