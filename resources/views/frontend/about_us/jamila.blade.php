@@ -112,7 +112,7 @@ Jamila Zaveri
           </div>
           <div class="col-md-9 name-container">
             <div class="team_name">
-              <h1 style="font-weight: 900; color:#00979E">Jamila Zaveri</h1>
+              <h1 style="font-weight: 900; color:#00979E"> Dr. Jamila Zaveri</h1>
               <h5>Director / Clinical Advisor</h5>
               <ul class="list-inline">
                         <li class="list-inline-item"><a target="_blank" href="https://www.facebook.com/jamila.zaveri"> <i class="fa fa-facebook-official deu-teamsocial d-flex align-items-center justify-content-center larger deu-teamfa" aria-hidden="true"></i></a>       
@@ -134,7 +134,7 @@ Jamila Zaveri
             <h3 style="font-weight: 700">Professional Bio</h3> <br>
             <p class="mb-0" >
               <h4>
-              Dr. Jamila Tambawala has more than 15 years of demonstrable hospital experience and accredited medical degrees including MBBS, PGDCC, CCEBDM, CCMTD, with extensive experience in the areas of Cardiology, Diabetes, Medical Diagnosis, Testing Patients, and managing day-to-day Hospital Operations.<br><br>
+              Dr. Jamila Zaveri has more than 15 years of demonstrable hospital experience and accredited medical degrees including MBBS, PGDCC, CCEBDM, CCMTD, with extensive experience in the areas of Cardiology, Diabetes, Medical Diagnosis, Testing Patients, and managing day-to-day Hospital Operations.<br><br>
 
 She has specialized knowledge in the areas of clinical assessment of patients with Diabetes, Cardiology cases, and Thyroid disorders management. In addition to conducting non-invasive cardiac tests such as ECHO, TMT, and HOLTER, she is also proficient in managing patients and complications in the ICU.<br><br>
 

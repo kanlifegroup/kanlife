@@ -221,7 +221,7 @@
                     </figure>
                   </div>
                   <div class="card-body text-center">
-                    <a href="{{ url('about-us/jamila-zaveri') }}" class="card-title title-link mt-5">Jamila Zaveri</a>
+                    <a href="{{ url('about-us/jamila-zaveri') }}" class="card-title title-link mt-5">Dr. Jamila Zaveri</a>
                     <p class="card-txt mt-2">Director / Clinical Advisor</p>
                     <p class="card-text mt-3 mb-4">
                     <a target="_blank" href="https://www.facebook.com/jamila.zaveri"> <i class="fa fa-facebook-official larger deu-teamfa" aria-hidden="true"></i></a>
