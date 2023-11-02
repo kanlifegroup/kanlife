@@ -51,7 +51,7 @@
             </a>
           </div>
           <div class="order-1 order-md-2 col-md-5 rideone d-flex justify-content-md-end justify-content-center mb-4 mb-md-0 align-items-center">
-            <img class="img-fluid deu-buyheight" src="{{ asset('public/image/buy1.png') }}">
+            <img alt="Buy Medical Equipment" class="img-fluid deu-buyheight" src="{{ asset('public/image/buy1.png') }}">
           </div>
         </div>
       </div>
@@ -66,7 +66,7 @@
             </a>
           </div>
           <div class="order-1 order-md-2 col-md-5 rideone d-flex justify-content-md-end justify-content-center mb-4 mb-md-0 align-items-center">
-            <img class="img-fluid deu-buyheight" src="{{ asset('public/image/buy2.png') }}">
+            <img alt="Rent Medical Equipment" class="img-fluid deu-buyheight" src="{{ asset('public/image/buy2.png') }}">
           </div>
         </div>
       </div>
@@ -81,7 +81,7 @@
             </a>
           </div>
           <div class="order-1 order-md-2 col-md-5 rideone d-flex justify-content-md-end justify-content-center mb-4 mb-md-0 align-items-center">
-            <img class="img-fluid deu-buyheight" src="{{ asset('public/image/buy3.png') }}">
+            <img alt="Consult A Dr" class="img-fluid deu-buyheight" src="{{ asset('public/image/buy3.png') }}">
           </div>
         </div>
       </div>
@@ -96,7 +96,7 @@
     <div class="row mt-3 align-items-center">
       <div class="col-md-5 col-sm-6 h-100">
         <div class="about-img d-flex align-items-center" aos="fade-right">
-          <img class="img-fluid deu-marg" src="{{ asset('public/kanlife/home_about_us.jpg') }}" alt="">
+          <img class="img-fluid deu-marg" src="{{ asset('public/kanlife/home_about_us.jpg') }}" alt="About Us">
         </div>
       </div>
       <div class="col-md-7 col-sm-6" aos="fade-left">
@@ -166,7 +166,7 @@
                   <div class="project m-0">
                     <figure class="portfolio-item">
                       <div class="hovereffect">
-                        <img class="img-responsive" src="{{ asset('public/image/Khuzema Tambawala.png') }}" alt="">
+                        <img class="img-responsive" src="{{ asset('public/image/Khuzema Tambawala.png') }}" alt="Khuzema Tambawala">
                       </div>
                     </figure>
                   </div>
@@ -190,7 +190,7 @@
                   <div class="project m-0">
                     <figure class="portfolio-item">
                       <div class="hovereffect">
-                        <img class="img-responsive" src="{{ asset('public/image/Murtaza Tambawala.png') }}" alt="">
+                        <img class="img-responsive" src="{{ asset('public/image/Murtaza Tambawala.png') }}" alt="Murtuza Tambawala">
                       </div>
                     </figure>
                   </div>
@@ -216,7 +216,7 @@
                   <div class="project m-0">
                     <figure class="portfolio-item">
                       <div class="hovereffect">
-                        <img class="img-responsive" src="{{ asset('public/image/jamila.jfif') }}" alt="">
+                        <img class="img-responsive" src="{{ asset('public/image/jamila.jfif') }}" alt="Dr. Jamila Zaveri">
                       </div>
                     </figure>
                   </div>
@@ -240,7 +240,7 @@
                   <div class="project m-0">
                     <figure class="portfolio-item">
                       <div class="hovereffect">
-                        <img class="img-responsive" src="{{ asset('public/image/Fathima.jfif') }}" alt="">
+                        <img class="img-responsive" src="{{ asset('public/image/Fathima.jfif') }}" alt="Fatima Khuzem">
                       </div>
                     </figure>
                   </div>
@@ -318,9 +318,9 @@
         <div class="row col-md-12">
           <div class="col-md-4">
             @if($testimonial->image!='')
-            <img class="img-fluid" src="{{ url('/') }}/public/storage/testimonial/{{ $testimonial->image }}" alt="">
+            <img  class="img-fluid" src="{{ url('/') }}/public/storage/testimonial/{{ $testimonial->image }}" alt="{{$testimonial->name}}">
             @else
-            <img class="img-fluid" src="{{ asset('public/image/testimonial.png') }}" alt="">
+            <img class="img-fluid" src="{{ asset('public/image/testimonial.png') }}" alt="{{$testimonial->name}}">
             @endif
           </div>
           <div class="col-md-8">

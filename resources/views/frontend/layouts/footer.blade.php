@@ -15,7 +15,7 @@
           </div>
           <div class="social-bg d-flex justify-content-center align-items-center">
             <a href="https://lnkd.in/g3NJ6F5M">
-            <img src="{{ asset('public/image/instragam.svg') }}" alt="" class="img-fluid">
+            <img src="{{ asset('public/image/instragam.svg') }}" alt="instagram" class="img-fluid">
             </a>
           </div>
           <div class="social-bg d-flex justify-content-center align-items-center">
@@ -57,8 +57,8 @@
         <p class="foot-head">Get in touch</p>
         <div class="row">
           <div class="sleek-border mt-2">
-            <p class="foot-content pb-2"><img class="top-navemail" src="{{ asset('public/img/call.png') }}">080 4224 2929</p>
-            <p class="foot-content pb-2"><img class="top-navemail" src="{{ asset('public/image/email.svg') }}" />india@kanlifemedical.asia</p>
+            <p class="foot-content pb-2"><img class="top-navemail" alt="knalife phone number" src="{{ asset('public/img/call.png') }}">080 4224 2929</p>
+            <p class="foot-content pb-2"><img class="top-navemail" alt="kanlife email" src="{{ asset('public/image/email.svg') }}" />india@kanlifemedical.asia</p>
           </div>
         </div>
       </div>

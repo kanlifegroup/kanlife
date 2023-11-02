@@ -22,7 +22,7 @@
 <div class="row">
     <div class="col-md-7">
     <i class="fa fa-facebook top-navsocial" aria-hidden="true"></i>
-    <img class="top-navsocials" src="image/instragam.svg">
+    <img class="top-navsocials" alt="instagram" src="image/instragam.svg">
     <i class="fa fa-youtube-play top-navsocial" aria-hidden="true"></i>
     <i class="fa fa-twitter top-navsocial" aria-hidden="true"></i>
     <i class="fa fa-linkedin top-navsocial" aria-hidden="true"></i>

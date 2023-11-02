@@ -20,16 +20,16 @@
 <div class="row">
     <div class="col-md-7">
     <i class="fa fa-facebook top-navsocial" aria-hidden="true"></i>
-    <img class="top-navsocials" src="image/instragam.svg">
+    <img class="top-navsocials" alt="instagram" src="image/instragam.svg">
     <i class="fa fa-youtube-play top-navsocial" aria-hidden="true"></i>
     <i class="fa fa-twitter top-navsocial" aria-hidden="true"></i>
     <i class="fa fa-linkedin top-navsocial" aria-hidden="true"></i>
     </div>
     <div class="col-md-3">
-        <p><img class="top-navemail" src="image/email.svg"> <span class="kan-email">contact@kanlifemedical.asia<span></p>
+        <p><img class="top-navemail" alt="kanlife email" src="image/email.svg"> <span class="kan-email">contact@kanlifemedical.asia<span></p>
     </div>
     <div class="col-md-2">
-        <p><img class="top-navemail" src="image/global.svg"> 
+        <p><img class="top-navemail" alt="kanlife branches" src="image/global.svg"> 
         <span class="kan-email">
             <select class="top-navselect">
                 <option class="top-select">India</option>
@@ -45,7 +45,7 @@
 <nav class="navbar navbar-expand-lg">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">
-       <img src="image/logo.png" width="" class="logo img-fluid"/>
+       <img src="image/logo.png" alt="kanlife logo" width="" class="logo img-fluid"/>
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -114,7 +114,7 @@
             <a class="dropdown-item deu-accountpad" href="#">Log Out</a>
             </div>
         </div>
-        <a class="nav-link" href="#"><img class="deu-cart" src="image/cart.svg"> <span class="deu-cartxts">2</span></a>
+        <a class="nav-link" href="#"><img class="deu-cart" alt="cart" src="image/cart.svg"> <span class="deu-cartxts">2</span></a>
       </div>
     </div>
   </div>
@@ -131,21 +131,21 @@
   <!-- The slideshow -->
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img class="img-fluid deu-slideheight" src="image/slider.png" alt="">
+      <img class="img-fluid deu-slideheight" src="image/slider.png" alt="slider">
       <div class="carousel-caption deu-slidepad text-left">
         <div class="col-md-6">
             <h1 class="pb-2 deu-slidehead">Kanlife Group </h1>
             <div class="row">
                 <div class="col-md-4">
-                <img class="img-fluid deu-healthimg" src="image/s1.png">
+                <img class="img-fluid deu-healthimg" src="image/s1.png" alt="health">
                 <p class="deu-health">Health</p>
                 </div>
                 <div class="col-md-4">
-                <img class="img-fluid deu-healthimg" src="image/s2.png">
+                <img class="img-fluid deu-healthimg" src="image/s2.png" alt="medical">
                 <p class="deu-health">Medical</p>
                 </div>
                 <div class="col-md-4">
-                <img class="img-fluid deu-healthimg" src="image/s3.png">
+                <img class="img-fluid deu-healthimg" src="image/s3.png" alt="wellness">
                 <p class="deu-health">Wellness</p>
                 </div>
             </div>
@@ -153,7 +153,7 @@
       </div> 
     </div>
     <div class="carousel-item">
-      <img class="img-fluid deu-slideheight" src="image/slider.png" alt="">  
+      <img class="img-fluid deu-slideheight" src="image/slider.png" alt="slider">  
     </div>
   </div>
   <!--<a class="carousel-control-prev" href="#demo" data-slide="prev">
@@ -182,7 +182,7 @@
 						<div class="col-sm-3">
 							<div class="thumb-wrapper">
 								<div class="img-box">
-									<img src="image/c1.png" class="img-fluid deu-slideimg" alt="">
+									<img src="image/c1.png" class="img-fluid deu-slideimg" alt="Anaesthesia">
 								</div>
 								<div class="deu-thumbss">
 									<h4>Anaesthesia</h4>
@@ -192,7 +192,7 @@
 						<div class="col-sm-3">
 							<div class="thumb-wrapper">
 								<div class="img-box">
-									<img src="image/c2.png" class="img-fluid deu-slideimg" alt="">
+									<img src="image/c2.png" class="img-fluid deu-slideimg" alt="Defibrillator">
 								</div>
 								<div class="deu-thumbss">
 									<h4>Defibrillator</h4>
@@ -202,7 +202,7 @@
 						<div class="col-sm-3">
 							<div class="thumb-wrapper">
 								<div class="img-box">
-									<img src="image/c3.png" class="img-fluid deu-slideimg" alt="">
+									<img src="image/c3.png" class="img-fluid deu-slideimg" alt="Dental">
 								</div>
 								<div class="deu-thumbss">
 									<h4>Dental</h4>
@@ -212,7 +212,7 @@
 						<div class="col-sm-3">
 							<div class="thumb-wrapper">
 								<div class="img-box">
-									<img src="image/c4.png" class="img-fluid deu-slideimg" alt="">
+									<img src="image/c4.png" class="img-fluid deu-slideimg" alt="Diathermy">
 								</div>
 								<div class="deu-thumbss">
 									<h4>Diathermy</h4>
@@ -226,7 +226,7 @@
 						<div class="col-sm-3">
 							<div class="thumb-wrapper">
 								<div class="img-box">
-									<img src="image/c1.png" class="img-fluid deu-slideimg" alt="">
+									<img src="image/c1.png" class="img-fluid deu-slideimg" alt="Anaesthesia">
 								</div>
 								<div class="deu-thumbss">
 									<h4>Anaesthesia</h4>
@@ -236,7 +236,7 @@
 						<div class="col-sm-3">
 							<div class="thumb-wrapper">
 								<div class="img-box">
-									<img src="image/c2.png" class="img-fluid deu-slideimg" alt="">
+									<img src="image/c2.png" class="img-fluid deu-slideimg" alt="Anaesthesia">
 								</div>
 								<div class="deu-thumbss">
 									<h4>Anaesthesia</h4>
@@ -246,7 +246,7 @@
 						<div class="col-sm-3">
 							<div class="thumb-wrapper">
 								<div class="img-box">
-									<img src="image/c3.png" class="img-fluid deu-slideimg" alt="">
+									<img src="image/c3.png" class="img-fluid deu-slideimg" alt="Anaesthesia">
 								</div>
 								<div class="deu-thumbss">
 									<h4>Anaesthesia</h4>
@@ -256,7 +256,7 @@
 						<div class="col-sm-3">
 							<div class="thumb-wrapper">
 								<div class="img-box">
-									<img src="image/c4.png" class="img-fluid deu-slideimg" alt="">
+									<img src="image/c4.png" class="img-fluid deu-slideimg" alt="Anaesthesia">
 								</div>
 								<div class="deu-thumbss">
 									<h4>Anaesthesia</h4>
@@ -284,7 +284,7 @@
 <div class="container">
 <div class="row">
     <div class="col-md-12">
-    <img class="img-fluid" src="image/video.png" style="width: 100%;">
+    <img class="img-fluid" alt="kanlife video" src="image/video.png" style="width: 100%;">
     </div>	
 </div>
 </div>
@@ -313,7 +313,7 @@
                 <li><a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a></li>
               </ul>
                     <figure>
-                        <img src="image/f1.png" class="img-fluid doc-img animate attachment-gallery-post-single wp-post-image" alt=""> 
+                        <img src="image/f1.png" class="img-fluid doc-img animate attachment-gallery-post-single wp-post-image" alt="Cardiskan"> 
                     </figure>
                         <div class="text-content">
                             <h5 class="deu-pro">Cardiskan</h5>
@@ -334,7 +334,7 @@
                 <li><a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a></li>
               </ul>
                     <figure>
-                        <img src="image/f2.png" class="img-fluid doc-img animate attachment-gallery-post-single wp-post-image" alt=""> 
+                        <img src="image/f2.png" class="img-fluid doc-img animate attachment-gallery-post-single wp-post-image" alt="Skansiesta"> 
                     </figure>
                         <div class="text-content">
                             <h5 class="deu-pro">Skansiesta</h5>
@@ -354,7 +354,7 @@
                 <li><a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a></li>
               </ul>
                     <figure>
-                        <img src="image/f3.png" class="img-fluid doc-img animate attachment-gallery-post-single wp-post-image" alt=""> 
+                        <img src="image/f3.png" class="img-fluid doc-img animate attachment-gallery-post-single wp-post-image" alt="Dental"> 
                     </figure>
                         <div class="text-content">
                             <h5 class="deu-pro">Dental</h5>
@@ -374,7 +374,7 @@
                 <li><a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a></li>
               </ul>
                     <figure>
-                        <img src="image/f4.png" class="img-fluid doc-img animate attachment-gallery-post-single wp-post-image" alt=""> 
+                        <img src="image/f4.png" class="img-fluid doc-img animate attachment-gallery-post-single wp-post-image" alt="Diathermy"> 
                     </figure>
                         <div class="text-content">
                             <h5 class="deu-pro">Diathermy</h5>
@@ -392,7 +392,7 @@
 						<div class="col-sm-3">
 							<div class="thumb-wrapper">
 								<div class="img-box">
-									<img src="image/c1.png" class="img-fluid deu-slideimg" alt="">
+									<img src="image/c1.png" class="img-fluid deu-slideimg" alt="Anaesthesia">
 								</div>
 								<div class="deu-thumbss">
 									<h4>Anaesthesia</h4>
@@ -402,7 +402,7 @@
 						<div class="col-sm-3">
 							<div class="thumb-wrapper">
 								<div class="img-box">
-									<img src="image/c2.png" class="img-fluid deu-slideimg" alt="">
+									<img src="image/c2.png" class="img-fluid deu-slideimg" alt="Anaesthesia">
 								</div>
 								<div class="deu-thumbss">
 									<h4>Anaesthesia</h4>
@@ -412,7 +412,7 @@
 						<div class="col-sm-3">
 							<div class="thumb-wrapper">
 								<div class="img-box">
-									<img src="image/c3.png" class="img-fluid deu-slideimg" alt="">
+									<img src="image/c3.png" class="img-fluid deu-slideimg" alt="Anaesthesia">
 								</div>
 								<div class="deu-thumbss">
 									<h4>Anaesthesia</h4>
@@ -422,7 +422,7 @@
 						<div class="col-sm-3">
 							<div class="thumb-wrapper">
 								<div class="img-box">
-									<img src="image/c4.png" class="img-fluid deu-slideimg" alt="">
+									<img src="image/c4.png" class="img-fluid deu-slideimg" alt="Anaesthesia">
 								</div>
 								<div class="deu-thumbss">
 									<h4>Anaesthesia</h4>
@@ -454,7 +454,7 @@
     <div class="deu-sellbg">
         <div class="row">
         <div class="col-lg-5 col-md-5 rideone">
-            <img class="img-fluid deu-sellwiD" src="image/p1.png">
+            <img class="img-fluid deu-sellwiD" src="image/p1.png" alt="Digital Stethoscope">
         </div>
         <div class="col-lg-7 col-md-7 fontsty">
             <h4 class="deu-digitalhead">Digital Stethoscope</h4>
@@ -468,7 +468,7 @@
     <div class="deu-sellbg">
         <div class="row">
         <div class="col-lg-5 col-md-5 rideone">
-            <img class="img-fluid deu-sellwiD" src="image/p2.png">
+            <img class="img-fluid deu-sellwiD" src="image/p2.png" alt="Thermometer Gun">
         </div>
         <div class="col-lg-7 col-md-7 fontsty">
             <h4 class="deu-digitalhead">Thermometer Gun</h4>
@@ -482,7 +482,7 @@
     <div class="deu-sellbg">
         <div class="row">
         <div class="col-lg-5 col-md-5 rideone">
-            <img class="img-fluid deu-sellwiD" src="image/p3.png">
+            <img class="img-fluid deu-sellwiD" src="image/p3.png" alt="Thermometer Gun">
         </div>
         <div class="col-lg-7 col-md-7 fontsty">
             <h4 class="deu-digitalhead">Thermometer Gun</h4>
@@ -498,7 +498,7 @@
     <div class="deu-sellbg">
         <div class="row">
         <div class="col-lg-5 col-md-5 rideone">
-            <img class="img-fluid deu-sellwiD" src="image/p4.png">
+            <img class="img-fluid deu-sellwiD" src="image/p4.png" alt="Wheel Chair">
         </div>
         <div class="col-lg-7 col-md-7 fontsty">
             <h4 class="deu-digitalhead">Wheel Chair</h4>
@@ -512,7 +512,7 @@
     <div class="deu-sellbg">
         <div class="row">
         <div class="col-lg-5 col-md-5 rideone">
-            <img class="img-fluid deu-sellwiD" src="image/p5.png">
+            <img class="img-fluid deu-sellwiD" src="image/p5.png" alt="Cardiskan">
         </div>
         <div class="col-lg-7 col-md-7 fontsty">
             <h4 class="deu-digitalhead">Cardiskan</h4>
@@ -526,7 +526,7 @@
     <div class="deu-sellbg">
         <div class="row">
         <div class="col-lg-5 col-md-5 rideone">
-            <img class="img-fluid deu-sellwiD" src="image/p6.png">
+            <img class="img-fluid deu-sellwiD" src="image/p6.png" alt="Skansiesta">
         </div>
         <div class="col-lg-7 col-md-7 fontsty">
             <h4 class="deu-digitalhead">Skansiesta</h4>

@@ -3,17 +3,17 @@
   <div class="row">
     <div class="col-md-7">
       <i class="fa fa-facebook top-navsocial" aria-hidden="true"></i>
-      <img class="top-navsocials" src="{{ asset('public/image/instragam.svg') }}">
+      <img class="top-navsocials" alt="instagram" src="{{ asset('public/image/instragam.svg') }}">
       <i class="fa fa-youtube-play top-navsocial" aria-hidden="true"></i>
       <i class="fa fa-twitter top-navsocial" aria-hidden="true"></i>
       <i class="fa fa-linkedin top-navsocial" aria-hidden="true"></i>
     </div>
     <div class="col-md-3">
-        <p><img class="top-navemail" src="{{ asset('public/image/email.svg') }}"> <span class="kan-email">contact@kanlifemedical.asia<span></p>
+        <p><img class="top-navemail"  alt="email"  src="{{ asset('public/image/email.svg') }}"> <span class="kan-email">contact@kanlifemedical.asia<span></p>
     </div>
     <div class="col-md-2">
       <p>
-        <img class="top-navemail" src="{{ asset('public/image/global.svg') }}"> 
+        <img class="top-navemail"  alt="country-dropdown" src="{{ asset('public/image/global.svg') }}"> 
         <span class="kan-email">
           <select class="top-navselect" onchange="set_location(this.value)">
             <option {{$user_location == 'india' ? 'selected' : ''}} value="india" class="top-select">India</option>
@@ -37,7 +37,7 @@
       </div>
       <div class="social-bg d-flex justify-content-center align-items-center">
         <a href="https://lnkd.in/g3NJ6F5M">
-        <img src="{{ asset('public/image/instragam.svg') }}" alt="" class="img-fluid">
+        <img src="{{ asset('public/image/instragam.svg') }}" alt="instagram-logo" class="img-fluid">
         </a>
       </div>
       <div class="social-bg d-flex justify-content-center align-items-center">
@@ -60,7 +60,7 @@
       </div>
     </div>
     <div class="col-auto d-flex align-items-center gap-0 gap-sm-2 px-0 px-sm-3">
-      <img class="top-navemail" src="{{ asset('public/image/email.svg') }}" />
+      <img class="top-navemail"  alt="kanlife-email" src="{{ asset('public/image/email.svg') }}" />
       <a href="mailto:contact@kanlifemedical.asia">
         <span class="kan-email">contact@kanlifemedical.asia<span>
       </a>
@@ -68,7 +68,7 @@
     <div class="col-auto text-white d-flex align-items-center optionbox">
       <div class="dropdown-center">
         <button class="btn bg-transparent text-white d-flex align-items-center gap-2 dropdown-toggle border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-          <img class="top-navemail ms-auto me-0" src="{{ asset('public/image/global.svg') }}">
+          <img class="top-navemail ms-auto me-0"  alt="countries" src="{{ asset('public/image/global.svg') }}">
           {{ucfirst($user_location)}}
           <img src="{{ asset('public/image/counrty-dd-icon.svg') }}" alt="" width="10" class="ms-3">
         </button>
@@ -174,7 +174,7 @@ $module=explode("/", url()->current());
         <div class="dropdown">
           <a class="dropdown-toggle prn deu-barcat nav-link" type="button" id="dropdownMenu1" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fa fa-bars" aria-hidden="true"></i>  <span class="me-md-4 "> Categories </span>
-          <img src="{{ asset('public/image/cat-dd-icon.svg') }}" alt="" width="10" class="ms-3 position-absolute cat-dd-icon" style="right:9px;">
+          <img src="{{ asset('public/image/cat-dd-icon.svg') }}" alt="kanlife" width="10" class="ms-3 position-absolute cat-dd-icon" style="right:9px;">
           </a>
           @php $count_categories = count($categories['display']); @endphp
           <ul class="dropdown-menu multi-level drop1" role="menu" aria-labelledby="dropdownMenu" style=" @if($count_categories > 10 && $count_categories < 21) width:300px; @elseif($count_categories > 20) width:450px; @endif"> 
