@@ -29,7 +29,7 @@
         <p><img class="top-navemail" src="image/email.svg" alt="kanlife email"> <span class="kan-email">contact@kanlifemedical.asia<span></p>
     </div>
     <div class="col-md-2">
-        <p><img class="top-navemail" src="image/global.svg" alt="kanlife logo"> 
+        <p><img class="top-navemail" src="image/global.svg" alt="kanlife brands"> 
         <span class="kan-email">
             <select class="top-navselect">
                 <option class="top-select">India</option>
@@ -78,21 +78,21 @@
   <!-- The slideshow -->
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img class="img-fluid deu-slideheight" src="image/slider.png" alt="">
+      <img class="img-fluid deu-slideheight" src="image/slider.png" alt="slider">
       <div class="carousel-caption deu-slidepad text-left">
         <div class="col-md-6">
             <h1 class="pb-2 deu-slidehead">Kanlife Group </h1>
             <div class="row">
                 <div class="col-md-4">
-                <img class="img-fluid deu-healthimg" src="image/s1.png">
+                <img class="img-fluid deu-healthimg" src="image/s1.png" alt="helath">
                 <p class="deu-health">Health</p>
                 </div>
                 <div class="col-md-4">
-                <img class="img-fluid deu-healthimg" src="image/s2.png">
+                <img class="img-fluid deu-healthimg" src="image/s2.png" alt="medical">
                 <p class="deu-health">Medical</p>
                 </div>
                 <div class="col-md-4">
-                <img class="img-fluid deu-healthimg" src="image/s3.png">
+                <img class="img-fluid deu-healthimg" src="image/s3.png" alt="Wellness">
                 <p class="deu-health">Wellness</p>
                 </div>
             </div>
@@ -100,7 +100,7 @@
       </div> 
     </div>
     <div class="carousel-item">
-      <img class="img-fluid deu-slideheight" src="image/slider.png" alt="">  
+      <img class="img-fluid deu-slideheight" src="image/slider.png" alt="slider">  
     </div>
   </div>
   <!--<a class="carousel-control-prev" href="#demo" data-slide="prev">
@@ -123,7 +123,7 @@
             <button class="deu-buybtn">Buy Now</button>
         </div>
         <div class="col-lg-5 col-md-5 rideone">
-            <img class="img-fluid deu-buyheight" src="image/buy1.png">
+            <img class="img-fluid deu-buyheight" src="image/buy1.png" alt="buy medical equipment">
         </div>
         </div>
     </div>
@@ -136,7 +136,7 @@
             <button class="deu-buybtn">Rent Now</button>
         </div>
         <div class="col-lg-5 col-md-5 rideone">
-            <img class="img-fluid deu-buyheight" src="image/buy2.png">
+            <img class="img-fluid deu-buyheight" src="image/buy2.png" alt="rent medical equipment">
         </div>
         </div>
     </div>
@@ -149,7 +149,7 @@
             <button class="deu-buybtn">Consult Now</button>
         </div>
         <div class="col-lg-5 col-md-5 rideone">
-            <img class="img-fluid deu-buyheight" src="image/buy3.png">
+            <img class="img-fluid deu-buyheight" src="image/buy3.png" alt="consult a Dr">
         </div>
         </div>
     </div>
@@ -164,7 +164,7 @@
 <div class="row">
     <div class="col-md-5 col-sm-6">
         <div class="about-img">
-            <img class="img-fluid mt-5 deu-marg" src="image/us.png" alt="">
+            <img class="img-fluid mt-5 deu-marg" src="image/us.png" alt="about us">
         </div>
     </div>	
     <div class="col-md-7 col-sm-6">
@@ -194,7 +194,7 @@
     </div>
     <div class="col-md-5 col-sm-6">
         <div class="about-img">
-            <img class="img-fluid" src="image/video.png" alt="">
+            <img class="img-fluid" src="image/video.png" alt="video">
         </div>
     </div>	
 </div>
@@ -208,7 +208,7 @@
 <div class="row deu-deskbg">
     <div class="col-md-4 col-sm-6">
         <div class="about-img">
-            <img class="img-fluid deu-marg" src="image/ceo.png" alt="">
+            <img class="img-fluid deu-marg" src="image/ceo.png" alt="ceo desk">
         </div>
     </div>	
     <div class="col-md-8 col-sm-6">
@@ -240,7 +240,7 @@
                 <div class="project m-0">
                     <figure class="portfolio-item">
                         <div class="hovereffect">
-                            <img class="img-responsive" src="image/team.png" alt="">
+                            <img class="img-responsive" src="image/team.png" alt="our team">
                         </div>
                     </figure>
                 </div>
@@ -261,7 +261,7 @@
                 <div class="project m-0">
                     <figure class="portfolio-item">
                         <div class="hovereffect">
-                            <img class="img-responsive" src="image/team.png" alt="">
+                            <img class="img-responsive" src="image/team.png" alt="our team">
                         </div>
                     </figure>
                 </div>
@@ -282,7 +282,7 @@
                 <div class="project m-0">
                     <figure class="portfolio-item">
                         <div class="hovereffect">
-                            <img class="img-responsive" src="image/team.png" alt="">
+                            <img class="img-responsive" src="image/team.png" alt="our team">
                         </div>
                     </figure>
                 </div>
@@ -360,7 +360,7 @@
 					<div class="row">
 						<div class="col-sm-4">
                         <div class="post-slide10">
-                            <img class="pic-1" src="image/blog1.png">
+                            <img class="pic-1" src="image/blog1.png" alt="our blogs">
                             <p class="deu-dec">December 2020</p>
                             <h3 class="post-title">
                                 <a href="#">Kanlife Partners with Echosens</a>
@@ -373,7 +373,7 @@
 						</div>
 						<div class="col-sm-4">
                         <div class="post-slide10">
-                            <img class="pic-1" src="image/blog1.png">
+                            <img class="pic-1" src="image/blog1.png" alt="our blogs">
                             <p class="deu-dec">December 2020</p>
                             <h3 class="post-title">
                                 <a href="#">Kanlife Partners with Echosens</a>
@@ -386,7 +386,7 @@
 						</div>
 						<div class="col-sm-4">
                         <div class="post-slide10">
-                            <img class="pic-1" src="image/blog1.png">
+                            <img class="pic-1" src="image/blog1.png" alt="our blogs">
                             <p class="deu-dec">December 2020</p>
                             <h3 class="post-title">
                                 <a href="#">Kanlife Partners with Echosens</a>
@@ -403,7 +403,7 @@
                 <div class="row">
 						<div class="col-sm-4">
                         <div class="post-slide10">
-                            <img class="pic-1" src="image/blog1.png">
+                            <img class="pic-1" src="image/blog1.png" alt="our blogs">
                             <p class="deu-dec">December 2020</p>
                             <h3 class="post-title">
                                 <a href="#">Kanlife Partners with Echosens</a>
@@ -416,7 +416,7 @@
 						</div>
 						<div class="col-sm-4">
                         <div class="post-slide10">
-                            <img class="pic-1" src="image/blog1.png">
+                            <img class="pic-1" src="image/blog1.png" alt="our blogs">
                             <p class="deu-dec">December 2020</p>
                             <h3 class="post-title">
                                 <a href="#">Kanlife Partners with Echosens</a>
@@ -429,7 +429,7 @@
 						</div>
 						<div class="col-sm-4">
                         <div class="post-slide10">
-                            <img class="pic-1" src="image/blog1.png">
+                            <img class="pic-1" src="image/blog1.png" alt="our blogs">
                             <p class="deu-dec">December 2020</p>
                             <h3 class="post-title">
                                 <a href="#">Kanlife Partners with Echosens</a>
@@ -465,7 +465,7 @@
         <div class="card">
             <div class="row col-md-12">
                 <div class="col-md-4">
-                <img class="img-fluid" src="image/testimonial.png" alt="">
+                <img class="img-fluid" src="image/testimonial.png" alt="testimonial">
                 </div>
                 <div class="col-md-8">
                 <p class="deu-john">John Doe</p>
@@ -481,7 +481,7 @@
         <div class="card">
             <div class="row col-md-12">
                 <div class="col-md-4">
-                <img class="img-fluid" src="image/testimonial.png" alt="">
+                <img class="img-fluid" src="image/testimonial.png" alt="testimonial">
                 </div>
                 <div class="col-md-8">
                 <p class="deu-john">John Doe</p>
@@ -497,7 +497,7 @@
         <div class="card">
             <div class="row col-md-12">
                 <div class="col-md-4">
-                <img class="img-fluid" src="image/testimonial.png" alt="">
+                <img class="img-fluid" src="image/testimonial.png" alt="testimonial">
                 </div>
                 <div class="col-md-8">
                 <p class="deu-john">John Doe</p>
@@ -513,7 +513,7 @@
         <div class="card">
             <div class="row col-md-12">
                 <div class="col-md-4">
-                <img class="img-fluid" src="image/testimonial.png" alt="">
+                <img class="img-fluid" src="image/testimonial.png" alt="testimonial">
                 </div>
                 <div class="col-md-8">
                 <p class="deu-john">John Doe</p>
@@ -537,10 +537,10 @@
   <div class="container deu-bandlogopad">
     <div class="row col-md-12 mt-5">
         <div class="col-md-4 text-center">
-            <img class="img-fluid deu-bandlogowid deu-bandlogomarg" src="image/our1.png">
+            <img class="img-fluid deu-bandlogowid deu-bandlogomarg" src="image/our1.png" alt="our brand">
         </div>
         <div class="col-md-4 text-center">
-            <img class="img-fluid deu-bandlogowid deu-bandlogomarg" src="image/our2.png">
+            <img class="img-fluid deu-bandlogowid deu-bandlogomarg" src="image/our2.png" alt="our brand">
         </div>
         <div class="col-md-4 text-center">
             <img class="img-fluid deu-bandlogowid" src="image/our3.png">
@@ -549,10 +549,10 @@
     <div class="col-md-12 mt-5 mb-5">
     <div class="row offset-2 col-8">
         <div class="col-md-6 text-center">
-            <img class="img-fluid deu-bandlogowid" src="image/our4.png">
+            <img class="img-fluid deu-bandlogowid" src="image/our4.png" alt="our brand">
         </div>
         <div class="col-md-6 text-center">
-            <img class="img-fluid deu-bandlogowid deu-bandlogomarg" src="image/our5.png">
+            <img class="img-fluid deu-bandlogowid deu-bandlogomarg" src="image/our5.png" alt="our brand">
         </div>
     </div>
     </div>
