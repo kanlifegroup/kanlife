@@ -1,5 +1,10 @@
 @extends('frontend.layouts.app')
 
+@section('meta')
+<link rel="canonical" href="https://www.kanlifegroup.com/buy">
+@endsection
+
+
 @section('title')
   Buy
 @endsection

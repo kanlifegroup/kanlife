@@ -3,6 +3,8 @@
 @section('meta')
 <meta name="title" content="Gastroenterology | Digital Radiography  | Critical Care Devices">
 <meta name="description" content="Explore Skanray patient monitoring systems for efficient anaesthesia care. From basic to advanced monitors. Elevate patient safety today!">
+<link rel="canonical" href="https://www.kanlifegroup.com/about-us/our-team">
+
 @endsection
 
 @section('title')

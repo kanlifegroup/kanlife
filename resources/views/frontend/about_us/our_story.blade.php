@@ -3,6 +3,7 @@
 @section('meta')
 <meta name="title" content="Patient monitoring system | Critical care | Best Medical Equipment">
 <meta name="description" content="Experience high-quality dental care with Skanray's advanced digital radiography solutions. Transforming diagnosis with Skanray-Dental X-ray. Book now!">
+<link rel="canonical" href="https://www.kanlifegroup.com/about-us/our-story">
 @endsection
 
 @section('title')

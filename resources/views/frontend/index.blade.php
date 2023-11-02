@@ -3,6 +3,7 @@
 @section('meta')
 <meta name="title" content="Hepatology Equipment | Gastroenterology | Liver cirrhosis">
 <meta name="description" content="The easy-to-use vein finder that helps healthcare professionals improve vein cannulation and venipuncture success rates.">
+<link rel="canonical" href="https://www.kanlifegroup.com">
 @endsection
 
 @section('title')

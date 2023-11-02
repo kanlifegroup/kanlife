@@ -3,6 +3,7 @@
 @section('meta')
 <meta name="title" content="Digital Radiography | Pedodontist  | Orthodontist | Dentist">
 <meta name="description" content="Non-invasive solution for fatty liver. Measure liver fat & scarring using ultrasound waves. Fast & painless. Act now for a healthier liver!">
+<link rel="canonical" href="https://www.kanlifegroup.com/about-us/contact-us">
 @endsection
 
 @section('title')
