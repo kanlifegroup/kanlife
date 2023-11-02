@@ -30,10 +30,10 @@
     <i class="fa fa-linkedin top-navsocial" aria-hidden="true"></i>
     </div>
     <div class="col-md-3">
-        <p><img class="top-navemail" src="image/email.svg"> <span class="kan-email">contact@kanlifemedical.asia<span></p>
+        <p><img class="top-navemail" src="image/email.svg" alt="kanlife email"> <span class="kan-email">contact@kanlifemedical.asia<span></p>
     </div>
     <div class="col-md-2">
-        <p><img class="top-navemail" src="image/global.svg"> 
+        <p><img class="top-navemail" src="image/global.svg" alt="kanlife branches"> 
         <span class="kan-email">
             <select class="top-navselect">
                 <option class="top-select">India</option>
@@ -49,7 +49,7 @@
 <nav class="navbar navbar-expand-lg">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">
-       <img src="image/logo.png" width="" class="logo img-fluid"/>
+       <img src="image/logo.png" width="" class="logo img-fluid" alt="kanlife logo" />
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -118,7 +118,7 @@
             <a class="dropdown-item deu-accountpad" href="#">Log Out</a>
             </div>
         </div>
-        <a class="nav-link" href="#"><img class="deu-cart" src="image/cart.svg"> <span class="deu-cartxts">2</span></a>
+        <a class="nav-link" href="#"><img class="deu-cart" src="image/cart.svg" alt="cart"> <span class="deu-cartxts">2</span></a>
       </div>
     </div>
   </div>
@@ -136,48 +136,48 @@
         <div class="col-md-4">
           <div id="slider" class="owl-carousel product-slider">
         <div class="item">
-            <img class="img-fluid deu-detailheight" src="image/details.png" />
+            <img  alt="details" class="img-fluid deu-detailheight" src="image/details.png" />
         </div>
         <div class="item">
-            <img class="img-fluid deu-detailheight" src="image/details.png" />
+            <img  alt="details" class="img-fluid deu-detailheight" src="image/details.png" />
         </div>
         <div class="item">
-            <img class="img-fluid deu-detailheight" src="image/details.png" />
+            <img  alt="details" class="img-fluid deu-detailheight" src="image/details.png" />
         </div>
         <div class="item">
-            <img class="img-fluid deu-detailheight" src="image/details.png" />
+            <img  alt="details" class="img-fluid deu-detailheight" src="image/details.png" />
         </div>
         <div class="item">
-            <img class="img-fluid deu-detailheight" src="image/details.png" />
+            <img  alt="details" class="img-fluid deu-detailheight" src="image/details.png" />
         </div>
         <div class="item">
-            <img class="img-fluid deu-detailheight" src="image/details.png" />
+            <img  alt="details" class="img-fluid deu-detailheight" src="image/details.png" />
         </div>
         <div class="item">
-            <img class="img-fluid deu-detailheight" src="image/details.png" />
+            <img  alt="details" class="img-fluid deu-detailheight" src="image/details.png" />
         </div>
       </div>
       <div id="thumb" class="owl-carousel product-thumb">
         <div class="item">
-            <img class="img-fluid deu-detailslider" src="image/details.png" />
+            <img  alt="details" class="img-fluid deu-detailslider" src="image/details.png" />
         </div>
         <div class="item">
-            <img class="img-fluid deu-detailslider" src="image/details.png" />
+            <img  alt="details" class="img-fluid deu-detailslider" src="image/details.png" />
         </div>
         <div class="item">
-            <img class="img-fluid deu-detailslider" src="image/details.png" />
+            <img  alt="details" class="img-fluid deu-detailslider" src="image/details.png" />
         </div>
         <div class="item">
-            <img class="img-fluid deu-detailslider" src="image/details.png" />
+            <img  alt="details" class="img-fluid deu-detailslider" src="image/details.png" />
         </div>
         <div class="item">
-            <img class="img-fluid deu-detailslider" src="image/details.png" />
+            <img  alt="details" class="img-fluid deu-detailslider" src="image/details.png" />
         </div>
         <div class="item">
-            <img class="img-fluid deu-detailslider" src="image/details.png" />
+            <img  alt="details" class="img-fluid deu-detailslider" src="image/details.png" />
         </div>
         <div class="item">
-            <img class="img-fluid deu-detailslider" src="image/details.png" />
+            <img  alt="details" class="img-fluid deu-detailslider" src="image/details.png" />
         </div>
       </div>
         </div>
@@ -186,7 +186,7 @@
             <div class="product-info mb-3">
               <div class="product-name">Skanmobile</div>
             </div>
-        <p class="" style="color:#3188CA;"><img class="deu-fealine" src="image/line.svg"> &nbsp;&nbsp;&nbsp;
+        <p class="" style="color:#3188CA;"><img class="deu-fealine"  alt="line" src="image/line.svg"> &nbsp;&nbsp;&nbsp;
          <span class="deu-filter">Features</span></p>
         <ul class="deu-proul">
           <li class="deu-margbtm"><i class="fa fa-circle deu-profa" aria-hidden="true"></i> 200 kHz, 4 kW, 100mA Mobile HF X-Ray</li>
@@ -206,7 +206,7 @@
         </div>
         <div class="col-md-4">
         <div class="deu-proright mt-4">
-        <p class="" style="color:#3188CA;"><img class="deu-fealine" src="image/line.svg"> &nbsp;&nbsp;&nbsp;
+        <p class="" style="color:#3188CA;"><img class="deu-fealine"  alt="line" src="image/line.svg"> &nbsp;&nbsp;&nbsp;
          <span class="deu-filter">Product Links</span></p>
         <ul class="deu-proul">
           <li><i class="fa fa-circle deu-profa" aria-hidden="true"></i> X-Ray System</li>

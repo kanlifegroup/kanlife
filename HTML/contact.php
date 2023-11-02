@@ -28,10 +28,10 @@
     <i class="fa fa-linkedin top-navsocial" aria-hidden="true"></i>
     </div>
     <div class="col-md-3">
-        <p><img class="top-navemail" src="image/email.svg"> <span class="kan-email">contact@kanlifemedical.asia<span></p>
+        <p><img class="top-navemail" alt="kanlife email" src="image/email.svg"> <span class="kan-email">contact@kanlifemedical.asia<span></p>
     </div>
     <div class="col-md-2">
-        <p><img class="top-navemail" src="image/global.svg"> 
+        <p><img class="top-navemail" alt="countries" src="image/global.svg"> 
         <span class="kan-email">
             <select class="top-navselect">
                 <option class="top-select">India</option>
@@ -47,7 +47,7 @@
 <nav class="navbar navbar-expand-lg">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">
-       <img src="image/logo.png" width="" class="logo img-fluid"/>
+       <img src="image/logo.png" width=""  alt="kanlife logo" class="logo img-fluid"/>
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -80,7 +80,7 @@
             <a class="dropdown-item deu-accountpad" href="#">Log Out</a>
             </div>
         </div>
-        <a class="nav-link" href="#"><img class="deu-cart" src="image/cart.svg"> <span class="deu-cartxts">2</span></a>
+        <a class="nav-link" href="#"><img class="deu-cart" alt="cart" src="image/cart.svg"> <span class="deu-cartxts">2</span></a>
       </div>
     </div>
   </div>
@@ -95,7 +95,7 @@
 <div class="container mt-5">
 <div class="row deu-conpads">
     <div class="col-md-3 col-sm-3 text-center deu-conborder">
-        <img class="img-fluid deucontactwid" src="image/location.png">
+        <img class="img-fluid deucontactwid" alt="location" src="image/location.png">
         <p class="mt-1 mb-1 deu-contactadress">Address</p>
     </div>
     <div class="col-md-9 col-sm-9">
@@ -107,7 +107,7 @@
 <div class="container mt-5">
 <div class="row deu-conpads">
     <div class="col-md-3 col-sm-3 text-center deu-conborder">
-        <img class="img-fluid deucontactwid" src="image/phone.png">
+        <img class="img-fluid deucontactwid" alt="phone no" src="image/phone.png">
         <p class="mt-1 mb-1 deu-contactadress">Phone No.</p>
     </div>
     <div class="col-md-9 col-sm-9">
@@ -119,7 +119,7 @@
 <div class="container mt-5">
 <div class="row deu-conpads">
     <div class="col-md-3 col-sm-3 text-center deu-conborder">
-        <img class="img-fluid deucontactwid" src="image/email.png">
+        <img class="img-fluid deucontactwid" alt="email" src="image/email.png">
         <p class="mt-1 mb-1 deu-contactadress">Email</p>
     </div>
     <div class="col-md-3 col-sm-3 text-center deu-conborder">
@@ -211,14 +211,14 @@
         <div class="card-body">
             <p class="deu-conlocation">BANGALORE</p> 
             <p class="mt-4 deu-coN">
-            <img class="img-fluid deu-contactwid" src="image/location.png"> &nbsp; 36/3, 1st Cross, Pukhraj Layout, &nbsp;&nbsp;&nbsp;&nbsp;
+            <img class="img-fluid deu-contactwid" alt="address" src="image/location.png"> &nbsp; 36/3, 1st Cross, Pukhraj Layout, &nbsp;&nbsp;&nbsp;&nbsp;
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Adugodi, Bangalore - 560030
             </p>
             <p class="mt-4 deu-coN">
-            <img class="img-fluid deu-contactwid" src="image/phone.png"> &nbsp; +91 9898675634
+            <img class="img-fluid deu-contactwid" alt="phone" src="image/phone.png"> &nbsp; +91 9898675634
             </p>
             <p class="mt-4 deu-coN">
-            <img class="img-fluid deu-contactwid" src="image/email.png"> &nbsp; sales@kanlifemedical.asia
+            <img class="img-fluid deu-contactwid" alt="email" src="image/email.png"> &nbsp; sales@kanlifemedical.asia
             </p>
         </div>
     </div>
@@ -228,14 +228,14 @@
         <div class="card-body">
             <p class="deu-conlocation">MUMBAI</p> 
             <p class="mt-4 deu-coN">
-            <img class="img-fluid deu-contactwid" src="image/location.png"> &nbsp; 36/3, 1st Cross, Pukhraj Layout, &nbsp;&nbsp;&nbsp;&nbsp;
+            <img class="img-fluid deu-contactwid" alt="address" src="image/location.png"> &nbsp; 36/3, 1st Cross, Pukhraj Layout, &nbsp;&nbsp;&nbsp;&nbsp;
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Adugodi, Bangalore - 560030
             </p>
             <p class="mt-4 deu-coN">
-            <img class="img-fluid deu-contactwid" src="image/phone.png"> &nbsp; +91 9898675634
+            <img class="img-fluid deu-contactwid" alt="phone" src="image/phone.png"> &nbsp; +91 9898675634
             </p>
             <p class="mt-4 deu-coN">
-            <img class="img-fluid deu-contactwid" src="image/email.png"> &nbsp; sales@kanlifemedical.asia
+            <img class="img-fluid deu-contactwid" alt="email" src="image/email.png"> &nbsp; sales@kanlifemedical.asia
             </p>
         </div>
     </div>
@@ -245,14 +245,14 @@
         <div class="card-body">
             <p class="deu-conlocation">KOLKATA</p> 
             <p class="mt-4 deu-coN">
-            <img class="img-fluid deu-contactwid" src="image/location.png"> &nbsp; 36/3, 1st Cross, Pukhraj Layout, &nbsp;&nbsp;&nbsp;&nbsp;
+            <img class="img-fluid deu-contactwid" alt="location" src="image/location.png"> &nbsp; 36/3, 1st Cross, Pukhraj Layout, &nbsp;&nbsp;&nbsp;&nbsp;
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Adugodi, Bangalore - 560030
             </p>
             <p class="mt-4 deu-coN">
-            <img class="img-fluid deu-contactwid" src="image/phone.png"> &nbsp; +91 9898675634
+            <img class="img-fluid deu-contactwid" alt="mobile" src="image/phone.png"> &nbsp; +91 9898675634
             </p>
             <p class="mt-4 deu-coN">
-            <img class="img-fluid deu-contactwid" src="image/email.png"> &nbsp; sales@kanlifemedical.asia
+            <img class="img-fluid deu-contactwid" alt="email" src="image/email.png"> &nbsp; sales@kanlifemedical.asia
             </p>
         </div>
     </div>
@@ -267,7 +267,7 @@
 <div class="row">
     <div class="col-md-5 col-sm-6">
         <div class="about-img">
-            <img class="img-fluid mt-2 deu-marg" src="image/touch.png" alt="">
+            <img class="img-fluid mt-2 deu-marg" src="image/touch.png" alt="get in touch">
         </div>
     </div>	
     <div class="col-md-7 col-sm-6">

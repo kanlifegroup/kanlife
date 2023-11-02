@@ -70,7 +70,7 @@
         <button class="btn bg-transparent text-white d-flex align-items-center gap-2 dropdown-toggle border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
           <img class="top-navemail ms-auto me-0"  alt="countries" src="{{ asset('public/image/global.svg') }}">
           {{ucfirst($user_location)}}
-          <img src="{{ asset('public/image/counrty-dd-icon.svg') }}" alt="" width="10" class="ms-3">
+          <img src="{{ asset('public/image/counrty-dd-icon.svg') }}" alt="countries" width="10" class="ms-3">
         </button>
         <ul class="dropdown-menu">
           <li onclick="set_location('india')"><a class="dropdown-item" href="javascript:void(0)">India</a></li>
@@ -153,7 +153,7 @@ $module=explode("/", url()->current());
     </div>
     <div class="d-flex justify-content-center align-items-center">
       @if(array_intersect([$user_location],['india','london']))
-        <a class="nav-link d-md-none d-block me-2 position-relative" href="{{url('/cart')}}"><img style="width: 20px; margin-bottom: 2px;" src="{{ url('/cart') == url()->current() ? asset('public/image/cart_active.svg') : asset('public/image/cart.svg')}}">
+        <a class="nav-link d-md-none d-block me-2 position-relative" href="{{url('/cart')}}"><img alt="cart" style="width: 20px; margin-bottom: 2px;" src="{{ url('/cart') == url()->current() ? asset('public/image/cart_active.svg') : asset('public/image/cart.svg')}}">
           @if($cart_count > 0)
             <span class="deu-cartxts position-absolute" style="right:-9px;top:-10px">{{ $cart_count }}</span>
           @endif
@@ -258,7 +258,7 @@ $module=explode("/", url()->current());
           </div>
         @endif
         @if(array_intersect([$user_location],['india','london']))
-          <a class="nav-link d-md-block d-none" href="{{url('/cart')}}"><img class="deu-cart" src="{{ url('/cart') == url()->current() ? asset('public/image/cart_active.svg') : asset('public/image/cart.svg')}}">
+          <a class="nav-link d-md-block d-none" href="{{url('/cart')}}"><img class="deu-cart" src="{{ url('/cart') == url()->current() ? asset('public/image/cart_active.svg') : asset('public/image/cart.svg')}}" alt="cart">
             @if($cart_count > 0)
               <span class="deu-cartxts">{{ $cart_count }}</span>
             @endif

@@ -26,10 +26,10 @@
     <i class="fa fa-linkedin top-navsocial" aria-hidden="true"></i>
     </div>
     <div class="col-md-3">
-        <p><img class="top-navemail" src="image/email.svg"> <span class="kan-email">contact@kanlifemedical.asia<span></p>
+        <p><img class="top-navemail" src="image/email.svg" alt="kanlife email"> <span class="kan-email">contact@kanlifemedical.asia<span></p>
     </div>
     <div class="col-md-2">
-        <p><img class="top-navemail" src="image/global.svg"> 
+        <p><img class="top-navemail" src="image/global.svg" alt="kanlife logo"> 
         <span class="kan-email">
             <select class="top-navselect">
                 <option class="top-select">India</option>
@@ -45,7 +45,7 @@
 <nav class="navbar navbar-expand-lg">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">
-       <img src="image/logo.png" width="" class="logo img-fluid"/>
+       <img src="image/logo.png" width="" class="logo img-fluid" alt="kanlife logo" />
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>

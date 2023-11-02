@@ -28,10 +28,10 @@
     <i class="fa fa-linkedin top-navsocial" aria-hidden="true"></i>
     </div>
     <div class="col-md-3">
-        <p><img class="top-navemail" src="image/email.svg"> <span class="kan-email">contact@kanlifemedical.asia<span></p>
+        <p><img class="top-navemail" alt="email kanlife" src="image/email.svg"> <span class="kan-email">contact@kanlifemedical.asia<span></p>
     </div>
     <div class="col-md-2">
-        <p><img class="top-navemail" src="image/global.svg"> 
+        <p><img class="top-navemail" alt="global" src="image/global.svg"> 
         <span class="kan-email">
             <select class="top-navselect">
                 <option class="top-select">India</option>
@@ -47,7 +47,7 @@
 <nav class="navbar navbar-expand-lg">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">
-       <img src="image/logo.png" width="" class="logo img-fluid"/>
+       <img src="image/logo.png" width="" alt="kanlife logo" class="logo img-fluid"/>
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -116,7 +116,7 @@
             <a class="dropdown-item deu-accountpad" href="#">Log Out</a>
             </div>
         </div>
-        <a class="nav-link" href="#"><img class="deu-cart" src="image/cart.svg"> <span class="deu-cartxts">2</span></a>
+        <a class="nav-link" href="#"><img class="deu-cart" alt="cart" src="image/cart.svg"> <span class="deu-cartxts">2</span></a>
       </div>
     </div>
   </div>
@@ -138,7 +138,7 @@
 				<div class="panel-body deu-cardborder">
 					<div class="row m-4">
 						<div class="col-md-3">
-              <img class="img-fluid deu-orderheight" src="image/details.png">
+              <img class="img-fluid deu-orderheight" alt="details" src="image/details.png">
               <div class="product-count mt-3 mb-3">
               <form action="#" class="display-flex">
                 <div class="qtyminus">-</div>
@@ -155,7 +155,7 @@
 					<hr>
 					<div class="row m-4">
 						<div class="col-md-3">
-              <img class="img-fluid deu-orderheight" src="image/details.png">
+              <img class="img-fluid deu-orderheight" alt="details"  src="image/details.png">
               <div class="product-count mt-3 mb-3">
               <form action="#" class="display-flex">
                 <div class="qtyminus">-</div>
@@ -172,7 +172,7 @@
 					<hr>
 					<div class="row m-4">
 						<div class="col-md-3">
-              <img class="img-fluid deu-orderheight" src="image/details.png">
+              <img class="img-fluid deu-orderheight" alt="details"  src="image/details.png">
               <div class="product-count mt-3 mb-3">
               <form action="#" class="display-flex">
                 <div class="qtyminus">-</div>

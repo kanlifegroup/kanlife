@@ -26,10 +26,10 @@
     <i class="fa fa-linkedin top-navsocial" aria-hidden="true"></i>
     </div>
     <div class="col-md-3">
-        <p><img class="top-navemail" src="image/email.svg"> <span class="kan-email">contact@kanlifemedical.asia<span></p>
+        <p><img class="top-navemail" src="image/email.svg" alt="kanlife email"> <span class="kan-email">contact@kanlifemedical.asia<span></p>
     </div>
     <div class="col-md-2">
-        <p><img class="top-navemail" src="image/global.svg"> 
+        <p><img class="top-navemail" src="image/global.svg" alt="kanlife branches"> 
         <span class="kan-email">
             <select class="top-navselect">
                 <option class="top-select">India</option>
@@ -45,7 +45,7 @@
 <nav class="navbar navbar-expand-lg">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">
-       <img src="image/logo.png" width="" class="logo img-fluid"/>
+       <img src="image/logo.png" width="" class="logo img-fluid" alt="kanlife logo" />
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -78,7 +78,7 @@
             <a class="dropdown-item deu-accountpad" href="#">Log Out</a>
             </div>
         </div>
-        <a class="nav-link" href="#"><img class="deu-cart" src="image/cart.svg"> <span class="deu-cartxts">2</span></a>
+        <a class="nav-link" href="#"><img class="deu-cart" src="image/cart.svg" alt="cart"> <span class="deu-cartxts">2</span></a>
       </div>
     </div>
   </div>
@@ -99,7 +99,7 @@
 <div class="col-lg-4">
     <div class="card deu-teamcards">
         <div class="card-body text-center">
-            <img src="image/m1.png" class="img-fluid" width="250" height="200"> 
+            <img src="image/m1.png" alt="team" class="img-fluid" width="250" height="200"> 
             <h5 class="card-title mt-3 m-3 mb-1 deu-teamname">Meena Ganesh</h5>
             <p class="fs-2 mb-3 mt-3 font-weight-bold deu-teamtxt">Co-founder and chairperson</p>
             <button class="deu-aboutbtn1 mb-3">Know More</button>
@@ -115,7 +115,7 @@
 <div class="col-lg-4">
     <div class="card deu-teamcards">
         <div class="card-body text-center">
-            <img src="image/m2.png" class="img-fluid" width="250" height="200"> 
+            <img src="image/m2.png" alt="team" class="img-fluid" width="250" height="200"> 
             <h5 class="card-title mt-3 m-3 mb-1 deu-teamname">Ganesh Krishnan</h5>
             <p class="fs-2 mb-3 mt-3 font-weight-bold deu-teamtxt">Co-founder and Director</p>
             <button class="deu-aboutbtn1 mb-3">Know More</button>
@@ -131,7 +131,7 @@
 <div class="col-lg-4">
     <div class="card deu-teamcards">
         <div class="card-body text-center">
-            <img src="image/m3.png" class="img-fluid" width="250" height="200"> 
+            <img src="image/m3.png" alt="team" class="img-fluid" width="250" height="200"> 
             <h5 class="card-title mt-3 m-3 mb-1 deu-teamname">Vaibhav Tewari</h5>
             <p class="fs-2 mb-3 mt-3 font-weight-bold deu-teamtxt">Co-founder and CEO</p>
             <button class="deu-aboutbtn1 mb-3">Know More</button>
@@ -154,7 +154,7 @@
 <div class="row deu-ceobg">
     <div class="col-md-4 col-sm-6">
         <div class="about-img">
-            <img class="img-fluid deu-marg" src="image/ceo.png" alt="">
+            <img class="img-fluid deu-marg"  src="image/ceo.png" alt="ceo desk">
         </div>
     </div>	
     <div class="col-md-8 col-sm-6">
@@ -190,7 +190,7 @@
 					<div class="row">
 						<div class="col-sm-4">
                         <div class="post-slide10">
-                            <img class="pic-1" src="image/blog1.png">
+                            <img class="pic-1" src="image/blog1.png" alt="blog">
                             <p class="deu-dec">December 2020</p>
                             <h3 class="post-title">
                                 <a href="#">Kanlife Partners with Echosens</a>
@@ -203,7 +203,7 @@
 						</div>
 						<div class="col-sm-4">
                         <div class="post-slide10">
-                            <img class="pic-1" src="image/blog1.png">
+                            <img class="pic-1" src="image/blog1.png"  alt="blog">
                             <p class="deu-dec">December 2020</p>
                             <h3 class="post-title">
                                 <a href="#">Kanlife Partners with Echosens</a>
@@ -216,7 +216,7 @@
 						</div>
 						<div class="col-sm-4">
                         <div class="post-slide10">
-                            <img class="pic-1" src="image/blog1.png">
+                            <img class="pic-1" src="image/blog1.png"  alt="blog">
                             <p class="deu-dec">December 2020</p>
                             <h3 class="post-title">
                                 <a href="#">Kanlife Partners with Echosens</a>
@@ -233,7 +233,7 @@
                 <div class="row">
 						<div class="col-sm-4">
                         <div class="post-slide10">
-                            <img class="pic-1" src="image/blog1.png">
+                            <img class="pic-1" src="image/blog1.png"  alt="blog">
                             <p class="deu-dec">December 2020</p>
                             <h3 class="post-title">
                                 <a href="#">Kanlife Partners with Echosens</a>
@@ -246,7 +246,7 @@
 						</div>
 						<div class="col-sm-4">
                         <div class="post-slide10">
-                            <img class="pic-1" src="image/blog1.png">
+                            <img class="pic-1" src="image/blog1.png"  alt="blog">
                             <p class="deu-dec">December 2020</p>
                             <h3 class="post-title">
                                 <a href="#">Kanlife Partners with Echosens</a>
@@ -259,7 +259,7 @@
 						</div>
 						<div class="col-sm-4">
                         <div class="post-slide10">
-                            <img class="pic-1" src="image/blog1.png">
+                            <img class="pic-1" src="image/blog1.png"  alt="blog">
                             <p class="deu-dec">December 2020</p>
                             <h3 class="post-title">
                                 <a href="#">Kanlife Partners with Echosens</a>
@@ -294,7 +294,7 @@
 <div class="row">
     <div class="col-md-5 col-sm-6">
         <div class="about-img">
-            <img class="img-fluid mt-2 deu-marg" src="image/touch.png" alt="">
+            <img class="img-fluid mt-2 deu-marg" src="image/touch.png" alt="get in touch">
         </div>
     </div>	
     <div class="col-md-7 col-sm-6">

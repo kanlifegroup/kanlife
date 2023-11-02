@@ -26,10 +26,10 @@
     <i class="fa fa-linkedin top-navsocial" aria-hidden="true"></i>
     </div>
     <div class="col-md-3">
-        <p><img class="top-navemail" src="image/email.svg"> <span class="kan-email">contact@kanlifemedical.asia<span></p>
+        <p><img class="top-navemail" src="image/email.svg" alt="kanlife email"> <span class="kan-email">contact@kanlifemedical.asia<span></p>
     </div>
     <div class="col-md-2">
-        <p><img class="top-navemail" src="image/global.svg"> 
+        <p><img class="top-navemail" src="image/global.svg" alt="kanlife branches"> 
         <span class="kan-email">
             <select class="top-navselect">
                 <option class="top-select">India</option>
@@ -45,7 +45,7 @@
 <nav class="navbar navbar-expand-lg">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">
-       <img src="image/logo.png" width="" class="logo img-fluid"/>
+       <img src="image/logo.png" width="" class="logo img-fluid" alt="kanlife logo" />
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -114,7 +114,7 @@
             <a class="dropdown-item deu-accountpad" href="#">Log Out</a>
             </div>
         </div>
-        <a class="nav-link" href="#"><img class="deu-cart" src="image/cart.svg"> <span class="deu-cartxts">2</span></a>
+        <a class="nav-link" href="#"><img class="deu-cart" src="image/cart.svg" alt="cart"> <span class="deu-cartxts">2</span></a>
       </div>
     </div>
   </div>
@@ -136,7 +136,7 @@
 	<div class="row">
   <div class="col-md-4">
     <div class="deu-borderblue">
-        <p style="color:#3188CA;"><img class="deu-fealine" src="image/line.svg"> &nbsp;&nbsp;&nbsp;
+        <p style="color:#3188CA;"><img class="deu-fealine" alt="line" src="image/line.svg"> &nbsp;&nbsp;&nbsp;
          <span class="deu-filter">Product Categories</span></p>
     <div class="chiller_cb">
       <input id="myCheckbox" type="checkbox" checked>
@@ -160,7 +160,7 @@
     </div>
 	  </div>
     <div class="deu-borderblue mt-5">
-        <p style="color:#3188CA;"><img class="deu-fealine" src="image/line.svg"> &nbsp;&nbsp;&nbsp;
+        <p style="color:#3188CA;"><img class="deu-fealine" alt="line" src="image/line.svg"> &nbsp;&nbsp;&nbsp;
          <span class="deu-filter">Filter by Price</span></p>
         <select class="deu-lowprice">
             <option class="top-select">Price : Low to high</option>
@@ -186,7 +186,7 @@
         <div class="common-doctor animated fadeInUp clearfix ae-animation-fadeInUp deu-features">
               <p class="deu-new">New</p>
             <div class="deu-xrayfigure">
-                <img src="image/system.png" class="deu-widauto img-fluid doc-img animate attachment-gallery-post-single wp-post-image" alt=""> 
+                <img src="image/system.png" class="deu-widauto img-fluid doc-img animate attachment-gallery-post-single wp-post-image" alt="new"> 
             </div>
                 <div class="deu-xraypad">
                     <h5 class="deu-pro">Skanmobile</h5>
@@ -201,7 +201,7 @@
         <div class="home-doctors  text-center doc-item">
         <div class="common-doctor animated fadeInUp clearfix ae-animation-fadeInUp deu-features">
             <div class="deu-xrayfigure">
-                <img src="image/system.png" class="deu-widauto img-fluid doc-img animate attachment-gallery-post-single wp-post-image" alt=""> 
+                <img src="image/system.png" class="deu-widauto img-fluid doc-img animate attachment-gallery-post-single wp-post-image" alt="new"> 
             </div>
                 <div class="deu-xraypad">
                     <h5 class="deu-pro">Skanmobile</h5>
@@ -216,7 +216,7 @@
         <div class="home-doctors  text-center doc-item">
         <div class="common-doctor animated fadeInUp clearfix ae-animation-fadeInUp deu-features">
             <div class="deu-xrayfigure">
-                <img src="image/system.png" class="deu-widauto img-fluid doc-img animate attachment-gallery-post-single wp-post-image" alt=""> 
+                <img src="image/system.png" class="deu-widauto img-fluid doc-img animate attachment-gallery-post-single wp-post-image" alt="new"> 
             </div>
                 <div class="deu-xraypad">
                     <h5 class="deu-pro">Skanmobile</h5>
@@ -231,7 +231,7 @@
         <div class="home-doctors  text-center doc-item">
         <div class="common-doctor animated fadeInUp clearfix ae-animation-fadeInUp deu-features">
             <div class="deu-xrayfigure">
-                <img src="image/system.png" class="deu-widauto img-fluid doc-img animate attachment-gallery-post-single wp-post-image" alt=""> 
+                <img src="image/system.png" class="deu-widauto img-fluid doc-img animate attachment-gallery-post-single wp-post-image" alt="new"> 
             </div>
                 <div class="deu-xraypad">
                     <h5 class="deu-pro">Micro scan</h5>
@@ -246,7 +246,7 @@
         <div class="home-doctors  text-center doc-item">
         <div class="common-doctor animated fadeInUp clearfix ae-animation-fadeInUp deu-features">
             <div class="deu-xrayfigure">
-                <img src="image/system.png" class="deu-widauto img-fluid doc-img animate attachment-gallery-post-single wp-post-image" alt=""> 
+                <img src="image/system.png" class="deu-widauto img-fluid doc-img animate attachment-gallery-post-single wp-post-image" alt="new"> 
             </div>
                 <div class="deu-xraypad">
                     <h5 class="deu-pro">Skan DR</h5>

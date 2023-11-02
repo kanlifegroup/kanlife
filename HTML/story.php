@@ -29,10 +29,10 @@
     <i class="fa fa-linkedin top-navsocial" aria-hidden="true"></i>
     </div>
     <div class="col-md-3">
-        <p><img class="top-navemail" src="image/email.svg"> <span class="kan-email">contact@kanlifemedical.asia<span></p>
+        <p><img class="top-navemail" src="image/email.svg" alt="kanlife email"> <span class="kan-email">contact@kanlifemedical.asia<span></p>
     </div>
     <div class="col-md-2">
-        <p><img class="top-navemail" src="image/global.svg"> 
+        <p><img class="top-navemail" src="image/global.svg" alt="kanlife branches"> 
         <span class="kan-email">
             <select class="top-navselect">
                 <option class="top-select">India</option>
@@ -48,7 +48,7 @@
 <nav class="navbar navbar-expand-lg">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">
-       <img src="image/logo.png" width="" class="logo img-fluid"/>
+       <img src="image/logo.png" width="" class="logo img-fluid" alt="kanlife logo" />
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -81,7 +81,7 @@
             <a class="dropdown-item deu-accountpad" href="#">Log Out</a>
             </div>
         </div>
-        <a class="nav-link" href="#"><img class="deu-cart" src="image/cart.svg"> <span class="deu-cartxts">2</span></a>
+        <a class="nav-link" href="#"><img class="deu-cart" src="image/cart.svg" alt="cart"> <span class="deu-cartxts">2</span></a>
       </div>
     </div>
   </div>
@@ -116,7 +116,7 @@
 </div>
 <div class="row mb-5">
     <div class="col-md-6 col-sm-6">
-        <img class="img-fluid" src="image/mission.png">
+        <img class="img-fluid" src="image/mission.png" alt="mission">
     </div>	
     <div class="col-md-6 col-sm-6">
         <p class="vision-txt">Over the years kanlife has become the partner of choice for medical equipment manufacturers looking to introduce, 
@@ -138,7 +138,7 @@
             go-to- market platform to medical technology and healthcare companies from across the globe that are looking to establish a presence or strengthen their distribution foothold in Asia.</p>
     </div>
     <div class="col-md-6 col-sm-6">
-        <img class="img-fluid" src="image/vision.png">
+        <img class="img-fluid" src="image/vision.png" alt="vission">
     </div>	
 </div>
 </div>
@@ -151,7 +151,7 @@
     <div class="col-md-12">
     <p class="deu-journey">Our Journey</p>
     </div>
-    <img class="img-fluid" src="image/time1.png">
+    <img class="img-fluid" src="image/time1.png" alt="our journey">
     </div>
 </div>
 
@@ -162,7 +162,7 @@
 <div class="row deu-padds">
     <div class="col-md-4 col-sm-6">
         <div class="about-img">
-            <img class="img-fluid deu-marg" src="image/ceo.png" alt="">
+            <img class="img-fluid deu-marg" src="image/ceo.png" alt="ceo desk">
         </div>
     </div>	
     <div class="col-md-8 col-sm-6">
@@ -189,32 +189,32 @@
     <div class="swiper-container deu-lifeposi">
         <div class="swiper-wrapper">
             <div class="swiper-slide">
-                <img class="img-fluid" src="image/life.png">
+                <img class="img-fluid" src="image/life.png" alt="life at kanlife">
                 <p class="text-left swipe-txts">Be part of global Events</p>
                 <p class="text-left swipe-txts1">Get exposure to global trend event with us</p>
             </div>
             <div class="swiper-slide">
-                <img class="img-fluid" src="image/life.png">
+                <img class="img-fluid" src="image/life.png" alt="life at kanlife">
                 <p class="text-left swipe-txts">Be part of global Events</p>
                 <p class="text-left swipe-txts1">Get exposure to global trend event with us</p>
             </div>
             <div class="swiper-slide">
-                <img class="img-fluid" src="image/life.png">
+                <img class="img-fluid" src="image/life.png" alt="life at kanlife">
                 <p class="text-left swipe-txts">Be part of global Events</p>
                 <p class="text-left swipe-txts1">Get exposure to global trend event with us</p>
             </div>
             <div class="swiper-slide">
-                <img class="img-fluid" src="image/life.png">
+                <img class="img-fluid" src="image/life.png" alt="life at kanlife">
                 <p class="text-left swipe-txts">Be part of global Events</p>
                 <p class="text-left swipe-txts1">Get exposure to global trend event with us</p>
             </div>
             <div class="swiper-slide">
-                <img class="img-fluid" src="image/life.png">
+                <img class="img-fluid" src="image/life.png" alt="life at kanlife">
                 <p class="text-left swipe-txts">Be part of global Events</p>
                 <p class="text-left swipe-txts1">Get exposure to global trend event with us</p>
             </div>
             <div class="swiper-slide">
-                <img class="img-fluid" src="image/life.png">
+                <img class="img-fluid" src="image/life.png" alt="life at kanlife">
                 <p class="text-left swipe-txts">Be part of global Events</p>
                 <p class="text-left swipe-txts1">Get exposure to global trend event with us</p>
             </div>
@@ -234,22 +234,22 @@
   <div class="container deu-bandlogopad">
     <div class="row col-md-12 mt-5">
         <div class="col-md-4 text-center">
-            <img class="img-fluid deu-bandlogowid deu-bandlogomarg" src="image/our1.png">
+            <img class="img-fluid deu-bandlogowid deu-bandlogomarg"  alt="our brands" src="image/our1.png">
         </div>
         <div class="col-md-4 text-center">
-            <img class="img-fluid deu-bandlogowid deu-bandlogomarg" src="image/our2.png">
+            <img class="img-fluid deu-bandlogowid deu-bandlogomarg"  alt="our brands" src="image/our2.png">
         </div>
         <div class="col-md-4 text-center">
-            <img class="img-fluid deu-bandlogowid" src="image/our3.png">
+            <img class="img-fluid deu-bandlogowid"  alt="our brands" src="image/our3.png">
         </div>
     </div>
     <div class="col-md-12 mt-5 mb-5">
     <div class="row offset-2 col-8">
         <div class="col-md-6 text-center">
-            <img class="img-fluid deu-bandlogowid" src="image/our4.png">
+            <img class="img-fluid deu-bandlogowid"  alt="our brands" src="image/our4.png">
         </div>
         <div class="col-md-6 text-center">
-            <img class="img-fluid deu-bandlogowid deu-bandlogomarg" src="image/our5.png">
+            <img class="img-fluid deu-bandlogowid deu-bandlogomarg"  alt="our brands" src="image/our5.png">
         </div>
     </div>
     </div>
@@ -262,7 +262,7 @@
 <div class="row">
     <div class="col-md-5 col-sm-6">
         <div class="about-img">
-            <img class="img-fluid mt-2 deu-marg" src="image/touch.png" alt="">
+            <img class="img-fluid mt-2 deu-marg" src="image/touch.png" alt="get in touch">
         </div>
     </div>	
     <div class="col-md-7 col-sm-6">

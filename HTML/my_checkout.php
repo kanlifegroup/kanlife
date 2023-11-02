@@ -28,10 +28,10 @@
     <i class="fa fa-linkedin top-navsocial" aria-hidden="true"></i>
     </div>
     <div class="col-md-3">
-        <p><img class="top-navemail" src="image/email.svg"> <span class="kan-email">contact@kanlifemedical.asia<span></p>
+        <p><img class="top-navemail" alt="kanlife email" src="image/email.svg"> <span class="kan-email">contact@kanlifemedical.asia<span></p>
     </div>
     <div class="col-md-2">
-        <p><img class="top-navemail" src="image/global.svg"> 
+        <p><img class="top-navemail" alt="global" src="image/global.svg"> 
         <span class="kan-email">
             <select class="top-navselect">
                 <option class="top-select">India</option>
@@ -47,7 +47,7 @@
 <nav class="navbar navbar-expand-lg">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">
-       <img src="image/logo.png" width="" class="logo img-fluid"/>
+       <img src="image/logo.png" width="" alt="kanlife logo" class="logo img-fluid"/>
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -116,7 +116,7 @@
             <a class="dropdown-item deu-accountpad" href="#">Log Out</a>
             </div>
         </div>
-        <a class="nav-link" href="#"><img class="deu-cart" src="image/cart.svg"> <span class="deu-cartxts">2</span></a>
+        <a class="nav-link" href="#"><img class="deu-cart" alt="cart" src="image/cart.svg"> <span class="deu-cartxts">2</span></a>
       </div>
     </div>
   </div>
@@ -235,9 +235,9 @@
             <div class="form-check">
               <label class="form-check-label">
                 <input type="radio" class="form-check-input" name="optradio">Paypal 
-                <img class="deu-visa" src="image/visa.svg"> 
-                <img class="" src="image/visa1.svg" style="width: 50px; height: 32px;"> 
-                <img class="" src="image/visa2.svg" style="width: 70px;">
+                <img class="deu-visa" src="image/visa.svg" alt="visa"> 
+                <img class="" src="image/visa1.svg" style="width: 50px; height: 32px;"  alt="visa"> 
+                <img class="" src="image/visa2.svg" style="width: 70px;" alt="visa">
               </label>
             </div>
             </td>
