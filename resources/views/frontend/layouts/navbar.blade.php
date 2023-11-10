@@ -31,18 +31,18 @@
     <div class="col d-flex gap-2 justify-content-left justify-content-md-start px-sm-3 px-0 m-auto">
       <div class="social-bg d-flex justify-content-center align-items-center">
         <!-- <img src="image/facebook.svg" alt="" class="img-fluid"> -->
-        <a href="https://lnkd.in/gCW9EFfv">
+        <a href="https://www.facebook.com/kanlifegroup/">
         <i class="fa fa-facebook top-navsocial" aria-hidden="true"></i>
         </a>
       </div>
       <div class="social-bg d-flex justify-content-center align-items-center">
-        <a href="https://lnkd.in/g3NJ6F5M">
+        <a href="https://www.instagram.com/kanlife_group/">
         <img src="{{ asset('public/image/instragam.svg') }}" alt="instagram-logo" class="img-fluid">
         </a>
       </div>
       <div class="social-bg d-flex justify-content-center align-items-center">
         <!-- <img src="image/youtube.svg" alt="" class="img-fluid"> -->
-        <a href="https://lnkd.in/gJeydyQD">
+        <a href="https://www.youtube.com/channel/UCIo81RIULGXqMHrCEAvFv6w">
         <i class="fa fa-youtube-play top-navsocial" aria-hidden="true"></i>
         </a>
       </div>
