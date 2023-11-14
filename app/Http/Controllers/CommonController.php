@@ -386,7 +386,7 @@ class CommonController extends Controller
     $all_brands = Product::homebrandData();
     $products = Product::with('ProductImages')->where('product_status','=',1)->where('product_drop_status','=','no')->where('language_code','=',$translate)->whereRaw('FIND_IN_SET(?,product_category)', [$category_id])->orderBy('product_id','desc')->paginate(12);
     $data = array('is_categories'=>true,'category_name'=> $cat_id->category_name, 'products'=>$products, 'all_brands'=>$all_brands);
-    // dd($products->links());
+    // dd($products);
     return view('frontend.category_products')->with($data);
   }
 	
