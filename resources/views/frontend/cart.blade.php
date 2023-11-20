@@ -185,7 +185,7 @@
               <div class="d-flex justify-content-center align-items-center">
               <a href="{{ url('/product') }}/{{ $cart->product_slug }}">
               @if($cart->product_image != "")
-                <img class="img-fluid deu-cardimgs" src="{{ url('/') }}/public/storage/product/{{ $cart->product_image }}">
+                <img class="img-fluid deu-cardimgs" src="{{ url('/') }}/public/storage/product/{{ $cart->product_image }}" alt="{{ $cart->product_image_alt }}">
               @else
                 <img class="img-fluid deu-cardimgs" src="{{ url('/') }}/public/img/no-image.jpg">
               @endif

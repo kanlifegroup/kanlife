@@ -178,10 +178,13 @@
                                             </div>
                                             <div class="form-group">
                                                 <label for="customer_earnings" class="control-label mb-1">{{ Helper::translation(1936,$translate,'') }} ({{ Helper::translation(3003,$translate,'') }}: 600 x 450 or ratio: 4 x 3)<span class="require">*</span></label>
-                                                <input type="file" id="product_image" name="product_image" class="form-control-file" data-bvalidator="required,extension[jpg:png:jpeg]" data-bvalidator-msg="{{ Helper::translation(1937,$translate,'') }}"></div> 
+                                                <input type="file" id="product_image" name="product_image" class="form-control-file" data-bvalidator="required,extension[jpg:png:jpeg]" data-bvalidator-msg="{{ Helper::translation(1937,$translate,'') }}">
+                                                <input type="text" class="form-control" placeholder="Enter alt name" name="product_image_alt"></div> 
                                              <div class="form-group">
                                                 <label for="customer_earnings" class="control-label mb-1">{{ Helper::translation(1938,$translate,'') }} ({{ Helper::translation(3003,$translate,'') }}: 600 x 450 or ratio: 4 x 3)</label>
                                                 <input type="file" id="product_gallery[]" name="product_gallery[]" class="form-control-file" data-bvalidator="extension[jpg:png:jpeg]" data-bvalidator-msg="{{ Helper::translation(1937,$translate,'') }}" multiple>
+                                                <input type="text" class="form-control" placeholder="Enter alt names" name="product_image_alts">
+                                                <small>use comma ( , ) to split names</small>
                                              </div>
                                              {{--
                                              <div class="form-group">
@@ -201,12 +204,20 @@
                                    </div>      
                                      <div id="ifseo">
                                      <div class="form-group">
+                                           <label for="meta_title" class="control-label mb-1">Meta Title Name (max 160 chars)<span class="require">*</span></label>
+                                            <textarea name="meta_title" id="meta_title" rows="4" class="form-control noscroll_textarea" data-bvalidator="required,maxlen[160]"></textarea>
+                                       </div> 
+                                     <div class="form-group">
                                            <label for="site_keywords" class="control-label mb-1">{{ Helper::translation(1944,$translate,'') }} <span class="require">*</span></label>
                                             <textarea name="product_seo_keyword" id="product_seo_keyword" rows="4" class="form-control noscroll_textarea" data-bvalidator="required,maxlen[160]"></textarea>
                                        </div> 
                                        <div class="form-group">
                                            <label for="site_desc" class="control-label mb-1">{{ Helper::translation(1945,$translate,'') }} <span class="require">*</span></label>
                                               <textarea name="product_seo_desc" id="product_seo_desc" rows="4" class="form-control noscroll_textarea" data-bvalidator="required,maxlen[160]"></textarea>
+                                            </div>
+                                       <div class="form-group">
+                                           <label for="product_seo_canon" class="control-label mb-1">Canonical Tag (max 160 chars) <span class="require">*</span></label>
+                                              <textarea name="product_seo_canon" id="product_seo_canon" rows="4" class="form-control noscroll_textarea" data-bvalidator="required,maxlen[160]"></textarea>
                                             </div>
                                           </div>  
                                     </div>
@@ -374,6 +385,14 @@
    <script>
     $(document).ready(function() {
       $('.categories').select2({theme: "classic"});
+
+      $("#product_allow_seo").change(function () {
+            if ($(this).val() == "1") {
+                $("#ifseo").show();
+            } else {
+                $("#ifseo").hide();
+            }
+        });
     });
    </script>
 </body>

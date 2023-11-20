@@ -190,17 +190,26 @@
                                             </div>
                                             <div class="form-group">
                                                 <label for="customer_earnings" class="control-label mb-1">{{ Helper::translation(1936,$translate,'') }} ({{ Helper::translation(3003,$translate,'') }}: 600 x 450 or ratio: 4 x 3)<span class="require">*</span></label>
-                                                <input type="file" id="product_image" name="product_image" class="form-control-file" @if($edit['product']->product_image == '') data-bvalidator="required,extension[jpg:png:jpeg]" @else data-bvalidator="extension[jpg:png:jpeg]" @endif data-bvalidator-msg="{{ Helper::translation(1937,$translate,'') }}"> @if($edit['product']->product_image != '')
-                                          <img src="{{ url('/') }}/public/storage/product/{{ $edit['product']->product_image }}"  class="image-size" alt="{{ $edit['product']->product_name }}"/>@else <img src="{{ url('/') }}/public/img/no-image.jpg"  class="image-size" alt="{{ $edit['product']->product_name }}"/>
+                                                <input type="file" id="product_image" name="product_image" class="form-control-file" @if($edit['product']->product_image == '') data-bvalidator="required,extension[jpg:png:jpeg]" @else data-bvalidator="extension[jpg:png:jpeg]" @endif data-bvalidator-msg="{{ Helper::translation(1937,$translate,'') }}">
+                                                <input type="text" class="form-control" placeholder="Enter alt name" name="product_image_alt"> @if($edit['product']->product_image != '')
+                                          <img src="{{ url('/') }}/public/storage/product/{{ $edit['product']->product_image }}"  class="image-size" alt="{{ $edit['product']->product_image_alt }}"/>
+                                          <small>{{$edit['product']->product_image_alt}}</small>@else <img src="{{ url('/') }}/public/img/no-image.jpg"  class="image-size" alt="{{ $edit['product']->product_name }}"/>
                                           @endif      
                                              </div> 
                                              <div class="form-group">
                                                 <label for="customer_earnings" class="control-label mb-1">{{ Helper::translation(1938,$translate,'') }} ({{ Helper::translation(3003,$translate,'') }}: 600 x 450 or ratio: 4 x 3)</label>
                                                 <input type="file" id="product_gallery[]" name="product_gallery[]" class="form-control-file" data-bvalidator="extension[jpg:png:jpeg]" data-bvalidator-msg="Please select file of type .jpg, .png or .jpeg" multiple>
+                                                <input type="text" class="form-control" placeholder="Enter alt names" name="product_image_alts">
+                                                <small>use comma ( , ) to split names</small>
                                                 <br/>@foreach($editimage['view'] as $product)
-                                                 <div class="item-img"><img src="{{ url('/') }}/public/storage/product/{{ $product->product_image }}" alt="{{ $product->product_image }}" class="item-thumb">
+                                                 <div class="item-img d-flex">
+                                                  <div style="display:flex;flex-direction:column;justify-content:center;">
+                                                  <img src="{{ url('/') }}/public/storage/product/{{ $product->product_image }}" alt="{{ $product->product_image_alt }}" class="item-thumb">
+                                                  <small style="max-width:83px;height:fit-content;">{{$product->product_image_alt}}</small>
+                                                      </div>
                                                     <a href="{{ url('/admin/edit-product') }}/dropimg/{{ base64_encode($product->proimg_id) }}" onClick="return confirm('{{ Helper::translation(1968,$translate,'') }}');" class="drop-icon"><span class="ti-trash drop-icon"></span></a>
                                                     </div>
+                                                    
                                                     @endforeach
                                                     <div class="clearfix"></div>
                                              </div>
@@ -222,11 +231,17 @@
                                              </div>      
                                <div id="ifseo" @if($edit['product']->product_allow_seo == 1) class="form-group force-block" @else class="form-group force-none" @endif>
                                   <div class="form-group">
+                                                <label for="meta_title" class="control-label mb-1">Meta Title Name (max 160 chars)<span class="require">*</span></label>
+                                            <textarea name="meta_title" id="meta_title" rows="4" class="form-control noscroll_textarea" data-bvalidator="required,maxlen[160]">{{ $edit['product']->meta_title }}</textarea></div> 
+                                  <div class="form-group">
                                                 <label for="site_keywords" class="control-label mb-1">{{ Helper::translation(1944,$translate,'') }} <span class="require">*</span></label>
                                             <textarea name="product_seo_keyword" id="product_seo_keyword" rows="4" class="form-control noscroll_textarea" data-bvalidator="required,maxlen[160]">{{ $edit['product']->product_seo_keyword }}</textarea></div> 
                                    <div class="form-group">
                                                 <label for="site_desc" class="control-label mb-1">{{ Helper::translation(1945,$translate,'') }} <span class="require">*</span></label>
                                             <textarea name="product_seo_desc" id="product_seo_desc" rows="4" class="form-control noscroll_textarea" data-bvalidator="required,maxlen[160]">{{ $edit['product']->product_seo_desc }}</textarea></div>
+                                   <div class="form-group">
+                                                <label for="product_seo_canon" class="control-label mb-1">Canonical Tag (max 160 chars)<span class="require">*</span></label>
+                                            <textarea name="product_seo_canon" id="product_seo_canon" rows="4" class="form-control noscroll_textarea" data-bvalidator="required,maxlen[160]">{{ $edit['product']->product_seo_canon??'' }}</textarea></div>
                                 </div>  
                                  </div>
                                 </div>
@@ -405,6 +420,14 @@
    <script>
     $(document).ready(function() {
       $('.categories').select2({theme: "classic"});
+
+      $("#product_allow_seo").change(function () {
+            if ($(this).val() == "1") {
+                $("#ifseo").show();
+            } else {
+                $("#ifseo").hide();
+            }
+        });
     });
    </script>
 </body>

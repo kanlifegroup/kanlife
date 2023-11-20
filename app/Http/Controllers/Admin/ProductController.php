@@ -689,7 +689,7 @@ class ProductController extends Controller
 	{
 	
 	     $allsettings = Settings::allSettings();
-		 $data = $request->all();   
+		 $data = $request->all();
 		 $product_token = $data['product_token'];
 		 $image_size = $data['image_size'];
 		 $file_size = $data['file_size'];
@@ -767,10 +767,12 @@ class ProductController extends Controller
 		 $product_allow_seo = $data['product_allow_seo'];
 		 $product_seo_keyword = $data['product_seo_keyword'];
 		 $product_seo_desc = $data['product_seo_desc'];
+		 $product_seo_canon = $data['product_seo_canon'];
 		 $product_estimate_time = $data['product_estimate_time'];
 		 $product_condition = $data['product_condition'];
 		 $product_tags = $data['product_tags'];
 		 $product_featured = $data['product_featured'];
+		 $product_image_alt = $data['product_image_alt'];
 		 $product_type = $data['product_type'];
 		 if($product_type != 'digital')
 		 {
@@ -865,7 +867,7 @@ class ProductController extends Controller
 			{
 			  
 			  
-			  $data = array('user_id' => $user_id, 'product_name' => $productname, 'product_sku' => $product_sku, 'product_slug' => $product_slug, 'product_category' => $product_category, 'product_short_desc' => $productshortdesc, 'product_desc' => htmlentities($productdesc), 'product_price' => $product_price, 'product_offer_price' => $product_offer_price,'product_gst'=>$product_gst, 'product_image' => $product_image, 'product_return_policy' => $product_return_policy, 'product_video_url' => $product_video_url, 'product_allow_seo' => $product_allow_seo, 'product_seo_keyword' => $product_seo_keyword, 'product_seo_desc' => $product_seo_desc, 'product_estimate_time' => $product_estimate_time, 'product_condition' => $product_condition, 'product_tags' => $product_tags, 'product_featured' => $product_featured, 'product_type' => $product_type, 'product_file' => $product_file, 'product_external_url' => $product_external_url, 'product_local_shipping_fee' => $product_local_shipping_fee, 'product_global_shipping_fee' => $product_global_shipping_fee, 'product_attribute' => $product_attribute, 'product_stock' => $product_stock, 'product_date' => $product_date, 'product_status' => $product_status, 'flash_deals' => $flash_deals, 'flash_deal_start_date' => $flash_deal_start_date, 'flash_deal_end_date' => $flash_deal_end_date, 'product_attribute_type' => $product_attribute_type, 'product_brand' => $product_brand, 'language_code' => $code);
+			  $data = array('user_id' => $user_id, 'product_name' => $productname, 'product_sku' => $product_sku, 'product_slug' => $product_slug, 'product_category' => $product_category, 'product_short_desc' => $productshortdesc, 'product_desc' => htmlentities($productdesc), 'product_price' => $product_price, 'product_offer_price' => $product_offer_price,'product_gst'=>$product_gst, 'product_image' => $product_image, 'product_return_policy' => $product_return_policy, 'product_video_url' => $product_video_url, 'product_allow_seo' => $product_allow_seo, 'product_seo_keyword' => $product_seo_keyword, 'product_seo_desc' => $product_seo_desc, 'product_estimate_time' => $product_estimate_time, 'product_condition' => $product_condition, 'product_tags' => $product_tags, 'product_featured' => $product_featured, 'product_type' => $product_type, 'product_file' => $product_file, 'product_external_url' => $product_external_url, 'product_local_shipping_fee' => $product_local_shipping_fee, 'product_global_shipping_fee' => $product_global_shipping_fee, 'product_attribute' => $product_attribute, 'product_stock' => $product_stock, 'product_date' => $product_date, 'product_status' => $product_status, 'flash_deals' => $flash_deals, 'flash_deal_start_date' => $flash_deal_start_date, 'flash_deal_end_date' => $flash_deal_end_date, 'product_attribute_type' => $product_attribute_type, 'product_brand' => $product_brand, 'language_code' => $code, 'product_seo_canon'=>$product_seo_canon, 'product_image_alt'=>$product_image_alt, 'meta_title'=>$request->meta_title??'');
              Product::updateproductData($product_id,$data);
 		     			  
 			}
@@ -906,7 +908,7 @@ class ProductController extends Controller
 						   
 						}
 					 
-					 $save = array('user_id' => $user_id, 'product_name' => $products_name, 'product_token' => $product_token, 'product_sku' => $product_sku, 'product_slug' => $product_slug, 'product_category' => $product_category, 'product_short_desc' => $productshort_desc, 'product_desc' => htmlentities($products_desc), 'product_price' => $product_price, 'product_offer_price' => $product_offer_price,'product_gst'=>$product_gst, 'product_image' => $product_image, 'product_return_policy' => $product_return_policy, 'product_video_url' => $product_video_url, 'product_allow_seo' => $product_allow_seo, 'product_seo_keyword' => $product_seo_keyword, 'product_seo_desc' => $product_seo_desc, 'product_estimate_time' => $product_estimate_time, 'product_condition' => $product_condition, 'product_tags' => $product_tags, 'product_featured' => $product_featured, 'product_type' => $product_type, 'product_file' => $product_file, 'product_external_url' => $product_external_url, 'product_local_shipping_fee' => $product_local_shipping_fee, 'product_global_shipping_fee' => $product_global_shipping_fee, 'product_attribute' => $product_attribute, 'product_stock' => $product_stock, 'product_date' => $product_date, 'product_status' => $product_status, 'flash_deals' => $flash_deals, 'flash_deal_start_date' => $flash_deal_start_date, 'flash_deal_end_date' => $flash_deal_end_date, 'product_attribute_type' => $product_attribute_type, 'product_brand' => $product_brand, 'language_code' => $code, 'token' => $token, 'product_page_parent' => $product_id);
+					 $save = array('user_id' => $user_id, 'product_name' => $products_name, 'product_token' => $product_token, 'product_sku' => $product_sku, 'product_slug' => $product_slug, 'product_category' => $product_category, 'product_short_desc' => $productshort_desc, 'product_desc' => htmlentities($products_desc), 'product_price' => $product_price, 'product_offer_price' => $product_offer_price,'product_gst'=>$product_gst, 'product_image' => $product_image, 'product_return_policy' => $product_return_policy, 'product_video_url' => $product_video_url, 'product_allow_seo' => $product_allow_seo, 'product_seo_keyword' => $product_seo_keyword, 'product_seo_desc' => $product_seo_desc, 'product_estimate_time' => $product_estimate_time, 'product_condition' => $product_condition, 'product_tags' => $product_tags, 'product_featured' => $product_featured, 'product_type' => $product_type, 'product_file' => $product_file, 'product_external_url' => $product_external_url, 'product_local_shipping_fee' => $product_local_shipping_fee, 'product_global_shipping_fee' => $product_global_shipping_fee, 'product_attribute' => $product_attribute, 'product_stock' => $product_stock, 'product_date' => $product_date, 'product_status' => $product_status, 'flash_deals' => $flash_deals, 'flash_deal_start_date' => $flash_deal_start_date, 'flash_deal_end_date' => $flash_deal_end_date, 'product_attribute_type' => $product_attribute_type, 'product_brand' => $product_brand, 'language_code' => $code, 'token' => $token, 'product_page_parent' => $product_id, 'product_seo_canon'=>$product_seo_canon, 'product_image_alt'=>$product_image_alt,'meta_title'=>$request->meta_title??'');
 					 
 					 	
 				     Product::saveproductData($save);
@@ -916,7 +918,7 @@ class ProductController extends Controller
 				 {
 				   
 				   
-				   $updata = array('user_id' => $user_id, 'product_name' => $productname, 'product_sku' => $product_sku, 'product_slug' => $product_slug, 'product_category' => $product_category, 'product_short_desc' => $productshortdesc, 'product_desc' => htmlentities($productdesc), 'product_price' => $product_price, 'product_offer_price' => $product_offer_price,'product_gst'=>$product_gst, 'product_image' => $product_image, 'product_return_policy' => $product_return_policy, 'product_video_url' => $product_video_url, 'product_allow_seo' => $product_allow_seo, 'product_seo_keyword' => $product_seo_keyword, 'product_seo_desc' => $product_seo_desc, 'product_estimate_time' => $product_estimate_time, 'product_condition' => $product_condition, 'product_tags' => $product_tags, 'product_featured' => $product_featured, 'product_type' => $product_type, 'product_file' => $product_file, 'product_external_url' => $product_external_url, 'product_local_shipping_fee' => $product_local_shipping_fee, 'product_global_shipping_fee' => $product_global_shipping_fee, 'product_attribute' => $product_attribute, 'product_stock' => $product_stock, 'product_date' => $product_date, 'product_status' => $product_status, 'flash_deals' => $flash_deals, 'flash_deal_start_date' => $flash_deal_start_date, 'flash_deal_end_date' => $flash_deal_end_date, 'product_attribute_type' => $product_attribute_type, 'product_brand' => $product_brand);	
+				   $updata = array('user_id' => $user_id, 'product_name' => $productname, 'product_sku' => $product_sku, 'product_slug' => $product_slug, 'product_category' => $product_category, 'product_short_desc' => $productshortdesc, 'product_desc' => htmlentities($productdesc), 'product_price' => $product_price, 'product_offer_price' => $product_offer_price,'product_gst'=>$product_gst, 'product_image' => $product_image, 'product_return_policy' => $product_return_policy, 'product_video_url' => $product_video_url, 'product_allow_seo' => $product_allow_seo, 'product_seo_keyword' => $product_seo_keyword, 'product_seo_desc' => $product_seo_desc, 'product_estimate_time' => $product_estimate_time, 'product_condition' => $product_condition, 'product_tags' => $product_tags, 'product_featured' => $product_featured, 'product_type' => $product_type, 'product_file' => $product_file, 'product_external_url' => $product_external_url, 'product_local_shipping_fee' => $product_local_shipping_fee, 'product_global_shipping_fee' => $product_global_shipping_fee, 'product_attribute' => $product_attribute, 'product_stock' => $product_stock, 'product_date' => $product_date, 'product_status' => $product_status, 'flash_deals' => $flash_deals, 'flash_deal_start_date' => $flash_deal_start_date, 'flash_deal_end_date' => $flash_deal_end_date, 'product_attribute_type' => $product_attribute_type, 'product_brand' => $product_brand, 'product_seo_canon'=>$product_seo_canon, 'product_image_alt'=>$product_image_alt,'meta_title'=>$request->meta_title??'');
 				  Product::anotherProduct($product_id,$code,$updata); 
 				  
 				 }
@@ -926,13 +928,17 @@ class ProductController extends Controller
 		if ($request->hasFile('product_gallery')) 
 			{
 				$files = $request->file('product_gallery');
-				foreach($files as $file)
+        $alt_names = explode(',', $request->product_image_alts);
+				foreach($files as $key => $file)
 				{
 					$extension = $file->getClientOriginalExtension();
 					$fileName = Str::random(5)."-".date('his')."-".Str::random(3).".".$extension;
 					$folderpath  = public_path('/storage/product');
 					$file->move($folderpath , $fileName);
-					$imgdata = array('product_token' => $product_token, 'product_image' => $fileName);
+          $alt_name = '';
+          if(isset($alt_names[$key]))
+          $alt_name = $alt_names[$key];
+					$imgdata = array('product_token' => $product_token, 'product_image' => $fileName, 'product_image_alt'=>$alt_name);
 				    Product::saveproductImages($imgdata);
 			    }
 		 }
@@ -1045,10 +1051,12 @@ class ProductController extends Controller
 		 $product_allow_seo = $data['product_allow_seo'];
 		 $product_seo_keyword = $data['product_seo_keyword'];
 		 $product_seo_desc = $data['product_seo_desc'];
+		 $product_seo_canon = $data['product_seo_canon'];
 		 $product_estimate_time = $data['product_estimate_time'];
 		 $product_condition = $data['product_condition'];
 		 $product_tags = $data['product_tags'];
 		 $product_featured = $data['product_featured'];
+		 $product_image_alt = $data['product_image_alt'];
 		 $product_type = $data['product_type'];
 		 if($product_type != 'digital')
 		 {
@@ -1157,19 +1165,23 @@ class ProductController extends Controller
 					  }
 				    
 					
-					$record = array('user_id' => $user_id, 'product_token' => $product_token, 'product_name' => $productname, 'product_sku' => $product_sku, 'product_slug' => $product_slug, 'product_category' => $product_category, 'product_short_desc' => $productshortdesc, 'product_desc' => htmlentities($productdesc), 'product_price' => $product_price, 'product_offer_price' => $product_offer_price,'product_gst'=>$product_gst, 'product_image' => $product_image, 'product_return_policy' => $product_return_policy, 'product_video_url' => $product_video_url, 'product_allow_seo' => $product_allow_seo, 'product_seo_keyword' => $product_seo_keyword, 'product_seo_desc' => $product_seo_desc, 'product_estimate_time' => $product_estimate_time, 'product_condition' => $product_condition, 'product_tags' => $product_tags, 'product_featured' => $product_featured, 'product_type' => $product_type, 'product_file' => $product_file, 'product_external_url' => $product_external_url, 'product_local_shipping_fee' => $product_local_shipping_fee, 'product_global_shipping_fee' => $product_global_shipping_fee, 'product_attribute' => $product_attribute, 'product_stock' => $product_stock, 'product_date' => $product_date, 'product_status' => $product_status, 'flash_deals' => $flash_deals, 'flash_deal_start_date' => $flash_deal_start_date, 'flash_deal_end_date' => $flash_deal_end_date, 'product_attribute_type' => $product_attribute_type, 'product_brand' => $product_brand, 'token' => $token, 'language_code' => $code, 'product_page_parent' => $parent);
+					$record = array('user_id' => $user_id, 'product_token' => $product_token, 'product_name' => $productname, 'product_sku' => $product_sku, 'product_slug' => $product_slug, 'product_category' => $product_category, 'product_short_desc' => $productshortdesc, 'product_desc' => htmlentities($productdesc), 'product_price' => $product_price, 'product_offer_price' => $product_offer_price,'product_gst'=>$product_gst, 'product_image' => $product_image, 'product_return_policy' => $product_return_policy, 'product_video_url' => $product_video_url, 'product_allow_seo' => $product_allow_seo, 'product_seo_keyword' => $product_seo_keyword, 'product_seo_desc' => $product_seo_desc, 'product_estimate_time' => $product_estimate_time, 'product_condition' => $product_condition, 'product_tags' => $product_tags, 'product_featured' => $product_featured, 'product_type' => $product_type, 'product_file' => $product_file, 'product_external_url' => $product_external_url, 'product_local_shipping_fee' => $product_local_shipping_fee, 'product_global_shipping_fee' => $product_global_shipping_fee, 'product_attribute' => $product_attribute, 'product_stock' => $product_stock, 'product_date' => $product_date, 'product_status' => $product_status, 'flash_deals' => $flash_deals, 'flash_deal_start_date' => $flash_deal_start_date, 'flash_deal_end_date' => $flash_deal_end_date, 'product_attribute_type' => $product_attribute_type, 'product_brand' => $product_brand, 'token' => $token, 'language_code' => $code, 'product_page_parent' => $parent, 'product_seo_canon'=>$product_seo_canon, 'product_image_alt'=>$product_image_alt,'meta_title'=>$request->meta_title??'');
 					$insertedId = Product::getLastInsertedId($record);
 		      }
 			  if ($request->hasFile('product_gallery')) 
 			  {
 					$files = $request->file('product_gallery');
-					foreach($files as $file)
+          $alt_names = explode(',', $request->product_image_alts);
+					foreach($files as $key => $file)
 					{
 						$extension = $file->getClientOriginalExtension();
 						$fileName = Str::random(5)."-".date('his')."-".Str::random(3).".".$extension;
 						$folderpath  = public_path('/storage/product');
 						$file->move($folderpath , $fileName);
-						$imgdata = array('product_token' => $product_token, 'product_image' => $fileName);
+            $alt_name = '';
+            if(isset($alt_names[$key]))
+            $alt_name = $alt_names[$key];
+						$imgdata = array('product_token' => $product_token, 'product_image' => $fileName, 'product_image_alt'=>$alt_name);
 						Product::saveproductImages($imgdata);
 					}
 			  }

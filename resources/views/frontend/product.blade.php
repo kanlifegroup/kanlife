@@ -3,10 +3,15 @@
 @if($shop->product_allow_seo == 1)
 <meta name="description" content="{{ $shop->product_seo_desc }}">
 <meta name="keywords" content="{{ $shop->product_seo_keyword }}">
+<link rel="canonical" href="{{ $shop->product_seo_canon }}" />
 @endif
 @endsection
 @section('title')
+@if($shop->meta_title)
+  {{$shop->meta_title}}
+@else
   {{$shop->product_name}}
+@endif
 @endsection
 @section('style')
 <style>
@@ -78,21 +83,21 @@
     <div class="col-md-4">
       <div id="slider" class="owl-carousel product-slider" >
         <div class="item" aos="fade-right">
-          <img class="img-fluid deu-detailheight" src="{{ url('/') }}/public/storage/product/{{ $shop->product_image }}" />
+          <img class="img-fluid deu-detailheight" src="{{ url('/') }}/public/storage/product/{{ $shop->product_image }}" alt="{{ $shop->product_image_alt }}"/>
         </div>
         @foreach($shop->productimages as $images)
           <div class="item" aos="fade-right">
-            <img class="img-fluid deu-detailheight" src="{{ url('/') }}/public/storage/product/{{ $images->product_image }}" />
+            <img class="img-fluid deu-detailheight" src="{{ url('/') }}/public/storage/product/{{ $images->product_image }}" alt="{{ $images->product_image_alt }}" />
           </div>
         @endforeach
       </div>
       <div id="thumb" class="owl-carousel product-thumb" aos="fade-left">
         <div class="item">
-          <img class="img-fluid deu-detailslider" src="{{ url('/') }}/public/storage/product/{{ $shop->product_image }}" />
+          <img class="img-fluid deu-detailslider" src="{{ url('/') }}/public/storage/product/{{ $shop->product_image }}" alt="{{ $shop->product_image_alt }}"/>
         </div>
         @foreach($shop->productimages as $images)
           <div class="item">
-            <img class="img-fluid deu-detailslider" src="{{ url('/') }}/public/storage/product/{{ $images->product_image }}" />
+            <img class="img-fluid deu-detailslider" src="{{ url('/') }}/public/storage/product/{{ $images->product_image }}" alt="{{ $images->product_image_alt }}"/>
           </div>
         @endforeach
       </div>

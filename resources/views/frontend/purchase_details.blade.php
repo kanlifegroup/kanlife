@@ -163,7 +163,7 @@ $shipping = 0;
 						<div class="col-md-3" aos="fade-left">
               <a href="{{ url('/product') }}/{{ $product->product_slug }}">
               @if($product->product_image != '')
-              <img class="img-fluid deu-orderheight" src="{{ url('/') }}/public/storage/product/{{ $product->product_image }}">
+              <img class="img-fluid deu-orderheight" src="{{ url('/') }}/public/storage/product/{{ $product->product_image }}" alt="{{ $product->product_image_alt }}">
               @else
               <img class="img-fluid deu-orderheight" src="{{ url('/') }}/public/img/no-image.jpg">
               @endif

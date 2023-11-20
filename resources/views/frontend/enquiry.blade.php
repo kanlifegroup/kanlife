@@ -46,7 +46,7 @@
                                     <a href="{{url('/product').'/'.$product->product_slug}}">
                                     @if($product->product_image != "")
                                     <img src="{{ url('/') }}/public/storage/product/{{ $product->product_image }}" 
-                                        class="deu-widauto img-fluid doc-img animate attachment-gallery-post-single wp-post-image" alt=""> 
+                                        class="deu-widauto img-fluid doc-img animate attachment-gallery-post-single wp-post-image" alt="{{ $product->product_image_alt }}"> 
                                     @else
                                     <img src="{{ url('/') }}/public/img/no-image.jpg" class="deu-widauto img-fluid doc-img animate attachment-gallery-post-single wp-post-image" alt=""> 
                                     @endif

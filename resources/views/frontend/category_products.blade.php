@@ -156,7 +156,7 @@
               @endif
               <div class="deu-xrayfigure">
                 @if($product->product_image != "")
-                <img aos="zoom-in" aos-delay="300" src="{{ url('/') }}/public/storage/product/{{ $product->product_image }}" class="deu-widauto img-fluid doc-img animate attachment-gallery-post-single wp-post-image" alt=""> 
+                <img aos="zoom-in" aos-delay="300" src="{{ url('/') }}/public/storage/product/{{ $product->product_image }}" class="deu-widauto img-fluid doc-img animate attachment-gallery-post-single wp-post-image" alt="{{ $product->product_image_alt }}"> 
                 @else
                 <img aos="zoom-in" aos-delay="300"  src="{{ url('/') }}/public/img/no-image.jpg" class="deu-widauto img-fluid doc-img animate attachment-gallery-post-single wp-post-image" alt=""> 
                 @endif
@@ -181,7 +181,7 @@
             <div class="d-sm-none d-flex row animated fadeInUp clearfix ae-animation-fadeInUp deu-features position-relative" style="background-color: #fff;min-height: fit-content;">
               <div class="col-5">
                 @if($product->product_image != "")
-                <img src="{{ url('/') }}/public/storage/product/{{ $product->product_image }}" class="deu-widauto img-fluid doc-img attachment-gallery-post-single wp-post-image" style="margin-top: 0px;height:120px;" alt=""> 
+                <img src="{{ url('/') }}/public/storage/product/{{ $product->product_image }}" class="deu-widauto img-fluid doc-img attachment-gallery-post-single wp-post-image" style="margin-top: 0px;height:120px;" alt="{{ $product->product_image_alt }}"> 
                 @else
                 <img src="{{ url('/') }}/public/img/no-image.jpg" class="deu-widauto img-fluid doc-img attachment-gallery-post-single wp-post-image" style="margin-top: 0px;height:120px;" alt=""> 
                 @endif
