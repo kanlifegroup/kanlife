@@ -28,7 +28,6 @@
 
 @section('content')
 
-{{dd($blogPost)}}
 <div class="blog-section">
     <div class="container-fluid px-5">
         <div class="row blog-pads blog-detail align-items-center" aos="zoom-in">
