@@ -150,15 +150,22 @@
                                             <div>
                                                 <label for="site_favicon" class="control-label mb-1">{{ Helper::translation(2099,$translate,'') }}<span class="require">*</span></label>
                                             <input type="file" id="post_image" name="post_image" class="form-control-file" @if($edit['post']->post_image == '') data-bvalidator="required,extension[jpg:png:jpeg]" data-bvalidator-msg="{{ Helper::translation(1937,$translate,'') }}" @else data-bvalidator="extension[jpg:png:jpeg]" data-bvalidator-msg="Please select file of type .jpg, .png or .jpeg" @endif>
+                                            <input type="text" class="form-control" placeholder="Enter alt name" name="post_image_alt" value="{{$edit['post']->post_image_alt}}">
                                             @if($edit['post']->post_image != '')
-                                                <img height="50" width="50" src="{{ url('/') }}/public/storage/post/{{ $edit['post']->post_image }}" />
+                                                <img height="50" width="50" src="{{ url('/') }}/public/storage/post/{{ $edit['post']->post_image }}" alt="{{ $edit['post']->post_image_alt }}"/>
+                                                <small>{{$edit['post']->post_image_alt}}</small>
                                                 @endif
                                             </div>
                                             <div class="form-group">
                                                 <label for="customer_earnings" class="control-label mb-1">Additional Images</label>
                                                 <input type="file" id="images[]" name="images[]" class="form-control-file" data-bvalidator="extension[jpg:png:jpeg]" data-bvalidator-msg="{{ Helper::translation(1937,$translate,'') }}" multiple>
+                                                <input type="text" class="form-control" placeholder="Enter alt names" name="post_image_alts">
                                                 <br/>@foreach($editimageData as $post_image)
-                                                 <div class="item-img"><img src="{{ url('/') }}/public/storage/post/{{ $post_image->image }}" alt="{{ $post_image->image }}" class="item-thumb">
+                                                 <div class="item-img d-flex">
+                                                 <div style="display:flex;flex-direction:column;justify-content:center;">
+                                                  <img src="{{ url('/') }}/public/storage/post/{{ $post_image->image }}" alt="{{ $post_image->image }}" class="item-thumb">
+                                                  <small style="max-width:83px;height:fit-content;">{{$post_image->image_alt}}</small>
+                                                </div>
                                                     <a href="{{ url('/admin/remove-image') }}/dropimg/{{ base64_encode($post_image->post_image_id) }}" onClick="return confirm('{{ Helper::translation(1968,$translate,'') }}');" class="drop-icon"><span class="ti-trash drop-icon"></span></a>
                                                     </div>
                                                     @endforeach
@@ -169,6 +176,20 @@
                                             <textarea name="post_tags" rows="6"  class="form-control">{{ $edit['post']->post_tags }}</textarea>
                                             <small>(Tags separated by comma <strong>example:</strong> post,blog,category)</small>
                                             </div>
+
+                                            <div class="form-group">
+                                              <label for="meta_title" class="control-label mb-1">Meta Title Name (max 160 chars)<span class="require">*</span></label>
+                                              <textarea name="meta_title" id="meta_title" rows="4" class="form-control noscroll_textarea" data-bvalidator="required,maxlen[160]">{{ $edit['post']->meta_title }}</textarea>
+                                            </div> 
+                                            <div class="form-group">
+                                              <label for="post_seo_desc" class="control-label mb-1">{{ Helper::translation(1945,$translate,'') }} <span class="require">*</span></label>
+                                              <textarea name="post_seo_desc" id="post_seo_desc" rows="4" class="form-control noscroll_textarea" data-bvalidator="required,maxlen[160]">{{ $edit['post']->post_seo_desc }}</textarea>
+                                            </div>
+                                            <div class="form-group">
+                                              <label for="post_seo_canon" class="control-label mb-1">Canonical Tag (max 160 chars)<span class="require">*</span></label>
+                                              <textarea name="post_seo_canon" id="post_seo_canon" rows="4" class="form-control noscroll_textarea" data-bvalidator="required,maxlen[160]">{{ $edit['post']->post_seo_canon }}</textarea>
+                                            </div>
+
                                             <div class="form-group">
                                                 <label for="name" class="control-label mb-1">Facebook URL</label>
                                                 <input type="text" name="facebook" value="@if(!empty($view->facebook)){{ $view->facebook }}@endif"   class="form-control">

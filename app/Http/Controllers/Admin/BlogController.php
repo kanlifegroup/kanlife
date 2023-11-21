@@ -491,21 +491,25 @@ class BlogController extends Controller
 						   }
 					   
 					  }
-					$record = array('post_title' => $post_heading, 'post_slug' => $post_slug, 'post_short_desc' => $post_short_description, 'post_image' => $post_image, 'post_desc' => htmlentities($post_description), 'post_date' => $post_date, 'post_status' => $post_status, 'blog_cat_id' => $blog_cat_id, 'post_tags' => $post_tags, 'post_media_type' => $post_media_type, 'post_video' => $post_video, 'token' => $token, 'language_code' => $code, 'post_page_parent' => $parent, 'facebook'=>$facebook, 'instagram'=>$instagram, 'twitter'=>$twitter, 'linkedin'=>$linkedin);
+					$record = array('post_title' => $post_heading, 'post_slug' => $post_slug, 'post_short_desc' => $post_short_description, 'post_image' => $post_image, 'post_desc' => htmlentities($post_description), 'post_date' => $post_date, 'post_status' => $post_status, 'blog_cat_id' => $blog_cat_id, 'post_tags' => $post_tags, 'post_media_type' => $post_media_type, 'post_video' => $post_video, 'token' => $token, 'language_code' => $code, 'post_page_parent' => $parent, 'facebook'=>$facebook, 'instagram'=>$instagram, 'twitter'=>$twitter, 'linkedin'=>$linkedin, 'meta_title'=>$request->meta_title, 'post_seo_desc'=>$request->post_seo_desc, 'post_seo_canon'=> $request->post_seo_canon,'post_image_alt'=>$request->post_image_alt);
 					
 					$insertedId = Blog::getLastPostId($record);
           if ($request->hasFile('images')) 
 			  {
           
 					$files = $request->file('images');
+          $alt_names = explode(',', $request->post_image_alts);
           if($files)
-					foreach($files as $file)
+					foreach($files as $key => $file)
 					{
             $image = $file;
             $img_name = Str::random(5)."_".date('his')."_".Str::random(3) . '.'.$image->getClientOriginalExtension();
             $destinationPath = public_path('/storage/post');
             $image->move($destinationPath, $img_name);
-            $imgdata = array('post_id' => $insertedId, 'image' => $img_name);
+            $alt_name = '';
+            if(isset($alt_names[$key]))
+            $alt_name = $alt_names[$key];
+            $imgdata = array('post_id' => $insertedId, 'image' => $img_name, 'image_alt'=>$alt_name);
 						Blog::savePostImages($imgdata);
 					}
 			  }
@@ -619,7 +623,7 @@ class BlogController extends Controller
 		   	
 		   if($code=="en")
 			{
-			  $data = array('post_title' => $post_heading, 'post_slug' => $post_slug, 'post_short_desc' => $post_short_description, 'post_image' => $post_image, 'post_desc' => htmlentities($post_description), 'post_date' => $post_date, 'post_status' => $post_status, 'blog_cat_id' => $blog_cat_id, 'post_tags' => $post_tags, 'post_media_type' => $post_media_type, 'post_video' => $post_video, 'language_code' => $code, 'facebook'=>$facebook, 'instagram'=>$instagram, 'twitter'=>$twitter, 'linkedin'=>$linkedin);
+			  $data = array('post_title' => $post_heading, 'post_slug' => $post_slug, 'post_short_desc' => $post_short_description, 'post_image' => $post_image, 'post_desc' => htmlentities($post_description), 'post_date' => $post_date, 'post_status' => $post_status, 'blog_cat_id' => $blog_cat_id, 'post_tags' => $post_tags, 'post_media_type' => $post_media_type, 'post_video' => $post_video, 'language_code' => $code, 'facebook'=>$facebook, 'instagram'=>$instagram, 'twitter'=>$twitter, 'linkedin'=>$linkedin,'meta_title'=>$request->meta_title, 'post_seo_desc'=>$request->post_seo_desc, 'post_seo_canon'=> $request->post_seo_canon,'post_image_alt'=>$request->post_image_alt);
 			  
 			  Blog::updatepostData($post_id, $data);
 			}
@@ -640,14 +644,14 @@ class BlogController extends Controller
 						   $postshortdesc = "";
 						   $postdesc = "";
 						}
-					 $save = array('post_title' => $postheading, 'post_slug' => $post_slug, 'post_short_desc' => $postshortdesc, 'post_image' => $post_image, 'post_desc' => htmlentities($postdesc), 'post_date' => $post_date, 'post_status' => $post_status, 'blog_cat_id' => $blog_cat_id, 'post_tags' => $post_tags, 'post_media_type' => $post_media_type, 'post_video' => $post_video, 'language_code' => $code, 'token' => $token, 'post_page_parent' => $post_id, 'facebook'=>$facebook, 'instagram'=>$instagram, 'twitter'=>$twitter, 'linkedin'=>$linkedin);	
+					 $save = array('post_title' => $postheading, 'post_slug' => $post_slug, 'post_short_desc' => $postshortdesc, 'post_image' => $post_image, 'post_desc' => htmlentities($postdesc), 'post_date' => $post_date, 'post_status' => $post_status, 'blog_cat_id' => $blog_cat_id, 'post_tags' => $post_tags, 'post_media_type' => $post_media_type, 'post_video' => $post_video, 'language_code' => $code, 'token' => $token, 'post_page_parent' => $post_id, 'facebook'=>$facebook, 'instagram'=>$instagram, 'twitter'=>$twitter, 'linkedin'=>$linkedin,'meta_title'=>$request->meta_title, 'post_seo_desc'=>$request->post_seo_desc, 'post_seo_canon'=> $request->post_seo_canon,'post_image_alt'=>$request->post_image_alt);
 					 	
 				     Blog::insertpostData($save);
 					 					 
 				 }
 				 else
 				 {
-				   $updata = array('post_title' => $post_heading, 'post_slug' => $post_slug, 'post_short_desc' => $post_short_description, 'post_image' => $post_image, 'post_desc' => htmlentities($post_description), 'post_date' => $post_date, 'post_status' => $post_status, 'blog_cat_id' => $blog_cat_id, 'post_tags' => $post_tags, 'post_media_type' => $post_media_type, 'post_video' => $post_video);
+				   $updata = array('post_title' => $post_heading, 'post_slug' => $post_slug, 'post_short_desc' => $post_short_description, 'post_image' => $post_image, 'post_desc' => htmlentities($post_description), 'post_date' => $post_date, 'post_status' => $post_status, 'blog_cat_id' => $blog_cat_id, 'post_tags' => $post_tags, 'post_media_type' => $post_media_type, 'post_video' => $post_video,'meta_title'=>$request->meta_title, 'post_seo_desc'=>$request->post_seo_desc, 'post_seo_canon'=> $request->post_seo_canon,'post_image_alt'=>$request->post_image_alt);
 				   
 				  Blog::anotherPost($post_id,$code,$updata); 
 				  
@@ -657,14 +661,18 @@ class BlogController extends Controller
 		}
 
     $files = $request->file('images');
+    $alt_names = explode(',', $request->post_image_alts);
     if($files)
-    foreach($files as $file)
+    foreach($files as $key => $file)
     {
       $image = $file;
       $img_name = Str::random(5)."_".date('his')."_".Str::random(3) . '.'.$image->getClientOriginalExtension();
       $destinationPath = public_path('/storage/post');
       $image->move($destinationPath, $img_name);
-      $imgdata = array('post_id' => $post_id, 'image' => $img_name);
+      $alt_name = '';
+      if(isset($alt_names[$key]))
+      $alt_name = $alt_names[$key];
+      $imgdata = array('post_id' => $post_id, 'image' => $img_name, 'image_alt'=>$alt_name);
       Blog::savePostImages($imgdata);
     }
 		

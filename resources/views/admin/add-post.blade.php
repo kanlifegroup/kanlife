@@ -147,16 +147,35 @@
                                             <div class="form-group" id="">
                                                 <label for="site_favicon" class="control-label mb-1">Main {{ Helper::translation(2099,$translate,'') }}<span class="require">*</span></label>
                                              <input type="file" id="post_image" name="post_image" class="form-control-file" data-bvalidator="required,extension[jpg:png:jpeg]" data-bvalidator-msg="Please select file of type .jpg, .png or .jpeg">
+                                             <input type="text" class="form-control" placeholder="Enter alt name" name="post_image_alt">
                                             </div>
                                             <div class="form-group">
                                                 <label for="customer_earnings" class="control-label mb-1">Additional Images</label>
                                                 <input type="file" id="images[]" name="images[]" class="form-control-file" data-bvalidator="extension[jpg:png:jpeg]" data-bvalidator-msg="{{ Helper::translation(1937,$translate,'') }}" multiple>
+                                                <input type="text" class="form-control" placeholder="Enter alt names" name="post_image_alts">
+                                                <small>use comma ( , ) to split names</small>
                                              </div>
                                              <div class="form-group">
                                                 <label for="site_desc" class="control-label mb-1">{{ Helper::translation(1939,$translate,'') }}</label>
                                                 <textarea name="post_tags" rows="6"  class="form-control"></textarea>
                                                  <small>({{ Helper::translation(3054,$translate,'') }} <strong>{{ Helper::translation(3057,$translate,'') }}:</strong> post,blog,category)</small>
                                             </div>
+                                            
+
+                                            <div class="form-group">
+                                              <label for="meta_title" class="control-label mb-1">Meta Title Name (max 160 chars)</label>
+                                              <textarea name="meta_title" id="meta_title" rows="4" class="form-control noscroll_textarea" data-bvalidator="required,maxlen[160]"></textarea>
+                                            </div>
+                                            <div class="form-group">
+                                              <label for="post_seo_desc" class="control-label mb-1">{{ Helper::translation(1945,$translate,'') }} </label>
+                                              <textarea name="post_seo_desc" id="post_seo_desc" rows="4" class="form-control noscroll_textarea" data-bvalidator="required,maxlen[160]"></textarea>
+                                            </div>
+                                            <div class="form-group">
+                                              <label for="post_seo_canon" class="control-label mb-1">Canonical Tag (max 160 chars) </label>
+                                              <textarea name="post_seo_canon" id="post_seo_canon" rows="4" class="form-control noscroll_textarea" data-bvalidator="required,maxlen[160]"></textarea>
+                                            </div>
+
+
                                             <div class="form-group">
                                                 <label for="name" class="control-label mb-1">Facebook URL</label>
                                                 <input type="text" name="facebook" value=""   class="form-control">

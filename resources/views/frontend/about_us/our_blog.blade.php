@@ -1,7 +1,7 @@
 @extends('frontend.layouts.app')
 
 @section('title')
-  Home
+  Our Blogs
 @endsection
 
 @section('style')

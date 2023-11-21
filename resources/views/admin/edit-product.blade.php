@@ -191,7 +191,7 @@
                                             <div class="form-group">
                                                 <label for="customer_earnings" class="control-label mb-1">{{ Helper::translation(1936,$translate,'') }} ({{ Helper::translation(3003,$translate,'') }}: 600 x 450 or ratio: 4 x 3)<span class="require">*</span></label>
                                                 <input type="file" id="product_image" name="product_image" class="form-control-file" @if($edit['product']->product_image == '') data-bvalidator="required,extension[jpg:png:jpeg]" @else data-bvalidator="extension[jpg:png:jpeg]" @endif data-bvalidator-msg="{{ Helper::translation(1937,$translate,'') }}">
-                                                <input type="text" class="form-control" placeholder="Enter alt name" name="product_image_alt"> @if($edit['product']->product_image != '')
+                                                <input type="text" class="form-control" placeholder="Enter alt name" name="product_image_alt" value="{{$edit['product']->product_image_alt}}"> @if($edit['product']->product_image != '')
                                           <img src="{{ url('/') }}/public/storage/product/{{ $edit['product']->product_image }}"  class="image-size" alt="{{ $edit['product']->product_image_alt }}"/>
                                           <small>{{$edit['product']->product_image_alt}}</small>@else <img src="{{ url('/') }}/public/img/no-image.jpg"  class="image-size" alt="{{ $edit['product']->product_name }}"/>
                                           @endif      

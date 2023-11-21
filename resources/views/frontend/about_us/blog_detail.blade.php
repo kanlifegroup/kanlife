@@ -1,11 +1,16 @@
 @extends('frontend.layouts.app')
 
 @section('title')
-  Home
+@if($blogPost->meta_title)
+  {{$blogPost->meta_title}}
+@else
+  {{$blogPost->post_title}}
+@endif
 @endsection
 
 @section('meta')
-<link rel="canonical" href="https://www.kanlifegroup.com/about-us/our-blogs">
+<meta name="description" content="{{ $blogPost->post_seo_desc }}">
+<link rel="canonical" href="{{ $blogPost->post_seo_canon }}" />
 @endsection
 
 @section('style')
@@ -23,7 +28,7 @@
 
 @section('content')
 
-
+{{dd($blogPost)}}
 <div class="blog-section">
     <div class="container-fluid px-5">
         <div class="row blog-pads blog-detail align-items-center" aos="zoom-in">
@@ -36,25 +41,25 @@
             <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel " aos="fade-up" >
   <div class="carousel-indicators d-sm-none d-none  d-md-flex">
     <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1">
-        <img src="{{ url('/') }}/public/storage/post/{{ $blogPost->post_image }}" alt="">
+        <img src="{{ url('/') }}/public/storage/post/{{ $blogPost->post_image }}" alt="{{ $blogPost->post_image_alt }}">
     </button>
     @if(!empty($postImages))
     @foreach($postImages as $key => $postImage)
     <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="{{$key+1}}" aria-label="Slide {{$key+2}}">
-    <img src="{{ url('/') }}/public/storage/post/{{ $postImage->image }}" alt="">
+    <img src="{{ url('/') }}/public/storage/post/{{ $postImage->image }}" alt="{{ $postImage->image_alt }}">
     </button>
     @endforeach
     @endif
   </div>
   <div class="carousel-inner" aos="fade-left">
     <div class="carousel-item active ratio ratio-21x9" data-bs-interval="10000">
-      <img src="{{ url('/') }}/public/storage/post/{{ $blogPost->post_image }}" class="d-block w-100" alt="...">
+      <img src="{{ url('/') }}/public/storage/post/{{ $blogPost->post_image }}" class="d-block w-100" alt="{{ $blogPost->post_image_alt }}">
      
     </div>
     @if(!empty($postImages))
     @foreach($postImages as $key => $postImage)
     <div class="carousel-item ratio ratio-21x9" data-bs-interval="2000">
-      <img src="{{ url('/') }}/public/storage/post/{{ $postImage->image }}" class="d-block w-100" alt="...">
+      <img src="{{ url('/') }}/public/storage/post/{{ $postImage->image }}" class="d-block w-100" alt="{{ $postImage->image_alt }}">
      
     </div>
     @endforeach
