@@ -7,7 +7,7 @@
 @endsection
 
 @section('title')
-  Home
+  Hepatology Equipment | Gastroenterology | Liver cirrhosis
 @endsection
 @section('style')
 <style>
