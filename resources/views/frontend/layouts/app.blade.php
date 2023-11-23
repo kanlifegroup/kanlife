@@ -29,7 +29,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     @yield('style')
-    <link rel="stylesheet" href="https://cdn.rawgit.com/michalsnik/aos/1.0.1/dist/aos.css">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/michalsnik/aos/1.0.1/dist/aos.min.css">
     <link rel="stylesheet" href="{{ URL::to('resources/views/admin/template/picker/jquery-ui.css') }}" />
     <link rel="stylesheet" href="{{ URL::to('resources/views/template/filter/jplist.jquery-ui-bundle.min.css') }}">
     <link rel="stylesheet" href="{{asset('public/css/style.css')}}">    
@@ -489,7 +489,7 @@
 @include('frontend.layouts.footer')
 
 @yield('script')
-<script src="{{ URL::to('resources/views/template/autosearch/jquery-ui.js') }}"></script>
+<script src="{{ URL::to('resources/views/template/autosearch/jquery-ui.min.js') }}"></script>
 <script src="https://cdn.rawgit.com/michalsnik/aos/1.0.1/dist/aos.js"></script>
 <script>
    AOS.init({
