@@ -1746,7 +1746,6 @@ body {
   -moz-border-radius: 6px 0 6px 6px;
   border-radius: 6px 0 6px 6px;
 }
-
 .dropdown-item {
   display: block;
   width: 100%;
@@ -1760,6 +1759,11 @@ body {
   border: 0;
   font-family: 'Nunito', sans-serif;
   font-size: 1.2rem;
+}
+@media screen and (min-width: 1026px) {
+  .dropdown-item {
+    font-size: 0.9rem;
+  }
 }
 
 .dropdown-item:focus,

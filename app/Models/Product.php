@@ -412,7 +412,7 @@ class Product extends Model
       DB::table('price_enquiry')->insert($data);
   }
   public static function getEnquiries(){
-    return DB::table('price_enquiry')->join('product','product.product_id','price_enquiry.product_id')->join('users','users.id','price_enquiry.user_id')->select('price_enquiry.id','price_enquiry.status','product.product_name','product.product_sku','users.name','users.email','users.user_phone')->get();
+    return DB::table('price_enquiry')->join('product','product.product_id','price_enquiry.product_id')->join('users','users.id','price_enquiry.user_id')->select('price_enquiry.id','price_enquiry.status','price_enquiry.created_at','product.product_name','product.product_sku','users.name','users.email','users.user_phone')->get();
   }
   public static function myEnquiries($id){
     return DB::table('price_enquiry')->where('user_id', $id)->pluck('product_id');
