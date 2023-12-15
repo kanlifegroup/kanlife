@@ -780,9 +780,12 @@ class Product extends Model
     return $value;
   }
   
-  public static function singleCountry($country_id)
+  public static function singleCountry($country_id, $only_name=0)
   {
     $value=DB::table('country')->where('country_id','=',$country_id)->first(); 
+    if($only_name == 1)
+    return $value->country_name;
+    else
     return $value;
   }
   

@@ -86,7 +86,7 @@
                                             </div>                                  
                                             <div class="form-group">
                                                 <label for="name" class="control-label mb-1">{{ Helper::translation(1918,$translate,'') }}</label>
-                                                <input id="brand_order" name="brand_order" type="text" class="form-control" data-bvalidator="digit,min[0]" value="{{ $edit['brand']->brand_order }}">
+                                                <input id="brand_order" name="brand_order" type="text" class="form-control" data-bvalidator="digit,min[1]" value="{{ $edit['brand']->brand_order }}">
                                             </div> 
                                             <div class="form-group">
                                                 <label for="site_title" class="control-label mb-1"> {{ Helper::translation(1915,$translate,'') }} <span class="require">*</span></label>

@@ -51,7 +51,9 @@ class SlideshowController extends Controller
 
         	]);
         $input['slide_title'] = $data['slide_title'];
-		$rules = array();
+		$rules = array(
+      // 'slide_order' => [Rule::unique('slideshow')]
+    );
 		$messages = array();
 		$validator = Validator::make($request->all(), $rules, $messages);
 		if ($validator->fails())
@@ -333,7 +335,9 @@ class SlideshowController extends Controller
 	   ]);
        
 	   $input['slide_title'] = $data['slide_title'];
-	   $rules = array();
+	   $rules = array(
+      // 'slide_order' => [Rule::unique('slideshow')->ignore($data['slide_id'], 'slide_id')]
+    );
 	   $messages = array();
 	   $validator = Validator::make($request->all(), $rules, $messages);
 	   if ($validator->fails())

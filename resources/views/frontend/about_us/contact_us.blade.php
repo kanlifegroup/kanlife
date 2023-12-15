@@ -29,7 +29,7 @@
 
 @section('content')
 @if (session('success'))
-        <div class="col-sm-12">
+        <div class="col-sm-12" id="message_box">
         <div class="alert  alert-success alert-dismissible fade show" role="alert">
             {{ session('success') }}
         </div>
@@ -256,6 +256,7 @@
         src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js"></script>
     <script>
         $(document).ready(function () {
+          $('#message_box').delay(5000).fadeOut('slow');
             $("#news-slider10").owlCarousel({
                 items: 3,
                 itemsDesktop: [1199, 3],

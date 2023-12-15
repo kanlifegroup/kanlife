@@ -84,7 +84,7 @@
                                                 <label for="site_logo" class="control-label mb-1">{{ Helper::translation(2099,$translate,'') }} ({{ Helper::translation(3003,$translate,'') }} 200 x 200)</label>
                                                 <input type="file" id="brand_image" name="brand_image" class="form-control-file"  data-bvalidator="extension[jpg:png:jpeg]" data-bvalidator-msg="Please select file of type .jpg, .png or .jpeg"></div>           <div class="form-group">
                                                 <label for="name" class="control-label mb-1">{{ Helper::translation(3447,$translate,'') }}</label>
-                                                <input id="brand_order" name="brand_order" type="text" class="form-control" data-bvalidator="digit,min[0]">
+                                                <input id="brand_order" name="brand_order" type="text" class="form-control" data-bvalidator="digit,min[1]">
                                             </div> 
                                             <div class="form-group">
                                                 <label for="site_title" class="control-label mb-1"> {{ Helper::translation(1915,$translate,'') }} <span class="require">*</span></label>

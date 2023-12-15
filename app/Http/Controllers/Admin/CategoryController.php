@@ -57,7 +57,7 @@ class CategoryController extends Controller
         
 		$rules = array(
 				'category_slug' => ['required', 'max:255', Rule::unique('category') -> where(function($sql){ $sql->where('drop_status','=','no');})],
-				
+				// 'display_order' => [Rule::unique('category')->where('drop_status', 'no')]
 	     );
 		$messages = array();
 		$validator = Validator::make($request->all(), $rules, $messages);
@@ -234,13 +234,14 @@ class CategoryController extends Controller
 	    
 		 $data = $request->all();
 		 $cat_id = $data['cat_id'];   
+    //  $_category = Category::where('cat_id', $cat_id)->first();
 		 $image_size = $data['image_size'];
 		 $this->validate($request, [
 	        'category_image' => 'mimes:jpeg,jpg,png|max:'.$image_size
 	     ]);
        $data = $request->all();
 	   $rules = array(
-				
+      // 'display_order' => [Rule::unique('category')->ignore($data['cat_id'], 'cat_id')->where('category_slug','=', $_category->category_slug)->where('drop_status', 'no')]
 				
 	     );
 	   $messages = array();

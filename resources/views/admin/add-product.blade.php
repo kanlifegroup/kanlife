@@ -97,15 +97,15 @@
           <div class="tab-pane fade @if($i == 1) show active @endif" id="{{ $language->language_name }}" role="tabpanel">
               <div class="form-group">
                    <label for="name" class="control-label mb-1">{{ Helper::translation(1928,$translate,'') }} <span class="require">*</span></label>
-                   <input type="text" name="product_name[]" id="product_name" value=""   class="form-control" data-bvalidator="required">
+                   <input type="text" name="product_name[]" required id="product_name" value="{{old('product_name.0')}}"   class="form-control" data-bvalidator="required">
               </div>
               <div class="form-group">
                         <label for="site_keywords" class="control-label mb-1">{{ Helper::translation(1930,$translate,'') }} <span class="require">*</span></label>
-                                                 <textarea name="product_short_desc[]" id="product_short_desc" rows="3" class="form-control noscroll_textarea" data-bvalidator="required,maxlen[160]"></textarea>
+                                                 <textarea required name="product_short_desc[]" id="product_short_desc" rows="3" class="form-control noscroll_textarea" data-bvalidator="required,maxlen[160]"></textarea>
                       </div>
                       <div class="form-group">
                             <label for="site_desc" class="control-label mb-1">{{ Helper::translation(1931,$translate,'') }}<span class="require">*</span></label>
-                                                <textarea name="product_desc[]" id="summary-ckeditor{{ $language->language_id }}" rows="3"  class="form-control" data-bvalidator="required"></textarea>
+                                                <textarea required name="product_desc[]" id="summary-ckeditor{{ $language->language_id }}" rows="3"  class="form-control" data-bvalidator="required"></textarea>
                        </div>            
           </div>
           <input type="hidden" name="language_code[]" value="{{ $language->language_code }}">
@@ -116,12 +116,12 @@
       </div>
       <div class="form-group">
                             <label for="name" class="control-label mb-1">{{ Helper::translation(2982,$translate,'') }} <span class="require">*</span></label>
-                                                <input id="product_slug" name="product_slug" type="text" class="form-control" data-bvalidator="required">
+                                                <input id="product_slug" required name="product_slug" type="text" class="form-control" data-bvalidator="required">
                                             </div>
                                             @if($additional['setting']->sku_type == "manual")
                                             <div class="form-group">
                                                 <label for="name" class="control-label mb-1">{{ Helper::translation(1929,$translate,'') }} <span class="require">*</span></label>
-                                                <input id="product_sku" name="product_sku" type="text" class="form-control" data-bvalidator="required">
+                                                <input id="product_sku" required name="product_sku" type="text" class="form-control" data-bvalidator="required">
                                             </div>
                                             @else
                                             <input type="hidden" name="product_sku" value="{{ mt_rand(10000,99999) }}">
@@ -129,7 +129,7 @@
                                             
                                             <div class="form-group">
                                                 <label for="site_title" class="control-label mb-1"> {{ Helper::translation(1932,$translate,'') }} <span class="require">*</span></label>
-                                                <select name="product_category[]" class="form-control categories" data-bvalidator="required" multiple>
+                                                <select name="product_category[]" required class="form-control categories" data-bvalidator="required" multiple>
                                                 @foreach($categories['display'] as $menu)
                                                 @php 
                                                 if($menu->language_code == 'en')
@@ -196,7 +196,7 @@
                                      <input id="product_video_url" name="product_video_url" type="hidden" class="form-control" value="">
                                      <div class="form-group">
                                                 <label for="site_title" class="control-label mb-1"> {{ Helper::translation(1941,$translate,'') }} <span class="require">*</span></label>
-                                                <select name="product_allow_seo" id="product_allow_seo" class="form-control" data-bvalidator="required">
+                                                <select name="product_allow_seo" required id="product_allow_seo" class="form-control" data-bvalidator="required">
                                                 <option value=""></option>
                                                 <option value="1">{{ Helper::translation(1942,$translate,'') }}</option>
                                                 <option value="0">{{ Helper::translation(1943,$translate,'') }}</option>
@@ -248,7 +248,7 @@
                                             </div>
                                            <div class="form-group">
                                                 <label for="site_title" class="control-label mb-1"> {{ Helper::translation(3060,$translate,'') }} <span class="require">*</span></label>
-                                                <select name="product_featured" class="form-control" data-bvalidator="required">
+                                                <select name="product_featured" required class="form-control" data-bvalidator="required">
                                                 <option value=""></option>
                                                 <option value="1">{{ Helper::translation(1942,$translate,'') }}</option>
                                                 <option value="0">{{ Helper::translation(1943,$translate,'') }}</option>
@@ -278,7 +278,7 @@
                                      </div>  
                                      <div class="form-group">
                                                 <label for="site_title" class="control-label mb-1">{{ Helper::translation(1950,$translate,'') }} <span class="require">*</span></label>
-                                                <select name="product_condition" class="form-control" data-bvalidator="required">
+                                                <select name="product_condition" required class="form-control" data-bvalidator="required">
                                                 <option value=""></option>
                                                 <option value="new">{{ Helper::translation(1951,$translate,'') }}</option>
                                                 <option value="used">{{ Helper::translation(1952,$translate,'') }}</option>
@@ -338,7 +338,7 @@
                                     </div>
                                     <div class="form-group">
                                                 <label for="site_title" class="control-label mb-1"> {{ Helper::translation(1961,$translate,'') }} <span class="require">*</span></label>
-                                                <select name="flash_deals" id="flash_deals" class="form-control" data-bvalidator="required">
+                                                <select name="flash_deals" required id="flash_deals" class="form-control" data-bvalidator="required">
                                                 <option value=""></option>
                                                 <option value="1">{{ Helper::translation(1942,$translate,'') }}</option>
                                                 <option value="0">{{ Helper::translation(1943,$translate,'') }}</option>

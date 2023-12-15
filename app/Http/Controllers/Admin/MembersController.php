@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Input;
 use Auth;
 use URL;
 use Mail;
+use Illuminate\Validation\Rules\Password;
 
 
 class MembersController extends Controller
@@ -445,7 +446,12 @@ class MembersController extends Controller
 		 $request->validate([
 							'name' => 'required',
 							'username' => 'required',
-							'password' => 'min:6',
+							'password' => ['required', 'min:8','max:25',Password::min(8)
+                                                    ->letters()
+                                                    ->mixedCase()
+                                                    ->numbers()
+                                                    ->symbols()],
+							'user_phone' => 'required|min:10|max:10',
 							'email' => 'required|email',
 							'user_photo' => 'mimes:jpeg,jpg,png|max:'.$site_max_image_size,
 							
@@ -562,7 +568,12 @@ class MembersController extends Controller
 		 $request->validate([
 							'name' => 'required',
 							'username' => 'required',
-							'password' => 'min:6',
+							'password' => ['min:8','max:25',Password::min(8)
+                                                    ->letters()
+                                                    ->mixedCase()
+                                                    ->numbers()
+                                                    ->symbols()],
+							'user_phone' => 'required|min:10|max:10',
 							'email' => 'required|email',
 							'user_photo' => 'mimes:jpeg,jpg,png,gif|max:'.$site_max_image_size,
 							

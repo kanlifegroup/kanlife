@@ -126,11 +126,13 @@ class RegisterController extends Controller
                                                       ->symbols()],
           // 'user_pincode' => ['required', 'digits:6','numeric'],
           // 'user_address' => ['required', 'max:200','min:10'],
+          'gst' => 'required',
           'password_confirmation' => 'required|same:password',
            );
       }
 		 $messsages = array(
-      'user_phone.required' => 'Mobile no field is required'
+      'user_phone.required' => 'Mobile no field is required',
+      'gst.required' => 'GSTIN field is required'
      );
 		$validator = Validator::make($request->all(), $rules,$messsages);
 		if ($validator->fails()) 
@@ -158,7 +160,7 @@ class RegisterController extends Controller
     if($user_type=='vendor')
     $data = array('name' => $name, 'username' => $username, 'email' => $email, 'user_phone' => $user_phone, 'user_type' => $user_type, 'user_pincode'=>$user_pincode,'user_address'=>$user_address, 'password' => $password, 'earnings' => $earnings, 'verified' => $verified, 'created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s'), 'user_token' => $user_token, 'referral_by' => $referral_by, 'gst' => $gst, 'account_no'=>$account_no, 'ifsc'=>$ifsc, 'account_holder'=>$account_holder);
     else
-		$data = array('name' => $name, 'username' => $username, 'email' => $email, 'user_phone' => $user_phone, 'user_type' => $user_type, 'user_pincode'=>$user_pincode,'user_address'=>$user_address, 'password' => $password, 'earnings' => $earnings, 'verified' => $verified, 'created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s'), 'user_token' => $user_token, 'referral_by' => $referral_by);
+		$data = array('name' => $name, 'username' => $username, 'email' => $email, 'user_phone' => $user_phone, 'user_type' => $user_type, 'user_pincode'=>$user_pincode,'user_address'=>$user_address, 'password' => $password, 'earnings' => $earnings, 'verified' => $verified, 'created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s'), 'user_token' => $user_token, 'referral_by' => $referral_by,'gst' => $gst);
 		Members::insertData($data);
 		if($allsettings->email_verification == 1)
 		{

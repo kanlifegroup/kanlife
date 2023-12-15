@@ -879,7 +879,7 @@ class ProductController extends Controller
         Product::updateOrderCheckout($purchase_token,['checked_out'=>1]);
         return redirect('/my-purchase');
       }
-      if($payment_method == 'online'){
+      if($payment_method == 'instamozo'){
         $pay = array('purpose'=>$product_names,'name'=>$bill_firstname.' '.$bill_lastname, 'amount'=>$total_price, 'email'=>$bill_email, 'phone'=>$bill_phone);
         $token = $this->instamojoAccessToken($instamojo_mode)['access_token']??'';
         if($token != ''){
@@ -896,12 +896,64 @@ class ProductController extends Controller
         else
         return redirect()->back()->with('error', 'Sorry, Payment gateway is under maintenance !!');
       }
+      if($payment_method == 'ccavenue'){
+        $merchant_data='2';
+        $working_key='E2B122A0140C55090B17A284925A0465';//Shared by CCAVENUES
+        $access_code='AVVM67DI04BP90MVPB';//Shared by CCAVENUES
+        $merchant_id='AVVM67DI04BP90MVPB';//Shared by CCAVENUES
+
+        $tid = sprintf('%013.0f', microtime(1)*1000);
+        $merchant_data.='tid='.$tid.'&';
+        $merchant_data.='merchant_id='.$merchant_id.'&';
+        $merchant_data.='order_id='.$purchase_token.'&';
+        $merchant_data.='amount='.$total_price.'&';
+        $merchant_data.='currency=INR&';
+        $merchant_data.='redirect_url='.url('/updateCcavenueCheckoutDetails').'&';
+        $merchant_data.='cancel_url='.url('/checkout').'&';
+        $merchant_data.='language=EN&';
+        $merchant_data.='billing_name='.$bill_firstname.' '.$bill_lastname.'&';
+        $merchant_data.='billing_address='.$bill_address.' '.$bill_address_2.'&';
+        $merchant_data.='billing_city='.$bill_city.'&';
+        $merchant_data.='billing_state='.$bill_state.'&';
+        $merchant_data.='billing_zip='.$bill_postcode.'&';
+        $merchant_data.='billing_country='.Product::singleCountry($bill_country, 1).'&';
+        $merchant_data.='billing_tel='.$bill_phone.'&';
+        $merchant_data.='billing_email='.$bill_email.'&';
+        $merchant_data.='delivery_name='.$total_price.' '.$bill_lastname.'&';
+        $merchant_data.='delivery_address='.$bill_address.' '.$bill_address_2.'&';
+        $merchant_data.='delivery_city='.$bill_city.'&';
+        $merchant_data.='delivery_state='.$bill_state.'&';
+        $merchant_data.='delivery_zip='.$bill_postcode.'&';
+        $merchant_data.='delivery_country='.Product::singleCountry($bill_country, 1).'&';
+        $merchant_data.='delivery_tel='.$bill_phone.'&';
+        // Product::saveOnlineCheckoutDetails($save_data);
+        $encrypted_data=$this->encrypt_data($merchant_data,$working_key);
+        $ccavenue_data['encrypted_data']=$encrypted_data;
+        $ccavenue_data['access_code']=$access_code;
+        return view('frontend.ccavenue_checkout')->with($ccavenue_data);
+      }
     }catch(Exception $e){
       return redirect()->back();
     }
   }
 
   public function updateOnlineCheckoutData(Request $request){
+    $data = array('payment_id'=>$request->payment_id, 'payment_status'=>$request->payment_status);
+    $details = (array) Product::updateOnlineCheckoutDetails($request->payment_request_id, $data);
+    if($request->payment_status == 'Credit'){
+    unset($details['cid']);
+    $details['payment_status']='completed';
+    Product::saveCheckout($details);
+    Product::updateOrderCheckout($details['purchase_token'],['checked_out'=>1]);
+    $this->complete_orders($details['purchase_token'], 'online');
+    return redirect('/my-purchase');
+    }
+    else
+    return redirect('/checkout');
+  }
+
+  public function updateCcavenueCheckoutData(Request $request){
+    dd($request->all());
     $data = array('payment_id'=>$request->payment_id, 'payment_status'=>$request->payment_status);
     $details = (array) Product::updateOnlineCheckoutDetails($request->payment_request_id, $data);
     if($request->payment_status == 'Credit'){
@@ -1010,6 +1062,47 @@ class ProductController extends Controller
                 ->post('https://'.$type.'.instamojo.com/v2/payment_requests/', $payload);
     // dd($res->json());
     return ['response'=>$res->json(), 'status'=>$res->status()];
+  }
+
+  private function encrypt_data($plainText,$key)
+	{
+		$key = $this->hextobin(md5($key));
+		$initVector = pack("C*", 0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0a, 0x0b, 0x0c, 0x0d, 0x0e, 0x0f);
+		$openMode = openssl_encrypt($plainText, 'AES-128-CBC', $key, OPENSSL_RAW_DATA, $initVector);
+		$encryptedText = bin2hex($openMode);
+		return $encryptedText;
+	}
+
+	private function decrypt_data($encryptedText,$key)
+	{
+		$key = $this->hextobin(md5($key));
+		$initVector = pack("C*", 0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0a, 0x0b, 0x0c, 0x0d, 0x0e, 0x0f);
+		$encryptedText = hextobin($encryptedText);
+		$decryptedText = openssl_decrypt($encryptedText, 'AES-128-CBC', $key, OPENSSL_RAW_DATA, $initVector);
+		return $decryptedText;
+	}
+  private function hextobin($hexString) 
+  { 
+      $length = strlen($hexString); 
+      $binString="";   
+      $count=0; 
+      while($count<$length) 
+      {       
+          $subString =substr($hexString,$count,2);           
+          $packedString = pack("H*",$subString); 
+          if ($count==0)
+    {
+    $binString=$packedString;
+    } 
+          
+    else 
+    {
+    $binString.=$packedString;
+    } 
+          
+    $count+=2; 
+      } 
+        return $binString; 
   }
 	
 	public function razorpay_payment(Request $request)

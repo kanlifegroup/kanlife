@@ -188,7 +188,7 @@ $module=explode("/", url()->current());
                 <div class="col-6 @if($count_categories < 11) col-md-12 @elseif($count_categories > 10 && $count_categories < 21) col-md-6 @else col-md-4 @endif ">
                   @foreach($categories['display'] as $key => $category)
                     @if($key < 10)
-                    <li class="dropdown-item"><a class="deu-droptxt" href="{{url('category/'.$category->category_slug)}}">{{ $category->category_name }}</a></li>
+                    <li class="dropdown-item" title="{{ $category->category_name }}"><a class="deu-droptxt" href="{{url('category/'.$category->category_slug)}}">{{ $category->category_name }}</a></li>
                     @endif
                   @endforeach
                 </div>
@@ -196,7 +196,7 @@ $module=explode("/", url()->current());
                 <div class="col-6 @if($count_categories < 21) col-md-6 @else col-md-4 @endif bg-light">
                   @foreach($categories['display'] as $key => $category)
                     @if($key >= 10 && $key < 20)
-                    <li class="dropdown-item"><a class="deu-droptxt" href="{{url('category/'.$category->category_slug)}}">{{ $category->category_name }}</a></li>
+                    <li class="dropdown-item" title="{{ $category->category_name }}"><a class="deu-droptxt" href="{{url('category/'.$category->category_slug)}}">{{ $category->category_name }}</a></li>
                     @endif
                   @endforeach
                 </div>
@@ -205,7 +205,7 @@ $module=explode("/", url()->current());
                 <div class="col-6 col-md-4">
                   @foreach($categories['display'] as $key => $category)
                     @if($key >= 20 && $key < 30)
-                    <li class="dropdown-item"><a class="deu-droptxt" href="{{url('category/'.$category->category_slug)}}">{{ $category->category_name }}</a></li>
+                    <li class="dropdown-item" title="{{ $category->category_name }}"><a class="deu-droptxt" href="{{url('category/'.$category->category_slug)}}">{{ $category->category_name }}</a></li>
                     @endif
                   @endforeach
                 </div>

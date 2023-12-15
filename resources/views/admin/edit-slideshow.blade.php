@@ -143,7 +143,7 @@
                                             </div>                                     
                                             <div class="form-group">
                                                 <label for="name" class="control-label mb-1">{{ Helper::translation(1918,$translate,'') }}</label>
-                                                <input id="slide_order" name="slide_order" type="text" class="form-control" data-bvalidator="digit,min[0]" value="{{ $edit['slide']->slide_order }}">
+                                                <input id="slide_order" name="slide_order" type="number" onkeypress="return event.charCode >= 48" class="form-control" data-bvalidator="digit,min[0]" value="{{ $edit['slide']->slide_order }}">
                                             </div> 
                                             <div class="form-group">
                                                 <label for="site_title" class="control-label mb-1"> {{ Helper::translation(1915,$translate,'') }} <span class="require">*</span></label>

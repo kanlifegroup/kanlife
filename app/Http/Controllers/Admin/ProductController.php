@@ -95,7 +95,7 @@ class ProductController extends Controller
 							
          ]);
 		 $rules = array(
-				
+      // 'brand_order' => [Rule::unique('brands')],
 				
 	     );
 		 
@@ -185,7 +185,7 @@ class ProductController extends Controller
 							
          ]);
 		 $rules = array(
-				
+      // 'brand_order' => [Rule::unique('brands')->ignore($brand_id, 'brand_id')],
 				
 	     );
 		 
@@ -976,7 +976,6 @@ class ProductController extends Controller
 		 $file_size = $data['file_size'];   
 		 $allsettings = Settings::allSettings();
 		 $this->validate($request, [
-		 
 		     'product_image' => 'mimes:jpeg,jpg,png|max:'.$image_size,
 			 'product_gallery.*' => 'image|mimes:jpeg,jpg,png|max:'.$image_size,
 			 'product_file' => 'max:'.$file_size,
@@ -985,10 +984,11 @@ class ProductController extends Controller
         
 		$rules = array(
 		 
+      'product_name.0'=>'required',
 				'product_slug' => ['required',  Rule::unique('product') -> where(function($sql){ $sql->where('product_drop_status','=','no');})],
 				
 	     );
-		$messages = array();
+		$messages = array('product_name.0.required'=>'Product name is required.');
 		$validator = Validator::make($request->all(), $rules, $messages);
 		if ($validator->fails())
 		{

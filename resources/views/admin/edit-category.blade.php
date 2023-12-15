@@ -141,7 +141,7 @@
                                             </div>
                                        <div class="form-group">
                                                 <label for="name" class="control-label mb-1">{{ Helper::translation(1918,$translate,'') }}</label>
-                                                <input id="display_order" name="display_order" type="text" class="form-control" value="{{ $edit['category']->display_order }}">
+                                                <input id="display_order" name="display_order" type="number" onkeypress="return event.charCode >= 48" class="form-control" value="{{ $edit['category']->display_order }}">
                                             </div>  
                                             <div class="form-group">
                                                                     <label for="customer_earnings" class="control-label mb-1">{{ Helper::translation(3000,$translate,'') }} ({{ Helper::translation(3003,$translate,'') }}: 128 x 128)</label>

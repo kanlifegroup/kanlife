@@ -74,19 +74,19 @@
                                     <div class="card-body">
                                        <div class="form-group">
                                                 <label for="name" class="control-label mb-1">{{ Helper::translation(2018,$translate,'') }} <span class="require">*</span></label>
-                                                <input id="name" name="name" type="text" class="form-control" data-bvalidator="required">
+                                                <input id="name" name="name" value="{{ old('name') }}" type="text" class="form-control" data-bvalidator="required">
                                             </div>
                                             <div class="form-group">
                                                 <label for="name" class="control-label mb-1">{{ Helper::translation(2101,$translate,'') }} <span class="require">*</span></label>
-                                                <input id="username" name="username" type="text" class="form-control" data-bvalidator="required">
+                                                <input id="username" name="username" value="{{ old('username') }}" type="text" class="form-control" data-bvalidator="required">
                                             </div>
                                             <div class="form-group">
                                                     <label for="email" class="control-label mb-1">{{ Helper::translation(2014,$translate,'') }} <span class="require">*</span></label>
-                                                    <input id="email" name="email" type="text" class="form-control" data-bvalidator="email,required">
+                                                    <input id="email" name="email" value="{{ old('email') }}" type="text" class="form-control" data-bvalidator="email,required">
                                              </div>
                                             <div class="form-group">
                                                     <label for="user_phone" class="control-label mb-1">Contact Number <span class="require">*</span></label>
-                                                    <input id="user_phone" name="user_phone" type="text" class="form-control" data-bvalidator="user_phone,required">
+                                                    <input id="user_phone" name="user_phone" value="{{ old('user_phone') }}" type="text" class="form-control" data-bvalidator="user_phone,required">
                                                </div>
                                              <input type="hidden" name="user_type" value="customer">
                                              <div class="form-group">

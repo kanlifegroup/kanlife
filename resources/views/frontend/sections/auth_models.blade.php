@@ -119,6 +119,16 @@
               @enderror
             </div>
           </div>
+          <div class="form-group row justify-content-center px-3">
+            <div class="col-9 px-0">
+              <input type="text" name="gst" value="{{ old('gst') }}" placeholder="GSTIN*" class="@error('gst') is-invalid @enderror form-control border-info placeicon deu-logininput">
+              @error('gst')
+                <span class="invalid-feedback error-font" role="alert">
+                <strong>{{ $message }}</strong>
+                </span>
+              @enderror
+            </div>
+          </div>
           {{--
           <div class="form-group row justify-content-center px-3">
             <div class="col-9 px-0">
