@@ -205,19 +205,19 @@
                                      <div id="ifseo">
                                      <div class="form-group">
                                            <label for="meta_title" class="control-label mb-1">Meta Title Name (max 160 chars)<span class="require">*</span></label>
-                                            <textarea name="meta_title" id="meta_title" rows="4" class="form-control noscroll_textarea" data-bvalidator="required,maxlen[160]"></textarea>
+                                            <textarea name="meta_title" id="meta_title" rows="4" class="form-control noscroll_textarea" data-bvalidator="required,maxlen[160]" required></textarea>
                                        </div> 
                                      <div class="form-group">
                                            <label for="site_keywords" class="control-label mb-1">{{ Helper::translation(1944,$translate,'') }} <span class="require">*</span></label>
-                                            <textarea name="product_seo_keyword" id="product_seo_keyword" rows="4" class="form-control noscroll_textarea" data-bvalidator="required,maxlen[160]"></textarea>
+                                            <textarea name="product_seo_keyword" id="product_seo_keyword" rows="4" class="form-control noscroll_textarea" data-bvalidator="required,maxlen[160]" required></textarea>
                                        </div> 
                                        <div class="form-group">
                                            <label for="site_desc" class="control-label mb-1">{{ Helper::translation(1945,$translate,'') }} <span class="require">*</span></label>
-                                              <textarea name="product_seo_desc" id="product_seo_desc" rows="4" class="form-control noscroll_textarea" data-bvalidator="required,maxlen[160]"></textarea>
+                                              <textarea name="product_seo_desc" id="product_seo_desc" rows="4" class="form-control noscroll_textarea" data-bvalidator="required,maxlen[160]" required></textarea>
                                             </div>
                                        <div class="form-group">
                                            <label for="product_seo_canon" class="control-label mb-1">Canonical Tag (max 160 chars) <span class="require">*</span></label>
-                                              <textarea name="product_seo_canon" id="product_seo_canon" rows="4" class="form-control noscroll_textarea" data-bvalidator="required,maxlen[160]"></textarea>
+                                              <textarea name="product_seo_canon" id="product_seo_canon" rows="4" class="form-control noscroll_textarea" data-bvalidator="required,maxlen[160]" required></textarea>
                                             </div>
                                           </div>  
                                     </div>
@@ -348,11 +348,11 @@
                              <div id="ifdeal">
                             <div class="form-group">
                                                 <label for="site_keywords" class="control-label mb-1">{{ Helper::translation(1962,$translate,'') }} <span class="require">*</span></label>
-                                             <input id="flash_deal_start_date" name="flash_deal_start_date" type="text" class="form-control" data-bvalidator="required">
+                                             <input id="flash_deal_start_date" name="flash_deal_start_date" type="text" class="form-control" data-bvalidator="required" required>
                                             </div> 
                                <div class="form-group">
                                                 <label for="site_desc" class="control-label mb-1">{{ Helper::translation(1963,$translate,'') }} <span class="require">*</span></label>
-                                            <input id="flash_deal_end_date" name="flash_deal_end_date" type="text" class="form-control" data-bvalidator="required">
+                                            <input id="flash_deal_end_date" name="flash_deal_end_date" type="text" class="form-control" data-bvalidator="required" required>
                                             </div>
                                   </div>  
                                  <input type="hidden" name="image_size" value="{{ $allsettings->site_max_image_size }}"> 
@@ -380,7 +380,7 @@
     @endif
     <!-- Right Panel -->
    @include('admin.javascript')
-   <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+   <!-- <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
    <script>
     $(document).ready(function() {

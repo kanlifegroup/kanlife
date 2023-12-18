@@ -163,15 +163,15 @@
                                             
 
                                             <div class="form-group">
-                                              <label for="meta_title" class="control-label mb-1">Meta Title Name (max 160 chars)</label>
+                                              <label for="meta_title" class="control-label mb-1">Meta Title Name (max 160 chars)<span class="require">*</span></label>
                                               <textarea name="meta_title" id="meta_title" rows="4" class="form-control noscroll_textarea" data-bvalidator="required,maxlen[160]"></textarea>
                                             </div>
                                             <div class="form-group">
-                                              <label for="post_seo_desc" class="control-label mb-1">{{ Helper::translation(1945,$translate,'') }} </label>
+                                              <label for="post_seo_desc" class="control-label mb-1">{{ Helper::translation(1945,$translate,'') }}<span class="require">*</span> </label>
                                               <textarea name="post_seo_desc" id="post_seo_desc" rows="4" class="form-control noscroll_textarea" data-bvalidator="required,maxlen[160]"></textarea>
                                             </div>
                                             <div class="form-group">
-                                              <label for="post_seo_canon" class="control-label mb-1">Canonical Tag (max 160 chars) </label>
+                                              <label for="post_seo_canon" class="control-label mb-1">Canonical Tag (max 160 chars)<span class="require">*</span> </label>
                                               <textarea name="post_seo_canon" id="post_seo_canon" rows="4" class="form-control noscroll_textarea" data-bvalidator="required,maxlen[160]"></textarea>
                                             </div>
 
