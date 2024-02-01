@@ -213,6 +213,7 @@ class ProductController extends Controller
 	   $pdf_filename = $purchase->purchase_token.'-'.$purchase->payment_date.'.pdf';
 	   $purchase_token = $purchase->purchase_token;
 	   $payment_token = $purchase->payment_token;
+	   $payment_id = $purchase->payment_id;
 	   $shipping_price = $purchase->shipping_price;
 	   $processing_fee = $purchase->processing_fee;
 	   $payment_type = str_replace("-"," ",$purchase->payment_type);
@@ -238,7 +239,7 @@ class ProductController extends Controller
 	   $buyer_email = $purchase->bill_email;
 	   $product['view'] = Product::myOrders($token,$user_id);
 		  
-		  $data = ['purchase_token' => $purchase_token, 'payment_token' => $payment_token, 'shipping_price' => $shipping_price, 'processing_fee' => $processing_fee, 'payment_type' => $payment_type, 'payment_date' => $payment_date, 'subtotal' => $subtotal, 'total' => $total, 'payment_status' => $payment_status, 'buyer_name' => $buyer_name, 'buyer_address' => $buyer_address, 'buyer_city' => $buyer_city,'buyer_state'=>$buyer_state, 'buyer_zip' => $buyer_zip, 'buyer_country' => $buyer_country, 'buyer_email' => $buyer_email, 'product' => $product, 'purchase' => $purchase];
+		  $data = ['purchase_token' => $purchase_token, 'payment_token' => $payment_token, 'payment_id' => $payment_id, 'shipping_price' => $shipping_price, 'processing_fee' => $processing_fee, 'payment_type' => $payment_type, 'payment_date' => $payment_date, 'subtotal' => $subtotal, 'total' => $total, 'payment_status' => $payment_status, 'buyer_name' => $buyer_name, 'buyer_address' => $buyer_address, 'buyer_city' => $buyer_city,'buyer_state'=>$buyer_state, 'buyer_zip' => $buyer_zip, 'buyer_country' => $buyer_country, 'buyer_email' => $buyer_email, 'product' => $product, 'purchase' => $purchase];
         // return view('pdf_view', $data);
         $pdf = PDF::loadView('pdf_view', $data);  
         return $pdf->stream($pdf_filename);
@@ -742,6 +743,7 @@ class ProductController extends Controller
       CVV: 111
       */
       $translate = $this->lang_text();
+      $setting['setting'] = Settings::editGeneral(1);
       $allsettings = Settings::allSettings();
       $additional = Settings::editAdditional();
       $user_id = Auth::user()->id;
@@ -771,15 +773,68 @@ class ProductController extends Controller
       $ship_country = $request->input('ship_country');
       $other_notes = $request->input('other_notes');
       $payment_method = $request->input('payment_method');
-      $purchase_token = rand(1111111,9999999);
+      $purchase_token = rand(1111111,9999999).substr(strtotime(now()), -4);
       $token = csrf_token();
       $payment_date =  date("Y-m-d");
-      $order_id = $request->input('order_id');
-      $sub_total = $request->input('sub_total');
-      $processing_fee = $request->input('processing_fee');
-      $total = $request->input('total');
-      $product_id = $request->input('product_id');
-      $product_names = $request->input('product_names');
+
+      $session_id = Session::getId();
+      $cart['product'] = Product::viewCheckOrder($session_id,$translate);
+      $subtotal = 0;
+      $coupon_code = ""; 
+      $new_price = 0;
+      $gst = 0;
+      $shipping = 0;
+      $order_id = "";
+      $product_id = "";
+      $product_name = "";
+      foreach($cart['product'] as $cart)
+      {
+        if($cart->discount_price != 0){
+          $price = $cart->discount_price;
+          $new_price += $cart->quantity * $cart->discount_price;
+          $coupon_code .= $cart->coupon_code.', ';
+        }
+        else{
+          $price = $cart->price;
+          $new_price += $cart->quantity * $cart->price;
+          $coupon_code .= "";
+        }
+        $gst += ($price * $cart->quantity) * $cart->product_gst / 100;
+        $shipping += $cart->product_local_shipping_fee;
+        $total = $cart->quantity * $cart->price;
+                    $subtotal += $total;
+        $order_id .= $cart->ord_id.",";
+        $product_id .= $cart->product_id.",";
+        $product_name .= $cart->product_name.",";
+      }
+      $coupon_code = rtrim($coupon_code,', ');
+      $order_numbers = rtrim($order_id,',');
+      $product_numbers = rtrim($product_id,',');
+      $product_names = rtrim($product_name,',');
+      if($coupon_code != "")
+      {
+      $coupon_discount = $subtotal - $new_price;
+        $final = $new_price+$setting['setting']->site_processing_fee;
+      }
+      else
+      {
+      $final = $subtotal+$setting['setting']->site_processing_fee;
+      $coupon_discount = 0;
+      }
+      $final += $gst;
+
+      $order_id = $order_numbers;
+      $sub_total = $subtotal;
+      $processing_fee = $allsettings->site_processing_fee;
+      $total = $final;
+      $product_id = $product_numbers;
+      $product_names = $product_names;
+      // $order_id = $request->input('order_id');
+      // $sub_total = $request->input('sub_total');
+      // $processing_fee = $request->input('processing_fee');
+      // $total = $request->input('total');
+      // $product_id = $request->input('product_id');
+      // $product_names = $request->input('product_names');
       $payment_status = 'pending';
       $cart_data['display'] = Product::viewNewOrder($user_id,$session_id,$translate);
       $ship_rate = 0;
@@ -887,6 +942,7 @@ class ProductController extends Controller
           // dd($redirect_url);
           if (array_key_exists("longurl",$redirect_url['response'])){
             $save_data['payment_token']=$redirect_url['response']['id'];
+            $save_data['gateway']='instamozo';
             Product::saveOnlineCheckoutDetails($save_data);
             return redirect(url($redirect_url['response']['longurl']));
           }
@@ -898,9 +954,9 @@ class ProductController extends Controller
       }
       if($payment_method == 'ccavenue'){
         $merchant_data='2';
-        $working_key='E2B122A0140C55090B17A284925A0465';//Shared by CCAVENUES
-        $access_code='AVVM67DI04BP90MVPB';//Shared by CCAVENUES
-        $merchant_id='AVVM67DI04BP90MVPB';//Shared by CCAVENUES
+        $working_key='DBDE1B3611AAAD29B1ED681F61C9C61E';//Shared by CCAVENUES
+        $access_code='AVIO19KJ36AS12OISA';//Shared by CCAVENUES
+        $merchant_id='2915462';//Shared by CCAVENUES
 
         $tid = sprintf('%013.0f', microtime(1)*1000);
         $merchant_data.='tid='.$tid.'&';
@@ -909,7 +965,7 @@ class ProductController extends Controller
         $merchant_data.='amount='.$total_price.'&';
         $merchant_data.='currency=INR&';
         $merchant_data.='redirect_url='.url('/updateCcavenueCheckoutDetails').'&';
-        $merchant_data.='cancel_url='.url('/checkout').'&';
+        $merchant_data.='cancel_url='.url('/items-checkout?error_code=503').'&';
         $merchant_data.='language=EN&';
         $merchant_data.='billing_name='.$bill_firstname.' '.$bill_lastname.'&';
         $merchant_data.='billing_address='.$bill_address.' '.$bill_address_2.'&';
@@ -926,7 +982,8 @@ class ProductController extends Controller
         $merchant_data.='delivery_zip='.$bill_postcode.'&';
         $merchant_data.='delivery_country='.Product::singleCountry($bill_country, 1).'&';
         $merchant_data.='delivery_tel='.$bill_phone.'&';
-        // Product::saveOnlineCheckoutDetails($save_data);
+        $save_data['gateway']='ccavenue';
+        Product::saveOnlineCheckoutDetails($save_data);
         $encrypted_data=$this->encrypt_data($merchant_data,$working_key);
         $ccavenue_data['encrypted_data']=$encrypted_data;
         $ccavenue_data['access_code']=$access_code;
@@ -941,7 +998,7 @@ class ProductController extends Controller
     $data = array('payment_id'=>$request->payment_id, 'payment_status'=>$request->payment_status);
     $details = (array) Product::updateOnlineCheckoutDetails($request->payment_request_id, $data);
     if($request->payment_status == 'Credit'){
-    unset($details['cid']);
+    unset($details['cid'],$details['gateway']);
     $details['payment_status']='completed';
     Product::saveCheckout($details);
     Product::updateOrderCheckout($details['purchase_token'],['checked_out'=>1]);
@@ -949,23 +1006,37 @@ class ProductController extends Controller
     return redirect('/my-purchase');
     }
     else
-    return redirect('/checkout');
+    return redirect('/checkout?error_code=503');
   }
 
   public function updateCcavenueCheckoutData(Request $request){
-    dd($request->all());
-    $data = array('payment_id'=>$request->payment_id, 'payment_status'=>$request->payment_status);
-    $details = (array) Product::updateOnlineCheckoutDetails($request->payment_request_id, $data);
-    if($request->payment_status == 'Credit'){
-    unset($details['cid']);
-    $details['payment_status']='completed';
-    Product::saveCheckout($details);
-    Product::updateOrderCheckout($details['purchase_token'],['checked_out'=>1]);
-    $this->complete_orders($details['purchase_token'], 'online');
-    return redirect('/my-purchase');
+    // 4012001037141112
+    $rcvdString = $this->decrypt_data($request->encResp,'DBDE1B3611AAAD29B1ED681F61C9C61E');
+    $decryptValues = explode('&', $rcvdString);
+    $dataSize = sizeof($decryptValues);
+    $payment_data = array();
+    for($i = 0; $i < $dataSize; $i++) 
+    {
+      $information = explode('=', $decryptValues[$i]);
+        $payment_data[$information[0]] = $information[1];
+    }
+    $data = array('payment_token'=>$payment_data['bank_ref_no'],'payment_id'=>$payment_data['tracking_id'], 'payment_status'=>$payment_data['order_status']);
+    $details = (array) Product::updateOnlineCheckoutDetailsCcavenue($payment_data['order_id'], $data);
+    if($payment_data['order_status'] == 'Success' && $details['payment_status'] == 'Success'){
+      $check_status_api = $this->cca_status($details['purchase_token'],$details['payment_id']);
+      if($check_status_api['status'] == 0){
+        unset($details['cid'],$details['gateway']);
+        $details['payment_status']='completed';
+        Product::saveCheckout($details);
+        Product::updateOrderCheckout($details['purchase_token'],['checked_out'=>1]);
+        $this->complete_orders($details['purchase_token'], 'online');
+        return redirect('/my-purchase?success_code=200');
+      }else{
+        return redirect('/checkout?error_code=503&error='.$check_status['data']);
+      }
     }
     else
-    return redirect('/checkout');
+    return redirect('/checkout?error_code=503');
   }
 
   private function complete_orders($ord_token,$payment_type)
@@ -1062,6 +1133,49 @@ class ProductController extends Controller
                 ->post('https://'.$type.'.instamojo.com/v2/payment_requests/', $payload);
     // dd($res->json());
     return ['response'=>$res->json(), 'status'=>$res->status()];
+  }  
+
+  public function cca_status($order_no, $reference_no){
+    $working_key = 'DBDE1B3611AAAD29B1ED681F61C9C61E'; //Shared by CCAVENUES
+    $access_code = 'AVIO19KJ36AS12OISA';
+
+    $merchant_json_data =
+    array(
+      'order_no' => $order_no,//'7937818',
+      'reference_no' => $reference_no,//'313010820134'
+    );
+    $merchant_data = json_encode($merchant_json_data);
+    $encrypted_data = $this->encrypt_data($merchant_data, $working_key);
+    $post_data = '{}';  
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, "https://apitest.ccavenue.com/apis/servlet/DoWebTrans?command=orderStatusTracker&request_type=JSON&response_type=JSON&access_code=".$access_code."&enc_request=".$encrypted_data);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_VERBOSE, 1);
+    curl_setopt($ch, CURLOPT_HTTPHEADER,['Content-Type: application/json']) ;
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+    curl_setopt($ch, CURLOPT_POST, 1);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
+    // Get server response ...
+    $result = curl_exec($ch);
+    curl_close($ch);
+    $status = '';
+    $information = explode('&', $result);
+    $dataSize = sizeof($information);
+    for ($i = 0; $i < $dataSize; $i++) {
+      $info_value = explode('=', $information[$i]);
+      if ($info_value[0] == 'status') {
+        $status = $info_value[1];
+      }
+      if ($info_value[0] == 'enc_response' && $status == 0) {
+        $order_result = $this->decrypt_data(trim($info_value[1]), $working_key);
+        $obj = json_decode($order_result);
+      }
+      else if($info_value[0] == 'enc_response' && $status == 1) {
+        $obj = trim($info_value[1]);
+      }
+    }
+    // dd($status,$obj);
+    return ['status' => $status, 'data'=>$obj];
   }
 
   private function encrypt_data($plainText,$key)
@@ -1072,12 +1186,11 @@ class ProductController extends Controller
 		$encryptedText = bin2hex($openMode);
 		return $encryptedText;
 	}
-
 	private function decrypt_data($encryptedText,$key)
 	{
 		$key = $this->hextobin(md5($key));
 		$initVector = pack("C*", 0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0a, 0x0b, 0x0c, 0x0d, 0x0e, 0x0f);
-		$encryptedText = hextobin($encryptedText);
+		$encryptedText = $this->hextobin($encryptedText);
 		$decryptedText = openssl_decrypt($encryptedText, 'AES-128-CBC', $key, OPENSSL_RAW_DATA, $initVector);
 		return $decryptedText;
 	}

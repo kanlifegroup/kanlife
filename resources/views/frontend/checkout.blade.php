@@ -31,7 +31,13 @@
 	</div>
 </div>
 
-<div class="container-fluid mt-5 mb-5">
+<div class="container-fluid mt-5 mb-5">  
+  @if (Request::get('error_code') == '503')
+    <div class="alert alert-danger error_code" role="alert">
+      <span class="alert_icon lnr lnr-warning"></span>
+        Sorry, your transaction failed or aborted. Please try again.
+    </div>
+  @endif
   @if ($message = Session::get('success'))
     <div class="alert alert-success" role="alert">
         <span class="alert_icon lnr lnr-checkmark-circle"></span>
@@ -180,14 +186,6 @@
           </tbody>
         </table>
       </div>
-      <input type="hidden" name="order_id" value="{{ $order_numbers }}">
-      <input type="hidden" name="sub_total" value="{{ $new_price }}">
-      <input type="hidden" name="shipping_fee" value="0">
-      <input type="hidden" name="shipping_fee_separate" value="0">
-      <input type="hidden" name="processing_fee" value="{{ $allsettings->site_processing_fee }}">
-      <input type="hidden" name="total" value="{{ $final }}">
-      <input type="hidden" name="product_id" value="{{ $product_numbers }}">
-      <input type="hidden" name="product_names" value="{{ $product_names }}">
       <p class="deu-personal">Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our privacy policy.</p>
       <button type="submit" onclick="return enable_button();" class="round-btns place_order" style="border-radius: 5px;font-size: 1.4rem;">Place Order</a>
     </div>
@@ -240,6 +238,9 @@
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.js"></script>
 <script>
+  setTimeout(function() {
+    $('.error_code').fadeOut('slow');
+  }, 7000);
   function enable_button() {
     if($('.payment_type').is(':checked'))
     {

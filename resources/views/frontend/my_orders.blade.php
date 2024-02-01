@@ -37,6 +37,12 @@
   $to_item = $purchases->total()
 @endphp
 <div class="container-fluid mt-5 mb-3">
+  @if (Request::get('success_code') == '200')
+    <div class="alert alert-success error_code" role="alert">
+      <span class="alert_icon lnr lnr-warning"></span>
+        Order placed successfully.
+    </div>
+  @endif
 	<div class="row">
 	<div class="col-md-12">
   <form action="#" class="display-flex">
@@ -57,7 +63,8 @@
       <tr class="deu-tr">
         <th>SI No.</th>
         <th>Purchase Id</th>
-        <th>Order Place Date</th>
+        <th>Transaction Id</th>
+        <th>Order Date</th>
         <th>Total Amount</th>
         <th>Payment</th>
         <th>Invoice</th>
@@ -67,9 +74,10 @@
     <tbody>
     @php $no = 0; @endphp
       @forelse($purchases as $product)    
-      <tr class="deu-td" aos="fade-up">
+      <tr class="deu-td"> <!-- aos="fade-up"> -->
         <td>{{$no + $from_item}}</td>
         <td>#{{$product->purchase_token}}</td>
+        <td>{{$product->payment_id}}</td>
         <td>{{date('d-m-Y', strtotime($product->order_date))}}</td>
         <td>{{ $product->total }} Rs.</td>
         <td>{{ucfirst(str_replace("-"," ",$product->payment_type))}}</td>
@@ -200,5 +208,9 @@
                 }
             });
         });
+        
+      setTimeout(function() {
+        $('.error_code').fadeOut('slow');
+      }, 7000);
     </script>
 @endsection

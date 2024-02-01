@@ -153,8 +153,11 @@
 </div>
   <div class="">
   <div class="row align-items-center">
-    <div class="col-sm-6 text-center text-sm-left"><strong>{{ Helper::translation(2080,$translate,'') }}</strong> {{ $payment_type }}</div>
-    <div class="col-sm-6 text-right" style="float:right;"> <strong>{{ Helper::translation(2089,$translate,'') }}</strong> {{ $payment_token }}</div>
+    <div class="col-sm-6 text-center text-sm-left"><strong>{{ Helper::translation(2080,$translate,'') }}:</strong> {{ $payment_type }}</div>
+    <div class="col-sm-6 text-right" style="float:right;"> <strong>{{ Helper::translation(2089,$translate,'') }}:</strong> {{ $payment_token }}</div>
+  </div>
+  <div class="row align-items-center">
+    <div class="col-sm-6 text-center text-sm-left"><strong>Transaction ID:</strong> {{ $payment_id }}</div>
   </div>
   </div>
   </header>

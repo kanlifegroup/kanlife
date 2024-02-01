@@ -593,8 +593,13 @@ class Product extends Model
    }
    public static function updateOnlineCheckoutDetails($token, $save_data)
    {   
-     DB::table('online_checkout_details')->where('payment_token', $token)->update($save_data);
+     DB::table('online_checkout_details')->where('payment_token', $token)->where('payment_status', 'pending')->update($save_data);
      return DB::table('online_checkout_details')->where('payment_token', $token)->first();
+   }
+   public static function updateOnlineCheckoutDetailsCcavenue($token, $save_data)
+   {   
+     DB::table('online_checkout_details')->where('gateway', 'ccavenue')->where('purchase_token', $token)->where('payment_status', 'pending')->update($save_data);
+     return DB::table('online_checkout_details')->where('gateway', 'ccavenue')->where('purchase_token', $token)->first();
    }
    
    public static function updateCheckout($token,$update_data)
