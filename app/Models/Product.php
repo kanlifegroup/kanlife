@@ -471,10 +471,31 @@ class Product extends Model
    {   
      DB::table('product_orders')->insert($data);   
    }
+   public static function makeCartOrders($session_id, $token)
+   {
+     $orders=DB::table('product_orders')->where('session_id', '=', $session_id)->where('order_status','=','pending')->where('checked_out','=', 0)->where('purchase_token', $token)->get()->toArray();
+     foreach($orders as $order){
+       DB::table('product_orders_temp')->insert((array)$order);
+     }
+   }
    public static function updateOrderCheckout($purchase_token,$data)
    {   
+     $orders = DB::table('product_orders_temp')->where('purchase_token', $purchase_token)->get();
+     foreach($orders as $order){
+      $order_data = (array)$order;
+      unset($order_data['ord_id'], $order_data['ord_temp_id']);
+      $is_order = DB::table('product_orders')->where('ord_id', $order->ord_id)->where('session_id', $order->session_id)->where('product_id', $order->product_id)->where('purchase_token', $order->purchase_token)->first();
+      if($is_order)
+        DB::table('product_orders')->where('session_id', $order->session_id)->where('product_id', $order->product_id)->where('purchase_token', $order->purchase_token)->update($order_data);
+      else
+        DB::table('product_orders')->insert($order_data);
+     }
      DB::table('product_orders')->where('purchase_token', $purchase_token)->update($data);
    }
+   //  public static function updateOrderCheckout($purchase_token,$data)
+   //  {   
+   //    DB::table('product_orders')->where('purchase_token', $purchase_token)->update($data);
+   //  }
    
    public static function changeOrder($session_id,$updata)
    {

@@ -607,8 +607,9 @@ Route::group(['middleware' => ['XSS','web', 'HtmlMinifier']], function () {
 
   // Route::post('/checkout', ['as' => 'checkout','uses'=>'ProductController@update_checkout']);
   Route::post('/checkout', ['as' => 'checkout','uses'=>'ProductController@order_checkout']);
+  Route::any('/items-checkout', 'ProductController@view_checkout');
   Route::get('/updateCheckoutDetails', ['uses'=>'ProductController@updateOnlineCheckoutData']);
-  // Route::get('/cca_status', ['uses'=>'ProductController@cca_status']);
+  Route::get('/cca_status', ['uses'=>'ProductController@cca_status']);
   Route::post('/updateCcavenueCheckoutDetails', ['uses'=>'ProductController@updateCcavenueCheckoutData']);
   Route::post('/confirm-paypal', ['as' => 'confirm-paypal','uses'=>'ProductController@confirm_paypal']);
   Route::post('/2checkout', ['as' => '2checkout','uses'=>'ProductController@confirm_2checkout']);

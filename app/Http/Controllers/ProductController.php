@@ -931,6 +931,7 @@ class ProductController extends Controller
       Product::upOrders($user_id,$session_id,$uporder);
       if($payment_method == 'cash-on-delivery'){
 		    Product::saveCheckout($save_data);
+        Product::makeCartOrders($session_id,$purchase_token);
         Product::updateOrderCheckout($purchase_token,['checked_out'=>1]);
         return redirect('/my-purchase');
       }
@@ -943,7 +944,8 @@ class ProductController extends Controller
           if (array_key_exists("longurl",$redirect_url['response'])){
             $save_data['payment_token']=$redirect_url['response']['id'];
             $save_data['gateway']='instamozo';
-            Product::saveOnlineCheckoutDetails($save_data);
+            Product::saveOnlineCheckoutDetails($save_data);            
+            Product::makeCartOrders($session_id,$purchase_token);
             return redirect(url($redirect_url['response']['longurl']));
           }
           else
@@ -984,6 +986,7 @@ class ProductController extends Controller
         $merchant_data.='delivery_tel='.$bill_phone.'&';
         $save_data['gateway']='ccavenue';
         Product::saveOnlineCheckoutDetails($save_data);
+        Product::makeCartOrders($session_id,$purchase_token);
         $encrypted_data=$this->encrypt_data($merchant_data,$working_key);
         $ccavenue_data['encrypted_data']=$encrypted_data;
         $ccavenue_data['access_code']=$access_code;
@@ -1135,7 +1138,7 @@ class ProductController extends Controller
     return ['response'=>$res->json(), 'status'=>$res->status()];
   }  
 
-  public function cca_status($order_no, $reference_no){
+  public function cca_status($order_no='', $reference_no=''){
     $working_key = 'DBDE1B3611AAAD29B1ED681F61C9C61E'; //Shared by CCAVENUES
     $access_code = 'AVIO19KJ36AS12OISA';
 
