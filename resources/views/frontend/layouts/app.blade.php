@@ -1,39 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <meta name="app-url" content="{{ env('APP_URL') }}">
-    @yield('meta')
-    {{--  Icons  --}}
-    <!-- <link rel="shortcut icon" type="image/x-icon" href="{{ asset('public/img/fav.png') }}"> -->
-    <link rel="icon" type="image/png" href="{{ asset('public/img/fav.png') }}?v=2">
+  <meta charset="UTF-8">
+  <!-- CSRF Token -->
+  <meta name="csrf-token" content="{{ csrf_token() }}">
+  <meta name="app-url" content="{{ env('APP_URL') }}">
+  @yield('meta')
+  {{-- Icons --}}
+  <!-- <link rel="shortcut icon" type="image/x-icon" href="{{ asset('public/img/fav.png') }}"> -->
+  <link rel="icon" type="image/png" href="{{ asset('public/img/fav.png') }}?v=2">
 
-    <title>@yield('title')</title>
-
-
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-2SW6V4RTV1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-2SW6V4RTV1');
-</script>
-
-    <meta name="google-site-verification" content="B8YQulNOq6mHj_C2l--g5SWW4mY9HihREmBANB_mAl0" />
+  <title>@yield('title')</title>
 
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    @yield('style')
-    <link rel="stylesheet" href="https://cdn.rawgit.com/michalsnik/aos/1.0.1/dist/aos.min.css">
-    <link rel="stylesheet" href="{{ URL::to('resources/views/admin/template/picker/jquery-ui.css') }}" />
-    <link rel="stylesheet" href="{{ URL::to('resources/views/template/filter/jplist.jquery-ui-bundle.min.css') }}">
-    <link rel="stylesheet" href="{{asset('public/css/style.css')}}">    
-    <style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2SW6V4RTV1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-2SW6V4RTV1');
+  </script>
+
+  <meta name="google-site-verification" content="B8YQulNOq6mHj_C2l--g5SWW4mY9HihREmBANB_mAl0" />
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  @yield('style')
+  <link rel="stylesheet" href="https://cdn.rawgit.com/michalsnik/aos/1.0.1/dist/aos.min.css">
+  <link rel="stylesheet" href="{{ URL::to('resources/views/admin/template/picker/jquery-ui.css') }}" />
+  <link rel="stylesheet" href="{{ URL::to('resources/views/template/filter/jplist.jquery-ui-bundle.min.css') }}">
+  <link rel="stylesheet" href="{{asset('public/css/style.css')}}">
+  <style>
     /* Chrome, Safari, Edge, Opera */
     input::-webkit-outer-spin-button,
     input::-webkit-inner-spin-button {
@@ -53,10 +54,13 @@
 
     /* Hide scrollbar for IE, Edge and Firefox */
     .regiS {
-      -ms-overflow-style: none;  /* IE and Edge */
-      scrollbar-width: none;  /* Firefox */
+      -ms-overflow-style: none;
+      /* IE and Edge */
+      scrollbar-width: none;
+      /* Firefox */
     }
-    .close_model{
+
+    .close_model {
       /* border: none;
       font-weight: 900;
       background: none;
@@ -65,42 +69,97 @@
       top: 10px;
       right: 14px;
       cursor: pointer;
-      z-index:1000;
+      z-index: 1000;
     }
-    .ui-widget{
+
+    .ui-widget {
       font-size: 1rem;
       height: auto;
       max-height: 200px;
       overflow-x: hidden;
     }
-    </style>
+
+
+    .float {
+      position: fixed;
+      width: 60px;
+      height: 60px;
+      bottom: 40px;
+      right: 40px;
+      background-color: #25d366;
+      color: #FFF;
+      border-radius: 50px;
+      text-align: center;
+      font-size: 30px;
+      box-shadow: 2px 2px 3px #999;
+      z-index: 100;
+    }
+
+    @media (max-width:600px) {
+
+      .float {
+
+        bottom: 80px;
+        right: 15px;
+
+      }
+    }
+
+    .fa {
+      display: inline-block;
+      font: normal normal normal 14px/1 FontAwesome;
+      font-size: inherit;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .my-float {
+      margin-top: 16px;
+    }
+/* custom css applied start */
+    .nav-link {
+      font-size: 2.3rem;
+    }
+
+    .dropdown-item {
+      font-size: 1.4rem;
+    }
+
+    .navbar-toggler {
+      border: 2px solid black;
+    }
+    /* custom css applied end */
+  </style>
 
 
 
-<!-- Open Graph data -->
+  <!-- Open Graph data -->
   <!-- https://moz.com/blog/meta-data-templates-123 -->
   <meta property="og:title" content="Global medical and health care delivered locally" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="http://www.kanlifegroup.com/" />
-<meta property="og:image" content="http://kanlifegroup.com" />
-<meta property="og:description" content="The easy-to-use vein finder that helps healthcare professionals improve vein cannulation and venipuncture success rates." />
-<meta property="og:site_name" content="Kanlife Group" />
-<meta property="article:published_time" content="2023-11-01T05:59:00+01:00" />
-<meta property="article:modified_time" content="2023-11-01T19:08:47+01:00" />
-<meta property="article:section" content="Article Section" />
-<meta property="article:tag" content="Article Tag" />
-<meta property="fb:admins" content="/kanlife Group" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="http://www.kanlifegroup.com/" />
+  <meta property="og:image" content="http://kanlifegroup.com" />
+  <meta property="og:description"
+    content="The easy-to-use vein finder that helps healthcare professionals improve vein cannulation and venipuncture success rates." />
+  <meta property="og:site_name" content="Kanlife Group" />
+  <meta property="article:published_time" content="2023-11-01T05:59:00+01:00" />
+  <meta property="article:modified_time" content="2023-11-01T19:08:47+01:00" />
+  <meta property="article:section" content="Article Section" />
+  <meta property="article:tag" content="Article Tag" />
+  <meta property="fb:admins" content="/kanlife Group" />
 
 
 
-<meta name="twitter:card" content="When and Why Are EUS Needles Used?" />
-<meta name="twitter:site" content="@kanlife_group" />
-<meta name="twitter:title" content="When and Why Are EUS Needles Used?" />
-<meta name="twitter:description" content="Endoscopic Ultrasound (EUS) is a medical procedure that combines endoscopy and ultrasound to provide detailed images and information about the digestive tract and nearby organs. Fine-needle aspiration (FNA), is crucial in this procedure. In this blog, we will explore when and why E-U-S needles are used, shedding light on their significance in diagnosing and treating various medical conditions." />
-<meta name="twitter:image" content="https://kanlifegroup.com/public/storage/post/1690798966.png" />
+  <meta name="twitter:card" content="When and Why Are EUS Needles Used?" />
+  <meta name="twitter:site" content="@kanlife_group" />
+  <meta name="twitter:title" content="When and Why Are EUS Needles Used?" />
+  <meta name="twitter:description"
+    content="Endoscopic Ultrasound (EUS) is a medical procedure that combines endoscopy and ultrasound to provide detailed images and information about the digestive tract and nearby organs. Fine-needle aspiration (FNA), is crucial in this procedure. In this blog, we will explore when and why E-U-S needles are used, shedding light on their significance in diagnosing and treating various medical conditions." />
+  <meta name="twitter:image" content="https://kanlifegroup.com/public/storage/post/1690798966.png" />
 
-    <!-- JSON-LD markup generated by Google Structured Data Markup Helper. -->
-<script type="application/ld+json">
+  <!-- JSON-LD markup generated by Google Structured Data Markup Helper. -->
+  <script type="application/ld+json">
 [
   {
     "@context": "http://schema.org",
@@ -481,109 +540,114 @@
 
 <body>
 
-@include('frontend.layouts.navbar')
-@yield('content')
+  @include('frontend.layouts.navbar')
+  @yield('content')
 
-@include('frontend.sections.auth_models')
+  @include('frontend.sections.auth_models')
 
-@include('frontend.layouts.footer')
+  @include('frontend.layouts.footer')
 
-@yield('script')
-<script src="{{ URL::to('resources/views/template/autosearch/jquery-ui.min.js') }}"></script>
-<script src="https://cdn.rawgit.com/michalsnik/aos/1.0.1/dist/aos.js"></script>
-<script>
-   AOS.init({
-				easing: 'ease-out-back',
-				duration: 1000
-			});
-  function set_location(location){
-    $.ajax({
-      type:"get",
-      url:"{{url('/set-my-location/')}}/"+location,
-      success:function(response)
-      {
-        window.location.reload();
-      },
-      error: function(error){
-        console.log(error);
-      }
+  @yield('script')
+  <script src="{{ URL::to('resources/views/template/autosearch/jquery-ui.min.js') }}"></script>
+  <script src="https://cdn.rawgit.com/michalsnik/aos/1.0.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      easing: 'ease-out-back',
+      duration: 1000
     });
-  }
-  $(document).ready(function() {
-    src = "{{ route('searchajax') }}";
-     $("#search_text").autocomplete({
-        source: function(request, response) {
-            $.ajax({
-                url: src,
-                dataType: "json",
-                data: {
-                    term : request.term
-                },
-                success: function(data) {
-                    response(data);
-                   
-                }
-            });
+    function set_location(location) {
+      $.ajax({
+        type: "get",
+        url: "{{url('/set-my-location/')}}/" + location,
+        success: function (response) {
+          window.location.reload();
+        },
+        error: function (error) {
+          console.log(error);
+        }
+      });
+    }
+    $(document).ready(function () {
+      src = "{{ route('searchajax') }}";
+      $("#search_text").autocomplete({
+        source: function (request, response) {
+          $.ajax({
+            url: src,
+            dataType: "json",
+            data: {
+              term: request.term
+            },
+            success: function (data) {
+              response(data);
+
+            }
+          });
         },
         minLength: 1,
-       
-    });
-    $(".alert").fadeTo(10000, 500).slideUp(500, function(){
-      $(".alert").slideUp(500);
-    });
-    @if(session('registered'))
-      $('#myModal3').modal('show');
-      setTimeout(function(){
-        $('#myModal3').modal('hide');
-      }, 5000);
-      <?php
-        session()->forget('registered');
-      ?>
-    @endif
-  });
-  @if(Auth::guest())
-    $(document).ready(function() {
-      @if(session('signup') && session('signup') == 'signup')
-        $('#myModal1').modal('show');
-      @endif
-      @if(session('signin') && session('signin') == 'signin')
-        $('#myModal').modal('show');
-      @endif
-      @if(session('reset') && session('reset') != '' || session('reset_error') && session('reset_error') != '')
-        $('#myModal2').modal('show');
-      @endif
-        <?php
-          session()->forget('signup');
-          session()->forget('signin');
-          session()->forget('reset');
-          session()->forget('reset_error');
-        ?>
-    });
 
-    function openModel(id){
-      closeModels();
-      $('#'+id).modal('show');
-    }
-    function closeModels(){
-      $('#myModal').modal('hide');
-      $('#myModal1').modal('hide');
-      $('#myModal2').modal('hide');
-    }
+      });
+      $(".alert").fadeTo(10000, 500).slideUp(500, function () {
+        $(".alert").slideUp(500);
+      });
+      @if(session('registered'))
+        $('#myModal3').modal('show');
+        setTimeout(function () {
+        $('#myModal3').modal('hide');
+        }, 5000);
+        <?php
+      session()->forget('registered');
+        ?>
+    @endif
+    });
+    @if(Auth::guest())
+      $(document).ready(function () {
+        @if(session('signup') && session('signup') == 'signup')
+      $('#myModal1').modal('show');
+    @endif
+        @if(session('signin') && session('signin') == 'signin')
+      $('#myModal').modal('show');
+    @endif
+        @if(session('reset') && session('reset') != '' || session('reset_error') && session('reset_error') != '')
+      $('#myModal2').modal('show');
+    @endif
+        <?php
+      session()->forget('signup');
+      session()->forget('signin');
+      session()->forget('reset');
+      session()->forget('reset_error');
+        ?>
+      });
+
+      function openModel(id) {
+        closeModels();
+        $('#' + id).modal('show');
+      }
+      function closeModels() {
+        $('#myModal').modal('hide');
+        $('#myModal1').modal('hide');
+        $('#myModal2').modal('hide');
+      }
   @endif
-  function see_password(e){
-    $(e).parent().find("input").prop("type", "text");
-    $(e).hide();
-    $(e).siblings("span.seepassword").show();
-  }
-  function hide_password(e){
-    $(e).parent().find("input").prop("type", "password");
-    $(e).hide();
-    $(e).siblings("span.seepassword").show();
+    function see_password(e) {
+      $(e).parent().find("input").prop("type", "text");
+      $(e).hide();
+      $(e).siblings("span.seepassword").show();
     }
-  if(performance.navigation.type == 2){
-   location.reload(true);
-  }
-  
-</script>
+    function hide_password(e) {
+      $(e).parent().find("input").prop("type", "password");
+      $(e).hide();
+      $(e).siblings("span.seepassword").show();
+    }
+    if (performance.navigation.type == 2) {
+      location.reload(true);
+    }
+
+  </script>
+
+  <a href="https://api.whatsapp.com/send?phone=+918050931561&amp;text=Hi want to buy a product." class="float"
+    target="_blank">
+    <i class="fa fa-whatsapp my-float"></i>
+  </a>
 </body>
+
 </html>
