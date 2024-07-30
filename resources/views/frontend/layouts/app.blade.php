@@ -84,10 +84,7 @@
       position: fixed;
       width: 60px;
       height: 60px;
-      bottom: 40px;
       right: 40px;
-      background-color: #25d366;
-      color: #FFF;
       border-radius: 50px;
       text-align: center;
       font-size: 30px;
@@ -95,13 +92,31 @@
       z-index: 100;
     }
 
+    .float-whatsApp {
+      bottom: 40px;
+      background-color: #25d366;
+    }
+
+    .float-phone {
+      cursor: pointer;
+      bottom: 110px;
+      background-color: #0d6efd;
+    }
+
     @media (max-width:600px) {
 
       .float {
-
-        bottom: 80px;
+        
         right: 15px;
 
+      }
+
+      .float-whatsApp{
+        bottom: 80px;
+      }
+
+      .float-phone {
+      bottom: 160px;
       }
     }
 
@@ -117,11 +132,8 @@
     .my-float {
       margin-top: 16px;
     }
-/* custom css applied start */
-    .nav-link {
-      font-size: 2.3rem;
-    }
 
+    /* custom css applied start */
     .dropdown-item {
       font-size: 1.4rem;
     }
@@ -129,6 +141,13 @@
     .navbar-toggler {
       border: 2px solid black;
     }
+
+    @media (max-width:767px) {
+      .nav-link {
+        font-size: 2.3rem;
+      }
+    }
+
     /* custom css applied end */
   </style>
 
@@ -548,6 +567,15 @@
   @include('frontend.layouts.footer')
 
   @yield('script')
+
+
+  <a href="https://api.whatsapp.com/send?phone=+918050931561&amp;text=Hi, I want to buy an equipment." class="float float-whatsApp"
+    target="_blank">
+    <i class="fa fa-whatsapp my-float"></i>
+  </a>
+  <a href="tel:+918050931561" class="float float-phone">
+    <i class="fa fa-phone my-float"></i>
+  </a>
   <script src="{{ URL::to('resources/views/template/autosearch/jquery-ui.min.js') }}"></script>
   <script src="https://cdn.rawgit.com/michalsnik/aos/1.0.1/dist/aos.js"></script>
   <script>
@@ -643,11 +671,6 @@
     }
 
   </script>
-
-  <a href="https://api.whatsapp.com/send?phone=+918050931561&amp;text=Hi want to buy a product." class="float"
-    target="_blank">
-    <i class="fa fa-whatsapp my-float"></i>
-  </a>
 </body>
 
 </html>

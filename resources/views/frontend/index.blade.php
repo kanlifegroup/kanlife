@@ -47,8 +47,8 @@
         <div class="row h-100 g-0 justify-content-between">
           <div class="order-2 order-md-1 col-md-7 fontsty d-flex flex-column justify-content-between ">
             <h4 class="deu-buytxt">Buy Medical Equipment.</h4>
-            <a href="{{ url('/buy') }}">
-              <button class="deu-buybtn">Buy Now</button>
+            <a href="{{ url('/search/items') }}">
+              <button class="deu-buybtn">View All Equipment's</button>
             </a>
           </div>
           <div class="order-1 order-md-2 col-md-5 rideone d-flex justify-content-md-end justify-content-center mb-4 mb-md-0 align-items-center">
