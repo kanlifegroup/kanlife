@@ -1779,6 +1779,10 @@ body {
 
 .deu-droptxt {
   color: #656565;
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .prn::after {

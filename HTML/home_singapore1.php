@@ -55,7 +55,7 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav ml-auto deu-centermargin">
         <a class="nav-link active" aria-current="page" href="#">Home</a>
-        <a class="nav-link" href="#">Buy</a>
+        <a class="nav-link" href="#">Products</a>
         <a class="nav-link" href="#">Dr. Consultant</a>
         <a class="nav-link" href="#">About Us</a>
       </div>

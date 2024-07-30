@@ -147,13 +147,15 @@
             <tr class="deu-td">
               <td>
               <div class="form-check">
+                {{--
                 <label class="form-check-label">
-                  <input type="radio" checked="checked" class="form-check-input payment_type" onchange="enable_button()" name="payment_method" value="instamozo">Pay Online
+                  <input type="radio"  class="form-check-input payment_type" onchange="enable_button()" name="payment_method" value="instamozo">Pay Online
                   <img class="deu-visa" src="{{asset('public/image/visa.svg')}}"> 
                   <img class="" src="{{asset('public/image/visa1.svg')}}" style="width: 50px; height: 32px;"> 
                 </label>
+                --}}
                 <label class="form-check-label ms-5">
-                  <input type="radio" class="form-check-input payment_type" onchange="enable_button()" name="payment_method" value="ccavenue">CCAvenue
+                  <input type="radio" checked="checked" class="form-check-input payment_type" onchange="enable_button()" name="payment_method" value="ccavenue">CCAvenue
                   <img class="deu-visa" src="{{asset('public/image/visa.svg')}}"> 
                   <img class="" src="{{asset('public/image/visa1.svg')}}" style="width: 50px; height: 32px;"> 
                 </label>

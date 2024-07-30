@@ -217,15 +217,15 @@ $module=explode("/", url()->current());
         @endif
         <a class="nav-link {{ url('/') == url()->current() ? 'active' : '' }}" aria-current="page" href="{{ url('/') }}">Home</a>
         @if(array_intersect([$user_location],['india']))
-          <a class="nav-link {{ url('/buy') == url()->current() ? 'active' : '' }}" href="{{ url('/buy') }}">Buy</a>
+          <a class="nav-link {{ url('/buy') == url()->current() ? 'active' : '' }}" href="{{ url('/buy') }}">Products</a>
         @endif
         @if(array_intersect([$user_location],['london']))
-          <a class="nav-link" href="https://www.tamboos.co.uk" target="_blank">Buy</a>
+          <a class="nav-link" href="https://www.tamboos.co.uk" target="_blank">Products</a>
         @endif
         @if(array_intersect([$user_location],['india']))
           <a class="nav-link" href="https://www.asopo.in" target="_blank">Rent</a>
         @endif
-        <a class="nav-link text-nowrap" href="https://drjamilaonline.clinic.icareheal.com/best-clinical-cardiologist-and-general-physician-in-bangalore-location-bangalore" target="_blank">Consult A Dr.</a>
+        <!-- <a class="nav-link text-nowrap" href="https://drjamilaonline.clinic.icareheal.com/best-clinical-cardiologist-and-general-physician-in-bangalore-location-bangalore" target="_blank">Consult A Dr.</a> -->
         <div class="dropdown">
           <button class="btn nav-link border-0 dropdown-toggle" type="button" id="about_us_menu"
             data-bs-toggle="dropdown" aria-expanded="false">

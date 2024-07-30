@@ -1665,6 +1665,18 @@ class CommonController extends Controller
 	public function sitemap(){
     return response()->view('frontend.sitemap')->header('Content-Type', 'text/xml');
   }
+
+  
+  // Terms & conditions
+	public function terms_conditions(){
+    return view('frontend.terms_conditions');
+  }
+  public function privacy_policy(){
+    return view('frontend.privacy_policy');
+  }
+  public function return_policy(){
+    return view('frontend.return_policy');
+  }
 	
 	
 }

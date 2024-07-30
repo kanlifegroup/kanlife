@@ -72,6 +72,7 @@
         </div>
       </div>
     </div>
+    {{--
     <div class="col-12 col-md"  aos="fade-left" aos-delay="800">
       <div class="inforide2 h-100">
         <div class="row h-100 g-0 justify-content-between">
@@ -87,6 +88,7 @@
         </div>
       </div>
     </div>
+    --}}
   </div>
 </div>
 

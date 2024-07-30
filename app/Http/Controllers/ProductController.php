@@ -239,7 +239,7 @@ class ProductController extends Controller
 	   $buyer_email = $purchase->bill_email;
 	   $product['view'] = Product::myOrders($token,$user_id);
 		  
-		  $data = ['purchase_token' => $purchase_token, 'payment_token' => $payment_token, 'payment_id' => $payment_id, 'shipping_price' => $shipping_price, 'processing_fee' => $processing_fee, 'payment_type' => $payment_type, 'payment_date' => $payment_date, 'subtotal' => $subtotal, 'total' => $total, 'payment_status' => $payment_status, 'buyer_name' => $buyer_name, 'buyer_address' => $buyer_address, 'buyer_city' => $buyer_city,'buyer_state'=>$buyer_state, 'buyer_zip' => $buyer_zip, 'buyer_country' => $buyer_country, 'buyer_email' => $buyer_email, 'product' => $product, 'purchase' => $purchase];
+		  $data = ['purchase_token' => $purchase_token, 'payment_token' => $payment_token,'payment_id' => $payment_id, 'shipping_price' => $shipping_price, 'processing_fee' => $processing_fee, 'payment_type' => $payment_type, 'payment_date' => $payment_date, 'subtotal' => $subtotal, 'total' => $total, 'payment_status' => $payment_status, 'buyer_name' => $buyer_name, 'buyer_address' => $buyer_address, 'buyer_city' => $buyer_city,'buyer_state'=>$buyer_state, 'buyer_zip' => $buyer_zip, 'buyer_country' => $buyer_country, 'buyer_email' => $buyer_email, 'product' => $product, 'purchase' => $purchase];
         // return view('pdf_view', $data);
         $pdf = PDF::loadView('pdf_view', $data);  
         return $pdf->stream($pdf_filename);
@@ -944,7 +944,7 @@ class ProductController extends Controller
           if (array_key_exists("longurl",$redirect_url['response'])){
             $save_data['payment_token']=$redirect_url['response']['id'];
             $save_data['gateway']='instamozo';
-            Product::saveOnlineCheckoutDetails($save_data);            
+            Product::saveOnlineCheckoutDetails($save_data);
             Product::makeCartOrders($session_id,$purchase_token);
             return redirect(url($redirect_url['response']['longurl']));
           }
@@ -990,6 +990,7 @@ class ProductController extends Controller
         $encrypted_data=$this->encrypt_data($merchant_data,$working_key);
         $ccavenue_data['encrypted_data']=$encrypted_data;
         $ccavenue_data['access_code']=$access_code;
+        // dd($merchant_data,$ccavenue_data);
         return view('frontend.ccavenue_checkout')->with($ccavenue_data);
       }
     }catch(Exception $e){
@@ -1094,6 +1095,7 @@ class ProductController extends Controller
     $data_record = [
       'site_logo' => $site_logo, 'site_name' => $site_name, 'name' => $name,  'email' => $email, 'phone' => $phone, 'amount' => $amount, 'url' => $url, 'site_currency' => $site_currency, 'order_id' => $order_id
     ];
+    try{
     Mail::send('order_email', $data_record, function($message) use ($admin_name, $admin_email, $email, $name) {
       $message->to($admin_email,$admin_name)->subject('New Order Received');
       $message->from($admin_email,$admin_name);
@@ -1102,6 +1104,7 @@ class ProductController extends Controller
       $message->to($email, $name)->subject('New Order Received');
       $message->from($admin_email,$admin_name);
     });
+    }catch(\Exception $e){}
 	}
 
   private function instamojoAccessToken($type){
@@ -1138,7 +1141,7 @@ class ProductController extends Controller
     return ['response'=>$res->json(), 'status'=>$res->status()];
   }  
 
-  public function cca_status($order_no='', $reference_no=''){
+  private function cca_status($order_no, $reference_no){
     $working_key = 'DBDE1B3611AAAD29B1ED681F61C9C61E'; //Shared by CCAVENUES
     $access_code = 'AVIO19KJ36AS12OISA';
 
@@ -1151,7 +1154,7 @@ class ProductController extends Controller
     $encrypted_data = $this->encrypt_data($merchant_data, $working_key);
     $post_data = '{}';  
     $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, "https://apitest.ccavenue.com/apis/servlet/DoWebTrans?command=orderStatusTracker&request_type=JSON&response_type=JSON&access_code=".$access_code."&enc_request=".$encrypted_data);
+    curl_setopt($ch, CURLOPT_URL, "https://api.ccavenue.com/apis/servlet/DoWebTrans?command=orderStatusTracker&request_type=JSON&response_type=JSON&access_code=".$access_code."&enc_request=".$encrypted_data);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($ch, CURLOPT_VERBOSE, 1);
     curl_setopt($ch, CURLOPT_HTTPHEADER,['Content-Type: application/json']) ;

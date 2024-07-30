@@ -492,10 +492,10 @@ class Product extends Model
      }
      DB::table('product_orders')->where('purchase_token', $purchase_token)->update($data);
    }
-   //  public static function updateOrderCheckout($purchase_token,$data)
-   //  {   
-   //    DB::table('product_orders')->where('purchase_token', $purchase_token)->update($data);
-   //  }
+  //  public static function updateOrderCheckout($purchase_token,$data)
+  //  {   
+  //    DB::table('product_orders')->where('purchase_token', $purchase_token)->update($data);
+  //  }
    
    public static function changeOrder($session_id,$updata)
    {

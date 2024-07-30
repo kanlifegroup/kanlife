@@ -168,7 +168,7 @@ tinymce.init({
 <script src="{{ URL::to('resources/views/template/quick-view/script.js') }}"></script>
 <!--- quick-view -->
 <!--- auto search -->
-<script src="{{ URL::to('resources/views/template/autosearch/jquery-ui.min.js') }}"></script>
+<script src="{{ URL::to('resources/views/template/autosearch/jquery-ui.js') }}"></script>
 <script type="text/javascript">
    $(document).ready(function() {
     src = "{{ route('searchajax') }}";
