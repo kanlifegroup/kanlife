@@ -107,7 +107,7 @@ Fatima Khuzem
         <div class="row" style="background-color: #EFFFFD">
           <div class="col-md-3 col-lg-2 team">
             <p class="mb-0" >
-              <img class="rounded-circle" src="{{ asset('public/image/Fathima.jfif') }}" alt="Fatima Khuzem">
+              <img class="rounded-circle" src="{{ asset('public/image/Fathima.webp') }}" alt="Fatima Khuzem">
             </p>
           </div>
           <div class="col-md-9 name-container">

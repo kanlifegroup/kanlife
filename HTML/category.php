@@ -45,7 +45,7 @@
 <nav class="navbar navbar-expand-lg">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">
-       <img src="image/logo.png" alt="kanlife logo" width="" class="logo img-fluid"/>
+       <img src="image/logo.webp" alt="kanlife logo" width="" class="logo img-fluid"/>
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -137,15 +137,15 @@
             <h1 class="pb-2 deu-slidehead">Kanlife Group </h1>
             <div class="row">
                 <div class="col-md-4">
-                <img class="img-fluid deu-healthimg" src="image/s1.png" alt="health">
+                <img class="img-fluid deu-healthimg" src="image/s1.webp" alt="health">
                 <p class="deu-health">Health</p>
                 </div>
                 <div class="col-md-4">
-                <img class="img-fluid deu-healthimg" src="image/s2.png" alt="medical">
+                <img class="img-fluid deu-healthimg" src="image/s2.webp" alt="medical">
                 <p class="deu-health">Medical</p>
                 </div>
                 <div class="col-md-4">
-                <img class="img-fluid deu-healthimg" src="image/s3.png" alt="wellness">
+                <img class="img-fluid deu-healthimg" src="image/s3.webp" alt="wellness">
                 <p class="deu-health">Wellness</p>
                 </div>
             </div>

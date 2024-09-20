@@ -14,15 +14,15 @@
             <h1 class="deu-slidehead text-start pb-4" aos="zoom-in">Kanlife Group </h1>
             <div class="d-flex flex-row flex-wrap gap-3 gap-md-5 ms-3">
               <div class="d-flex" aos="fade-down">
-                <img class="img-fluid deu-healthimg" src="{{ asset('public/image/s1.png') }}" alt="health">
+                <img class="img-fluid deu-healthimg" src="{{ asset('public/image/s1.webp') }}" alt="health">
                 <p class="deu-health">Health</p>
               </div>
               <div class="d-flex" aos="fade-down"  aos-delay="400">
-                <img class="img-fluid deu-healthimg" src="{{ asset('public/image/s2.png') }}" alt="medical">
+                <img class="img-fluid deu-healthimg" src="{{ asset('public/image/s2.webp') }}" alt="medical">
                 <p class="deu-health">Medical</p>
               </div>
               <div class="d-flex" aos="fade-down"  aos-delay="800">
-                <img class="img-fluid deu-healthimg" src="{{ asset('public/image/s3.png') }}" alt="wellness">
+                <img class="img-fluid deu-healthimg" src="{{ asset('public/image/s3.webp') }}" alt="wellness">
                 <p class="deu-health">Wellness</p>
               </div>
             </div>

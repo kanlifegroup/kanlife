@@ -1023,7 +1023,7 @@ background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32
 }
 
 .bg-overlay {
-  background: url("../image/rapidbg.png");
+  background: url("../image/rapidbg.webp");
   background-repeat: no-repeat;
   background-size: cover;
   /* background-position: center center; */

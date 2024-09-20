@@ -47,7 +47,7 @@
 <nav class="navbar navbar-expand-lg">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">
-       <img src="image/logo.png" width=""  alt="kanlife logo" class="logo img-fluid"/>
+       <img src="image/logo.webp" width=""  alt="kanlife logo" class="logo img-fluid"/>
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -111,7 +111,7 @@
         <p class="mt-1 mb-1 deu-contactadress">Phone No.</p>
     </div>
     <div class="col-md-9 col-sm-9">
-        <p class="mt-5 mb-3 deu-contacttxt">080 4224 2929</p>
+        <p class="mt-5 mb-3 deu-contacttxt">+91 805 093 1561 or 080 4224 2929</p>
     </div>
 </div>
 </div>

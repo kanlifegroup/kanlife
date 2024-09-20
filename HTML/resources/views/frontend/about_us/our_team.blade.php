@@ -43,7 +43,7 @@
                 <div class="card-body text-center pt-5">
                   <a href="{{ url('about-us/mr-khuzem-tambawala') }}">
                     <div class="hovereffect_team">
-                    <img aos="zoom-in" src="{{ asset('public/image/Khuzema Tambawala.png') }}" class="img-fluid" width="300" height="250">
+                    <img aos="zoom-in" src="{{ asset('public/image/Khuzema Tambawala.webp') }}" class="img-fluid" width="300" height="250">
                     </div>
                   </a>
                   <a href="{{ url('about-us/mr-khuzem-tambawala') }}">
@@ -69,7 +69,7 @@
                 <div class="card-body text-center pt-5">
                   <a href="{{ url('about-us/murtuza-tambawala') }}">
                     <div class="hovereffect_team">
-                    <img aos="zoom-in" src="{{ asset('public/image/Murtaza Tambawala.png') }}" class="img-fluid" width="300" height="250">
+                    <img aos="zoom-in" src="{{ asset('public/image/Murtaza Tambawala.webp') }}" class="img-fluid" width="300" height="250">
                     </div>
                   </a>
                   <a href="{{ url('about-us/murtuza-tambawala') }}">
@@ -96,7 +96,7 @@
                 <div class="card-body text-center pt-5">
                   <a href="{{ url('about-us/jamila-zaveri') }}">
                     <div class="hovereffect_team">
-                      <img aos="zoom-in" src="{{ asset('public/image/jamila.jfif') }}" class="img-fluid" width="300" height="250">
+                      <img aos="zoom-in" src="{{ asset('public/image/jamila.webp') }}" class="img-fluid" width="300" height="250">
                     </div>
                   </a>
                   <a href="{{ url('about-us/jamila-zaveri') }}">
@@ -122,7 +122,7 @@
                 <div class="card-body text-center pt-5">
                     <a href="{{ url('about-us/fatima-khuzem') }}">
                       <div class="hovereffect_team">
-                        <img aos="zoom-in" src="{{ asset('public/image/Fathima.jfif') }}" class="img-fluid" width="300" height="250">
+                        <img aos="zoom-in" src="{{ asset('public/image/Fathima.webp') }}" class="img-fluid" width="300" height="250">
                       </div>
                     </a>
                     <a href="{{ url('about-us/fatima-khuzem') }}">

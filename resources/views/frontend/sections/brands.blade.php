@@ -7,22 +7,22 @@
   <div class="container deu-bandlogopad">
     <div class="row col-md-12 mt-5">
       <div class="col-md-4 text-center">
-        <img class="img-fluid deu-bandlogowid deu-bandlogomarg" src="{{ asset('public/image/our1.png') }}">
+        <img class="img-fluid deu-bandlogowid deu-bandlogomarg" src="{{ asset('public/image/our1.webp') }}">
       </div>
       <div class="col-md-4 text-center">
-        <img class="img-fluid deu-bandlogowid deu-bandlogomarg" src="{{ asset('public/image/our2.png') }}">
+        <img class="img-fluid deu-bandlogowid deu-bandlogomarg" src="{{ asset('public/image/our2.webp') }}">
       </div>
       <div class="col-md-4 text-center">
-        <img class="img-fluid deu-bandlogowid" src="{{ asset('public/image/our3.png') }}">
+        <img class="img-fluid deu-bandlogowid" src="{{ asset('public/image/our3.webp') }}">
       </div>
     </div>
     <div class="col-md-12 mt-5 mb-5">
       <div class="row offset-2 col-8">
         <div class="col-md-6 text-center">
-          <img class="img-fluid deu-bandlogowid" src="{{ asset('public/image/our4.png') }}">
+          <img class="img-fluid deu-bandlogowid" src="{{ asset('public/image/our4.webp') }}">
         </div>
         <div class="col-md-6 text-center">
-          <img class="img-fluid deu-bandlogowid deu-bandlogomarg" src="{{ asset('public/image/our5.png') }}">
+          <img class="img-fluid deu-bandlogowid deu-bandlogomarg" src="{{ asset('public/image/our5.webp') }}">
         </div>
       </div>
     </div>
@@ -42,24 +42,24 @@
       <div class="owl-carousel owl-theme" id="owl-carousel">
 
         <div class="item  ">
-          <img src="{{ asset('public/kanlife/our1.png') }}" class="img-responsive" alt="Echosens Fibroscan Logo">
+          <img src="{{ asset('public/kanlife/our1.webp') }}" class="img-responsive" alt="Echosens Fibroscan Logo">
         </div>
 
         <div class="item ">
-          <img src="{{ asset('public/kanlife/our2.png') }}" class="img-responsive" alt="Tamboos Logo">
+          <img src="{{ asset('public/kanlife/our2.webp') }}" class="img-responsive" alt="Tamboos Logo">
         </div>
 
         <div class="item ">
-          <img src="{{ asset('public/kanlife/our3.png') }}" class="img-responsive" alt="Skanray Logo">
+          <img src="{{ asset('public/kanlife/our3.webp') }}" class="img-responsive" alt="Skanray Logo">
         </div>
 
         <div class="item">
-          <img src="{{ asset('public/kanlife/our4.png') }}" class="img-responsive"
+          <img src="{{ asset('public/kanlife/our4.webp') }}" class="img-responsive"
             alt="Kanlife vien VisualisationVlogo">
         </div>
 
         <div class="item">
-          <img src="{{ asset('public/kanlife/our5.png') }}" class="img-responsive" alt="Asopo Logo">
+          <img src="{{ asset('public/kanlife/our5.webp') }}" class="img-responsive" alt="Asopo Logo">
         </div>
 
         <div class="item">

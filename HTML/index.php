@@ -45,7 +45,7 @@
 <nav class="navbar navbar-expand-lg">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">
-       <img src="image/logo.png" width="" class="logo img-fluid" alt="kanlife logo" />
+       <img src="image/logo.webp" width="" class="logo img-fluid" alt="kanlife logo" />
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -84,15 +84,15 @@
             <h1 class="pb-2 deu-slidehead">Kanlife Group </h1>
             <div class="row">
                 <div class="col-md-4">
-                <img class="img-fluid deu-healthimg" src="image/s1.png" alt="helath">
+                <img class="img-fluid deu-healthimg" src="image/s1.webp" alt="helath">
                 <p class="deu-health">Health</p>
                 </div>
                 <div class="col-md-4">
-                <img class="img-fluid deu-healthimg" src="image/s2.png" alt="medical">
+                <img class="img-fluid deu-healthimg" src="image/s2.webp" alt="medical">
                 <p class="deu-health">Medical</p>
                 </div>
                 <div class="col-md-4">
-                <img class="img-fluid deu-healthimg" src="image/s3.png" alt="Wellness">
+                <img class="img-fluid deu-healthimg" src="image/s3.webp" alt="Wellness">
                 <p class="deu-health">Wellness</p>
                 </div>
             </div>
@@ -123,7 +123,7 @@
             <button class="deu-buybtn">Buy Now</button>
         </div>
         <div class="col-lg-5 col-md-5 rideone">
-            <img class="img-fluid deu-buyheight" src="image/buy1.png" alt="buy medical equipment">
+            <img class="img-fluid deu-buyheight" src="image/buy1.webp" alt="buy medical equipment">
         </div>
         </div>
     </div>
@@ -136,7 +136,7 @@
             <button class="deu-buybtn">Rent Now</button>
         </div>
         <div class="col-lg-5 col-md-5 rideone">
-            <img class="img-fluid deu-buyheight" src="image/buy2.png" alt="rent medical equipment">
+            <img class="img-fluid deu-buyheight" src="image/buy2.webp" alt="rent medical equipment">
         </div>
         </div>
     </div>
@@ -537,22 +537,22 @@
   <div class="container deu-bandlogopad">
     <div class="row col-md-12 mt-5">
         <div class="col-md-4 text-center">
-            <img class="img-fluid deu-bandlogowid deu-bandlogomarg" src="image/our1.png" alt="our brand">
+            <img class="img-fluid deu-bandlogowid deu-bandlogomarg" src="image/our1.webp" alt="our brand">
         </div>
         <div class="col-md-4 text-center">
-            <img class="img-fluid deu-bandlogowid deu-bandlogomarg" src="image/our2.png" alt="our brand">
+            <img class="img-fluid deu-bandlogowid deu-bandlogomarg" src="image/our2.webp" alt="our brand">
         </div>
         <div class="col-md-4 text-center">
-            <img class="img-fluid deu-bandlogowid" src="image/our3.png">
+            <img class="img-fluid deu-bandlogowid" src="image/our3.webp">
         </div>
     </div>
     <div class="col-md-12 mt-5 mb-5">
     <div class="row offset-2 col-8">
         <div class="col-md-6 text-center">
-            <img class="img-fluid deu-bandlogowid" src="image/our4.png" alt="our brand">
+            <img class="img-fluid deu-bandlogowid" src="image/our4.webp" alt="our brand">
         </div>
         <div class="col-md-6 text-center">
-            <img class="img-fluid deu-bandlogowid deu-bandlogomarg" src="image/our5.png" alt="our brand">
+            <img class="img-fluid deu-bandlogowid deu-bandlogomarg" src="image/our5.webp" alt="our brand">
         </div>
     </div>
     </div>

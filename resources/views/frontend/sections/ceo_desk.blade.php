@@ -6,7 +6,7 @@
     <div class="row deu-deskbg">
       <div class="col-md-4 col-sm-6" aos="zoom-in">
         <div class="about-img">
-          <img class="img-fluid deu-marg" src="{{ asset('public/image/Murtaza Tambawala.png') }}" alt="Murtuza Tambawala">
+          <img class="img-fluid deu-marg" src="{{ asset('public/image/Murtaza Tambawala.webp') }}" alt="Murtuza Tambawala">
         </div>
       </div>
       <div class="col-md-8 col-sm-6" aos="fade-down">

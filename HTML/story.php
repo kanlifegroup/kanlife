@@ -48,7 +48,7 @@
 <nav class="navbar navbar-expand-lg">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">
-       <img src="image/logo.png" width="" class="logo img-fluid" alt="kanlife logo" />
+       <img src="image/logo.webp" width="" class="logo img-fluid" alt="kanlife logo" />
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -234,22 +234,22 @@
   <div class="container deu-bandlogopad">
     <div class="row col-md-12 mt-5">
         <div class="col-md-4 text-center">
-            <img class="img-fluid deu-bandlogowid deu-bandlogomarg"  alt="our brands" src="image/our1.png">
+            <img class="img-fluid deu-bandlogowid deu-bandlogomarg"  alt="our brands" src="image/our1.webp">
         </div>
         <div class="col-md-4 text-center">
-            <img class="img-fluid deu-bandlogowid deu-bandlogomarg"  alt="our brands" src="image/our2.png">
+            <img class="img-fluid deu-bandlogowid deu-bandlogomarg"  alt="our brands" src="image/our2.webp">
         </div>
         <div class="col-md-4 text-center">
-            <img class="img-fluid deu-bandlogowid"  alt="our brands" src="image/our3.png">
+            <img class="img-fluid deu-bandlogowid"  alt="our brands" src="image/our3.webp">
         </div>
     </div>
     <div class="col-md-12 mt-5 mb-5">
     <div class="row offset-2 col-8">
         <div class="col-md-6 text-center">
-            <img class="img-fluid deu-bandlogowid"  alt="our brands" src="image/our4.png">
+            <img class="img-fluid deu-bandlogowid"  alt="our brands" src="image/our4.webp">
         </div>
         <div class="col-md-6 text-center">
-            <img class="img-fluid deu-bandlogowid deu-bandlogomarg"  alt="our brands" src="image/our5.png">
+            <img class="img-fluid deu-bandlogowid deu-bandlogomarg"  alt="our brands" src="image/our5.webp">
         </div>
     </div>
     </div>

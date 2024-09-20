@@ -3,7 +3,7 @@
     <div class="row mt-5">
       <div class="col-md-4 text-light mb-5">
           <figure>
-            <img src="{{ asset('public/image/logo.png') }}" width="" class="logo img-fluid ms-0" alt="Kanlifegroup"/>
+            <img src="{{ asset('public/image/logo.webp') }}" width="" class="logo img-fluid ms-0" alt="Kanlifegroup"/>
           </figure>
         <p class="me-2 foot-content">Provide our customers and partners with an extensive and expert team of clinical, technical, and marketing resources.</p>
         <div class="col d-flex gap-2 justify-content-left justify-content-md-start m-auto">
@@ -67,7 +67,7 @@
         <p class="foot-head">Get in touch</p>
         <div class="row">
           <div class="sleek-border mt-2">
-            <p class="foot-content pb-2"><img class="top-navemail" alt="knalife phone number" src="{{ asset('public/img/call.png') }}">080 4224 2929</p>
+            <p class="foot-content pb-2"><img class="top-navemail" alt="knalife phone number" src="{{ asset('public/img/call.png') }}">+91 805 093 1561 or 080 4224 2929</p>
             <p class="foot-content pb-2"><img class="top-navemail" alt="kanlife email" src="{{ asset('public/image/email.svg') }}" />india@kanlifemedical.asia</p>
           </div>
         </div>

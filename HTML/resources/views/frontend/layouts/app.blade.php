@@ -119,10 +119,10 @@
     "@type": "LocalBusiness",
     "name": "Kanlife Group",
     "image": [
-      "https://kanlifegroup.com/public/image/logo.png",
+      "https://kanlifegroup.com/public/image/logo.webp",
       "https://kanlifegroup.com/public/storage/slideshow/1672384719.png"
     ],
-    "telephone": "080 4224 2929",
+    "telephone": "+91 805 093 1561 or 080 4224 2929",
     "email": "india@kanlifemedical.asia",
     "address": {
       "@type": "PostalAddress",
@@ -135,7 +135,7 @@
     "@context": "http://schema.org",
     "@type": "LocalBusiness",
     "name": "Health Medical Wellness",
-    "telephone": "080 4224 2929",
+    "telephone": "+91 805 093 1561 or 080 4224 2929",
     "email": "india@kanlifemedical.asia",
     "address": {
       "@type": "PostalAddress",
@@ -148,7 +148,7 @@
     "@context": "http://schema.org",
     "@type": "LocalBusiness",
     "name": "Buy Medical Equipment",
-    "telephone": "080 4224 2929",
+    "telephone": "+91 805 093 1561 or 080 4224 2929",
     "email": "india@kanlifemedical.asia",
     "address": {
       "@type": "PostalAddress",
@@ -161,8 +161,8 @@
     "@context": "http://schema.org",
     "@type": "LocalBusiness",
     "name": "Rent Medical Equipment",
-    "image": "https://kanlifegroup.com/public/image/buy1.png",
-    "telephone": "080 4224 2929",
+    "image": "https://kanlifegroup.com/public/image/buy1.webp",
+    "telephone": "+91 805 093 1561 or 080 4224 2929",
     "email": "india@kanlifemedical.asia",
     "address": {
       "@type": "PostalAddress",
@@ -175,8 +175,8 @@
     "@context": "http://schema.org",
     "@type": "LocalBusiness",
     "name": "Consult A Dr .",
-    "image": "https://kanlifegroup.com/public/image/buy2.png",
-    "telephone": "080 4224 2929",
+    "image": "https://kanlifegroup.com/public/image/buy2.webp",
+    "telephone": "+91 805 093 1561 or 080 4224 2929",
     "email": "india@kanlifemedical.asia",
     "address": {
       "@type": "PostalAddress",
@@ -191,9 +191,9 @@
     "name": "Global medical and health care delivered locally",
     "image": [
       "https://kanlifegroup.com/public/image/buy3.png",
-      "https://kanlifegroup.com/public/kanlife/home_about_us.jpg"
+      "https://kanlifegroup.com/public/kanlife/home_about_us.webp"
     ],
-    "telephone": "080 4224 2929",
+    "telephone": "+91 805 093 1561 or 080 4224 2929",
     "email": "india@kanlifemedical.asia",
     "address": {
       "@type": "PostalAddress",
@@ -206,7 +206,7 @@
     "@context": "http://schema.org",
     "@type": "LocalBusiness",
     "name": "Kanlife Group was conceptualized and founded in 2009 in Singapore as Kanlife Asia Pte. Ltd. with a vision to provide a go-to-market platform to medical technology and healthcare companies from across the globe that are looking to establish a presence or strengthen their distribution foothold in Asia. Over the years Kanlife grew from a single shareholder company based out of Singapore to a multi-national group with shareholder limited companies at strategic global business locations like India and the UK.",
-    "telephone": "080 4224 2929",
+    "telephone": "+91 805 093 1561 or 080 4224 2929",
     "email": "india@kanlifemedical.asia",
     "address": {
       "@type": "PostalAddress",
@@ -219,7 +219,7 @@
     "@context": "http://schema.org",
     "@type": "LocalBusiness",
     "name": "Enabling efficient product distribution",
-    "telephone": "080 4224 2929",
+    "telephone": "+91 805 093 1561 or 080 4224 2929",
     "email": "india@kanlifemedical.asia",
     "address": {
       "@type": "PostalAddress",
@@ -232,7 +232,7 @@
     "@context": "http://schema.org",
     "@type": "LocalBusiness",
     "name": "Over the years Kanlife has become the partner of choice for medical equipment manufacturers looking to introduce, establish and grow their business and channel partner network in India and South East Asia",
-    "telephone": "080 4224 2929",
+    "telephone": "+91 805 093 1561 or 080 4224 2929",
     "email": "india@kanlifemedical.asia",
     "address": {
       "@type": "PostalAddress",
@@ -245,7 +245,7 @@
     "@context": "http://schema.org",
     "@type": "LocalBusiness",
     "name": "CEO’s Desk",
-    "telephone": "080 4224 2929",
+    "telephone": "+91 805 093 1561 or 080 4224 2929",
     "email": "india@kanlifemedical.asia",
     "address": {
       "@type": "PostalAddress",
@@ -259,7 +259,7 @@
     "@type": "LocalBusiness",
     "name": "Murtuza Tambawala",
     "image": "https://kanlifegroup.com/public/image/Murtaza%20Tambawala.png",
-    "telephone": "080 4224 2929",
+    "telephone": "+91 805 093 1561 or 080 4224 2929",
     "email": "india@kanlifemedical.asia",
     "address": {
       "@type": "PostalAddress",
@@ -272,7 +272,7 @@
     "@context": "http://schema.org",
     "@type": "LocalBusiness",
     "name": "The previous financial year propelled Kanlife forward and helped us further strengthen our position as the distribution partner of choice. We closed the financial year with revenue growth of 103%. Through last year Kanlife reinforced its core strengths as the value-added distributor in the medical equipment space with an expanding network, increasing reach, and sales-centric financial solutions. We have entered the new year with a very promising start, we are on track to grow our quarterly YoY revenues by 75-80%. We have set ourselves a target to double our channel partner network, triple our field force and double our warehousing space, in line with Kanlife’s larger vision and mission. Through the next 24 months, Kanlife will focus on creating brand equity with multiple Brand trademark registrations, the addition of innovative product verticals, and the launch of our E-commerce and Asopo platforms. Kanlife will transform into a multi-faceted value-added distribution partner of choice. Kanlife’s customers, channel partners, and employees will remain at the center of all our decisions",
-    "telephone": "080 4224 2929",
+    "telephone": "+91 805 093 1561 or 080 4224 2929",
     "email": "india@kanlifemedical.asia",
     "address": {
       "@type": "PostalAddress",
@@ -286,7 +286,7 @@
     "@type": "LocalBusiness",
     "name": "Mr. Khuzem Tambawala",
     "image": "https://kanlifegroup.com/public/image/Khuzema%20Tambawala.png",
-    "telephone": "080 4224 2929",
+    "telephone": "+91 805 093 1561 or 080 4224 2929",
     "email": "india@kanlifemedical.asia",
     "address": {
       "@type": "PostalAddress",
@@ -300,7 +300,7 @@
     "@type": "LocalBusiness",
     "name": "Murtuza Tambawala",
     "image": "https://kanlifegroup.com/public/image/Murtaza%20Tambawala.png",
-    "telephone": "080 4224 2929",
+    "telephone": "+91 805 093 1561 or 080 4224 2929",
     "email": "india@kanlifemedical.asia",
     "address": {
       "@type": "PostalAddress",
@@ -313,8 +313,8 @@
     "@context": "http://schema.org",
     "@type": "LocalBusiness",
     "name": "Dr. Jamila Zaveri",
-    "image": "https://kanlifegroup.com/public/image/jamila.jfif",
-    "telephone": "080 4224 2929",
+    "image": "https://kanlifegroup.com/public/image/jamila.webp",
+    "telephone": "+91 805 093 1561 or 080 4224 2929",
     "email": "india@kanlifemedical.asia",
     "address": {
       "@type": "PostalAddress",
@@ -327,8 +327,8 @@
     "@context": "http://schema.org",
     "@type": "LocalBusiness",
     "name": "Fatima Khuzem",
-    "image": "https://kanlifegroup.com/public/image/Fathima.jfif",
-    "telephone": "080 4224 2929",
+    "image": "https://kanlifegroup.com/public/image/Fathima.webp",
+    "telephone": "+91 805 093 1561 or 080 4224 2929",
     "email": "india@kanlifemedical.asia",
     "address": {
       "@type": "PostalAddress",
@@ -341,7 +341,7 @@
     "@context": "http://schema.org",
     "@type": "LocalBusiness",
     "name": "World class products from the best Global brands",
-    "telephone": "080 4224 2929",
+    "telephone": "+91 805 093 1561 or 080 4224 2929",
     "email": "india@kanlifemedical.asia",
     "address": {
       "@type": "PostalAddress",
@@ -354,7 +354,7 @@
     "@context": "http://schema.org",
     "@type": "LocalBusiness",
     "name": "Rapidly Expanding Network",
-    "telephone": "080 4224 2929",
+    "telephone": "+91 805 093 1561 or 080 4224 2929",
     "email": "india@kanlifemedical.asia",
     "address": {
       "@type": "PostalAddress",
@@ -386,14 +386,14 @@
     "@type": "LocalBusiness",
     "name": "Provide our customers and partners with an extensive and expert team of clinical, technical, and marketing resources",
     "image": [
-      "https://kanlifegroup.com/public/kanlife/our1.png",
-      "https://kanlifegroup.com/public/kanlife/our2.png",
-      "https://kanlifegroup.com/public/kanlife/our3.png",
-      "https://kanlifegroup.com/public/kanlife/our4.png",
-      "https://kanlifegroup.com/public/kanlife/our5.png",
-      "https://kanlifegroup.com/public/image/logo.png"
+      "https://kanlifegroup.com/public/kanlife/our1.webp",
+      "https://kanlifegroup.com/public/kanlife/our2.webp",
+      "https://kanlifegroup.com/public/kanlife/our3.webp",
+      "https://kanlifegroup.com/public/kanlife/our4.webp",
+      "https://kanlifegroup.com/public/kanlife/our5.webp",
+      "https://kanlifegroup.com/public/image/logo.webp"
     ],
-    "telephone": "080 4224 2929",
+    "telephone": "+91 805 093 1561 or 080 4224 2929",
     "email": "india@kanlifemedical.asia",
     "address": {
       "@type": "PostalAddress",
@@ -408,14 +408,14 @@
     "@type": "LocalBusiness",
     "name": "Provide our customers and partners with an extensive and expert team of clinical, technical, and marketing resources",
     "image": [
-      "https://kanlifegroup.com/public/kanlife/our1.png",
-      "https://kanlifegroup.com/public/kanlife/our2.png",
-      "https://kanlifegroup.com/public/kanlife/our3.png",
-      "https://kanlifegroup.com/public/kanlife/our4.png",
-      "https://kanlifegroup.com/public/kanlife/our5.png",
-      "https://kanlifegroup.com/public/image/logo.png"
+      "https://kanlifegroup.com/public/kanlife/our1.webp",
+      "https://kanlifegroup.com/public/kanlife/our2.webp",
+      "https://kanlifegroup.com/public/kanlife/our3.webp",
+      "https://kanlifegroup.com/public/kanlife/our4.webp",
+      "https://kanlifegroup.com/public/kanlife/our5.webp",
+      "https://kanlifegroup.com/public/image/logo.webp"
     ],
-    "telephone": "080 4224 2929",
+    "telephone": "+91 805 093 1561 or 080 4224 2929",
     "email": "india@kanlifemedical.asia",
     "address": {
       "@type": "PostalAddress",
@@ -432,14 +432,14 @@
     "@type": "LocalBusiness",
     "name": "Provide our customers and partners with an extensive and expert team of clinical, technical, and marketing resources",
     "image": [
-      "https://kanlifegroup.com/public/kanlife/our1.png",
-      "https://kanlifegroup.com/public/kanlife/our2.png",
-      "https://kanlifegroup.com/public/kanlife/our3.png",
-      "https://kanlifegroup.com/public/kanlife/our4.png",
-      "https://kanlifegroup.com/public/kanlife/our5.png",
-      "https://kanlifegroup.com/public/image/logo.png"
+      "https://kanlifegroup.com/public/kanlife/our1.webp",
+      "https://kanlifegroup.com/public/kanlife/our2.webp",
+      "https://kanlifegroup.com/public/kanlife/our3.webp",
+      "https://kanlifegroup.com/public/kanlife/our4.webp",
+      "https://kanlifegroup.com/public/kanlife/our5.webp",
+      "https://kanlifegroup.com/public/image/logo.webp"
     ],
-    "telephone": "080 4224 2929",
+    "telephone": "+91 805 093 1561 or 080 4224 2929",
     "email": "india@kanlifemedical.asia",
     "address": {
       "@type": "PostalAddress",
@@ -456,14 +456,14 @@
     "@type": "LocalBusiness",
     "name": "Provide our customers and partners with an extensive and expert team of clinical, technical, and marketing resources",
     "image": [
-      "https://kanlifegroup.com/public/kanlife/our1.png",
-      "https://kanlifegroup.com/public/kanlife/our2.png",
-      "https://kanlifegroup.com/public/kanlife/our3.png",
-      "https://kanlifegroup.com/public/kanlife/our4.png",
-      "https://kanlifegroup.com/public/kanlife/our5.png",
-      "https://kanlifegroup.com/public/image/logo.png"
+      "https://kanlifegroup.com/public/kanlife/our1.webp",
+      "https://kanlifegroup.com/public/kanlife/our2.webp",
+      "https://kanlifegroup.com/public/kanlife/our3.webp",
+      "https://kanlifegroup.com/public/kanlife/our4.webp",
+      "https://kanlifegroup.com/public/kanlife/our5.webp",
+      "https://kanlifegroup.com/public/image/logo.webp"
     ],
-    "telephone": "080 4224 2929",
+    "telephone": "+91 805 093 1561 or 080 4224 2929",
     "email": "india@kanlifemedical.asia",
     "address": {
       "@type": "PostalAddress",

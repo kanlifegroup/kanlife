@@ -1,4 +1,4 @@
-![JQVMap](http://jqvmap.com/img/logo.png "JQVMap")
+![JQVMap](http://jqvmap.com/img/logo.webp "JQVMap")
 
 Creating Custom Maps for JQVMaps
 ===

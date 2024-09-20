@@ -1302,7 +1302,7 @@ body {
 }
 
 .bg-overlay {
-  background: url("../image/rapidbg.png");
+  background: url("../image/rapidbg.webp");
   background-repeat: no-repeat;
   background-size: cover;
   /* background-position: center center; */

@@ -52,7 +52,7 @@
             </a>
           </div>
           <div class="order-1 order-md-2 col-md-5 rideone d-flex justify-content-md-end justify-content-center mb-4 mb-md-0 align-items-center">
-            <img alt="Buy Medical Equipment" class="img-fluid deu-buyheight" src="{{ asset('public/image/buy1.png') }}">
+            <img alt="Buy Medical Equipment" class="img-fluid deu-buyheight" src="{{ asset('public/image/buy1.webp') }}">
           </div>
         </div>
       </div>
@@ -67,7 +67,7 @@
             </a>
           </div>
           <div class="order-1 order-md-2 col-md-5 rideone d-flex justify-content-md-end justify-content-center mb-4 mb-md-0 align-items-center">
-            <img alt="Rent Medical Equipment" class="img-fluid deu-buyheight" src="{{ asset('public/image/buy2.png') }}">
+            <img alt="Rent Medical Equipment" class="img-fluid deu-buyheight" src="{{ asset('public/image/buy2.webp') }}">
           </div>
         </div>
       </div>
@@ -99,7 +99,7 @@
     <div class="row mt-3 align-items-center">
       <div class="col-md-5 col-sm-6 h-100">
         <div class="about-img d-flex align-items-center" aos="fade-right">
-          <img class="img-fluid deu-marg" src="{{ asset('public/kanlife/home_about_us.jpg') }}" alt="About Us">
+          <img class="img-fluid deu-marg" src="{{ asset('public/kanlife/home_about_us.webp') }}" alt="About Us">
         </div>
       </div>
       <div class="col-md-7 col-sm-6" aos="fade-left">
@@ -169,7 +169,7 @@
                   <div class="project m-0">
                     <figure class="portfolio-item">
                       <div class="hovereffect">
-                        <img class="img-responsive" src="{{ asset('public/image/Khuzema Tambawala.png') }}" alt="Khuzema Tambawala">
+                        <img class="img-responsive" src="{{ asset('public/image/Khuzema Tambawala.webp') }}" alt="Khuzema Tambawala">
                       </div>
                     </figure>
                   </div>
@@ -193,7 +193,7 @@
                   <div class="project m-0">
                     <figure class="portfolio-item">
                       <div class="hovereffect">
-                        <img class="img-responsive" src="{{ asset('public/image/Murtaza Tambawala.png') }}" alt="Murtuza Tambawala">
+                        <img class="img-responsive" src="{{ asset('public/image/Murtaza Tambawala.webp') }}" alt="Murtuza Tambawala">
                       </div>
                     </figure>
                   </div>
@@ -219,7 +219,7 @@
                   <div class="project m-0">
                     <figure class="portfolio-item">
                       <div class="hovereffect">
-                        <img class="img-responsive" src="{{ asset('public/image/jamila.jfif') }}" alt="Dr. Jamila Zaveri">
+                        <img class="img-responsive" src="{{ asset('public/image/jamila.webp') }}" alt="Dr. Jamila Zaveri">
                       </div>
                     </figure>
                   </div>
@@ -243,7 +243,7 @@
                   <div class="project m-0">
                     <figure class="portfolio-item">
                       <div class="hovereffect">
-                        <img class="img-responsive" src="{{ asset('public/image/Fathima.jfif') }}" alt="Fatima Khuzem">
+                        <img class="img-responsive" src="{{ asset('public/image/Fathima.webp') }}" alt="Fatima Khuzem">
                       </div>
                     </figure>
                   </div>
@@ -352,23 +352,23 @@
 <div class="owl-carousel owl-theme" id="owl-carousel">
   
   <div class="item  ">
-     <img src="{{ asset('public/kanlife/our1.png') }}" class="img-responsive" alt="client-logo">
+     <img src="{{ asset('public/kanlife/our1.webp') }}" class="img-responsive" alt="client-logo">
                     </div>
   
   <div class="item ">
-     <img src="{{ asset('public/kanlife/our2.png') }}" class="img-responsive" alt="client-logo">
+     <img src="{{ asset('public/kanlife/our2.webp') }}" class="img-responsive" alt="client-logo">
                     </div>
   
    <div class="item ">
-    <img src="{{ asset('public/kanlife/our3.png') }}" class="img-responsive" alt="client-logo">
+    <img src="{{ asset('public/kanlife/our3.webp') }}" class="img-responsive" alt="client-logo">
                     </div>
   
    <div class="item">
-      <img src="{{ asset('public/kanlife/our4.png') }}" class="img-responsive" alt="client-logo">
+      <img src="{{ asset('public/kanlife/our4.webp') }}" class="img-responsive" alt="client-logo">
                     </div>
   
    <div class="item">
-      <img src="{{ asset('public/kanlife/our5.png') }}" class="img-responsive" alt="client-logo">
+      <img src="{{ asset('public/kanlife/our5.webp') }}" class="img-responsive" alt="client-logo">
                     </div>
                 </div>
             </div>

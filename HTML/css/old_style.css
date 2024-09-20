@@ -809,7 +809,7 @@ border-radius: 5px;
 height: 162px!important;
 }
 .bg-overlay {
-background: url(../image/rapidbg.png);
+background: url(../image/rapidbg.webp);
 background-repeat: no-repeat;
 background-size: cover;
 /* background-position: center center; */

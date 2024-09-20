@@ -136,7 +136,7 @@ $module=explode("/", url()->current());
 <nav class="navbar navbar-expand-md py-0">
   <div class="container-fluid py-1">
     <a class="navbar-brand" href="/">
-      <img src="{{ asset('public/image/logo.png') }}" width="" class="logo img-fluid" alt="Kanlifegroup"/>
+      <img src="{{ asset('public/image/logo.webp') }}" width="" class="logo img-fluid" alt="Kanlifegroup"/>
     </a>
     <div class="col-md-2">
       <form action="{{ route('search.products') }}" class="search_form mb-0" id="search_form" method="post">

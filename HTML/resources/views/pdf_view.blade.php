@@ -38,7 +38,7 @@
       Adugodi, Bangalore - 560030<br />
       GST No. : 29AAICK0887C1ZD<br />
       kanlifegroup@gmail.com<br />
-      Phone : 080 4224 2929 or +91 805 093 1561
+      Phone : +91 805 093 1561 or 080 4224 2929
       </address>
     </div>
     <div class="col-sm-6 text-right" style="float:right;"> <strong>Invoiced To:</strong>
