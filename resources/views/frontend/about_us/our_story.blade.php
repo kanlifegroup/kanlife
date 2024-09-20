@@ -119,7 +119,7 @@
             </div>
 			<ul class="timeline">
             <li>
-					<a data-bs-toggle="collapse"  class="design1"  href="#multiCollapseExample2" role="button" aria-expanded="false" aria-controls="multiCollapseExample2">2008</a>
+					<a data-bs-toggle="collapse"  class="design1"  href="#multiCollapseExample2" role="button" aria-expanded="false" aria-controls="multiCollapseExample2">1930's</a>
                     <div class="collapse multi-collapse show" id="multiCollapseExample2">
                     <div class="row">
                    
@@ -230,8 +230,12 @@
                     <ul >
                         <li> Dental Xray Products Distribution Pan-India
                   </li>
-                  <li>CRITICAL CARE PRODUCTS DISTRIBUTION PAN-INDIA</li>
-                  <li>KANLIFE VEIN VISUALIZATION SYSTEM</li>
+                  <li>
+                    Critical care products distribution PAN-India
+                  </li>
+                  <li>
+                    Kanlife Vein Visualization System
+                  </li>
                     </ul>
                     </div>
                     <div class="col-md-5 text-end order-1 order-md-2">
@@ -253,6 +257,23 @@
                     </ul>
                     </div>
                    
+                        </div>
+					  </div>	
+                </li>
+                <li>
+					<a data-bs-toggle="collapse" class="design1"  href="#multiCollapseExample6" role="button" aria-expanded="false" aria-controls="multiCollapseExample5">2024</a>
+                    <div class="collapse multi-collapse show" id="multiCollapseExample6">
+                    <div class="row">
+                   
+                    <div class="col-md-6 m-auto offset-md-0 order-2 order-md-1" aos="fade-up">
+                    <ul >
+                        <li> Established PAN India, distribution partner-ship with Medtronic
+                  </li>
+                    </ul>
+                    </div>
+                    <div class="col-md-5 text-end order-1 order-md-2">
+                        <img class="rounded-circle" aos="fade-left" src="{{ asset('public/kanlife/our6.png') }}" alt="">
+                    </div>
                         </div>
 					  </div>	
                 </li>

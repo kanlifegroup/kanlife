@@ -38,30 +38,39 @@
     <p class="text-center deu-bandtxt">World class products from the best Global brands</p>
   </div>
   <div class="container deu-bandlogopad">
-  <div class="row">
-<div class="owl-carousel owl-theme" id="owl-carousel">
-  
-  <div class="item  ">
-     <img src="{{ asset('public/kanlife/our1.png') }}" class="img-responsive" alt="client-logo">
-                    </div>
-  
-  <div class="item ">
-     <img src="{{ asset('public/kanlife/our2.png') }}" class="img-responsive" alt="client-logo">
-                    </div>
-  
-   <div class="item ">
-    <img src="{{ asset('public/kanlife/our3.png') }}" class="img-responsive" alt="client-logo">
-                    </div>
-  
-   <div class="item">
-      <img src="{{ asset('public/kanlife/our4.png') }}" class="img-responsive" alt="client-logo">
-                    </div>
-  
-   <div class="item">
-      <img src="{{ asset('public/kanlife/our5.png') }}" class="img-responsive" alt="client-logo">
-                    </div>
-                </div>
-            </div>
+    <div class="row">
+      <div class="owl-carousel owl-theme" id="owl-carousel">
 
-</div>
+        <div class="item  ">
+          <img src="{{ asset('public/kanlife/our1.png') }}" class="img-responsive" alt="Echosens Fibroscan Logo">
+        </div>
+
+        <div class="item ">
+          <img src="{{ asset('public/kanlife/our2.png') }}" class="img-responsive" alt="Tamboos Logo">
+        </div>
+
+        <div class="item ">
+          <img src="{{ asset('public/kanlife/our3.png') }}" class="img-responsive" alt="Skanray Logo">
+        </div>
+
+        <div class="item">
+          <img src="{{ asset('public/kanlife/our4.png') }}" class="img-responsive"
+            alt="Kanlife vien VisualisationVlogo">
+        </div>
+
+        <div class="item">
+          <img src="{{ asset('public/kanlife/our5.png') }}" class="img-responsive" alt="Asopo Logo">
+        </div>
+
+        <div class="item">
+          <img src="{{ asset('public/kanlife/our6.png') }}" class="img-responsive" alt="Medtronic Logo">
+        </div>
+
+        <div class="item">
+          <img src="{{ asset('public/kanlife/our7.png') }}" class="img-responsive" alt="Bosch Logo">
+        </div>
+      </div>
+    </div>
+
+  </div>
 </section>

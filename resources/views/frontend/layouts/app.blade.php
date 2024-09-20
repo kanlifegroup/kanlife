@@ -141,8 +141,11 @@
     .navbar-toggler {
       border: 2px solid black;
     }
+    .nav-link {
+        font-size: 1.3rem !important;
+      }
 
-    @media (max-width:767px) {
+    @media screen and (max-width:767px) {
       .nav-link {
         font-size: 2.3rem;
       }
